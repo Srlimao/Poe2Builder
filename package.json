@@ -1,0 +1,21 @@
+{
+  "name": "poe2-build-planner",
+  "version": "1.0.0",
+  "description": "An editor and creator for Path of Exile 2 Build Planner files",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "update-tree": "node scripts/update_skilltree.js",
+    "update-gems": "node scripts/update_gems.js"
+  },
+  "keywords": [
+    "poe2",
+    "pathofexile",
+    "build-planner"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^31.0.0"
+  }
+}

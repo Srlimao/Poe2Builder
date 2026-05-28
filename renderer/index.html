@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoE2 Build Planner Editor</title>
+    <!-- Load PoE2 style fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- TOP NAVIGATION & CONTROLS -->
+        <header class="app-header">
+            <div class="header-left">
+                <h1 class="app-title">PATH OF EXILE II</h1>
+                <span class="app-subtitle">BUILD PLANNER EDITOR</span>
+            </div>
+            
+            <div class="header-center">
+                <div class="file-info">
+                    <span id="current-filename" class="filename">Untitled.build</span>
+                    <span id="dirty-indicator" class="dirty-dot hidden"></span>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <button id="btn-settings" class="btn btn-secondary">Settings</button>
+                <button id="btn-import-pob2" class="btn btn-secondary">Import PoB2</button>
+                <button id="btn-new" class="btn btn-secondary">New</button>
+                <button id="btn-open" class="btn btn-secondary">Open</button>
+                <button id="btn-save" class="btn btn-primary">Save</button>
+                <button id="btn-save-as" class="btn btn-secondary">Save As</button>
+                <button id="btn-export-poe" class="btn btn-gold" title="Quick save to PoE2 default path">Quick Save (PoE2)</button>
+            </div>
+        </header>
+
+        <!-- MAIN LAYOUT WRAPPER -->
+        <div class="main-layout">
+            
+            <!-- LEFT COLUMN: BUILD METADATA & CHARACTER EQUIPMENT GRID -->
+            <aside class="left-panel">
+                <div class="panel-section-title">BUILD METADATA</div>
+                <div class="metadata-form">
+                    <div class="form-group">
+                        <label for="meta-name">Build Name</label>
+                        <input type="text" id="meta-name" placeholder="e.g. Titan Warrior" class="form-control">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="meta-author">Author</label>
+                            <input type="text" id="meta-author" placeholder="e.g. PlayerName" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="meta-ascendancy">Ascendancy</label>
+                            <select id="meta-ascendancy" class="form-control">
+                                <option value="">None / Base Class</option>
+                                <option value="Custom">Custom...</option>
+                            </select>
+                            <input type="text" id="meta-ascendancy-custom" class="form-control hidden" placeholder="Enter custom class/ascendancy">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="meta-desc">Description</label>
+                        <textarea id="meta-desc" rows="2" placeholder="Brief build summary..." class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="panel-section-title">EQUIPMENT SLOTS</div>
+                <div class="equipment-container">
+                    <!-- PoE style visual equipment grid layout -->
+                    <div class="equipment-grid">
+                        <div class="eq-slot" data-slot="Helm1" id="slot-Helm1">
+                            <div class="eq-icon helm-icon"></div>
+                            <div class="eq-label">Helmet</div>
+                            <div class="eq-value">Empty</div>
+                        </div>
+                        <div class="eq-slot" data-slot="Amulet1" id="slot-Amulet1">
+                            <div class="eq-icon amulet-icon"></div>
+                            <div class="eq-label">Amulet</div>
+                            <div class="eq-value">Empty</div>
+                        </div>
+                        <div class="eq-slot" data-slot="Weapon1" id="slot-Weapon1">
+                            <div class="eq-icon weapon1-icon"></div>
+                            <div class="eq-label">Weapon 1</div>
+                            <div class="eq-value">Empty</div>
+                        </div>
+                        <div class="eq-slot" data-slot="BodyArmour1" id="slot-BodyArmour1">
+                            <div class="eq-icon body-icon"></div>
+                            <div class="eq-label">Chest</div>
+                            <div class="eq-value">Empty</div>
+                        </div>
+                        <div class="eq-slot" data-slot="Weapon2" id="slot-Weapon2">
+                            <div class="eq-icon weapon2-icon"></div>
+                            <div class="eq-label">Weapon 2</div>
+                            <div class="eq-value">Empty</div>
+                        </div>
+                        <div class="eq-slot" data-slot="Gloves1" id="slot-Gloves1">
+                            <div class="eq-icon gloves-icon"></div>
+                            <div class="eq-label">Gloves</div>
+                            <div class="eq-value">Empty</div>
+                        </div>
+                        <div class="eq-slot" data-slot="Belt1" id="slot-Belt1">
+                            <div class="eq-icon belt-icon"></div>
+                            <div class="eq-label">Belt</div>
+                            <div class="eq-value">Empty</div>
+                        </div>
+                        <div class="eq-slot" data-slot="Boots1" id="slot-Boots1">
+                            <div class="eq-icon boots-icon"></div>
+                            <div class="eq-label">Boots</div>
+                            <div class="eq-value">Empty</div>
+                        </div>
+                        <div class="eq-slot" data-slot="Ring1" id="slot-Ring1">
+                            <div class="eq-icon ring-icon"></div>
+                            <div class="eq-label">Left Ring</div>
+                            <div class="eq-value">Empty</div>
+                        </div>
+                        <div class="eq-slot" data-slot="Ring2" id="slot-Ring2">
+                            <div class="eq-icon ring-icon"></div>
+                            <div class="eq-label">Right Ring</div>
+                            <div class="eq-value">Empty</div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- MIDDLE COLUMN: ACTIVE SKILLS & CONNECTOR SOCKETS -->
+            <main class="center-panel">
+                <div class="panel-section-title flex-between">
+                    <span>SKILLS & SOCKETS</span>
+                    <button id="btn-add-skill" class="btn btn-sm btn-gold">+ Add Skill</button>
+                </div>
+                
+                <div class="skills-scroll-container">
+                    <div id="skills-list" class="skills-list">
+                        <!-- Skill Socket Groups will be rendered dynamically here -->
+                        <div class="no-skills-message">
+                            No skills added yet. Click "+ Add Skill" to add your first skill gem socket!
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- RIGHT COLUMN: EDITOR AND LIVE PREVIEW -->
+            <section class="right-panel">
+                <div class="panel-section-title">PROPERTIES EDITOR</div>
+                
+                <div id="editor-placeholder" class="editor-placeholder-view">
+                    <div class="placeholder-icon"></div>
+                    <p>Select an Equipment Slot or Skill/Support Gem to configure its details.</p>
+                </div>
+
+                <div id="editor-form-container" class="editor-form-container hidden">
+                    <div class="editor-section-header">
+                        <span id="editor-item-type" class="item-type-badge">Helm1</span>
+                        <h3 id="editor-item-title" class="editor-title">Item Title</h3>
+                        <button id="btn-delete-element" class="btn btn-sm btn-danger hidden">Delete Gem</button>
+                    </div>
+
+                    <!-- Common form fields -->
+                    <div class="form-group" id="editor-group-id">
+                        <label for="edit-id" id="edit-id-label">Gem / Item ID</label>
+                        <div class="autocomplete-wrapper">
+                            <input type="text" id="edit-id" placeholder="e.g. Metadata/Items/Gems/SkillGemEarthquake" class="form-control">
+                            <div id="id-autocomplete-suggestions" class="autocomplete-suggestions hidden"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group hidden" id="editor-group-unique">
+                        <label for="edit-unique-name">Unique Item Name (Optional)</label>
+                        <input type="text" id="edit-unique-name" placeholder="e.g. Kalandra's Touch" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Level Interval (Optional)</label>
+                        <div class="level-interval-inputs">
+                            <div class="level-input-col">
+                                <label for="edit-level-min" class="sub-label">Min Level</label>
+                                <input type="number" id="edit-level-min" min="0" max="100" placeholder="0" class="form-control">
+                            </div>
+                            <div class="level-input-col">
+                                <label for="edit-level-max" class="sub-label">Max Level</label>
+                                <input type="number" id="edit-level-max" min="0" max="100" placeholder="100" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="flex-between">
+                            <label for="edit-text">Additional Text / Instructions</label>
+                            <span class="character-count" id="text-char-count">0/1000</span>
+                        </div>
+                        
+                        <!-- Rich Text Helper Tags -->
+                        <div class="markup-helpers">
+                            <button type="button" class="markup-btn" data-tag="red" title="Red text">Red</button>
+                            <button type="button" class="markup-btn" data-tag="green" title="Green text">Green</button>
+                            <button type="button" class="markup-btn" data-tag="blue" title="Blue text">Blue</button>
+                            <button type="button" class="markup-btn" data-tag="gold" title="Gold text">Gold</button>
+                            <button type="button" class="markup-btn" data-tag="silver" title="Silver text">Silver</button>
+                            <button type="button" class="markup-btn" data-tag="grey" title="Grey description text">Grey</button>
+                            <button type="button" class="markup-btn" data-tag="b" title="Bold text">Bold</button>
+                            <button type="button" class="markup-btn" data-tag="m" title="Medium font size">Medium</button>
+                            <button type="button" class="markup-btn" data-tag="l" title="Large font size">Large</button>
+                        </div>
+
+                        <textarea id="edit-text" rows="8" placeholder="Enter instructions here. Use formatting tags above to colorize and format in-game build planner guide." class="form-control code-font"></textarea>
+                    </div>
+                </div>
+
+                <div class="panel-section-title">IN-GAME POPUP PREVIEW</div>
+                <div class="preview-container">
+                    <!-- PoE2 Game Planner Style Tooltip Window -->
+                    <div id="game-tooltip" class="game-tooltip-panel">
+                        <div class="tooltip-border-top"></div>
+                        <div class="tooltip-header">
+                            <h4 id="tooltip-title" class="tooltip-title">Glove Slot Recommendation</h4>
+                            <span id="tooltip-level" class="tooltip-level">Level Required: 1 - 100</span>
+                        </div>
+                        <div class="tooltip-divider"></div>
+                        <div id="tooltip-content" class="tooltip-content">
+                            Hover over a slot or write some details to see the live preview.
+                        </div>
+                        <div class="tooltip-border-bottom"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- FOOTER / STATS BAR -->
+        <footer class="app-footer">
+            <div class="footer-left">
+                <span id="poe-path-status">PoE2 BuildPlanner directory: <span class="path-val text-red">Searching...</span></span>
+            </div>
+            <div class="footer-right">
+                <span>Active Skills: <span id="stat-skills-count">0</span></span>
+                <span>Active Supports: <span id="stat-supports-count">0</span></span>
+                <span>Configured Slots: <span id="stat-slots-count">0/10</span></span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Custom Modal Dialog -->
+    <div id="custom-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-border-top"></div>
+            <h3 id="modal-title" class="modal-title">Confirm Action</h3>
+            <p id="modal-message" class="modal-message">Are you sure?</p>
+            <input type="text" id="modal-input" class="form-control hidden" placeholder="Enter text here..." style="margin-bottom: 15px;">
+            <div class="modal-buttons">
+                <button id="modal-btn-cancel" class="btn btn-secondary">Cancel</button>
+                <button id="modal-btn-confirm" class="btn btn-gold">Confirm</button>
+            </div>
+            <div class="modal-border-bottom"></div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal-overlay hidden">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-border-top"></div>
+            <h3 class="modal-title">App Settings</h3>
+            
+            <div class="settings-section" style="margin-top: 20px; text-align: left;">
+                <h4 style="color: var(--color-gold); margin-bottom: 10px;">Data Management</h4>
+                <p style="color: var(--color-text-muted); font-size: 0.9em; margin-bottom: 15px;">
+                    Fetch the latest passive skill tree mapping data from the official PoE2 export repository.
+                </p>
+                <button id="btn-run-update-tree" class="btn btn-secondary" style="width: 100%; margin-bottom: 15px;">Update Passive Skill Tree Data</button>
+
+                <p style="color: var(--color-text-muted); font-size: 0.9em; margin-bottom: 15px;">
+                    Fetch the latest skill and support gems data from the repoe-fork.
+                </p>
+                <button id="btn-run-update-gems" class="btn btn-secondary" style="width: 100%;">Update Gem Data</button>
+            </div>
+            
+            <div class="modal-buttons" style="margin-top: 30px;">
+                <button id="btn-close-settings" class="btn btn-primary">Close</button>
+            </div>
+            <div class="modal-border-bottom"></div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="app.js?v=25"></script>
+</body>
+</html>

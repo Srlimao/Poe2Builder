@@ -1,0 +1,2374 @@
+[
+    {
+        "Gem": "Abiding Hex",
+        "Tier": 1
+    },
+    {
+        "Gem": "Accelerated Growth",
+        "Tier": 1
+    },
+    {
+        "Gem": "Accelerated Growth II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Acrimony",
+        "Tier": 1
+    },
+    {
+        "Gem": "Adhesive Grenades I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Adhesive Grenades II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Adhesive Grenades III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Admixture",
+        "Tier": 1
+    },
+    {
+        "Gem": "Advancing Storm",
+        "Tier": 1
+    },
+    {
+        "Gem": "Aftershock I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Aftershock II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Aftershock III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ahn's Citadel",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ailith's Chimes",
+        "Tier": 1
+    },
+    {
+        "Gem": "Alignment I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Alignment II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Alignment III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Amanamu's Tithe",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ambrosia",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ambrosia II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ambush",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ammo Conservation I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ammo Conservation II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ammo Conservation III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ancestral Aid",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ancestral Call I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ancestral Call II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ancestral Call III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Arakaali's Lust",
+        "Tier": 1
+    },
+    {
+        "Gem": "Arbiter's Ignition",
+        "Tier": 1
+    },
+    {
+        "Gem": "Arcane Surge",
+        "Tier": 1
+    },
+    {
+        "Gem": "Arjun's Medal",
+        "Tier": 1
+    },
+    {
+        "Gem": "Armour Break I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Armour Break II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Armour Break III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Armour Demolisher I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Armour Demolisher II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Armour Explosion",
+        "Tier": 1
+    },
+    {
+        "Gem": "Arms Length",
+        "Tier": 1
+    },
+    {
+        "Gem": "Astral Projection",
+        "Tier": 1
+    },
+    {
+        "Gem": "Atalui's Bloodletting",
+        "Tier": 1
+    },
+    {
+        "Gem": "Atziri's Allure",
+        "Tier": 1
+    },
+    {
+        "Gem": "Atziri's Call",
+        "Tier": 1
+    },
+    {
+        "Gem": "Atziri's Communion",
+        "Tier": 1
+    },
+    {
+        "Gem": "Atziri's Impatience",
+        "Tier": 1
+    },
+    {
+        "Gem": "Auto Reload",
+        "Tier": 1
+    },
+    {
+        "Gem": "Barbs I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Barbs II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Barbs III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Battershout",
+        "Tier": 1
+    },
+    {
+        "Gem": "Behead I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Behead II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Bhatair's Vengeance",
+        "Tier": 1
+    },
+    {
+        "Gem": "Bidding I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Bidding II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Bidding III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Biting Frost I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Biting Frost II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Blazing Critical",
+        "Tier": 1
+    },
+    {
+        "Gem": "Bleed I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Bleed II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Bleed III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Bleed IV",
+        "Tier": 1
+    },
+    {
+        "Gem": "Blind I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Blind II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Blindside",
+        "Tier": 1
+    },
+    {
+        "Gem": "Bloodlust",
+        "Tier": 1
+    },
+    {
+        "Gem": "Bone Shrapnel",
+        "Tier": 1
+    },
+    {
+        "Gem": "Boundless Energy I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Boundless Energy II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Bounty I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Bounty II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Brambleslam",
+        "Tier": 1
+    },
+    {
+        "Gem": "Branching Fissures I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Branching Fissures II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Break Endurance",
+        "Tier": 1
+    },
+    {
+        "Gem": "Break Posture",
+        "Tier": 1
+    },
+    {
+        "Gem": "Brink I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Brink II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Brittle Armour",
+        "Tier": 1
+    },
+    {
+        "Gem": "Brutality I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Brutality II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Brutality III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Brutus' Brain",
+        "Tier": 1
+    },
+    {
+        "Gem": "Burgeon I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Burgeon II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Burning Inscription",
+        "Tier": 1
+    },
+    {
+        "Gem": "Bursting Plague",
+        "Tier": 1
+    },
+    {
+        "Gem": "Cadence",
+        "Tier": 1
+    },
+    {
+        "Gem": "Caltrops",
+        "Tier": 1
+    },
+    {
+        "Gem": "Cannibalism I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Cannibalism II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Catalysing Elements",
+        "Tier": 1
+    },
+    {
+        "Gem": "Catharsis",
+        "Tier": 1
+    },
+    {
+        "Gem": "Chain I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Chain II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Chain III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Chance to Freeze",
+        "Tier": 1
+    },
+    {
+        "Gem": "Chaos Attunement",
+        "Tier": 1
+    },
+    {
+        "Gem": "Chaos Mastery",
+        "Tier": 1
+    },
+    {
+        "Gem": "Chaotic Freeze",
+        "Tier": 1
+    },
+    {
+        "Gem": "Charge Profusion I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Charge Profusion II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Charged Mark",
+        "Tier": 1
+    },
+    {
+        "Gem": "Charged Shots I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Charged Shots II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Charm Bounty",
+        "Tier": 1
+    },
+    {
+        "Gem": "Cirel's Cultivation",
+        "Tier": 1
+    },
+    {
+        "Gem": "Clarity I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Clarity II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Clash",
+        "Tier": 1
+    },
+    {
+        "Gem": "Close Combat I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Close Combat II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Cold Attunement",
+        "Tier": 1
+    },
+    {
+        "Gem": "Cold Exposure",
+        "Tier": 1
+    },
+    {
+        "Gem": "Cold Mastery",
+        "Tier": 1
+    },
+    {
+        "Gem": "Cold Penetration",
+        "Tier": 1
+    },
+    {
+        "Gem": "Combo Finisher I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Combo Finisher II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Coming Soon",
+        "Tier": 1
+    },
+    {
+        "Gem": "Coming Soon",
+        "Tier": 1
+    },
+    {
+        "Gem": "Coming Soon",
+        "Tier": 1
+    },
+    {
+        "Gem": "Coming Soon",
+        "Tier": 1
+    },
+    {
+        "Gem": "Coming Soon",
+        "Tier": 1
+    },
+    {
+        "Gem": "Coming Soon",
+        "Tier": 1
+    },
+    {
+        "Gem": "Coming Soon",
+        "Tier": 1
+    },
+    {
+        "Gem": "Coming Soon",
+        "Tier": 1
+    },
+    {
+        "Gem": "Coming Soon",
+        "Tier": 1
+    },
+    {
+        "Gem": "Commandment",
+        "Tier": 1
+    },
+    {
+        "Gem": "Commiserate",
+        "Tier": 1
+    },
+    {
+        "Gem": "Compressed Duration I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Compressed Duration II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Concentrated Area",
+        "Tier": 1
+    },
+    {
+        "Gem": "Concoct I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Concoct II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Concussive Spells",
+        "Tier": 1
+    },
+    {
+        "Gem": "Considered Casting",
+        "Tier": 1
+    },
+    {
+        "Gem": "Controlled Destruction",
+        "Tier": 1
+    },
+    {
+        "Gem": "Controlled Hazard",
+        "Tier": 1
+    },
+    {
+        "Gem": "Cool Headed",
+        "Tier": 1
+    },
+    {
+        "Gem": "Cooldown Recovery I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Cooldown Recovery II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Corpse Conservation",
+        "Tier": 1
+    },
+    {
+        "Gem": "Corrosion",
+        "Tier": 1
+    },
+    {
+        "Gem": "Corrupting Cry I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Corrupting Cry II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Coursing Current",
+        "Tier": 1
+    },
+    {
+        "Gem": "Crackling Barrier",
+        "Tier": 1
+    },
+    {
+        "Gem": "Crater",
+        "Tier": 1
+    },
+    {
+        "Gem": "Crazed Minions",
+        "Tier": 1
+    },
+    {
+        "Gem": "Creeping Chill",
+        "Tier": 1
+    },
+    {
+        "Gem": "Crescendo I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Crescendo II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Crescendo III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Crystalline Shards",
+        "Tier": 1
+    },
+    {
+        "Gem": "Culling Strike I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Culling Strike II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Culmination I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Culmination II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Cursed Ground",
+        "Tier": 1
+    },
+    {
+        "Gem": "Danse Macabre",
+        "Tier": 1
+    },
+    {
+        "Gem": "Daresso's Passion",
+        "Tier": 1
+    },
+    {
+        "Gem": "Dauntless",
+        "Tier": 1
+    },
+    {
+        "Gem": "Daze",
+        "Tier": 1
+    },
+    {
+        "Gem": "Dazing Cry",
+        "Tier": 1
+    },
+    {
+        "Gem": "Dazzle",
+        "Tier": 1
+    },
+    {
+        "Gem": "Deadly Herald",
+        "Tier": 1
+    },
+    {
+        "Gem": "Deadly Poison I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Deadly Poison II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Deadly Resolve",
+        "Tier": 1
+    },
+    {
+        "Gem": "Deathmarch",
+        "Tier": 1
+    },
+    {
+        "Gem": "Decaying Hex",
+        "Tier": 1
+    },
+    {
+        "Gem": "Deep Cuts I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Deep Cuts II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Deep Freeze",
+        "Tier": 1
+    },
+    {
+        "Gem": "Defy I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Defy II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Delayed Gratification",
+        "Tier": 1
+    },
+    {
+        "Gem": "Delayed Reaction",
+        "Tier": 1
+    },
+    {
+        "Gem": "Deliberation",
+        "Tier": 1
+    },
+    {
+        "Gem": "Derange",
+        "Tier": 1
+    },
+    {
+        "Gem": "Desperation",
+        "Tier": 1
+    },
+    {
+        "Gem": "Devastate",
+        "Tier": 1
+    },
+    {
+        "Gem": "Dialla's Desire",
+        "Tier": 1
+    },
+    {
+        "Gem": "Direstrike I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Direstrike II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Doedre's Undoing",
+        "Tier": 1
+    },
+    {
+        "Gem": "Dominus' Grasp",
+        "Tier": 1
+    },
+    {
+        "Gem": "Double Barrel I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Double Barrel II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Double Barrel III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Drain Ailments",
+        "Tier": 1
+    },
+    {
+        "Gem": "Dreamer's Knell",
+        "Tier": 1
+    },
+    {
+        "Gem": "Durability",
+        "Tier": 1
+    },
+    {
+        "Gem": "Echoing Cry",
+        "Tier": 1
+    },
+    {
+        "Gem": "Efficiency I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Efficiency II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Einhar's Beastrite",
+        "Tier": 1
+    },
+    {
+        "Gem": "Electrocute",
+        "Tier": 1
+    },
+    {
+        "Gem": "Electromagnetism",
+        "Tier": 1
+    },
+    {
+        "Gem": "Elemental Armament I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Elemental Armament II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Elemental Armament III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Elemental Army",
+        "Tier": 1
+    },
+    {
+        "Gem": "Elemental Discharge",
+        "Tier": 1
+    },
+    {
+        "Gem": "Elemental Focus",
+        "Tier": 1
+    },
+    {
+        "Gem": "Embitter",
+        "Tier": 1
+    },
+    {
+        "Gem": "Empowered Sparks I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Empowered Sparks II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Encroaching Ground",
+        "Tier": 1
+    },
+    {
+        "Gem": "Enduring Impact I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Enduring Impact II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Energy Barrier",
+        "Tier": 1
+    },
+    {
+        "Gem": "Energy Capacitor",
+        "Tier": 1
+    },
+    {
+        "Gem": "Energy Retention",
+        "Tier": 1
+    },
+    {
+        "Gem": "Enervation",
+        "Tier": 1
+    },
+    {
+        "Gem": "Enraged Warcry I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Enraged Warcry II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Eonyr's Thunder",
+        "Tier": 1
+    },
+    {
+        "Gem": "Escalating Poison",
+        "Tier": 1
+    },
+    {
+        "Gem": "Esh's Radiance",
+        "Tier": 1
+    },
+    {
+        "Gem": "Essence Harvest",
+        "Tier": 1
+    },
+    {
+        "Gem": "Eternal Flame I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Eternal Flame II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Eternal Flame III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Eternal Mark",
+        "Tier": 1
+    },
+    {
+        "Gem": "Excise",
+        "Tier": 1
+    },
+    {
+        "Gem": "Excoriate",
+        "Tier": 1
+    },
+    {
+        "Gem": "Execrate",
+        "Tier": 1
+    },
+    {
+        "Gem": "Execute I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Execute II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Execute III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Expand",
+        "Tier": 1
+    },
+    {
+        "Gem": "Expanse",
+        "Tier": 1
+    },
+    {
+        "Gem": "Exploit Weakness",
+        "Tier": 1
+    },
+    {
+        "Gem": "Exposing Cry",
+        "Tier": 1
+    },
+    {
+        "Gem": "Extraction",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fan The Flames",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fan The Flames II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Feeding Frenzy I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Feeding Frenzy II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ferocity",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fiery Death",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fire Attunement",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fire Exposure",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fire Mastery",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fire Penetration I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fire Penetration II",
+        "Tier": 1
+    },
+    {
+        "Gem": "First Blood",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fist of War I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fist of War II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fist of War III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Flame Pillar",
+        "Tier": 1
+    },
+    {
+        "Gem": "Flamepierce",
+        "Tier": 1
+    },
+    {
+        "Gem": "Flow",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fluke",
+        "Tier": 1
+    },
+    {
+        "Gem": "Focused Curse",
+        "Tier": 1
+    },
+    {
+        "Gem": "Font of Blood",
+        "Tier": 1
+    },
+    {
+        "Gem": "Font of Mana",
+        "Tier": 1
+    },
+    {
+        "Gem": "Font of Rage",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fork",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fortress I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fortress II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Freeze",
+        "Tier": 1
+    },
+    {
+        "Gem": "Freezefork",
+        "Tier": 1
+    },
+    {
+        "Gem": "Frenzied Riposte",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fresh Clip I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fresh Clip II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Frost Nexus",
+        "Tier": 1
+    },
+    {
+        "Gem": "Frostfire",
+        "Tier": 1
+    },
+    {
+        "Gem": "Frozen Spite",
+        "Tier": 1
+    },
+    {
+        "Gem": "Frozen Vortex",
+        "Tier": 1
+    },
+    {
+        "Gem": "Fusillade",
+        "Tier": 1
+    },
+    {
+        "Gem": "Gambleshot",
+        "Tier": 1
+    },
+    {
+        "Gem": "Garukhan's Resolve",
+        "Tier": 1
+    },
+    {
+        "Gem": "Glacier",
+        "Tier": 1
+    },
+    {
+        "Gem": "Gorge",
+        "Tier": 1
+    },
+    {
+        "Gem": "Greatwood II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Guatelitzi's Ablation",
+        "Tier": 1
+    },
+    {
+        "Gem": "Haemocrystals",
+        "Tier": 1
+    },
+    {
+        "Gem": "Hardy Totems I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Hardy Totems II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Harmonic Remnants I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Harmonic Remnants II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Hayoxi's Fulmination",
+        "Tier": 1
+    },
+    {
+        "Gem": "Heavy Swing",
+        "Tier": 1
+    },
+    {
+        "Gem": "Heft",
+        "Tier": 1
+    },
+    {
+        "Gem": "Heightened Accuracy I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Heightened Accuracy II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Heightened Charges",
+        "Tier": 1
+    },
+    {
+        "Gem": "Heightened Curse",
+        "Tier": 1
+    },
+    {
+        "Gem": "Helbrym's Hide",
+        "Tier": 1
+    },
+    {
+        "Gem": "Herbalism I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Herbalism II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Hex Bloom",
+        "Tier": 1
+    },
+    {
+        "Gem": "Hinder",
+        "Tier": 1
+    },
+    {
+        "Gem": "Hit and Run",
+        "Tier": 1
+    },
+    {
+        "Gem": "Hoarfrost",
+        "Tier": 1
+    },
+    {
+        "Gem": "Hobble",
+        "Tier": 1
+    },
+    {
+        "Gem": "Holy Descent",
+        "Tier": 1
+    },
+    {
+        "Gem": "Hourglass",
+        "Tier": 1
+    },
+    {
+        "Gem": "Hulking Minions",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ice Bite I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ice Bite II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Icicle",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ignite I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ignite II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ignite III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Immolate",
+        "Tier": 1
+    },
+    {
+        "Gem": "Impact Shockwave",
+        "Tier": 1
+    },
+    {
+        "Gem": "Impale",
+        "Tier": 1
+    },
+    {
+        "Gem": "Impending Doom",
+        "Tier": 1
+    },
+    {
+        "Gem": "Incision",
+        "Tier": 1
+    },
+    {
+        "Gem": "Inexorable Critical I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Inexorable Critical II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Infernal Legion I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Infernal Legion II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Infernal Legion III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Infusion",
+        "Tier": 1
+    },
+    {
+        "Gem": "Inhibitor",
+        "Tier": 1
+    },
+    {
+        "Gem": "Innervate",
+        "Tier": 1
+    },
+    {
+        "Gem": "Intense Agony",
+        "Tier": 1
+    },
+    {
+        "Gem": "Invocation",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ixchel's Torment",
+        "Tier": 1
+    },
+    {
+        "Gem": "Jagged Ground I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Jagged Ground II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Kalisa's Crescendo",
+        "Tier": 1
+    },
+    {
+        "Gem": "Kaom's Madness",
+        "Tier": 1
+    },
+    {
+        "Gem": "Khatal's Rejuvenation",
+        "Tier": 1
+    },
+    {
+        "Gem": "Knockback",
+        "Tier": 1
+    },
+    {
+        "Gem": "Kulemak's Dominion",
+        "Tier": 1
+    },
+    {
+        "Gem": "Kurgal's Leash",
+        "Tier": 1
+    },
+    {
+        "Gem": "Last Gasp",
+        "Tier": 1
+    },
+    {
+        "Gem": "Lasting Ground",
+        "Tier": 1
+    },
+    {
+        "Gem": "Lasting Shock",
+        "Tier": 1
+    },
+    {
+        "Gem": "Leverage",
+        "Tier": 1
+    },
+    {
+        "Gem": "Life Bounty",
+        "Tier": 1
+    },
+    {
+        "Gem": "Life Drain",
+        "Tier": 1
+    },
+    {
+        "Gem": "Life Leech I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Life Leech II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Life Leech III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Lifetap",
+        "Tier": 1
+    },
+    {
+        "Gem": "Lightning Attunement",
+        "Tier": 1
+    },
+    {
+        "Gem": "Lightning Exposure",
+        "Tier": 1
+    },
+    {
+        "Gem": "Lightning Mastery",
+        "Tier": 1
+    },
+    {
+        "Gem": "Lightning Penetration",
+        "Tier": 1
+    },
+    {
+        "Gem": "Living Lightning",
+        "Tier": 1
+    },
+    {
+        "Gem": "Living Lightning II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Lockdown",
+        "Tier": 1
+    },
+    {
+        "Gem": "Long Fuse I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Long Fuse II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Longshot I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Longshot II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Loyalty",
+        "Tier": 1
+    },
+    {
+        "Gem": "Magnetic Remnants",
+        "Tier": 1
+    },
+    {
+        "Gem": "Magnified Area I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Magnified Area II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Maim",
+        "Tier": 1
+    },
+    {
+        "Gem": "Malady",
+        "Tier": 1
+    },
+    {
+        "Gem": "Mana Bounty",
+        "Tier": 1
+    },
+    {
+        "Gem": "Mana Flare",
+        "Tier": 1
+    },
+    {
+        "Gem": "Mana Leech",
+        "Tier": 1
+    },
+    {
+        "Gem": "Mark for Death",
+        "Tier": 1
+    },
+    {
+        "Gem": "Mark for Death II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Mark of Siphoning",
+        "Tier": 1
+    },
+    {
+        "Gem": "Mark of Siphoning II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Meat Shield I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Meat Shield II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Minion Instability",
+        "Tier": 1
+    },
+    {
+        "Gem": "Minion Mastery",
+        "Tier": 1
+    },
+    {
+        "Gem": "Minion Pact I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Minion Pact II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Mobility",
+        "Tier": 1
+    },
+    {
+        "Gem": "Momentum",
+        "Tier": 1
+    },
+    {
+        "Gem": "Morgana's Tempest",
+        "Tier": 1
+    },
+    {
+        "Gem": "Multishot I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Multishot II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Murderous Intent",
+        "Tier": 1
+    },
+    {
+        "Gem": "Muster",
+        "Tier": 1
+    },
+    {
+        "Gem": "Mysticism I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Mysticism II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Nadir",
+        "Tier": 1
+    },
+    {
+        "Gem": "Neural Overload",
+        "Tier": 1
+    },
+    {
+        "Gem": "Nimble Reload",
+        "Tier": 1
+    },
+    {
+        "Gem": "Nova Projectiles I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Nova Projectiles II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Oisín's Oath",
+        "Tier": 1
+    },
+    {
+        "Gem": "Opening Move",
+        "Tier": 1
+    },
+    {
+        "Gem": "Outmaneuver",
+        "Tier": 1
+    },
+    {
+        "Gem": "Overabundance I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Overabundance II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Overabundance III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Overcharge",
+        "Tier": 1
+    },
+    {
+        "Gem": "Overextend",
+        "Tier": 1
+    },
+    {
+        "Gem": "Overreach",
+        "Tier": 1
+    },
+    {
+        "Gem": "Paquate's Pact",
+        "Tier": 1
+    },
+    {
+        "Gem": "Payload",
+        "Tier": 1
+    },
+    {
+        "Gem": "Perfected Endurance",
+        "Tier": 1
+    },
+    {
+        "Gem": "Perfection",
+        "Tier": 1
+    },
+    {
+        "Gem": "Perpetual Charge",
+        "Tier": 1
+    },
+    {
+        "Gem": "Persistent Ground I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Persistent Ground II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Persistent Ground III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Physical Mastery",
+        "Tier": 1
+    },
+    {
+        "Gem": "Pierce I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Pierce II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Pierce III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Pin I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Pin II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Pin III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Pinpoint Critical",
+        "Tier": 1
+    },
+    {
+        "Gem": "Poison I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Poison II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Poison III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Poison Spores",
+        "Tier": 1
+    },
+    {
+        "Gem": "Potent Exposure",
+        "Tier": 1
+    },
+    {
+        "Gem": "Potential",
+        "Tier": 1
+    },
+    {
+        "Gem": "Practical Magic I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Practical Magic II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Practiced Combo",
+        "Tier": 1
+    },
+    {
+        "Gem": "Precision I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Precision II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Premeditation",
+        "Tier": 1
+    },
+    {
+        "Gem": "Profanity I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Profanity II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Projectile Acceleration I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Projectile Acceleration II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Projectile Acceleration III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Projectile Deceleration I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Projectile Deceleration II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Prolonged Duration I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Prolonged Duration II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Prolonged Duration III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Punch Through",
+        "Tier": 1
+    },
+    {
+        "Gem": "Pursuit I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Pursuit II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Pursuit III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Quill Burst",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rage I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rage II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rage III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rageforged I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rageforged II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Raging Cry",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rakiata's Flow",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rally",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rapid Attacks I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rapid Attacks II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rapid Attacks III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rapid Casting I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rapid Casting II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rapid Casting III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ratha's Assault",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rearm I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rearm II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Refraction I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Refraction II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Refraction III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Reinforced Totems I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Reinforced Totems II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Relentless Rage",
+        "Tier": 1
+    },
+    {
+        "Gem": "Remnant Potency I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Remnant Potency II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Remnant Potency III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rending Apex",
+        "Tier": 1
+    },
+    {
+        "Gem": "Retaliate I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Retaliate II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Retreat I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Retreat II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Retreat III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Reverberate",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ricochet I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ricochet II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ricochet III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rigwald's Ferocity",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rime",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rip",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rising Tempest",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ritualistic Curse",
+        "Tier": 1
+    },
+    {
+        "Gem": "Romira's Requital",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rupture",
+        "Tier": 1
+    },
+    {
+        "Gem": "Rusted Spikes",
+        "Tier": 1
+    },
+    {
+        "Gem": "Ruthless",
+        "Tier": 1
+    },
+    {
+        "Gem": "Sacrificial Lamb I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Sacrificial Lamb II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Sacrificial Offering",
+        "Tier": 1
+    },
+    {
+        "Gem": "Salvo",
+        "Tier": 1
+    },
+    {
+        "Gem": "Searing Flame I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Searing Flame II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Second Wind I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Second Wind II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Second Wind III",
+        "Tier": 1
+    },
+    {
+        "Gem": "See Red",
+        "Tier": 1
+    },
+    {
+        "Gem": "Selfless Remnants",
+        "Tier": 1
+    },
+    {
+        "Gem": "Shock",
+        "Tier": 1
+    },
+    {
+        "Gem": "Shock Conduction I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Shock Conduction II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Shock Siphon",
+        "Tier": 1
+    },
+    {
+        "Gem": "Shocking Leap",
+        "Tier": 1
+    },
+    {
+        "Gem": "Short Fuse I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Short Fuse II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Sione's Temper",
+        "Tier": 1
+    },
+    {
+        "Gem": "Skittering Stone I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Skittering Stone II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Slow Potency",
+        "Tier": 1
+    },
+    {
+        "Gem": "Soul Drain",
+        "Tier": 1
+    },
+    {
+        "Gem": "Soulbreaker",
+        "Tier": 1
+    },
+    {
+        "Gem": "Spar",
+        "Tier": 1
+    },
+    {
+        "Gem": "Spectral Volley",
+        "Tier": 1
+    },
+    {
+        "Gem": "Spell Cascade",
+        "Tier": 1
+    },
+    {
+        "Gem": "Spell Echo",
+        "Tier": 1
+    },
+    {
+        "Gem": "Splinter Totem I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Splinter Totem II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Spreading Frost",
+        "Tier": 1
+    },
+    {
+        "Gem": "Static Shocks",
+        "Tier": 1
+    },
+    {
+        "Gem": "Steadfast I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Steadfast II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Stoicism I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Stoicism II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Stomping Ground",
+        "Tier": 1
+    },
+    {
+        "Gem": "Stormchain",
+        "Tier": 1
+    },
+    {
+        "Gem": "Stormfire",
+        "Tier": 1
+    },
+    {
+        "Gem": "Streamlined Rounds",
+        "Tier": 1
+    },
+    {
+        "Gem": "Strong Hearted",
+        "Tier": 1
+    },
+    {
+        "Gem": "Stun I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Stun II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Stun III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Supercritical",
+        "Tier": 1
+    },
+    {
+        "Gem": "Swift Affliction I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Swift Affliction II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Swift Affliction III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Syzygy",
+        "Tier": 1
+    },
+    {
+        "Gem": "Tacati's Ire",
+        "Tier": 1
+    },
+    {
+        "Gem": "Tasalio's Rhythm",
+        "Tier": 1
+    },
+    {
+        "Gem": "Tawhoa's Tending",
+        "Tier": 1
+    },
+    {
+        "Gem": "Tear",
+        "Tier": 1
+    },
+    {
+        "Gem": "Tecrod's Revenge",
+        "Tier": 1
+    },
+    {
+        "Gem": "Tectonic Slams",
+        "Tier": 1
+    },
+    {
+        "Gem": "Thornskin I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Thornskin II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Thrill of the Kill",
+        "Tier": 1
+    },
+    {
+        "Gem": "Thrill of the Kill II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Tireless",
+        "Tier": 1
+    },
+    {
+        "Gem": "Tremors",
+        "Tier": 1
+    },
+    {
+        "Gem": "Tul's Stillness",
+        "Tier": 1
+    },
+    {
+        "Gem": "Tumult",
+        "Tier": 1
+    },
+    {
+        "Gem": "Uhtred's Augury",
+        "Tier": 1
+    },
+    {
+        "Gem": "Uhtred's Exodus",
+        "Tier": 1
+    },
+    {
+        "Gem": "Uhtred's Omen",
+        "Tier": 1
+    },
+    {
+        "Gem": "Unabating",
+        "Tier": 1
+    },
+    {
+        "Gem": "Unbending",
+        "Tier": 1
+    },
+    {
+        "Gem": "Unbreakable",
+        "Tier": 1
+    },
+    {
+        "Gem": "Undermine",
+        "Tier": 1
+    },
+    {
+        "Gem": "Unerring Power",
+        "Tier": 1
+    },
+    {
+        "Gem": "Unleash",
+        "Tier": 1
+    },
+    {
+        "Gem": "Unsteady Tempo",
+        "Tier": 1
+    },
+    {
+        "Gem": "Untouchable",
+        "Tier": 1
+    },
+    {
+        "Gem": "Unyielding",
+        "Tier": 1
+    },
+    {
+        "Gem": "Upheaval I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Upheaval II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Upwelling I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Upwelling II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Urgent Totems I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Urgent Totems II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Urgent Totems III",
+        "Tier": 1
+    },
+    {
+        "Gem": "Uruk's Smelting",
+        "Tier": 1
+    },
+    {
+        "Gem": "Uul-Netol's Embrace",
+        "Tier": 1
+    },
+    {
+        "Gem": "Vanguard I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Vanguard II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Varashta's Blessing",
+        "Tier": 1
+    },
+    {
+        "Gem": "Verglas",
+        "Tier": 1
+    },
+    {
+        "Gem": "Vilenta's Propulsion",
+        "Tier": 1
+    },
+    {
+        "Gem": "Vitality I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Vitality II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Volatile Power",
+        "Tier": 1
+    },
+    {
+        "Gem": "Volatility",
+        "Tier": 1
+    },
+    {
+        "Gem": "Volcanic Eruption",
+        "Tier": 1
+    },
+    {
+        "Gem": "Volt",
+        "Tier": 1
+    },
+    {
+        "Gem": "Warm Blooded",
+        "Tier": 1
+    },
+    {
+        "Gem": "Wildfire",
+        "Tier": 1
+    },
+    {
+        "Gem": "Wildshards I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Wildshards II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Wind Wave",
+        "Tier": 1
+    },
+    {
+        "Gem": "Window of Opportunity I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Window of Opportunity II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Withering Touch",
+        "Tier": 1
+    },
+    {
+        "Gem": "Xibaqua's Rending",
+        "Tier": 1
+    },
+    {
+        "Gem": "Xoph's Pyre",
+        "Tier": 1
+    },
+    {
+        "Gem": "Zarokh's Refrain",
+        "Tier": 1
+    },
+    {
+        "Gem": "Zarokh's Revolt",
+        "Tier": 1
+    },
+    {
+        "Gem": "Zenith I",
+        "Tier": 1
+    },
+    {
+        "Gem": "Zenith II",
+        "Tier": 1
+    },
+    {
+        "Gem": "Zerphi's Infamy",
+        "Tier": 1
+    }
+]

@@ -1,0 +1,153 @@
+{
+    "name": "Titan Warrior",
+    "author": "Grinding Gear Games",
+    "ascendancy": "Warrior1",
+    "passives": 
+    [
+        "melee17",
+        "melee18",
+        "melee25",
+        "melee44",
+        "melee46",
+        "marauder_brute_notable1",
+        {
+            "id": "strength17",
+            "additional_text": "<m>{<red>{Strength +5 is recommended}}"
+        },
+        {
+            "id": "strength16",
+            "additional_text": "<m>{<red>{Strength +5 is recommended}}"
+        },
+        {
+            "id": "strength89",
+            "additional_text": "<m>{<red>{Strength +5 is recommended}}"
+        },
+        {
+            "id": "attributes65",
+            "additional_text": "<m>{<red>{Strength +5 is recommended}}"
+        },
+        "duration_spells5",
+        "duration_spells1",
+        "duration_spells6",
+        "area_attacks24",
+        "area_attacks32",
+        "area_attacks25_",
+        "melee19",
+        {
+            "id": "strength19",
+            "additional_text": "<m>{<blue>{Intelligence +5 is recommended}}"
+        },
+        "fire10",
+        "fire16",
+        "fire38",
+        {
+            "id": "strength21",
+            "additional_text": "<m>{<red>{Strength +5 is recommended}}"
+        },
+        {
+            "id": "strength15",
+            "additional_text": "<m>{<red>{Strength +5 is recommended}}"
+        },
+        {
+            "id": "attributes32",
+            "additional_text": "<m>{<red>{Strength +5 is recommended}}"
+        },
+        "warcries19_",
+        "warcries20",
+        "warcries21",
+        "slams4",
+        "slams1",
+        "slams5",
+        "jewel_slot1956",
+        {
+            "id": "strength68",
+            "additional_text": "<m>{<red>{Strength +5 is recommended}}"
+        },
+        "AscendancyWarrior1Small3",
+        "AscendancyWarrior1Notable4"
+    ],
+    "skills": 
+    [
+        {
+            "id": "Metadata/Items/Gems/SkillGemEarthquake",
+            "additional_text": "Intended to be taken <green>{BEFORE} BoneShatter",
+            "support_skills":
+            [
+                "Metadata/Items/Gems/SupportGemFastForward",
+                "Metadata/Items/Gems/SupportGemAftershock"
+            ]
+        },
+        {
+            "id": "Metadata/Items/Gems/SkillGemBoneshatter",
+            "additional_text": "Intended to be taken <red>{AFTER} Earthquake",
+            "support_skills":
+            [
+                {
+                    "id": "Metadata/Items/Gems/SupportGemImpactShockwave",
+                    "additional_text": "Intended to be taken <green>{BEFORE} Magnified Area I"
+                },
+                {
+                    "id": "Metadata/Items/Gems/SupportGemMagnifiedEffect",
+                    "additional_text": "Intended to be taken <red>{AFTER} Impact Shockwave"
+                }
+            ]
+        },
+        {
+            "id": "Metadata/Items/Gems/SkillGemShockwaveTotem",
+            "additional_text": "Intended to be taken <green>{BEFORE} Infernal Cry",
+            "support_skills":
+            [
+                "Metadata/Items/Gems/SupportGemMagnifiedEffect",
+                "Metadata/Items/Gems/SupportGemBrutalityTwo"
+            ]
+        },
+        {
+            "id": "Metadata/Items/Gems/SkillGemInfernalCry",
+            "additional_text": "Intended to be taken <red>{AFTER} Shockwave Totem",
+            "support_skills": 
+            [
+                "Metadata/Items/Gem/SupportGemTireless",
+                "Metadata/Items/Gem/SupportGemRagingCry"
+            ]
+        }
+    ],
+    "inventory_slots": 
+    [
+        {
+            "inventory_id": "Weapon1",
+            "additional_text": "<silver>{Any Two Handed Mace}\n\n<grey>{Stat Priority\n-------------------\n1. Prioritize highest physical dps}"
+        },
+        {
+            "inventory_id": "BodyArmour1",
+            "additional_text": "<red>{Armour (Str Base)}\n\n<grey>{Stat Priority\n-------------------\n1. Increased Health\n2. Increased Resistances\n3. Increased Armour}"
+        },
+        {
+            "inventory_id": "Boots1",
+            "additional_text": "<red>{Armour (Str Base)}\n\n<grey>{Stat Priority\n-------------------\n1. Increased Movement Speed\n2. Increased Health\n3. Increased Resistances\n4. Increased Armour}"
+        },
+        {
+            "inventory_id": "Helm1",
+            "additional_text": "<red>{Armour (Str Base)}\n\n<grey>{Stat Priority\n-------------------\n1. Increased Health\n2. Increased Resistances\n3. Increased Armour}"
+        },
+        {
+            "inventory_id": "Gloves1",
+            "additional_text": "<red>{Armour (Str Base)}\n\n<grey>{Stat Priority\n-------------------\n1. Increased Attack Speed\n2. Flat damage to attacks\n3. Increased Life\n4. Increased Resistances}"
+        },
+        {
+            "inventory_id": "Belt1",
+            "additional_text": "<silver>{Any Belt}\n\n<grey>{Stat Priority\n-------------------\n1. Increased Health\n2. Increased Resistances}"
+        },
+        {
+            "inventory_id": "Ring1",
+            "additional_text": "<silver>{Any Ring (Resistance Base)}\n\n<grey>{Stat Priority\n-------------------\n1. Flat damage to attacks\n2. Increased Life\n3. Increased Resistances}"
+        },
+        {
+            "inventory_id": "Ring2",
+            "additional_text": "<silver>{Any Ring (Resistance Base)}\n\n<grey>{Stat Priority\n-------------------\n1. Flat damage to attacks\n2. Increased Life\n3. Increased Resistances}"
+        },
+        {
+            "inventory_id": "Amulet1",
+            "additional_text": "<silver>{Any Amulet}\n\n<grey>{Stat Priority\n-------------------\n1. Level of all melee skills\n2. Increased Resistances\n3. Increased Intelligence\n4. Increased Life}"
+        }
+    ]
+}

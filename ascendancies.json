@@ -1,0 +1,142 @@
+[
+  {
+    "id": "Marauder",
+    "name": "Marauder (General)"
+  },
+  {
+    "id": "Witch",
+    "name": "Witch (General)"
+  },
+  {
+    "id": "Witch1",
+    "name": "Witch (Infernalist)"
+  },
+  {
+    "id": "Witch2",
+    "name": "Witch (Blood Mage)"
+  },
+  {
+    "id": "Witch3",
+    "name": "Witch (Lich)"
+  },
+  {
+    "id": "Witch3b",
+    "name": "Witch (Abyssal Lich)"
+  },
+  {
+    "id": "Ranger",
+    "name": "Ranger (General)"
+  },
+  {
+    "id": "Ranger1",
+    "name": "Ranger (Deadeye)"
+  },
+  {
+    "id": "Ranger3",
+    "name": "Ranger (Pathfinder)"
+  },
+  {
+    "id": "Duelist",
+    "name": "Duelist (General)"
+  },
+  {
+    "id": "Shadow",
+    "name": "Shadow (General)"
+  },
+  {
+    "id": "Templar",
+    "name": "Templar (General)"
+  },
+  {
+    "id": "Warrior",
+    "name": "Warrior (General)"
+  },
+  {
+    "id": "Warrior1",
+    "name": "Warrior (Titan)"
+  },
+  {
+    "id": "Warrior2",
+    "name": "Warrior (Warbringer)"
+  },
+  {
+    "id": "Warrior3",
+    "name": "Warrior (Smith of Kitava)"
+  },
+  {
+    "id": "Sorceress",
+    "name": "Sorceress (General)"
+  },
+  {
+    "id": "Sorceress1",
+    "name": "Sorceress (Stormweaver)"
+  },
+  {
+    "id": "Sorceress2",
+    "name": "Sorceress (Chronomancer)"
+  },
+  {
+    "id": "Sorceress3",
+    "name": "Sorceress (Disciple of Varashta)"
+  },
+  {
+    "id": "Huntress",
+    "name": "Huntress (General)"
+  },
+  {
+    "id": "Huntress1",
+    "name": "Huntress (Amazon)"
+  },
+  {
+    "id": "Huntress2",
+    "name": "Huntress (Spirit Walker)"
+  },
+  {
+    "id": "Huntress3",
+    "name": "Huntress (Ritualist)"
+  },
+  {
+    "id": "Mercenary",
+    "name": "Mercenary (General)"
+  },
+  {
+    "id": "Mercenary1",
+    "name": "Mercenary (Tactician)"
+  },
+  {
+    "id": "Mercenary2",
+    "name": "Mercenary (Witchhunter)"
+  },
+  {
+    "id": "Mercenary3",
+    "name": "Mercenary (Gemling Legionnaire)"
+  },
+  {
+    "id": "Monk",
+    "name": "Monk (General)"
+  },
+  {
+    "id": "Monk1",
+    "name": "Monk (Martial Artist)"
+  },
+  {
+    "id": "Monk2",
+    "name": "Monk (Invoker)"
+  },
+  {
+    "id": "Monk3",
+    "name": "Monk (Acolyte of Chayula)"
+  },
+  {
+    "id": "Druid",
+    "name": "Druid (General)"
+  },
+  {
+    "id": "Druid1",
+    "name": "Druid (Oracle)"
+  },
+  {
+    "id": "Druid2",
+    "name": "Druid (Shaman)"
+  }
+]
