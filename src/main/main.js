@@ -21,10 +21,10 @@ function createWindow() {
     },
     // Visual window polish
     title: "PoE2 Build Planner Editor",
-    icon: path.join(__dirname, 'renderer', 'icon.png') // Fallback if present
+    icon: path.join(__dirname, '..', 'renderer', 'icon.png') // Fallback if present
   });
 
-  mainWindow.loadFile(path.join(__dirname, 'renderer', 'index.html'));
+  mainWindow.loadFile(path.join(__dirname, '..', 'renderer', 'index.html'));
 
   // Remove default menu for a more clean game-like UI
   mainWindow.setMenuBarVisibility(false);
@@ -152,7 +152,7 @@ ipcMain.handle('save-to-default-path', async (event, { content, filename }) => {
 
 // Extra: Read local gem database files directly if they exist, so we don't have to fetch them if run locally
 ipcMain.handle('read-local-json', async (event, filename) => {
-  const filePath = path.join(__dirname, filename);
+  const filePath = path.join(__dirname, '..', '..', 'data', filename);
   try {
     if (fs.existsSync(filePath)) {
       const data = fs.readFileSync(filePath, 'utf-8');
@@ -184,7 +184,7 @@ ipcMain.handle('import-pob2', async (event, base64Code) => {
     let numericNodes = nodesMatch[1].split(',').map(n => n.trim()).filter(n => n);
     
     // 4. Load mapping and translate
-    const mappingPath = path.join(__dirname, 'passive_mapping.json');
+    const mappingPath = path.join(__dirname, '..', '..', 'data', 'passive_mapping.json');
     if (!fs.existsSync(mappingPath)) {
         throw new Error("passive_mapping.json mapping file not found.");
     }
@@ -207,8 +207,8 @@ ipcMain.handle('import-pob2', async (event, base64Code) => {
 // Settings: Run Update Skilltree Script
 ipcMain.handle('update-skilltree', async () => {
   return new Promise((resolve, reject) => {
-    const scriptPath = path.join(__dirname, 'scripts', 'update_skilltree.js');
-    exec(`node "${scriptPath}"`, { cwd: __dirname }, (error, stdout, stderr) => {
+    const scriptPath = path.join(__dirname, '..', '..', 'scripts', 'update_skilltree.js');
+    exec(`node "${scriptPath}"`, { cwd: path.join(__dirname, '..', '..') }, (error, stdout, stderr) => {
       if (error) {
         console.error("Error updating skilltree:", error);
         reject(new Error(stderr || error.message));
@@ -223,8 +223,8 @@ ipcMain.handle('update-skilltree', async () => {
 // Settings: Run Update Gems Script
 ipcMain.handle('update-gems', async () => {
   return new Promise((resolve, reject) => {
-    const scriptPath = path.join(__dirname, 'scripts', 'update_gems.js');
-    exec(`node "${scriptPath}"`, { cwd: __dirname }, (error, stdout, stderr) => {
+    const scriptPath = path.join(__dirname, '..', '..', 'scripts', 'update_gems.js');
+    exec(`node "${scriptPath}"`, { cwd: path.join(__dirname, '..', '..') }, (error, stdout, stderr) => {
       if (error) {
         console.error("Error updating gems:", error);
         reject(new Error(stderr || error.message));

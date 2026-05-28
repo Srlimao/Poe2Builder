@@ -3,9 +3,9 @@ const fs = require('fs');
 const path = require('path');
 
 const DATA_URL = 'https://raw.githubusercontent.com/grindinggear/poe2-skilltree-export/main/data.json';
-const RAW_DATA_FILE = path.join(__dirname, '..', 'poe2_skilltree_data.json');
-const MAPPING_FILE = path.join(__dirname, '..', 'passive_mapping.json');
-const ASCENDANCIES_FILE = path.join(__dirname, '..', 'ascendancies.json');
+const RAW_DATA_FILE = path.join(__dirname, '..', 'data', 'poe2_skilltree_data.json');
+const MAPPING_FILE = path.join(__dirname, '..', 'data', 'passive_mapping.json');
+const ASCENDANCIES_FILE = path.join(__dirname, '..', 'data', 'ascendancies.json');
 
 console.log('Downloading latest poe2 skill tree data...');
 

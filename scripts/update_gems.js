@@ -3,9 +3,9 @@ const fs = require('fs');
 const path = require('path');
 
 const GEMS_URL = 'https://raw.githubusercontent.com/repoe-fork/poe2/master/data/skill_gems.json';
-const SKILL_GEMS_FILE = path.join(__dirname, '..', 'skill_gems.json');
-const SUPPORT_GEMS_FILE = path.join(__dirname, '..', 'support_gems.json');
-const SPIRIT_GEMS_FILE = path.join(__dirname, '..', 'spirit_gems.json');
+const SKILL_GEMS_FILE = path.join(__dirname, '..', 'data', 'skill_gems.json');
+const SUPPORT_GEMS_FILE = path.join(__dirname, '..', 'data', 'support_gems.json');
+const SPIRIT_GEMS_FILE = path.join(__dirname, '..', 'data', 'spirit_gems.json');
 
 console.log('Downloading latest poe2 gems data from repoe-fork...');
 

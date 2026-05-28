@@ -43,7 +43,7 @@ If you prefer to run the UI in a web browser without the Electron wrapper (note:
    ```bash
    http-server -c-1
    ```
-3. Navigate to `http://localhost:8080/renderer/index.html`.
+3. Navigate to `http://localhost:8080/src/renderer/index.html`.
 
 ## Data Management & Automated Updates
 
