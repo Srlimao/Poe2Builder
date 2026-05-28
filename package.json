@@ -6,7 +6,8 @@
   "scripts": {
     "start": "electron .",
     "update-tree": "node scripts/update_skilltree.js",
-    "update-gems": "node scripts/update_gems.js"
+    "update-gems": "node scripts/update_gems.js",
+    "build": "electron-builder"
   },
   "keywords": [
     "poe2",
@@ -16,6 +17,23 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^31.0.0"
+    "electron": "^31.0.0",
+    "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "appId": "com.poe2buildplanner.app",
+    "productName": "PoE2 Build Planner",
+    "directories": {
+      "output": "releases"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
   }
 }
