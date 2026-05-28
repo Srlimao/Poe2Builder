@@ -243,8 +243,22 @@ function loadBuildJson(json) {
         ascendancy: json.ascendancy || "",
         skills: [],
         inventory_slots: [],
-        passives: json.passives || [] // Preserve existing passives
+        passives: []
     };
+
+    // Passives parsing (normalize to objects)
+    if (Array.isArray(json.passives)) {
+        json.passives.forEach(p => {
+            if (typeof p === 'string') {
+                window.buildState.passives.push({ id: p });
+            } else if (typeof p === 'object' && p.id) {
+                window.buildState.passives.push({
+                    id: p.id,
+                    additional_text: p.additional_text || ""
+                });
+            }
+        });
+    }
 
     // Skills parsing (normalize from string or object to internal editor format)
     if (Array.isArray(json.skills)) {
@@ -289,13 +303,15 @@ function loadBuildJson(json) {
     const loadedSlots = Array.isArray(json.inventory_slots) ? json.inventory_slots : [];
     
     standardSlots.forEach(s => {
-        const found = loadedSlots.find(x => x.inventory_id === s.id);
-        if (found) {
-            buildState.inventory_slots.push({
-                inventory_id: s.id,
-                level_interval: found.level_interval || null,
-                unique_name: found.unique_name || "",
-                additional_text: found.additional_text || ""
+        const matchingSlots = loadedSlots.filter(x => x.inventory_id === s.id);
+        if (matchingSlots.length > 0) {
+            matchingSlots.forEach(found => {
+                buildState.inventory_slots.push({
+                    inventory_id: s.id,
+                    level_interval: found.level_interval || null,
+                    unique_name: found.unique_name || "",
+                    additional_text: found.additional_text || ""
+                });
             });
         } else {
             buildState.inventory_slots.push({
@@ -332,7 +348,15 @@ function exportBuildJson() {
 
     // Only output passives if they were loaded or exist
     if (window.buildState.passives && window.buildState.passives.length > 0) {
-        json.passives = window.buildState.passives;
+        json.passives = window.buildState.passives.map(p => {
+            if (!p.additional_text) {
+                return p.id;
+            }
+            return {
+                id: p.id,
+                additional_text: p.additional_text
+            };
+        });
     }
 
     // Serialize skills
@@ -410,7 +434,7 @@ window.updateUI = function updateUI() {
 
     // Sync Equipment Grid Cards
     standardSlots.forEach(s => {
-        const slotState = buildState.inventory_slots.find(x => x.inventory_id === s.id);
+        const variants = buildState.inventory_slots.filter(x => x.inventory_id === s.id);
         const slotEl = document.getElementById(`slot-${s.id}`);
         if (!slotEl) return;
 
@@ -421,11 +445,18 @@ window.updateUI = function updateUI() {
         }
 
         const valueEl = slotEl.querySelector(".eq-value");
-        if (slotState && (slotState.additional_text || slotState.unique_name)) {
+        const hasConfig = variants.some(v => v.additional_text || v.unique_name || v.level_interval);
+        
+        if (hasConfig) {
             slotEl.classList.add("configured");
-            let displayText = slotState.unique_name || getFirstLineOfText(slotState.additional_text) || "Configured";
-            displayText = displayText.replace(/&lt;[^&]*&gt;|\<[^>]*\>/g, ""); // strip tags for grid view
-            valueEl.textContent = displayText;
+            if (variants.length > 1) {
+                valueEl.textContent = `Configured (${variants.length} Variants)`;
+            } else {
+                const slotState = variants[0];
+                let displayText = slotState.unique_name || getFirstLineOfText(slotState.additional_text) || "Configured";
+                displayText = displayText.replace(/&lt;[^&]*&gt;|\<[^>]*\>/g, ""); // strip tags for grid view
+                valueEl.textContent = displayText;
+            }
         } else {
             valueEl.textContent = "Empty";
         }
@@ -460,8 +491,8 @@ function updateFooterStats() {
         supportCount += s.support_skills ? s.support_skills.length : 0;
     });
 
-    let activeSlotsCount = buildState.inventory_slots.filter(s => {
-        return s.additional_text || s.unique_name || s.level_interval;
+    let activeSlotsCount = standardSlots.filter(s => {
+        return buildState.inventory_slots.some(v => v.inventory_id === s.id && (v.additional_text || v.unique_name || v.level_interval));
     }).length;
 
     document.getElementById("stat-skills-count").textContent = skillCount;
@@ -597,6 +628,14 @@ function renderSkillsGrid() {
         skillInfo.appendChild(skillDetails);
         skillGroup.appendChild(skillInfo);
 
+        // Level Interval Badge
+        if (skill.level_interval) {
+            const lvlBadge = document.createElement("div");
+            lvlBadge.className = "skill-level-badge";
+            lvlBadge.textContent = getLevelIntervalString(skill.level_interval);
+            skillGroup.appendChild(lvlBadge);
+        }
+
         // Delete button for this entire skill line
         const btnDeleteRow = document.createElement("button");
         btnDeleteRow.className = "btn-remove-skill-row";
@@ -669,7 +708,7 @@ function getGemTierString(id) {
 }
 
 // 5. SELECTION & ELEMENT EDITING
-function selectElement(selection) {
+window.selectElement = function selectElement(selection) {
     selectedElement = selection;
     
     // Clear autocomplete suggestions whenever selection changes
@@ -702,12 +741,45 @@ function syncEditorForm() {
 
     // Populate data based on selection type
     if (selectedElement.type === 'slot') {
-        const slot = buildState.inventory_slots.find(x => x.inventory_id === selectedElement.id);
+        if (selectedElement.variantIndex === undefined) selectedElement.variantIndex = 0;
+        
+        const variants = buildState.inventory_slots.filter(x => x.inventory_id === selectedElement.id);
+        if (selectedElement.variantIndex >= variants.length) selectedElement.variantIndex = Math.max(0, variants.length - 1);
+        
+        const slot = variants[selectedElement.variantIndex];
         
         document.getElementById("editor-item-type").textContent = "SLOT";
         document.getElementById("editor-item-title").textContent = getSlotLabel(selectedElement.id);
         document.getElementById("edit-id-label").textContent = "Slot ID";
-        deleteBtn.classList.add("hidden");
+        
+        if (variants.length > 1) {
+            deleteBtn.classList.remove("hidden");
+            deleteBtn.textContent = "Delete Variant";
+        } else {
+            deleteBtn.classList.add("hidden");
+        }
+        
+        const variantSelector = document.getElementById("editor-variant-selector");
+        if (variantSelector) {
+            variantSelector.classList.remove("hidden");
+            const dropdown = document.getElementById("variant-dropdown");
+            dropdown.innerHTML = "";
+            variants.forEach((v, idx) => {
+                const opt = document.createElement("option");
+                opt.value = idx;
+                let label = `Variant ${idx + 1}`;
+                if (v.level_interval) {
+                    const min = Array.isArray(v.level_interval) ? v.level_interval[0] : v.level_interval;
+                    const max = Array.isArray(v.level_interval) ? v.level_interval[1] : "";
+                    label += max !== "" ? ` (Lvl ${min}-${max})` : ` (Lvl ${min}+)`;
+                } else {
+                    label += ` (All Levels)`;
+                }
+                opt.textContent = label;
+                if (idx === selectedElement.variantIndex) opt.selected = true;
+                dropdown.appendChild(opt);
+            });
+        }
         
         idInput.value = slot.inventory_id;
         idInput.disabled = true; // Inventory slot ID is fixed
@@ -724,6 +796,8 @@ function syncEditorForm() {
         textInput.value = slot.additional_text || "";
 
     } else if (selectedElement.type === 'skill') {
+        const variantSelector = document.getElementById("editor-variant-selector");
+        if (variantSelector) variantSelector.classList.add("hidden");
         const skill = buildState.skills[selectedElement.skillIndex];
         
         document.getElementById("editor-item-type").textContent = "SKILL GEM";
@@ -746,6 +820,8 @@ function syncEditorForm() {
         textInput.value = skill.additional_text || "";
 
     } else if (selectedElement.type === 'support') {
+        const variantSelector = document.getElementById("editor-variant-selector");
+        if (variantSelector) variantSelector.classList.add("hidden");
         const skill = buildState.skills[selectedElement.skillIndex];
         const support = skill.support_skills[selectedElement.supportIndex];
         
@@ -767,6 +843,29 @@ function syncEditorForm() {
         
         // Text
         textInput.value = support.additional_text || "";
+    } else if (selectedElement.type === 'passive') {
+        const variantSelector = document.getElementById("editor-variant-selector");
+        if (variantSelector) variantSelector.classList.add("hidden");
+        const passive = buildState.passives.find(p => p.id === selectedElement.id);
+        
+        document.getElementById("editor-item-type").textContent = "PASSIVE SKILL";
+        document.getElementById("editor-item-title").textContent = (window.getPassiveNodeName && window.getPassiveNodeName(passive.id)) || "Passive Node";
+        document.getElementById("edit-id-label").textContent = "Passive Node ID";
+        deleteBtn.classList.remove("hidden");
+        deleteBtn.textContent = "Unallocate Passive";
+        
+        idInput.value = passive.id;
+        idInput.disabled = false;
+        
+        // Hide Unique Name field
+        document.getElementById("editor-group-unique").classList.add("hidden");
+        
+        // Level interval (not used for passives)
+        lvlMinInput.value = "";
+        lvlMaxInput.value = "";
+        
+        // Text
+        textInput.value = passive.additional_text || "";
     }
 
     // Update Live Preview Window
@@ -796,7 +895,8 @@ function renderLivePreview() {
     let additionalText = "";
 
     if (selectedElement.type === 'slot') {
-        const slot = buildState.inventory_slots.find(x => x.inventory_id === selectedElement.id);
+        const variants = buildState.inventory_slots.filter(x => x.inventory_id === selectedElement.id);
+        const slot = variants[selectedElement.variantIndex || 0] || variants[0];
         titleText = slot.unique_name ? `${getSlotLabel(slot.inventory_id)}: ${slot.unique_name}` : `${getSlotLabel(slot.inventory_id)} recommendation`;
         lvlText = getLevelIntervalString(slot.level_interval);
         additionalText = slot.additional_text || "";
@@ -811,6 +911,11 @@ function renderLivePreview() {
         titleText = `${getGemDisplayName(support.id) || "Support Gem"} (Socketed)`;
         lvlText = getLevelIntervalString(support.level_interval);
         additionalText = support.additional_text || "";
+    } else if (selectedElement.type === 'passive') {
+        const passive = window.buildState.passives.find(p => p.id === selectedElement.id);
+        titleText = (window.getPassiveNodeName && window.getPassiveNodeName(passive.id)) || "Passive Node";
+        lvlText = "";
+        additionalText = passive.additional_text || "";
     }
 
     titleEl.textContent = titleText;
@@ -903,22 +1008,30 @@ function setupEventListeners() {
     // --- Tabs Logic ---
     const tabEquipment = document.getElementById("tab-equipment");
     const tabTree = document.getElementById("tab-tree");
-    const mainLayout = document.querySelector(".main-layout");
+    const leftPanel = document.querySelector(".left-panel");
+    const centerPanel = document.querySelector(".center-panel");
     const treeOverlay = document.getElementById("tree-visualizer-overlay");
 
-    if (tabEquipment && tabTree && mainLayout && treeOverlay) {
+    if (tabEquipment && tabTree && leftPanel && centerPanel && treeOverlay) {
         tabEquipment.addEventListener("click", () => {
             tabEquipment.classList.add("active");
             tabTree.classList.remove("active");
-            mainLayout.classList.remove("hidden");
+            
+            leftPanel.classList.remove("hidden");
+            centerPanel.classList.remove("hidden");
             treeOverlay.classList.add("hidden");
         });
 
         tabTree.addEventListener("click", () => {
             tabTree.classList.add("active");
             tabEquipment.classList.remove("active");
-            mainLayout.classList.add("hidden");
+            
+            leftPanel.classList.add("hidden");
+            centerPanel.classList.add("hidden");
             treeOverlay.classList.remove("hidden");
+            
+            // Clear editor selection
+            if (window.selectElement) window.selectElement(null);
             
             // Re-render tree on tab switch
             if (window.renderTree) window.renderTree();
@@ -1119,6 +1232,12 @@ function setupEventListeners() {
             const skill = window.buildState.skills[selectedElement.skillIndex];
             skill.support_skills[selectedElement.supportIndex].id = val;
             document.getElementById("editor-item-title").textContent = getGemDisplayName(val) || "Support Socket";
+        } else if (selectedElement.type === 'passive') {
+            const passive = window.buildState.passives.find(p => p.id === selectedElement.id);
+            if (passive) passive.id = val;
+            selectedElement.id = val;
+            document.getElementById("editor-item-title").textContent = (window.getPassiveNodeName && window.getPassiveNodeName(val)) || "Passive Node";
+            if (window.renderTree) window.renderTree();
         }
         
         markAsDirty();
@@ -1127,10 +1246,33 @@ function setupEventListeners() {
         showAutocompleteSuggestions(val);
     });
 
+    document.getElementById("variant-dropdown").addEventListener("change", (e) => {
+        if (!selectedElement || selectedElement.type !== 'slot') return;
+        selectedElement.variantIndex = parseInt(e.target.value);
+        updateUI(); // Re-sync form
+    });
+
+    document.getElementById("btn-add-variant").addEventListener("click", () => {
+        if (!selectedElement || selectedElement.type !== 'slot') return;
+        
+        window.buildState.inventory_slots.push({
+            inventory_id: selectedElement.id,
+            additional_text: ""
+        });
+        
+        const variants = window.buildState.inventory_slots.filter(x => x.inventory_id === selectedElement.id);
+        selectedElement.variantIndex = variants.length - 1;
+        
+        markAsDirty();
+        updateUI();
+    });
+
     document.getElementById("edit-unique-name").addEventListener("input", (e) => {
         if (!selectedElement || selectedElement.type !== 'slot') return;
         
-        const slot = window.buildState.inventory_slots.find(x => x.inventory_id === selectedElement.id);
+        const variants = window.buildState.inventory_slots.filter(x => x.inventory_id === selectedElement.id);
+        if (variants.length === 0) return;
+        const slot = variants[selectedElement.variantIndex || 0];
         slot.unique_name = e.target.value;
         
         markAsDirty();
@@ -1158,8 +1300,12 @@ function setupEventListeners() {
         }
 
         if (selectedElement.type === 'slot') {
-            const slot = window.buildState.inventory_slots.find(x => x.inventory_id === selectedElement.id);
-            slot.level_interval = interval;
+            const variants = window.buildState.inventory_slots.filter(x => x.inventory_id === selectedElement.id);
+            if (variants.length > 0) {
+                const slot = variants[selectedElement.variantIndex || 0];
+                slot.level_interval = interval;
+                syncEditorForm(); // Re-render dropdown label
+            }
         } else if (selectedElement.type === 'skill') {
             window.buildState.skills[selectedElement.skillIndex].level_interval = interval;
         } else if (selectedElement.type === 'support') {
@@ -1182,13 +1328,19 @@ function setupEventListeners() {
         const val = e.target.value;
         
         if (selectedElement.type === 'slot') {
-            const slot = window.buildState.inventory_slots.find(x => x.inventory_id === selectedElement.id);
-            slot.additional_text = val;
+            const variants = window.buildState.inventory_slots.filter(x => x.inventory_id === selectedElement.id);
+            if (variants.length > 0) {
+                const slot = variants[selectedElement.variantIndex || 0];
+                slot.additional_text = val;
+            }
         } else if (selectedElement.type === 'skill') {
             window.buildState.skills[selectedElement.skillIndex].additional_text = val;
         } else if (selectedElement.type === 'support') {
             const skill = window.buildState.skills[selectedElement.skillIndex];
             skill.support_skills[selectedElement.supportIndex].additional_text = val;
+        } else if (selectedElement.type === 'passive') {
+            const passive = window.buildState.passives.find(p => p.id === selectedElement.id);
+            if (passive) passive.additional_text = val;
         }
 
         document.getElementById("text-char-count").textContent = `${val.length}/1000`;
@@ -1200,7 +1352,23 @@ function setupEventListeners() {
     document.getElementById("btn-delete-element").addEventListener("click", async () => {
         if (!selectedElement) return;
         
-        if (selectedElement.type === 'skill') {
+        if (selectedElement.type === 'slot') {
+            if (await showConfirm("Delete Variant", "Delete this level variant configuration?")) {
+                const allSlots = window.buildState.inventory_slots;
+                let matchingIndices = [];
+                allSlots.forEach((s, idx) => {
+                    if (s.inventory_id === selectedElement.id) matchingIndices.push(idx);
+                });
+                
+                const globalIdx = matchingIndices[selectedElement.variantIndex || 0];
+                if (globalIdx !== undefined) {
+                    allSlots.splice(globalIdx, 1);
+                    selectedElement.variantIndex = Math.max(0, (selectedElement.variantIndex || 0) - 1);
+                    markAsDirty();
+                    updateUI();
+                }
+            }
+        } else if (selectedElement.type === 'skill') {
             if (await showConfirm("Delete Skill Gem", "Delete this entire skill slot and all its support links?")) {
                 window.buildState.skills.splice(selectedElement.skillIndex, 1);
                 selectedElement = null;
@@ -1214,6 +1382,15 @@ function setupEventListeners() {
                 selectedElement = null;
                 markAsDirty();
                 updateUI();
+            }
+        } else if (selectedElement.type === 'passive') {
+            if (await showConfirm("Unallocate Passive", "Unallocate this passive node?")) {
+                const idx = window.buildState.passives.findIndex(p => p.id === selectedElement.id);
+                if (idx > -1) window.buildState.passives.splice(idx, 1);
+                selectedElement = null;
+                markAsDirty();
+                updateUI();
+                if (window.renderTree) window.renderTree();
             }
         }
     });

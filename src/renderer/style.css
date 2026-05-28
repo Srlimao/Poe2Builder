@@ -804,6 +804,24 @@ textarea.form-control {
     margin-top: 2px;
 }
 
+.skill-level-badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(16, 16, 18, 0.9);
+    color: var(--text-gold);
+    padding: 2px 10px;
+    font-size: 10px;
+    font-weight: bold;
+    border: 1px solid var(--border-gold-dark);
+    border-radius: 0 0 6px 6px;
+    border-top: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+    letter-spacing: 0.5px;
+}
+
 .btn-remove-skill-row {
     position: absolute;
     top: 5px;

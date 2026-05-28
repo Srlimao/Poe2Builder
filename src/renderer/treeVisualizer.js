@@ -196,9 +196,12 @@
         if (hoveredNode) {
             document.getElementById("tree-tooltip-title").textContent = hoveredNode.name;
             const content = document.getElementById("tree-tooltip-content");
-            content.innerHTML = hoveredNode.stats.length > 0 
+            let statsHtml = hoveredNode.stats.length > 0 
                 ? hoveredNode.stats.join("<br>") 
                 : '<span style="color: var(--color-text-muted);">No stats</span>';
+                
+            statsHtml += '<br><br><span style="color: var(--text-gold); font-size: 0.85em; opacity: 0.8;">Left-Click: Select/Allocate<br>Ctrl+Click: Toggle Allocation</span>';
+            content.innerHTML = statsHtml;
                 
             tooltip.style.left = (e.clientX + 15) + "px";
             tooltip.style.top = (e.clientY + 15) + "px";
@@ -220,26 +223,48 @@
         const worldX = (mouseX - camera.x) / camera.zoom;
         const worldY = (mouseY - camera.y) / camera.zoom;
         
+        let clickedNode = false;
+        
         for (const node of nodesList) {
             const dx = node.x - worldX;
             const dy = node.y - worldY;
             const distSq = dx*dx + dy*dy;
             
             if (distSq <= node.radius * node.radius) {
-                // Toggle allocation
                 if (window.buildState && window.buildState.passives) {
-                    const idx = window.buildState.passives.indexOf(node.id);
-                    if (idx > -1) {
-                        window.buildState.passives.splice(idx, 1);
+                    const idx = window.buildState.passives.findIndex(p => p.id === node.id || p === node.id);
+                    const isAllocated = idx > -1;
+                    
+                    if (e.ctrlKey) {
+                        // Toggle allocation
+                        if (isAllocated) {
+                            window.buildState.passives.splice(idx, 1);
+                        } else {
+                            window.buildState.passives.push({ id: node.id, additional_text: "" });
+                        }
                     } else {
-                        window.buildState.passives.push(node.id);
+                        // Standard click
+                        if (!isAllocated) {
+                            window.buildState.passives.push({ id: node.id, additional_text: "" });
+                        }
+                        
+                        window.isDirty = true;
+                        
+                        // Select it in the editor (this will trigger updateUI)
+                        if (window.selectElement) {
+                            window.selectElement({ type: 'passive', id: node.id });
+                        }
                     }
-                    window.isDirty = true;
-                    if (window.updateUI) window.updateUI();
+                    
                     render(); // Re-render to show allocation
                 }
+                clickedNode = true;
                 break;
             }
+        }
+        
+        if (!clickedNode && window.selectElement) {
+            window.selectElement(null);
         }
     }
 
@@ -253,7 +278,7 @@
         ctx.translate(camera.x, camera.y);
         ctx.scale(camera.zoom, camera.zoom);
         
-        const allocatedNodes = window.buildState ? new Set(window.buildState.passives) : new Set();
+        const allocatedNodes = window.buildState ? new Set(window.buildState.passives.map(p => typeof p === 'object' ? p.id : p)) : new Set();
         
         // Draw Edges
         ctx.lineWidth = 15;
@@ -314,5 +339,12 @@
         } else {
             render();
         }
+    };
+
+    window.getPassiveNodeName = (id) => {
+        if (!treeData || !treeData.nodes) return "Passive Node";
+        // ID could be the string key or the node.id property
+        const node = treeData.nodes[id] || Object.values(treeData.nodes).find(n => n.id === id);
+        return node && node.name ? node.name : "Passive Node";
     };
 })();

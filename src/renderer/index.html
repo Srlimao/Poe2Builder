@@ -159,6 +159,22 @@
                 </div>
             </main>
 
+            <!-- Tree Visualizer Pane (Flex Item) -->
+            <div id="tree-visualizer-overlay" class="hidden" style="flex: 1; position: relative; background: #050505; min-width: 0;">
+                <canvas id="tree-canvas" style="display: block; width: 100%; height: 100%; background: #050505; cursor: grab;"></canvas>
+                <div id="tree-tooltip" class="game-tooltip-panel hidden" style="position: absolute; pointer-events: none; z-index: 1020; max-width: 350px;">
+                    <div class="tooltip-border-top"></div>
+                    <div class="tooltip-header">
+                        <h4 id="tree-tooltip-title" class="tooltip-title" style="color: var(--color-gold);">Node Name</h4>
+                    </div>
+                    <div class="tooltip-divider"></div>
+                    <div id="tree-tooltip-content" class="tooltip-content">
+                        Stats go here
+                    </div>
+                    <div class="tooltip-border-bottom"></div>
+                </div>
+            </div>
+
             <!-- RIGHT COLUMN: EDITOR AND LIVE PREVIEW -->
             <section class="right-panel">
                 <div class="panel-section-title">PROPERTIES EDITOR</div>
@@ -172,7 +188,14 @@
                     <div class="editor-section-header">
                         <span id="editor-item-type" class="item-type-badge">Helm1</span>
                         <h3 id="editor-item-title" class="editor-title">Item Title</h3>
-                        <button id="btn-delete-element" class="btn btn-sm btn-danger hidden">Delete Gem</button>
+                        <button id="btn-delete-element" class="btn btn-sm btn-danger hidden">Delete</button>
+                    </div>
+
+                    <!-- Variant Selector (Visible for Slots) -->
+                    <div id="editor-variant-selector" class="variant-selector hidden" style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 4px;">
+                        <label for="variant-dropdown" style="margin: 0; color: var(--color-gold);">Variant:</label>
+                        <select id="variant-dropdown" class="form-control" style="flex: 1; padding: 5px; height: auto; font-size: 0.9em;"></select>
+                        <button id="btn-add-variant" class="btn btn-sm btn-secondary" title="Add a new level variant configuration for this slot">+ Add</button>
                     </div>
 
                     <!-- Common form fields -->
@@ -296,22 +319,6 @@
                 <button id="btn-close-settings" class="btn btn-primary">Close</button>
             </div>
             <div class="modal-border-bottom"></div>
-        </div>
-    </div>
-
-    <!-- Tree Visualizer Overlay -->
-    <div id="tree-visualizer-overlay" class="hidden" style="position: absolute; top: 65px; left: 0; right: 0; bottom: 0; z-index: 500; background: #050505;">
-        <canvas id="tree-canvas" style="display: block; width: 100%; height: 100%; background: #050505; cursor: grab;"></canvas>
-        <div id="tree-tooltip" class="game-tooltip-panel hidden" style="position: absolute; pointer-events: none; z-index: 1020; max-width: 350px;">
-            <div class="tooltip-border-top"></div>
-            <div class="tooltip-header">
-                <h4 id="tree-tooltip-title" class="tooltip-title" style="color: var(--color-gold);">Node Name</h4>
-            </div>
-            <div class="tooltip-divider"></div>
-            <div id="tree-tooltip-content" class="tooltip-content">
-                Stats go here
-            </div>
-            <div class="tooltip-border-bottom"></div>
         </div>
     </div>
 
