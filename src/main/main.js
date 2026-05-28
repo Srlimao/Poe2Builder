@@ -210,7 +210,46 @@ ipcMain.handle('import-pob2', async (event, base64Code) => {
         ascendancyName = ascendNameMatch[1];
     }
     
-    return { passives: stringNodes, className, ascendancyName };
+    let skills = [];
+    let skillBlocks = decompressed.match(/<Skill [^>]*>([\s\S]*?)<\/Skill>/g) || [];
+
+    for (let block of skillBlocks) {
+        let gemStrs = block.match(/<Gem [^>]*>/g) || [];
+        let parsedGems = [];
+        
+        for (let gemStr of gemStrs) {
+            let idMatch = gemStr.match(/gemId="([^"]*)"/);
+            let lvlMatch = gemStr.match(/level="([^"]*)"/);
+            
+            if (idMatch) {
+                parsedGems.push({
+                    id: idMatch[1],
+                    level: lvlMatch ? parseInt(lvlMatch[1], 10) : 1
+                });
+            }
+        }
+        
+        if (parsedGems.length > 0) {
+            let activeGem = parsedGems[0];
+            let skillObj = {
+                id: activeGem.id,
+                level_interval: [activeGem.level, activeGem.level],
+                additional_text: "",
+                support_skills: []
+            };
+            
+            for (let i = 1; i < parsedGems.length; i++) {
+                skillObj.support_skills.push({
+                    id: parsedGems[i].id,
+                    level_interval: [parsedGems[i].level, parsedGems[i].level],
+                    additional_text: ""
+                });
+            }
+            skills.push(skillObj);
+        }
+    }
+    
+    return { passives: stringNodes, className, ascendancyName, skills };
   } catch (err) {
     console.error("Error importing PoB2:", err);
     throw new Error("Failed to import PoB2 build: " + err.message);

@@ -939,8 +939,17 @@ function setupEventListeners() {
                 window.buildState.ascendancy = "";
             }
             
+            if (result.skills && result.skills.length > 0) {
+                window.buildState.skills = result.skills;
+                // Clear selected element if it was a skill that no longer exists
+                if (selectedElement && (selectedElement.type === 'skill' || selectedElement.type === 'support')) {
+                    selectedElement = null;
+                }
+            }
+            
             markAsDirty();
             updateUI(); // Important to update dropdowns and active class state
+            renderSkillsGrid(); // Force re-render of skills grid
             
             if (window.renderTree) window.renderTree(); // If tree visualizer is active
             
