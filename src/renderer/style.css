@@ -1009,3 +1009,5 @@ textarea.form-control {
 .modal-buttons .btn {
     min-width: 100px;
 }
+/ *   T r e e   V i s u a l i z e r   S t y l e s   * / \ n # t r e e - v i s u a l i z e r - o v e r l a y   c a n v a s   { \ n     o u t l i n e :   n o n e ; \ n } \ n \ n # t r e e - t o o l t i p   { \ n     b a c k g r o u n d :   r g b a ( 1 2 ,   1 2 ,   1 2 ,   0 . 9 5 ) ; \ n     b o r d e r :   1 p x   s o l i d   v a r ( - - c o l o r - g o l d ) ; \ n     p a d d i n g :   1 0 p x ; \ n     b o x - s h a d o w :   0   4 p x   1 5 p x   r g b a ( 0 ,   0 ,   0 ,   0 . 8 ) ; \ n } \ n  
+ 

@@ -1,5 +1,5 @@
 // State Management
-let buildState = {
+window.buildState = {
     name: "New Build",
     author: "",
     description: "",
@@ -10,7 +10,7 @@ let buildState = {
 };
 
 let currentFilePath = null;
-let isDirty = false;
+window.isDirty = false;
 
 // Databases loaded from user JSON files
 let activeGemsDb = [];  // Combining active skills and spirit gems
@@ -212,7 +212,7 @@ function resetToNewBuild() {
         passives: []
     };
     currentFilePath = null;
-    isDirty = false;
+    window.isDirty = false;
     selectedElement = null;
     
     // Populate standard inventory slots
@@ -229,7 +229,7 @@ function resetToNewBuild() {
 function loadBuildJson(json) {
     if (!json || typeof json !== 'object') return;
 
-    buildState = {
+    window.buildState = {
         name: json.name || "Untitled Build",
         author: json.author || "",
         description: json.description || "",
@@ -310,26 +310,26 @@ function loadBuildJson(json) {
         }
     });
 
-    isDirty = false;
+    window.isDirty = false;
     selectedElement = null;
     updateUI();
 }
 
 function exportBuildJson() {
     const json = {
-        name: buildState.name,
-        author: buildState.author || undefined,
-        description: buildState.description || undefined,
-        ascendancy: buildState.ascendancy || undefined
+        name: window.buildState.name,
+        author: window.buildState.author || undefined,
+        description: window.buildState.description || undefined,
+        ascendancy: window.buildState.ascendancy || undefined
     };
 
     // Only output passives if they were loaded or exist
-    if (buildState.passives && buildState.passives.length > 0) {
-        json.passives = buildState.passives;
+    if (window.buildState.passives && window.buildState.passives.length > 0) {
+        json.passives = window.buildState.passives;
     }
 
     // Serialize skills
-    json.skills = buildState.skills.map(s => {
+    json.skills = window.buildState.skills.map(s => {
         const out = { id: s.id };
         if (s.level_interval) out.level_interval = s.level_interval;
         if (s.additional_text) out.additional_text = s.additional_text;
@@ -368,7 +368,7 @@ function exportBuildJson() {
 }
 
 // 3. UI SYNCING & UPDATES
-function updateUI() {
+window.updateUI = function updateUI() {
     // Header File info
     const filenameEl = document.getElementById("current-filename");
     if (filenameEl) {
@@ -799,7 +799,7 @@ function renderLivePreview() {
         lvlText = getLevelIntervalString(skill.level_interval);
         additionalText = skill.additional_text || "";
     } else if (selectedElement.type === 'support') {
-        const skill = buildState.skills[selectedElement.skillIndex];
+        const skill = window.buildState.skills[selectedElement.skillIndex];
         const support = skill.support_skills[selectedElement.supportIndex];
         titleText = `${getGemDisplayName(support.id) || "Support Gem"} (Socketed)`;
         lvlText = getLevelIntervalString(support.level_interval);
@@ -895,7 +895,7 @@ function compilePoEMarkup(text) {
 function setupEventListeners() {
     // File Controls
     document.getElementById("btn-new").addEventListener("click", async () => {
-        if (isDirty) {
+        if (window.isDirty) {
             if (!(await showConfirm("Unsaved Changes", "You have unsaved changes. Create a new build anyway?"))) return;
         }
         resetToNewBuild();
@@ -918,7 +918,7 @@ function setupEventListeners() {
 
         try {
             const passives = await window.electronAPI.importPob2(code);
-            buildState.passives = passives;
+            window.buildState.passives = passives;
             markAsDirty();
             await showAlert("Success", `Successfully imported ${passives.length} passive nodes from PoB2.`);
         } catch (err) {
@@ -984,11 +984,11 @@ function setupEventListeners() {
 
     // Metadata changes
     document.getElementById("meta-name").addEventListener("input", (e) => {
-        buildState.name = e.target.value;
+        window.buildState.name = e.target.value;
         markAsDirty();
     });
     document.getElementById("meta-author").addEventListener("input", (e) => {
-        buildState.author = e.target.value;
+        window.buildState.author = e.target.value;
         markAsDirty();
     });
     
@@ -998,21 +998,21 @@ function setupEventListeners() {
         
         if (select.value === "Custom") {
             customInput.classList.remove("hidden");
-            buildState.ascendancy = customInput.value;
+            window.buildState.ascendancy = customInput.value;
         } else {
             customInput.classList.add("hidden");
-            buildState.ascendancy = select.value;
+            window.buildState.ascendancy = select.value;
         }
         markAsDirty();
     });
 
     document.getElementById("meta-ascendancy-custom").addEventListener("input", (e) => {
-        buildState.ascendancy = e.target.value;
+        window.buildState.ascendancy = e.target.value;
         markAsDirty();
     });
 
     document.getElementById("meta-desc").addEventListener("input", (e) => {
-        buildState.description = e.target.value;
+        window.buildState.description = e.target.value;
         markAsDirty();
     });
 
@@ -1022,10 +1022,10 @@ function setupEventListeners() {
         
         const val = e.target.value;
         if (selectedElement.type === 'skill') {
-            buildState.skills[selectedElement.skillIndex].id = val;
+            window.buildState.skills[selectedElement.skillIndex].id = val;
             document.getElementById("editor-item-title").textContent = getGemDisplayName(val) || "Skill Socket";
         } else if (selectedElement.type === 'support') {
-            const skill = buildState.skills[selectedElement.skillIndex];
+            const skill = window.buildState.skills[selectedElement.skillIndex];
             skill.support_skills[selectedElement.supportIndex].id = val;
             document.getElementById("editor-item-title").textContent = getGemDisplayName(val) || "Support Socket";
         }
@@ -1039,7 +1039,7 @@ function setupEventListeners() {
     document.getElementById("edit-unique-name").addEventListener("input", (e) => {
         if (!selectedElement || selectedElement.type !== 'slot') return;
         
-        const slot = buildState.inventory_slots.find(x => x.inventory_id === selectedElement.id);
+        const slot = window.buildState.inventory_slots.find(x => x.inventory_id === selectedElement.id);
         slot.unique_name = e.target.value;
         
         markAsDirty();
@@ -1067,12 +1067,12 @@ function setupEventListeners() {
         }
 
         if (selectedElement.type === 'slot') {
-            const slot = buildState.inventory_slots.find(x => x.inventory_id === selectedElement.id);
+            const slot = window.buildState.inventory_slots.find(x => x.inventory_id === selectedElement.id);
             slot.level_interval = interval;
         } else if (selectedElement.type === 'skill') {
-            buildState.skills[selectedElement.skillIndex].level_interval = interval;
+            window.buildState.skills[selectedElement.skillIndex].level_interval = interval;
         } else if (selectedElement.type === 'support') {
-            const skill = buildState.skills[selectedElement.skillIndex];
+            const skill = window.buildState.skills[selectedElement.skillIndex];
             skill.support_skills[selectedElement.supportIndex].level_interval = interval;
         }
 
@@ -1091,12 +1091,12 @@ function setupEventListeners() {
         const val = e.target.value;
         
         if (selectedElement.type === 'slot') {
-            const slot = buildState.inventory_slots.find(x => x.inventory_id === selectedElement.id);
+            const slot = window.buildState.inventory_slots.find(x => x.inventory_id === selectedElement.id);
             slot.additional_text = val;
         } else if (selectedElement.type === 'skill') {
-            buildState.skills[selectedElement.skillIndex].additional_text = val;
+            window.buildState.skills[selectedElement.skillIndex].additional_text = val;
         } else if (selectedElement.type === 'support') {
-            const skill = buildState.skills[selectedElement.skillIndex];
+            const skill = window.buildState.skills[selectedElement.skillIndex];
             skill.support_skills[selectedElement.supportIndex].additional_text = val;
         }
 
@@ -1111,14 +1111,14 @@ function setupEventListeners() {
         
         if (selectedElement.type === 'skill') {
             if (await showConfirm("Delete Skill Gem", "Delete this entire skill slot and all its support links?")) {
-                buildState.skills.splice(selectedElement.skillIndex, 1);
+                window.buildState.skills.splice(selectedElement.skillIndex, 1);
                 selectedElement = null;
                 markAsDirty();
                 updateUI();
             }
         } else if (selectedElement.type === 'support') {
             if (await showConfirm("Delete Support Gem", "Delete this support gem link?")) {
-                const skill = buildState.skills[selectedElement.skillIndex];
+                const skill = window.buildState.skills[selectedElement.skillIndex];
                 skill.support_skills.splice(selectedElement.supportIndex, 1);
                 selectedElement = null;
                 markAsDirty();
@@ -1151,14 +1151,14 @@ function setupEventListeners() {
             additional_text: "",
             support_skills: []
         };
-        buildState.skills.push(newSkill);
+        window.buildState.skills.push(newSkill);
         
         markAsDirty();
         
         // Select the newly added skill
         selectElement({
             type: 'skill',
-            skillIndex: buildState.skills.length - 1,
+            skillIndex: window.buildState.skills.length - 1,
             id: newSkill.id
         });
     });
@@ -1177,7 +1177,7 @@ function setupEventListeners() {
 
 // 8. GEM CRUD OPERATIONS
 function addSupportGem(skillIndex) {
-    const skill = buildState.skills[skillIndex];
+    const skill = window.buildState.skills[skillIndex];
     if (!skill.support_skills) skill.support_skills = [];
     
     if (skill.support_skills.length >= 5) return; // Cap at 5 links
@@ -1200,7 +1200,7 @@ function addSupportGem(skillIndex) {
 
 async function deleteSkillLine(skillIndex) {
     if (await showConfirm("Delete Skill Line", "Delete this active skill line?")) {
-        buildState.skills.splice(skillIndex, 1);
+        window.buildState.skills.splice(skillIndex, 1);
         if (selectedElement && selectedElement.skillIndex === skillIndex) {
             selectedElement = null;
         } else if (selectedElement && selectedElement.skillIndex > skillIndex) {
@@ -1236,8 +1236,8 @@ function insertMarkupTag(tag) {
 
 // Mark current state as dirty
 function markAsDirty() {
-    if (!isDirty) {
-        isDirty = true;
+    if (!window.isDirty) {
+        window.isDirty = true;
         const dirtyEl = document.getElementById("dirty-indicator");
         if (dirtyEl) dirtyEl.classList.remove("hidden");
     }
@@ -1299,9 +1299,9 @@ function showAutocompleteSuggestions(query) {
             
             // Trigger selection update
             if (selectedElement.type === 'skill') {
-                buildState.skills[selectedElement.skillIndex].id = item.id;
+                window.buildState.skills[selectedElement.skillIndex].id = item.id;
             } else if (selectedElement.type === 'support') {
-                const skill = buildState.skills[selectedElement.skillIndex];
+                const skill = window.buildState.skills[selectedElement.skillIndex];
                 skill.support_skills[selectedElement.supportIndex].id = item.id;
             }
             
@@ -1325,7 +1325,7 @@ function hideAutocomplete() {
 
 // 10. FILE OPERATION HANDLERS
 async function handleOpenFile() {
-    if (isDirty) {
+    if (window.isDirty) {
         if (!(await showConfirm("Unsaved Changes", "You have unsaved changes. Open another build anyway?"))) return;
     }
 
@@ -1376,7 +1376,7 @@ async function handleSaveFile() {
                     filePath: currentFilePath,
                     content: content
                 });
-                isDirty = false;
+                window.isDirty = false;
                 updateUI();
                 console.log("File saved successfully.");
             } catch (err) {
@@ -1398,14 +1398,14 @@ async function handleSaveFileAs() {
 
     if (isElectron) {
         try {
-            const defaultName = buildState.name ? `${buildState.name.toLowerCase().replace(/\s+/g, '_')}.build` : 'new_build.build';
+            const defaultName = window.buildState.name ? `${window.buildState.name.toLowerCase().replace(/\s+/g, '_')}.build` : 'new_build.build';
             const result = await window.electronAPI.saveBuildFileAs({
                 content: content,
                 defaultFilename: defaultName
             });
             if (result) {
                 currentFilePath = result.filePath;
-                isDirty = false;
+                window.isDirty = false;
                 updateUI();
                 console.log(`File saved as: ${currentFilePath}`);
             }
@@ -1423,7 +1423,7 @@ async function handleQuickSavePoE() {
     const content = exportBuildJson();
     
     // Clean filename
-    const filename = buildState.name ? `${buildState.name.toLowerCase().replace(/[^a-z0-9_]/g, '')}.build` : 'my_build.build';
+    const filename = window.buildState.name ? `${window.buildState.name.toLowerCase().replace(/[^a-z0-9_]/g, '')}.build` : 'my_build.build';
 
     if (isElectron) {
         try {
@@ -1437,7 +1437,7 @@ async function handleQuickSavePoE() {
                 if (!currentFilePath) {
                     currentFilePath = result.filePath;
                 }
-                isDirty = false;
+                window.isDirty = false;
                 checkPoePathStatus();
                 updateUI();
             }
@@ -1459,7 +1459,7 @@ function triggerJsonDownload(content, filename) {
     document.body.appendChild(downloadAnchor);
     downloadAnchor.click();
     downloadAnchor.remove();
-    isDirty = false;
+    window.isDirty = false;
     updateUI();
 }
 

@@ -28,6 +28,7 @@
 
             <div class="header-right">
                 <button id="btn-settings" class="btn btn-secondary">Settings</button>
+                <button id="btn-tree-visualizer" class="btn btn-secondary">Passive Tree</button>
                 <button id="btn-import-pob2" class="btn btn-secondary">Import PoB2</button>
                 <button id="btn-new" class="btn btn-secondary">New</button>
                 <button id="btn-open" class="btn btn-secondary">Open</button>
@@ -283,7 +284,27 @@
         </div>
     </div>
 
+    <!-- Tree Visualizer Overlay -->
+    <div id="tree-visualizer-overlay" class="modal-overlay hidden" style="z-index: 1000; padding: 0;">
+        <div style="position: absolute; top: 20px; right: 20px; z-index: 1010;">
+            <button id="btn-close-tree" class="btn btn-primary">Close Tree</button>
+        </div>
+        <canvas id="tree-canvas" style="display: block; width: 100%; height: 100%; background: #050505; cursor: grab;"></canvas>
+        <div id="tree-tooltip" class="game-tooltip-panel hidden" style="position: absolute; pointer-events: none; z-index: 1020; max-width: 350px;">
+            <div class="tooltip-border-top"></div>
+            <div class="tooltip-header">
+                <h4 id="tree-tooltip-title" class="tooltip-title" style="color: var(--color-gold);">Node Name</h4>
+            </div>
+            <div class="tooltip-divider"></div>
+            <div id="tree-tooltip-content" class="tooltip-content">
+                Stats go here
+            </div>
+            <div class="tooltip-border-bottom"></div>
+        </div>
+    </div>
+
     <!-- SCRIPTS -->
+    <script src="treeVisualizer.js?v=1"></script>
     <script src="app.js?v=25"></script>
 </body>
 </html>
