@@ -900,6 +900,57 @@ function compilePoEMarkup(text) {
 
 // 7. EVENT LISTENERS
 function setupEventListeners() {
+    // --- Tabs Logic ---
+    const tabEquipment = document.getElementById("tab-equipment");
+    const tabTree = document.getElementById("tab-tree");
+    const mainLayout = document.querySelector(".main-layout");
+    const treeOverlay = document.getElementById("tree-visualizer-overlay");
+
+    if (tabEquipment && tabTree && mainLayout && treeOverlay) {
+        tabEquipment.addEventListener("click", () => {
+            tabEquipment.classList.add("active");
+            tabTree.classList.remove("active");
+            mainLayout.classList.remove("hidden");
+            treeOverlay.classList.add("hidden");
+        });
+
+        tabTree.addEventListener("click", () => {
+            tabTree.classList.add("active");
+            tabEquipment.classList.remove("active");
+            mainLayout.classList.add("hidden");
+            treeOverlay.classList.remove("hidden");
+            
+            // Re-render tree on tab switch
+            if (window.renderTree) window.renderTree();
+        });
+    }
+
+    // --- Dropdown Logic ---
+    const fileMenuContainer = document.getElementById("file-menu-container");
+    const fileDropdown = document.getElementById("file-dropdown");
+    const btnFileMenu = document.getElementById("btn-file-menu");
+
+    if (btnFileMenu && fileDropdown && fileMenuContainer) {
+        btnFileMenu.addEventListener("click", (e) => {
+            e.stopPropagation();
+            fileDropdown.classList.toggle("hidden");
+        });
+
+        // Hide dropdown when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!fileMenuContainer.contains(e.target)) {
+                fileDropdown.classList.add("hidden");
+            }
+        });
+
+        // Hide dropdown when an item is clicked
+        fileDropdown.querySelectorAll(".dropdown-item").forEach(item => {
+            item.addEventListener("click", () => {
+                fileDropdown.classList.add("hidden");
+            });
+        });
+    }
+
     // File Controls
     document.getElementById("btn-new").addEventListener("click", async () => {
         if (window.isDirty) {

@@ -12,7 +12,7 @@
     --text-gold-light: #f5e4cc;
     --text-muted: #8c8270;
     --text-body: #d8cebc;
-    
+
     --gem-red: #d13d3d;
     --gem-red-glow: rgba(209, 61, 61, 0.4);
     --gem-green: #3aa83a;
@@ -21,7 +21,7 @@
     --gem-blue-glow: rgba(58, 121, 209, 0.4);
     --gem-spirit: #b844e3;
     --gem-spirit-glow: rgba(184, 68, 227, 0.4);
-    
+
     --font-header: 'Cinzel', serif;
     --font-body: 'Inter', sans-serif;
 }
@@ -59,6 +59,12 @@ body {
     padding: 10px 20px;
     height: 65px;
     flex-shrink: 0;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .app-title {
@@ -339,7 +345,9 @@ textarea.form-control {
     transition: opacity 0.2s;
 }
 
-.eq-slot:hover .eq-icon, .eq-slot.active .eq-icon, .eq-slot.configured .eq-icon {
+.eq-slot:hover .eq-icon,
+.eq-slot.active .eq-icon,
+.eq-slot.configured .eq-icon {
     opacity: 0.85;
 }
 
@@ -372,16 +380,64 @@ textarea.form-control {
 }
 
 /* Specific Grid Placements to match standard RPG UI */
-#slot-Helm1 { grid-column: 2; grid-row: 1; }
-#slot-Amulet1 { grid-column: 3; grid-row: 1; }
-#slot-Weapon1 { grid-column: 1; grid-row: 1 / span 2; height: 100%; } /* Weapon 1 is tall */
-#slot-BodyArmour1 { grid-column: 2; grid-row: 2 / span 2; height: 100%; } /* Chest is tall */
-#slot-Weapon2 { grid-column: 3; grid-row: 2 / span 2; height: 100%; } /* Weapon 2/Shield is tall */
-#slot-Gloves1 { grid-column: 1; grid-row: 3; }
-#slot-Ring1 { grid-column: 1; grid-row: 4; }
-#slot-Belt1 { grid-column: 2; grid-row: 4; }
-#slot-Boots1 { grid-column: 3; grid-row: 4; }
-#slot-Ring2 { grid-column: 3; grid-row: 5; display: none; } /* We combine rings or show Ring 2 */
+#slot-Helm1 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#slot-Amulet1 {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#slot-Weapon1 {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    height: 100%;
+}
+
+/* Weapon 1 is tall */
+#slot-BodyArmour1 {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    height: 100%;
+}
+
+/* Chest is tall */
+#slot-Weapon2 {
+    grid-column: 3;
+    grid-row: 2 / span 2;
+    height: 100%;
+}
+
+/* Weapon 2/Shield is tall */
+#slot-Gloves1 {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+#slot-Ring1 {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+#slot-Belt1 {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+#slot-Boots1 {
+    grid-column: 3;
+    grid-row: 4;
+}
+
+#slot-Ring2 {
+    grid-column: 3;
+    grid-row: 5;
+    display: none;
+}
+
+/* We combine rings or show Ring 2 */
 /* Wait, let's make Ring 2 fit! Row 4 can have Gloves1(left), Belt1(center), Boots1(right)
    Wait, let's redefine the 3x4 grid mapping explicitly:
    Row 1: [Empty] [Helm1] [Amulet1]
@@ -390,26 +446,92 @@ textarea.form-control {
    Row 4: [Gloves1] [Ring1] [Ring2]
    Row 5: [Boots1] [Belt1] [Empty]
 */
-#slot-Helm1 { grid-column: 2; grid-row: 1; }
-#slot-Amulet1 { grid-column: 3; grid-row: 1; }
-#slot-Weapon1 { grid-column: 1; grid-row: 1 / span 2; height: 100%; }
-#slot-BodyArmour1 { grid-column: 2; grid-row: 2 / span 2; height: 100%; }
-#slot-Weapon2 { grid-column: 3; grid-row: 2 / span 2; height: 100%; }
-#slot-Gloves1 { grid-column: 1; grid-row: 3; }
-#slot-Ring1 { grid-column: 1; grid-row: 4; }
-#slot-Ring2 { grid-column: 3; grid-row: 4; }
-#slot-Belt1 { grid-column: 2; grid-row: 4; }
-#slot-Boots1 { grid-column: 2; grid-row: 5; }
+#slot-Helm1 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#slot-Amulet1 {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#slot-Weapon1 {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    height: 100%;
+}
+
+#slot-BodyArmour1 {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    height: 100%;
+}
+
+#slot-Weapon2 {
+    grid-column: 3;
+    grid-row: 2 / span 2;
+    height: 100%;
+}
+
+#slot-Gloves1 {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+#slot-Ring1 {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+#slot-Ring2 {
+    grid-column: 3;
+    grid-row: 4;
+}
+
+#slot-Belt1 {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+#slot-Boots1 {
+    grid-column: 2;
+    grid-row: 5;
+}
 
 /* Let's embed SVG Icons in CSS backgrounds so they look clean and don't require external files */
-.helm-icon { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>'); }
-.amulet-icon { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12 2L1 21h22L12 2zm0 4l7.53 13H4.47L12 6zm-1 8h2v2h-2v-2zm0-4h2v2h-2V10z"/></svg>'); }
-.weapon1-icon, .weapon2-icon { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M19.36 4.64a5 5 0 0 0-7.07 0L2 14.93V22h7.07l10.29-10.29a5 5 0 0 0 0-7.07zm-4.24 7.07L12.3 8.88l1.41-1.41 2.83 2.83-1.42 1.41z"/></svg>'); }
-.body-icon { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10zm1-17h-2v6h2V5zm0 8h-2v2h2v-2z"/></svg>'); }
-.gloves-icon { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>'); }
-.belt-icon { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 10H6V6h12v6z"/></svg>'); }
-.boots-icon { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12.01 21.49L23.64 7c-.45-.34-4.93-4-11.64-4C5.28 3 .81 6.66.36 7l11.63 14.49.01.01.01-.01z"/></svg>'); }
-.ring-icon { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>'); }
+.helm-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>');
+}
+
+.amulet-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12 2L1 21h22L12 2zm0 4l7.53 13H4.47L12 6zm-1 8h2v2h-2v-2zm0-4h2v2h-2V10z"/></svg>');
+}
+
+.weapon1-icon,
+.weapon2-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M19.36 4.64a5 5 0 0 0-7.07 0L2 14.93V22h7.07l10.29-10.29a5 5 0 0 0 0-7.07zm-4.24 7.07L12.3 8.88l1.41-1.41 2.83 2.83-1.42 1.41z"/></svg>');
+}
+
+.body-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10zm1-17h-2v6h2V5zm0 8h-2v2h2v-2z"/></svg>');
+}
+
+.gloves-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>');
+}
+
+.belt-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 10H6V6h12v6z"/></svg>');
+}
+
+.boots-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12.01 21.49L23.64 7c-.45-.34-4.93-4-11.64-4C5.28 3 .81 6.66.36 7l11.63 14.49.01.01.01-.01z"/></svg>');
+}
+
+.ring-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>');
+}
 
 
 /* CENTER PANEL (SKILLS & SOCKETS) */
@@ -522,15 +644,41 @@ textarea.form-control {
 }
 
 /* Colored core indicators for Active Socket */
-.socket-active.gem-red { background: radial-gradient(circle, var(--gem-red) 0%, #150a0a 100%); border-color: #e85555; }
-.socket-active.gem-green { background: radial-gradient(circle, var(--gem-green) 0%, #0a150a 100%); border-color: #55e855; }
-.socket-active.gem-blue { background: radial-gradient(circle, var(--gem-blue) 0%, #0a0e15 100%); border-color: #5599e8; }
-.socket-active.gem-spirit { background: radial-gradient(circle, var(--gem-spirit) 0%, #130a15 100%); border-color: #ce55e8; }
+.socket-active.gem-red {
+    background: radial-gradient(circle, var(--gem-red) 0%, #150a0a 100%);
+    border-color: #e85555;
+}
 
-.socket-active.selected.gem-red { box-shadow: 0 0 18px var(--gem-red-glow); }
-.socket-active.selected.gem-green { box-shadow: 0 0 18px var(--gem-green-glow); }
-.socket-active.selected.gem-blue { box-shadow: 0 0 18px var(--gem-blue-glow); }
-.socket-active.selected.gem-spirit { box-shadow: 0 0 18px var(--gem-spirit-glow); }
+.socket-active.gem-green {
+    background: radial-gradient(circle, var(--gem-green) 0%, #0a150a 100%);
+    border-color: #55e855;
+}
+
+.socket-active.gem-blue {
+    background: radial-gradient(circle, var(--gem-blue) 0%, #0a0e15 100%);
+    border-color: #5599e8;
+}
+
+.socket-active.gem-spirit {
+    background: radial-gradient(circle, var(--gem-spirit) 0%, #130a15 100%);
+    border-color: #ce55e8;
+}
+
+.socket-active.selected.gem-red {
+    box-shadow: 0 0 18px var(--gem-red-glow);
+}
+
+.socket-active.selected.gem-green {
+    box-shadow: 0 0 18px var(--gem-green-glow);
+}
+
+.socket-active.selected.gem-blue {
+    box-shadow: 0 0 18px var(--gem-blue-glow);
+}
+
+.socket-active.selected.gem-spirit {
+    box-shadow: 0 0 18px var(--gem-spirit-glow);
+}
 
 .socket-active .gem-label-symbol {
     font-family: var(--font-header);
@@ -582,13 +730,32 @@ textarea.form-control {
     transform: scale(1.08);
 }
 
-.socket-support.gem-red { background: radial-gradient(circle, var(--gem-red) 0%, #150a0a 100%); border-color: #e85555; }
-.socket-support.gem-green { background: radial-gradient(circle, var(--gem-green) 0%, #0a150a 100%); border-color: #55e855; }
-.socket-support.gem-blue { background: radial-gradient(circle, var(--gem-blue) 0%, #0a0e15 100%); border-color: #5599e8; }
+.socket-support.gem-red {
+    background: radial-gradient(circle, var(--gem-red) 0%, #150a0a 100%);
+    border-color: #e85555;
+}
 
-.socket-support.selected.gem-red { box-shadow: 0 0 15px var(--gem-red-glow); }
-.socket-support.selected.gem-green { box-shadow: 0 0 15px var(--gem-green-glow); }
-.socket-support.selected.gem-blue { box-shadow: 0 0 15px var(--gem-blue-glow); }
+.socket-support.gem-green {
+    background: radial-gradient(circle, var(--gem-green) 0%, #0a150a 100%);
+    border-color: #55e855;
+}
+
+.socket-support.gem-blue {
+    background: radial-gradient(circle, var(--gem-blue) 0%, #0a0e15 100%);
+    border-color: #5599e8;
+}
+
+.socket-support.selected.gem-red {
+    box-shadow: 0 0 15px var(--gem-red-glow);
+}
+
+.socket-support.selected.gem-green {
+    box-shadow: 0 0 15px var(--gem-green-glow);
+}
+
+.socket-support.selected.gem-blue {
+    box-shadow: 0 0 15px var(--gem-blue-glow);
+}
 
 .socket-support .support-label-symbol {
     font-family: var(--font-body);
@@ -768,13 +935,33 @@ textarea.form-control {
 }
 
 /* Colors specifically styled in helper buttons */
-.markup-btn[data-tag="red"] { color: #ff5555; }
-.markup-btn[data-tag="green"] { color: #3bfa3b; }
-.markup-btn[data-tag="blue"] { color: #5555ff; }
-.markup-btn[data-tag="gold"] { color: #ffd700; }
-.markup-btn[data-tag="silver"] { color: #c0c0c0; }
-.markup-btn[data-tag="grey"] { color: #a0a0a0; }
-.markup-btn[data-tag="b"] { font-weight: bold; }
+.markup-btn[data-tag="red"] {
+    color: #ff5555;
+}
+
+.markup-btn[data-tag="green"] {
+    color: #3bfa3b;
+}
+
+.markup-btn[data-tag="blue"] {
+    color: #5555ff;
+}
+
+.markup-btn[data-tag="gold"] {
+    color: #ffd700;
+}
+
+.markup-btn[data-tag="silver"] {
+    color: #c0c0c0;
+}
+
+.markup-btn[data-tag="grey"] {
+    color: #a0a0a0;
+}
+
+.markup-btn[data-tag="b"] {
+    font-weight: bold;
+}
 
 /* AUTOCOMPLETE SUGGESTIONS */
 .autocomplete-wrapper {
@@ -847,7 +1034,8 @@ textarea.form-control {
 }
 
 /* Metal trim borders for in-game tooltip simulation */
-.tooltip-border-top, .tooltip-border-bottom {
+.tooltip-border-top,
+.tooltip-border-bottom {
     position: absolute;
     left: -2px;
     right: -2px;
@@ -855,8 +1043,13 @@ textarea.form-control {
     background: linear-gradient(90deg, var(--border-gold) 0%, var(--border-gold-light) 50%, var(--border-gold) 100%);
 }
 
-.tooltip-border-top { top: 0; }
-.tooltip-border-bottom { bottom: 0; }
+.tooltip-border-top {
+    top: 0;
+}
+
+.tooltip-border-bottom {
+    bottom: 0;
+}
 
 .tooltip-header {
     margin-bottom: 8px;
@@ -910,8 +1103,13 @@ textarea.form-control {
     margin-left: 5px;
 }
 
-.text-green { color: var(--gem-green); }
-.text-red { color: var(--gem-red); }
+.text-green {
+    color: var(--gem-green);
+}
+
+.text-red {
+    color: var(--gem-red);
+}
 
 .app-footer .footer-right {
     display: flex;
@@ -980,8 +1178,13 @@ textarea.form-control {
     background: linear-gradient(90deg, var(--border-gold) 0%, var(--border-gold-light) 50%, var(--border-gold) 100%);
 }
 
-.modal-content .modal-border-top { top: 0; }
-.modal-content .modal-border-bottom { bottom: 0; }
+.modal-content .modal-border-top {
+    top: 0;
+}
+
+.modal-content .modal-border-bottom {
+    bottom: 0;
+}
 
 .modal-title {
     font-family: var(--font-header);
@@ -1009,5 +1212,133 @@ textarea.form-control {
 .modal-buttons .btn {
     min-width: 100px;
 }
-/ *   T r e e   V i s u a l i z e r   S t y l e s   * / \ n # t r e e - v i s u a l i z e r - o v e r l a y   c a n v a s   { \ n     o u t l i n e :   n o n e ; \ n } \ n \ n # t r e e - t o o l t i p   { \ n     b a c k g r o u n d :   r g b a ( 1 2 ,   1 2 ,   1 2 ,   0 . 9 5 ) ; \ n     b o r d e r :   1 p x   s o l i d   v a r ( - - c o l o r - g o l d ) ; \ n     p a d d i n g :   1 0 p x ; \ n     b o x - s h a d o w :   0   4 p x   1 5 p x   r g b a ( 0 ,   0 ,   0 ,   0 . 8 ) ; \ n } \ n  
- 
+
+/* --- NEW UI ORGANIZATION STYLES --- */
+
+/* Tabs */
+.main-tabs {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-gold-dark);
+    border-radius: 4px;
+    padding: 2px;
+    margin-left: 20px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font-header);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 16px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    color: var(--text-gold-light);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+    background-color: var(--bg-card);
+    color: var(--text-gold);
+    border-bottom: 2px solid var(--border-gold);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 5px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-gold-dark);
+    border-radius: 4px;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0;
+}
+
+.dropdown-item {
+    background: transparent;
+    border: none;
+    color: var(--text-body);
+    font-family: var(--font-body);
+    font-size: 12px;
+    text-align: left;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(207, 169, 104, 0.15);
+    color: var(--text-gold-light);
+}
+
+.dropdown-divider {
+    height: 1px;
+    background-color: var(--border-gold-dark);
+    margin: 4px 0;
+    opacity: 0.5;
+}
+
+.text-gold {
+    color: var(--text-gold) !important;
+}
+
+/* Highlight Pulse Animation */
+@keyframes highlight-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(207, 169, 104, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(207, 169, 104, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(207, 169, 104, 0);
+    }
+}
+
+.highlight-pulse {
+    animation: highlight-pulse 2s infinite;
+}
+
+.btn-icon {
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tree Visualizer Styles */
+#tree-visualizer-overlay canvas {
+    outline: none;
+}
+
+#tree-tooltip {
+    background: rgba(12, 12, 12, 0.95);
+    border: 1px solid var(--border-gold);
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}

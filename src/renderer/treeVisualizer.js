@@ -306,4 +306,13 @@
         
         ctx.restore();
     }
+
+    window.renderTree = () => {
+        handleResize();
+        if (!treeData) {
+            loadTreeData().then(render);
+        } else {
+            render();
+        }
+    };
 })();

@@ -14,28 +14,42 @@
     <div class="app-container">
         <!-- TOP NAVIGATION & CONTROLS -->
         <header class="app-header">
-            <div class="header-left">
-                <h1 class="app-title">PATH OF EXILE II</h1>
-                <span class="app-subtitle">BUILD PLANNER EDITOR</span>
-            </div>
-            
-            <div class="header-center">
-                <div class="file-info">
+            <div class="header-left" style="display: flex; align-items: center;">
+                <div>
+                    <h1 class="app-title">PATH OF EXILE II</h1>
+                    <span class="app-subtitle">BUILD PLANNER EDITOR</span>
+                </div>
+                <div class="file-info" style="margin-left: 20px;">
                     <span id="current-filename" class="filename">Untitled.build</span>
                     <span id="dirty-indicator" class="dirty-dot hidden"></span>
                 </div>
             </div>
+            
+            <div class="header-center">
+                <div class="main-tabs">
+                    <button class="tab-btn active" id="tab-equipment">Equipment & Skills</button>
+                    <button class="tab-btn" id="tab-tree">Passive Tree</button>
+                </div>
+            </div>
 
             <div class="header-right">
-                <a href="https://github.com/Srlimao/Poe2Builder/releases" target="_blank" class="btn btn-gold" id="btn-desktop-version" style="text-decoration: none;">Download Desktop App</a>
-                <button id="btn-settings" class="btn btn-secondary">Settings</button>
-                <button id="btn-tree-visualizer" class="btn btn-secondary">Passive Tree</button>
-                <button id="btn-import-pob2" class="btn btn-secondary">Import PoB2</button>
-                <button id="btn-new" class="btn btn-secondary">New</button>
-                <button id="btn-open" class="btn btn-secondary">Open</button>
-                <button id="btn-save" class="btn btn-primary">Save</button>
-                <button id="btn-save-as" class="btn btn-secondary">Save As</button>
-                <button id="btn-export-poe" class="btn btn-gold" title="Quick save to PoE2 default path">Quick Save (PoE2)</button>
+                <div class="dropdown" id="file-menu-container">
+                    <button id="btn-file-menu" class="btn btn-secondary dropdown-toggle">File ▼</button>
+                    <div id="file-dropdown" class="dropdown-menu hidden">
+                        <button id="btn-new" class="dropdown-item">New Build</button>
+                        <button id="btn-open" class="dropdown-item">Open Build</button>
+                        <button id="btn-import-pob2" class="dropdown-item">Import PoB2</button>
+                        <div class="dropdown-divider"></div>
+                        <button id="btn-save" class="dropdown-item">Save</button>
+                        <button id="btn-save-as" class="dropdown-item">Save As...</button>
+                        <button id="btn-export-poe" class="dropdown-item text-gold" title="Quick save to PoE2 default path">Quick Save (PoE2)</button>
+                    </div>
+                </div>
+                
+                <button id="btn-settings" class="btn btn-secondary btn-icon" title="Settings">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+                </button>
+                <a href="https://github.com/Srlimao/Poe2Builder/releases" target="_blank" class="btn btn-gold highlight-pulse" id="btn-desktop-version" style="text-decoration: none;">Download Desktop App</a>
             </div>
         </header>
 
@@ -286,10 +300,7 @@
     </div>
 
     <!-- Tree Visualizer Overlay -->
-    <div id="tree-visualizer-overlay" class="modal-overlay hidden" style="z-index: 1000; padding: 0;">
-        <div style="position: absolute; top: 20px; right: 20px; z-index: 1010;">
-            <button id="btn-close-tree" class="btn btn-primary">Close Tree</button>
-        </div>
+    <div id="tree-visualizer-overlay" class="hidden" style="position: absolute; top: 65px; left: 0; right: 0; bottom: 0; z-index: 500; background: #050505;">
         <canvas id="tree-canvas" style="display: block; width: 100%; height: 100%; background: #050505; cursor: grab;"></canvas>
         <div id="tree-tooltip" class="game-tooltip-panel hidden" style="position: absolute; pointer-events: none; z-index: 1020; max-width: 350px;">
             <div class="tooltip-border-top"></div>
