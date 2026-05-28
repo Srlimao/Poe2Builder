@@ -46,6 +46,13 @@ async function initApp() {
     resetToNewBuild();
     checkPoePathStatus();
     updateUI();
+    
+    // Hide download button in Desktop app
+    const isElectron = typeof window.electronAPI !== 'undefined';
+    if (isElectron) {
+        const downloadBtn = document.getElementById("btn-desktop-version");
+        if (downloadBtn) downloadBtn.classList.add("hidden");
+    }
 }
 
 // 1. DATABASE LOADING
