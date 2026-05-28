@@ -78,9 +78,9 @@ async function loadGemsDatabases() {
                 if (!res.ok) throw new Error(`HTTP error ${res.status}`);
                 return await res.json();
             };
-            skillGems = await fetchJson('../skill_gems.json').catch(() => []);
-            supportGems = await fetchJson('../support_gems.json').catch(() => []);
-            spiritGems = await fetchJson('../spirit_gems.json').catch(() => []);
+            skillGems = await fetchJson('../../data/skill_gems.json').catch(() => []);
+            supportGems = await fetchJson('../../data/support_gems.json').catch(() => []);
+            spiritGems = await fetchJson('../../data/spirit_gems.json').catch(() => []);
         }
 
         // Parse and combine database formats
@@ -131,7 +131,7 @@ async function loadAscendancies() {
         if (isElectron) {
             ascendancies = await window.electronAPI.readLocalJson('ascendancies.json') || [];
         } else {
-            const res = await fetch('../ascendancies.json').catch(() => null);
+            const res = await fetch('../../data/ascendancies.json').catch(() => null);
             if (res && res.ok) ascendancies = await res.json();
         }
 
