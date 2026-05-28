@@ -62,7 +62,8 @@
                     if (node.classStartIndex !== undefined) continue; // Skip starting nodes
                     
                     const processedNode = {
-                        id: id,
+                        id: node.id || id,
+                        nodeIndex: id,
                         name: node.name || "Passive Skill",
                         stats: node.stats || [],
                         x: node.x,
@@ -262,7 +263,9 @@
             const toNode = treeData.nodes[edge.to];
             
             if (fromNode && toNode && fromNode.x !== undefined && toNode.x !== undefined) {
-                const isAllocated = allocatedNodes.has(edge.from) && allocatedNodes.has(edge.to);
+                const fromStrId = fromNode.id || edge.from;
+                const toStrId = toNode.id || edge.to;
+                const isAllocated = allocatedNodes.has(fromStrId) && allocatedNodes.has(toStrId);
                 
                 ctx.beginPath();
                 ctx.moveTo(fromNode.x, fromNode.y);

@@ -917,10 +917,34 @@ function setupEventListeners() {
         if (!code) return; // cancelled or empty
 
         try {
-            const passives = await window.electronAPI.importPob2(code);
+            const result = await window.electronAPI.importPob2(code);
+            const passives = result.passives || result; // Backwards compatibility if needed
             window.buildState.passives = passives;
+            
+            if (result.className) {
+                let targetText = result.className + " (General)";
+                if (result.ascendancyName && result.ascendancyName !== "None") {
+                    targetText = result.className + " (" + result.ascendancyName + ")";
+                }
+                
+                const ascSelect = document.getElementById("meta-ascendancy");
+                const matchedOpt = Array.from(ascSelect.options).find(opt => opt.textContent === targetText);
+                
+                if (matchedOpt) {
+                    window.buildState.ascendancy = matchedOpt.value;
+                } else {
+                    window.buildState.ascendancy = result.ascendancyName && result.ascendancyName !== "None" ? result.ascendancyName : result.className;
+                }
+            } else {
+                window.buildState.ascendancy = "";
+            }
+            
             markAsDirty();
-            await showAlert("Success", `Successfully imported ${passives.length} passive nodes from PoB2.`);
+            updateUI(); // Important to update dropdowns and active class state
+            
+            if (window.renderTree) window.renderTree(); // If tree visualizer is active
+            
+            await showAlert("Success", `Successfully imported ${passives.length} passive nodes${result.className ? ' for ' + result.className : ''} from PoB2.`);
         } catch (err) {
             await showAlert("Error", "Failed to import: " + err.message);
         }

@@ -197,7 +197,20 @@ ipcMain.handle('import-pob2', async (event, base64Code) => {
       }
     });
     
-    return stringNodes;
+    let className = null;
+    let ascendancyName = null;
+    
+    let classNameMatch = decompressed.match(/<Build[^>]*className="([^"]*)"/);
+    let ascendNameMatch = decompressed.match(/<Build[^>]*ascendClassName="([^"]*)"/);
+    
+    if (classNameMatch) {
+        className = classNameMatch[1];
+    }
+    if (ascendNameMatch) {
+        ascendancyName = ascendNameMatch[1];
+    }
+    
+    return { passives: stringNodes, className, ascendancyName };
   } catch (err) {
     console.error("Error importing PoB2:", err);
     throw new Error("Failed to import PoB2 build: " + err.message);
