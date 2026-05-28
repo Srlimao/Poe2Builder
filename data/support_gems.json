@@ -23,7 +23,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills consume a [Charges|Power Charge] on use\nSupported Skills have 80% more duration when consuming a [Charges|Power Charge]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Accelerated Growth",
@@ -53,7 +54,8 @@
         "Cost": null,
         "StatText": [
             "[Trigger|Triggers] Accelerated Growth on [Plant|Overgrowing] [Plant|Plants] created by Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Accelerated Growth II",
@@ -83,7 +85,8 @@
         "Cost": null,
         "StatText": [
             "[Trigger|Triggers] Accelerated Growth on [Plant|Overgrowing] [Plant|Plants] created by Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Acrimony",
@@ -108,7 +111,8 @@
         "Cost": null,
         "StatText": [
             "Enemies affected by non-[DamagingAilments|Ailment] Damage over time from Supported Skills have 50% reduced Life regeneration rate"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Adhesive Grenades I",
@@ -135,7 +139,8 @@
         "StatText": [
             "Supported [Grenade] Skills stop where they initially land",
             "Supported [Grenade] Skills deal 10% less Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Adhesive Grenades II",
@@ -161,7 +166,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Grenade] Skills stop where they initially land"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Adhesive Grenades III",
@@ -187,7 +193,8 @@
             "[Grenade|Grenades] fired by Supported Skills have 35% chance to activate a second time",
             "Supported [Grenade] Skills have 50% reduced [CooldownRecovery|Cooldown Recovery Rate]",
             "Supported [Grenade] Skills stop where they initially land"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Admixture",
@@ -215,7 +222,8 @@
         "StatText": [
             "20% more [BuffMagnitude|Magnitude] of [Bleeding] inflicted by Supported Skills against [Poison|Poisoned] Enemies",
             "20% more [BuffMagnitude|Magnitude] of [Poison] inflicted by Supported Skills against [Bleeding] Enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Advancing Storm",
@@ -242,7 +250,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills originate from the player and move towards the target location"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Aftershock I",
@@ -270,7 +279,8 @@
         "Cost": null,
         "StatText": [
             "Supported skills have 25% chance to cause an additional [Aftershock]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Aftershock II",
@@ -298,7 +308,8 @@
         "Cost": null,
         "StatText": [
             "Supported skills have 35% chance to cause an additional [Aftershock]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Aftershock III",
@@ -325,7 +336,8 @@
         "StatText": [
             "Supported Skills have 15% increased chance to cause [Aftershock|Aftershocks] for every quarter second of [Attack] time",
             "Supported skills have 15% chance to cause an additional [Aftershock]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ahn's Citadel",
@@ -349,7 +361,8 @@
         "Cost": null,
         "StatText": [
             "Walls from Supported Skills are created along a Fissure instead"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ailith's Chimes",
@@ -373,7 +386,8 @@
         "Cost": null,
         "StatText": [
             "25% [SurpassChance|Surpassing] chance to gain a [Charges|Power Charge] when expending [Combo] with Supported Skills per [Combo] expended"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Alignment I",
@@ -401,7 +415,8 @@
         "StatText": [
             "Supported Skills indicate one of four directions\nIndicated direction changes when an [Attack] with Supported Skill matches indicated direction",
             "Supported Skills deal 30% more [Projectile] Damage when [Attack|Attacking] in indicated direction"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Alignment II",
@@ -429,7 +444,8 @@
         "StatText": [
             "Supported Skills indicate one of four directions\nIndicated direction changes when an [Attack] with Supported Skill matches indicated direction",
             "Supported Skills deal 40% more [Projectile] Damage when [Attack|Attacking] in indicated direction"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Alignment III",
@@ -457,7 +473,8 @@
         "StatText": [
             "Supported Skills fire 4 additional [Projectile|Projectiles] when [Attack|Attacking] in indicated direction",
             "Supported Skills indicate one of four directions\nIndicated direction changes when an [Attack] with Supported Skill matches indicated direction"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Amanamu's Tithe",
@@ -483,7 +500,8 @@
         "Cost": null,
         "StatText": [
             "50% chance to gain an Abyssal Monster Modifier for 20 seconds when a [Minion] from Supported Skills dies\nMaximum 3 Abyssal Monster Modifiers gained this way"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ambrosia",
@@ -508,7 +526,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills consume 14% of your maximum Mana [Flask] charges on use\nSupported Skills [Gain] 2% of Damage as extra [Lightning] Damage per Mana [Flask] charge consumed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ambrosia II",
@@ -533,7 +552,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills consume 35% of your maximum Mana [Flask] charges on use\nSupported Skills [Gain] 1% of Damage as extra [Lightning] Damage per Mana [Flask] charge consumed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ambush",
@@ -558,7 +578,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skill has 100% more [Critical|Critical Hit] Chance against Enemies that are on Full Life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ammo Conservation I",
@@ -585,7 +606,8 @@
         "Cost": null,
         "StatText": [
             "Bolts fired by Supported [Crossbow|Crossbow] [Attack|Attacks] have 20% chance to not expend [Ammunition]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ammo Conservation II",
@@ -612,7 +634,8 @@
         "Cost": null,
         "StatText": [
             "Bolts fired by Supported [Crossbow|Crossbow] [Attack|Attacks] have 25% chance to not expend [Ammunition]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ammo Conservation III",
@@ -640,7 +663,8 @@
         "StatText": [
             "Bolts fired by Supported [Crossbow|Crossbow] [Attack|Attacks] have 30% chance to not expend [Ammunition]",
             "Supported Skills have 20% less Reload speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ancestral Aid",
@@ -668,7 +692,8 @@
         "StatText": [
             "Supported Skills cannot be used until you have [Block|Blocked] 3 [HitDamage|Hits]",
             "Supported [Strike|Strikes] are [AncestralBoost|Ancestrally Boosted]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ancestral Call I",
@@ -696,7 +721,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Strike] Skills are [AncestralBoost|Ancestrally Boosted]\nonce every 5 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ancestral Call II",
@@ -724,7 +750,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Strike] Skills are [AncestralBoost|Ancestrally Boosted]\nonce every 3 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ancestral Call III",
@@ -751,7 +778,8 @@
         "StatText": [
             "Supported [Strike] Skills are [AncestralBoost|Ancestrally Boosted]\nonce every 1 second",
             "Supported Skills deal 30% less Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Arakaali's Lust",
@@ -775,7 +803,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal 8% more Damage with [HitDamage|Hits] for each [Poison] on the Enemy, up to 40%"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Arbiter's Ignition",
@@ -801,7 +830,8 @@
         "Cost": null,
         "StatText": [
             "Gain [ElementalArchon|Elemental Archon] when you [Ignite] an Enemy"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Arcane Surge",
@@ -828,7 +858,8 @@
         "Cost": null,
         "StatText": [
             "Gain [ArcaneSurge|Arcane Surge] for 10 seconds after Spending a total of 100% of your Maximum Mana on Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Arjun's Medal",
@@ -854,7 +885,8 @@
         "Cost": null,
         "StatText": [
             "Load a bolt into all [Crossbow] skills on dealing a [KillingBlow|Killing Blow] with Supported Skill"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Armour Break I",
@@ -880,7 +912,8 @@
         "Cost": null,
         "StatText": [
             "[ArmourBreak|Break Armour] equal to 15% of [Physical|Physical Damage] dealt by Supported Skill"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Armour Break II",
@@ -907,7 +940,8 @@
         "StatText": [
             "[ArmourBreak|Break Armour] equal to 15% of [Physical|Physical Damage] dealt by Supported Skill",
             "15% chance to gain an [Charges|Endurance Charge] when Supported Skills [ArmourBreak|Fully Break] [Armour]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Armour Break III",
@@ -934,7 +968,8 @@
         "StatText": [
             "[ArmourBreak|Break Armour] equal to 20% of [Physical|Physical Damage] dealt by Supported Skill",
             "20% chance to gain an [Charges|Endurance Charge] when Supported Skills [ArmourBreak|Fully Break] [Armour]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Armour Demolisher I",
@@ -959,7 +994,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [ArmourBreak|Break] 50% more [Armour|Armour]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Armour Demolisher II",
@@ -984,7 +1020,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [ArmourBreak|Break] 70% more [Armour|Armour]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Armour Explosion",
@@ -1016,7 +1053,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills trigger an Explosion when they [ArmourBreak|Fully Break] an enemy's [Armour]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Arms Length",
@@ -1039,7 +1077,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 40% more [Knockback|Knockback Distance]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Astral Projection",
@@ -1065,7 +1104,8 @@
         "StatText": [
             "Supported Skills Cast at the targeted location instead of around you",
             "Supported Skills have 25% less Area of Effect"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Atalui's Bloodletting",
@@ -1091,7 +1131,8 @@
         "StatText": [
             "Supported Skills have Mana Costs [StatConversion|Converted] to Life Costs",
             "Supported Skills [Gain] 2% of Damage as extra [Physical] Damage per 20 Life cost, up to 40%"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Atziri's Allure",
@@ -1118,7 +1159,8 @@
             "[Curse|Curses] inflicted by Supported Skills ignore [Curse] limit",
             "[Curse|Curses] inflicted by Supported Skills are reflected back to you",
             "Supported Skills have 20% less [Curse|Curse Effect]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Atziri's Call",
@@ -1144,7 +1186,8 @@
         "Description": null,
         "BaseCastTime": null,
         "Cost": null,
-        "StatText": null
+        "StatText": null,
+        "GemType": "support"
     },
     {
         "Gem": "Atziri's Communion",
@@ -1168,7 +1211,8 @@
         "Description": null,
         "BaseCastTime": null,
         "Cost": null,
-        "StatText": null
+        "StatText": null,
+        "GemType": "support"
     },
     {
         "Gem": "Atziri's Impatience",
@@ -1193,7 +1237,8 @@
         "StatText": [
             "Lose 25% of maximum Life, Mana, and [Defences|Energy Shield] when you use Supported Skills",
             "Supported Skills have 100% increased cooldown recovery rate"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Auto Reload",
@@ -1218,7 +1263,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills reload automatically when [HeavyStun|Heavy Stunning] an enemy with them"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Barbs I",
@@ -1246,7 +1292,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal your [Thorns] Damage on their next 4 [HitDamage|Hits] after you [ThornsRetaliation|Retaliate with Thorns]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Barbs II",
@@ -1274,7 +1321,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal your [Thorns] Damage on their next 6 [HitDamage|Hits] after you [ThornsRetaliation|Retaliate with Thorns]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Barbs III",
@@ -1302,7 +1350,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal your [Thorns] Damage twice on their next [HitDamage|Hit] after you [ThornsRetaliation|Retaliate with Thorns]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Battershout",
@@ -1334,7 +1383,8 @@
         "StatText": [
             "Supported Skills cannot [ArmourBreak|Break Armour]",
             "Supported Skills [Consume] [ArmourBreak|Fully Broken Armour] on Enemies within range to [Trigger] Battershout"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Behead I",
@@ -1362,7 +1412,8 @@
         "Cost": null,
         "StatText": [
             "[KillingBlow|Killing Blows] from Supported [Strike|Strike] Skills against [Rarity|Rare] monsters grant one of their [MonsterModifiers|Modifiers] for 20 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Behead II",
@@ -1390,7 +1441,8 @@
         "Cost": null,
         "StatText": [
             "[KillingBlow|Killing Blows] from Supported [Strike|Strike] Skills against [Rarity|Rare] monsters grant two of their [MonsterModifiers|Modifiers] for 20 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Bhatair's Vengeance",
@@ -1417,7 +1469,8 @@
         "Cost": null,
         "StatText": [
             "When you [Freeze] a target with Supported Skills, for each 1 [Rage] you have, you and [Allies] in your [Presence] gain 1% of Damage as [Cold] Damage for 20 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Bidding I",
@@ -1445,7 +1498,8 @@
         "StatText": [
             "Supported [Minion|Minions] have 20% increased [CooldownRecovery|Cooldown Recovery Rate] for Command Skills",
             "Supported [Minion|Minions'] Command Skills deal 20% more Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Bidding II",
@@ -1473,7 +1527,8 @@
         "StatText": [
             "Supported [Minion|Minions] have 30% increased [CooldownRecovery|Cooldown Recovery Rate] for Command Skills",
             "Supported [Minion|Minions'] Command Skills deal 30% more Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Bidding III",
@@ -1500,7 +1555,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Minion|Minions] have 80% increased [CooldownRecovery|Cooldown Recovery Rate] for Command Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Biting Frost I",
@@ -1529,7 +1585,8 @@
             "Supported Skills cannot cause [Freeze] buildup",
             "Supported Skills [Consume|Consume] [Freeze] on enemies to deal 40% more Damage",
             "Supported Skills deal 20% more damage to [Frozen|Frozen] [Rarity|Unique] enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Biting Frost II",
@@ -1559,7 +1616,8 @@
             "[Freeze|Freezes] [Consume|Consumed] by Supported Skills [Chill] the target",
             "Supported Skills [Consume|Consume] [Freeze] on enemies to deal 40% more Damage",
             "Supported Skills deal 20% more damage to [Frozen|Frozen] [Rarity|Unique] enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Blazing Critical",
@@ -1587,7 +1645,8 @@
         "Cost": null,
         "StatText": [
             "[Attack|Attacks] [Gain] 15% of Damage as [Fire] Damage for 5 seconds on [Critical|Critically Hitting] with Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Bleed I",
@@ -1613,7 +1672,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 50% chance to inflict [Bleeding]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Bleed II",
@@ -1639,7 +1699,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 75% chance to inflict [Bleeding]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Bleed III",
@@ -1665,7 +1726,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 100% chance to inflict [Bleeding]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Bleed IV",
@@ -1693,7 +1755,8 @@
             "[HitDamage|Hits] from Supported Skills inflict [Incision]",
             "Supported [Attack|Attacks] cannot cause [Bleeding|Bleeding]",
             "Supported Skills deal 30% more [Melee] [Physical] Damage against [Bleeding] enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Blind I",
@@ -1718,7 +1781,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Blind] Enemies on [HitDamage|Hit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Blind II",
@@ -1744,7 +1808,8 @@
         "StatText": [
             "[Blind] inflicted with Supported Skills has 20% increased Effect",
             "Supported Skills [Blind] Enemies on [HitDamage|Hit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Blindside",
@@ -1771,7 +1836,8 @@
             "Supported Skills cannot inflict [Blind]",
             "Supported Skills have 15% more [CriticalDamageBonus|Critical Damage Bonus] with [HitDamage|Hits] against [Blind|Blinded] Enemies",
             "Supported Skills have 15% more chance to [Critical|Critically Hit] [Blind|Blinded] Enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Bloodlust",
@@ -1798,7 +1864,8 @@
         "StatText": [
             "Supported [Attack|Attacks] cannot cause [Bleeding|Bleeding]",
             "Supported Skills deal 30% more [Melee] [Physical] Damage against [Bleeding] enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Bone Shrapnel",
@@ -1828,7 +1895,8 @@
         "StatText": [
             "Supported Skills cannot cause [Pinned|Pin] buildup",
             "Supported Skills trigger Bone Shrapnel Explosions on killing [Pinned|Pinned] Enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Boundless Energy I",
@@ -1853,7 +1921,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills gain 35% increased [Energy]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Boundless Energy II",
@@ -1878,7 +1947,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills gain 45% increased [Energy]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Bounty I",
@@ -1905,7 +1975,8 @@
             "Enemies killed by [HitDamage|Hits] from Supported Skills grant 50% more [Charm] charges",
             "Enemies killed by [HitDamage|Hits] from Supported Skills grant 50% more Life [Flask] Charges",
             "Enemies killed by [HitDamage|Hits] from Supported Skills grant 50% more Mana [Flask] Charges"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Bounty II",
@@ -1932,7 +2003,8 @@
             "Enemies killed by [HitDamage|Hits] from Supported Skills grant 100% more [Charm] charges",
             "Enemies killed by [HitDamage|Hits] from Supported Skills grant 100% more Life [Flask] Charges",
             "Enemies killed by [HitDamage|Hits] from Supported Skills grant 100% more Mana [Flask] Charges"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Brambleslam",
@@ -1966,7 +2038,8 @@
         "Cost": null,
         "StatText": [
             "Supported Slams create 3 Brambles"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Branching Fissures I",
@@ -1993,7 +2066,8 @@
             "Supported Skills' Branched Fissures have 35% less area of effect",
             "Supported Skills' Branched Fissures deal 40% less damage",
             "Supported Skills' Fissures branch 2 times"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Branching Fissures II",
@@ -2020,7 +2094,8 @@
             "Supported Skills' Branched Fissures have 35% less area of effect",
             "Supported Skills' Branched Fissures deal 30% less damage",
             "Supported Skills' Fissures branch 2 times"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Break Endurance",
@@ -2043,7 +2118,8 @@
         "Cost": null,
         "StatText": [
             "40% chance to gain an [Charges|Endurance Charge] when Supported Skills [ArmourBreak|Fully Break] [Armour]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Break Posture",
@@ -2068,7 +2144,8 @@
         "StatText": [
             "Supported Skills apply [Daze|Daze] when fully [ArmourBreak|Breaking Armour]",
             "[Daze|Daze] lasts for 8 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Brink I",
@@ -2096,7 +2173,8 @@
         "StatText": [
             "[Stun] buildup caused by Supported Skills cannot reach 100%",
             "[HitDamage|Hits] with Supported Skills cause 30% more [Stun] buildup"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Brink II",
@@ -2124,7 +2202,8 @@
         "StatText": [
             "[Stun] buildup caused by Supported Skills cannot reach 100%",
             "[HitDamage|Hits] with Supported Skills cause 50% more [Stun] buildup"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Brittle Armour",
@@ -2151,7 +2230,8 @@
         "Cost": null,
         "StatText": [
             "Enemies [Freeze|Frozen] by Supported Skills have their [ArmourBreak|Armour Broken] equal to 100% of [Physical|Physical Damage] taken while [Freeze|Frozen]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Brutality I",
@@ -2179,7 +2259,8 @@
             "Supported Skills deal no [Chaos] Damage",
             "Supported Skills deal no [ElementalDamage|Elemental] Damage",
             "Supported Skills deal 25% more [Physical] Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Brutality II",
@@ -2207,7 +2288,8 @@
             "Supported Skills deal no [Chaos] Damage",
             "Supported Skills deal no [ElementalDamage|Elemental] Damage",
             "Supported Skills deal 30% more [Physical] Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Brutality III",
@@ -2236,7 +2318,8 @@
             "Supported Skills deal no [ElementalDamage|Elemental] Damage",
             "[HitDamage|Hits] with Supported Skills have 20% chance to ignore Enemy [Physical] Damage reduction",
             "Supported Skills deal 30% more [Physical] Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Brutus' Brain",
@@ -2262,7 +2345,8 @@
         "StatText": [
             "Minions from Supported Skills cannot be Damaged",
             "Minions from Supported Skills deal no Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Burgeon I",
@@ -2288,7 +2372,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal 10% more Damage per second spent [Channelling], up to 40%"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Burgeon II",
@@ -2314,7 +2399,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal 20% more Damage per second spent [Channelling], up to 40%"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Burning Inscription",
@@ -2341,7 +2427,8 @@
         "Description": null,
         "BaseCastTime": null,
         "Cost": null,
-        "StatText": null
+        "StatText": null,
+        "GemType": "support"
     },
     {
         "Gem": "Bursting Plague",
@@ -2371,7 +2458,8 @@
         "Cost": null,
         "StatText": [
             "[Poison|Poison] from Supported Skills also adds 100% of Damage per Second to Enemy as Plague, up to a maximum of 20% of Enemy's maximum Life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Cadence",
@@ -2398,7 +2486,8 @@
         "StatText": [
             "Supported Skills have 8% more [Attack] speed for each time they've been used [Recently]",
             "Supported Skills are unusable for 10 seconds after being used 6 or more times within four seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Caltrops",
@@ -2430,7 +2519,8 @@
         "Cost": null,
         "StatText": [
             "[Projectile|Projectiles] from Supported Skills trigger Caltrops when they reach the end of their flight"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Cannibalism I",
@@ -2457,7 +2547,8 @@
         "Cost": null,
         "StatText": [
             "2% of maximum Life recovered on kill while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Cannibalism II",
@@ -2484,7 +2575,8 @@
         "Cost": null,
         "StatText": [
             "3% of maximum Life recovered on kill while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Catalysing Elements",
@@ -2516,7 +2608,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Trigger] Catalysing Discharge when boosted by an [ElementalGround|Elemental Ground Surface]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Catharsis",
@@ -2545,7 +2638,8 @@
         "StatText": [
             "Supported Skill requires 20 [Volatility] on you to use",
             "Using Supported Skills will explode a random amount of [Volatility] on you"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Chain I",
@@ -2573,7 +2667,8 @@
         "StatText": [
             "Supported Skills [Chain] +1 times",
             "Supported Skills deal 30% less Damage with [HitDamage|Hits]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Chain II",
@@ -2601,7 +2696,8 @@
         "StatText": [
             "Supported Skills [Chain] +2 times",
             "Supported Skills deal 50% less Damage with [HitDamage|Hits]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Chain III",
@@ -2629,7 +2725,8 @@
         "StatText": [
             "Supported Skills [Chain] +2 times",
             "Supported Skills deal 40% less Damage with [HitDamage|Hits]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Chance to Freeze",
@@ -2652,7 +2749,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 20% chance to Freeze"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Chaos Attunement",
@@ -2680,7 +2778,8 @@
         "StatText": [
             "Supported [Attack|Attacks] [Gain] 25% of Damage as extra [Chaos|Chaos] Damage",
             "Supported [Attack|Attacks] deal 50% less non-[Chaos|Chaos] Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Chaos Mastery",
@@ -2706,7 +2805,8 @@
         "Cost": null,
         "StatText": [
             "+1 to Level of Supported [Chaos] Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Chaotic Freeze",
@@ -2733,7 +2833,8 @@
         "Cost": null,
         "StatText": [
             "[Chaos] damage [Contributes] to [Freeze] buildup for [HitDamage|Hits] against targets taking damage over time from Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Charge Profusion I",
@@ -2758,7 +2859,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 30% chance to\ngrant an additional [Charges|Charge]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Charge Profusion II",
@@ -2784,7 +2886,8 @@
         "StatText": [
             "Supported Skills have 30% chance to\ngrant an additional [Charges|Charge]",
             "Supported Skills have 15% chance to\ngrant an additional random [Charges|Charge]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Charged Mark",
@@ -2815,7 +2918,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Mark] Skills [Trigger] Charged Mark when they are [MarkActivate|Activated]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Charged Shots I",
@@ -2844,7 +2948,8 @@
             "Charged Shots with Supported Skills [Gain] 30% of Damage as extra [Lightning] Damage",
             "One in every 3 shots with Supported Skills is a Charged Shot",
             "Charged Shots with Supported Skills recover 100% of their Mana cost when used"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Charged Shots II",
@@ -2872,7 +2977,8 @@
         "StatText": [
             "Charged Shots with Supported Skills [Gain] 60% of Damage as extra [Lightning] Damage",
             "One in every 3 shots with Supported Skills is a Charged Shot"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Charm Bounty",
@@ -2895,7 +3001,8 @@
         "Cost": null,
         "StatText": [
             "Enemies killed by [HitDamage|Hits] from Supported Skills grant 100% more [Charm] charges"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Cirel's Cultivation",
@@ -2925,7 +3032,8 @@
             "[Totem|Totems] created by supported Skills regenerate 1% of maximum Life per second per allied [Totem] in effect radius",
             "Supported [Totem|Totems] can gain benefits for having up\nto 5 [Totem|Totems] in effect radius",
             "Counts allied [Totem|Totems] in radius of 4 metres"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Clarity I",
@@ -2952,7 +3060,8 @@
         "Cost": null,
         "StatText": [
             "30% Increased Mana Regeneration Rate while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Clarity II",
@@ -2979,7 +3088,8 @@
         "Cost": null,
         "StatText": [
             "50% Increased Mana Regeneration Rate while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Clash",
@@ -3006,7 +3116,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal 40% more [Melee] Damage against Enemies with a higher percentage of their Life remaining than you, but deal 20% less [Melee] Damage against Enemies with a lower percentage of their Life remaining than you"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Close Combat I",
@@ -3032,7 +3143,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal 20% more [Attack] Damage to \nenemies within 1 metre of you, scaling down to\nno bonus at 3.5 metres or further"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Close Combat II",
@@ -3058,7 +3170,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal 30% more [Attack] Damage to \nenemies within 1 metre of you, scaling down to\nno bonus at 3.5 metres or further"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Cold Attunement",
@@ -3086,7 +3199,8 @@
         "StatText": [
             "Supported [Attack|Attacks] [Gain] 25% of Damage as extra [Cold|Cold] Damage",
             "Supported [Attack|Attacks] deal 50% less [Fire|Fire] and [Lightning|Lightning] Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Cold Exposure",
@@ -3113,7 +3227,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills inflict [Exposure] for 8 seconds on [Critical|Critical Hit] with [Cold|Cold Damage]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Cold Mastery",
@@ -3139,7 +3254,8 @@
         "Cost": null,
         "StatText": [
             "+1 to Level of Supported [Cold] Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Cold Penetration",
@@ -3165,7 +3281,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Penetration|Penetrate] 30% [Resistances|Cold Resistance]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Combo Finisher I",
@@ -3196,7 +3313,8 @@
             "Supported Skills lose [Combo] if you\ngenerate no [Combo] for 4 seconds",
             "Supported Skills deal 25% more Damage",
             "Supported Skills require 3 [Combo] to use"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Combo Finisher II",
@@ -3227,175 +3345,8 @@
             "Supported Skills lose [Combo] if you\ngenerate no [Combo] for 4 seconds",
             "Supported Skills deal 40% more Damage",
             "Supported Skills require 5 [Combo] to use"
-        ]
-    },
-    {
-        "Gem": "Coming Soon",
-        "Id": "Metadata/Items/Gems/SupportGemUnknown1",
-        "Tier": 1,
-        "Color": "w",
-        "Tags": [
-            "grants_active_skill"
         ],
-        "Icon": "4k/",
-        "RequirementWeights": {
-            "dexterity": 0,
-            "intelligence": 0,
-            "strength": 0
-        },
-        "CraftingTypes": null,
-        "CraftingLevel": 0,
-        "Description": null,
-        "BaseCastTime": 1000,
-        "Cost": null,
-        "StatText": null
-    },
-    {
-        "Gem": "Coming Soon",
-        "Id": "Metadata/Items/Gems/SupportGemUnknown2",
-        "Tier": 1,
-        "Color": "w",
-        "Tags": [
-            "grants_active_skill"
-        ],
-        "Icon": "4k/",
-        "RequirementWeights": {
-            "dexterity": 0,
-            "intelligence": 0,
-            "strength": 0
-        },
-        "CraftingTypes": null,
-        "CraftingLevel": 0,
-        "Description": null,
-        "BaseCastTime": 1000,
-        "Cost": null,
-        "StatText": null
-    },
-    {
-        "Gem": "Coming Soon",
-        "Id": "Metadata/Items/Gems/SupportGemUnknown3",
-        "Tier": 1,
-        "Color": "w",
-        "Tags": [
-            "grants_active_skill"
-        ],
-        "Icon": "4k/",
-        "RequirementWeights": {
-            "dexterity": 0,
-            "intelligence": 0,
-            "strength": 0
-        },
-        "CraftingTypes": null,
-        "CraftingLevel": 0,
-        "Description": null,
-        "BaseCastTime": 1000,
-        "Cost": null,
-        "StatText": null
-    },
-    {
-        "Gem": "Coming Soon",
-        "Id": "Metadata/Items/Gems/SupportGemUnknown4",
-        "Tier": 1,
-        "Color": "w",
-        "Tags": [
-            "grants_active_skill"
-        ],
-        "Icon": "4k/",
-        "RequirementWeights": {
-            "dexterity": 0,
-            "intelligence": 0,
-            "strength": 0
-        },
-        "CraftingTypes": null,
-        "CraftingLevel": 0,
-        "Description": null,
-        "BaseCastTime": 1000,
-        "Cost": null,
-        "StatText": null
-    },
-    {
-        "Gem": "Coming Soon",
-        "Id": "Metadata/Items/Gems/SupportGemUnknown5",
-        "Tier": 1,
-        "Color": "w",
-        "Tags": [
-            "grants_active_skill"
-        ],
-        "Icon": "4k/",
-        "RequirementWeights": {
-            "dexterity": 0,
-            "intelligence": 0,
-            "strength": 0
-        },
-        "CraftingTypes": null,
-        "CraftingLevel": 0,
-        "Description": null,
-        "BaseCastTime": 1000,
-        "Cost": null,
-        "StatText": null
-    },
-    {
-        "Gem": "Coming Soon",
-        "Id": "Metadata/Items/Gems/SupportGemUnknown6",
-        "Tier": 1,
-        "Color": "w",
-        "Tags": [
-            "grants_active_skill"
-        ],
-        "Icon": "4k/",
-        "RequirementWeights": {
-            "dexterity": 0,
-            "intelligence": 0,
-            "strength": 0
-        },
-        "CraftingTypes": null,
-        "CraftingLevel": 0,
-        "Description": null,
-        "BaseCastTime": 1000,
-        "Cost": null,
-        "StatText": null
-    },
-    {
-        "Gem": "Coming Soon",
-        "Id": "Metadata/Items/Gems/SupportGemUnknown7",
-        "Tier": 1,
-        "Color": "w",
-        "Tags": [
-            "grants_active_skill"
-        ],
-        "Icon": "4k/",
-        "RequirementWeights": {
-            "dexterity": 0,
-            "intelligence": 0,
-            "strength": 0
-        },
-        "CraftingTypes": null,
-        "CraftingLevel": 0,
-        "Description": null,
-        "BaseCastTime": 1000,
-        "Cost": null,
-        "StatText": null
-    },
-    {
-        "Gem": "Coming Soon",
-        "Id": "Metadata/Items/Gems/SupportGemUnknown8",
-        "Tier": 1,
-        "Color": "w",
-        "Tags": [
-            "grants_active_skill"
-        ],
-        "Icon": "4k/",
-        "RequirementWeights": {
-            "dexterity": 0,
-            "intelligence": 0,
-            "strength": 0
-        },
-        "CraftingTypes": null,
-        "CraftingLevel": 0,
-        "Description": null,
-        "BaseCastTime": 1000,
-        "Cost": null,
-        "StatText": null
+        "GemType": "support"
     },
     {
         "Gem": "Coming Soon",
@@ -3416,7 +3367,8 @@
         "Description": null,
         "BaseCastTime": 1000,
         "Cost": null,
-        "StatText": null
+        "StatText": null,
+        "GemType": "support"
     },
     {
         "Gem": "Commandment",
@@ -3442,7 +3394,8 @@
         "StatText": [
             "Supported [Minion|Minions] have 100% increased [CooldownRecovery|Cooldown Recovery Rate] for Command Skills",
             "Supported [Minion|Minions] deal 100% less Damage with non-command Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Commiserate",
@@ -3468,7 +3421,8 @@
         "StatText": [
             "When inflicting an [Ailments|Ailment] with Supported Skill, remove that [Ailments|Ailment] from yourself",
             "[Ailments] inflicted by Supported Skills have 40% more [BuffMagnitude|Magnitude] if you are afflicted with that [Ailments|Ailment] when inflicting it"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Compressed Duration I",
@@ -3494,7 +3448,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 30% less Skill Effect Duration"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Compressed Duration II",
@@ -3520,7 +3475,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 35% less Skill Effect Duration"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Concentrated Area",
@@ -3547,7 +3503,8 @@
         "StatText": [
             "Supported Skills deal 30% more Area Damage",
             "Supported Skills have 50% less Area of Effect"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Concoct I",
@@ -3572,7 +3529,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills consume 20% of your maximum Life [Flask] charges on use\nSupported Skills have 3% more [BuffMagnitude|Magnitude] of [Bleeding] they inflict per Life [Flask] charge consumed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Concoct II",
@@ -3597,7 +3555,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills consume 30% of your maximum Life [Flask] charges on use\nSupported Skills have 3% more [BuffMagnitude|Magnitude] of [Bleeding] they inflict per Life [Flask] charge consumed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Concussive Spells",
@@ -3624,7 +3583,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Daze] on [Critical|Critically Hitting] enemies with [Physical] damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Considered Casting",
@@ -3651,7 +3611,8 @@
         "StatText": [
             "Supported Spell Skills have 15% less Cast Speed",
             "Supported [Spell|Spells] deal 35% more Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Controlled Destruction",
@@ -3678,7 +3639,8 @@
         "StatText": [
             "Supported Skills cannot deal [Critical|Critical Hits]",
             "Supported [Spell|Spells] deal 25% more [HitDamage|Hit] Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Controlled Hazard",
@@ -3704,7 +3666,8 @@
         "Cost": null,
         "StatText": [
             "[Hazard|Hazards] cannot be triggered for 3 seconds after being created"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Cool Headed",
@@ -3731,7 +3694,8 @@
         "Cost": null,
         "StatText": [
             "50% less [Ignite] duration on you while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Cooldown Recovery I",
@@ -3756,7 +3720,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 25% increased cooldown recovery rate"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Cooldown Recovery II",
@@ -3781,7 +3746,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 30% increased cooldown recovery rate"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Corpse Conservation",
@@ -3806,7 +3772,8 @@
         "Cost": null,
         "StatText": [
             "[Corpse|Corpses] consumed by Supported Skills have 25% chance to not be destroyed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Corrosion",
@@ -3833,7 +3800,8 @@
         "Cost": null,
         "StatText": [
             "[Poison|Poison] applied by supported Skills also\n[ArmourBreak|Breaks] [Armour|Armour] equal to 80% of [Poison|Poison] damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Corrupting Cry I",
@@ -3864,7 +3832,8 @@
             "[CorruptedBlood|Corrupted Blood] deals 25% of your [Strength] as\n[Physical] Damage per second",
             "[CorruptedBlood|Corrupted Blood] duration is 5 seconds",
             "Supported [Warcry|Warcries] inflict [CorruptedBlood|Corrupted Blood]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Corrupting Cry II",
@@ -3894,7 +3863,8 @@
             "[CorruptedBlood|Corrupted Blood] deals 25% of your [Strength] as\n[Physical] Damage per second",
             "[CorruptedBlood|Corrupted Blood] duration is 5 seconds",
             "Supported [Warcry|Warcries] inflict [CorruptedBlood|Corrupted Blood]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Coursing Current",
@@ -3925,7 +3895,8 @@
         "Cost": null,
         "StatText": [
             "[Trigger] Coursing Current when a [HitDamage|Hit] from Supported Skills [Shock|Shocks]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Crackling Barrier",
@@ -3952,7 +3923,8 @@
         "Cost": null,
         "StatText": [
             "Gain 15% of your maximum Mana as [Lightning] [Thorns] Damage while [Channelling] Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Crater",
@@ -3984,7 +3956,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills create 3 Fissures on landing"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Crazed Minions",
@@ -4011,7 +3984,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Minion|Minions] deal 30% more Damage if they have [Reviving|Revived] [Recently]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Creeping Chill",
@@ -4040,7 +4014,8 @@
         "Cost": null,
         "StatText": [
             "Consume a [Charges|Power Charge] to [Trigger] Creeping Chill on an [IceCrystals|Ice Crystal] created by Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Crescendo I",
@@ -4068,7 +4043,8 @@
         "Cost": null,
         "StatText": [
             "[FinalStrike|Final Strike] of Supported Skills can\nbe performed twice in succession"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Crescendo II",
@@ -4097,7 +4073,8 @@
         "StatText": [
             "[FinalStrike|Final Strike] of Supported Skills can\nbe performed twice in succession",
             "[Attack|Attacks] with Supported Skills that are not [FinalStrike|Final Strikes] have 15% more [Attack] Speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Crescendo III",
@@ -4125,7 +4102,8 @@
         "Cost": null,
         "StatText": [
             "[FinalStrike|Final Strike] of Supported Skill is [AncestralBoost|Ancestrally Boosted]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Crystalline Shards",
@@ -4152,7 +4130,8 @@
             "Supported Skills cannot Extract [Impale]",
             "[IceCrystals|Ice Crystals] created by Supported Skills can [Impale] with [Cold] [HitDamage|Damage] as though it was [Physical]",
             "[IceCrystals|Ice Crystals] created by Supported Skills have 100% chance to [Impale]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Culling Strike I",
@@ -4178,7 +4157,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have [CullingStrike|Culling Strike] against [Rarity|Rare or Unique] Enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Culling Strike II",
@@ -4205,7 +4185,8 @@
         "StatText": [
             "Gain 20% increased [CullingStrike|Culling Strike] Threshold for 20 seconds on [CullingStrike|Culling] with Supported Skills",
             "Supported Skills have [CullingStrike|Culling Strike] against [Rarity|Rare or Unique] Enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Culmination I",
@@ -4235,7 +4216,8 @@
             "Supported Skills lose [Combo] if you\ngenerate no [Combo] for 4 seconds",
             "Supported Skills can gain up to 10 [Combo]\nSupported Skills lose all [Combo] on use",
             "Supported Skills deal 3% more Damage per [Combo]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Culmination II",
@@ -4266,7 +4248,8 @@
             "[Combo] count loss for Supported Skills occurs 50% slower",
             "Supported Skills can gain up to 20 [Combo]\nSupported Skills lose all [Combo] on use",
             "Supported Skills deal 2% more Damage per [Combo]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Cursed Ground",
@@ -4293,7 +4276,8 @@
         "StatText": [
             "Supported Skills create [Curse|Cursed] Ground\nEnemies on the [Curse|Cursed] Ground from a Supported Skill are [Curse|Cursed] while within it",
             "Maximum 2 areas of [Curse|Cursed] Ground"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Danse Macabre",
@@ -4320,7 +4304,8 @@
             "Supported [Offering] Skills have 30% increased [Buff] effect",
             "Supported [Offering] Skills target an additional skeletal [Minion]\nSupport Effects are only applied if an additional skeletal [Minion] is targeted",
             "Supported [Offering] Skills deal 30% more Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Daresso's Passion",
@@ -4345,7 +4330,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills require 50% less [Glory] to use"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Dauntless",
@@ -4370,7 +4356,8 @@
         "StatText": [
             "Supported Skills cannot be used unless you have been stationary for 1.5 seconds\nThis timer resets when you move",
             "Supported Skills deal 3% more Damage with [HitDamage|Hits] for each quarter second you have been stationary, up to 45%\nThis Damage bonus resets when you move"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Daze",
@@ -4393,7 +4380,8 @@
         "Description": null,
         "BaseCastTime": null,
         "Cost": null,
-        "StatText": null
+        "StatText": null,
+        "GemType": "support"
     },
     {
         "Gem": "Dazing Cry",
@@ -4418,7 +4406,8 @@
         "StatText": [
             "Supported Skills [Daze|Daze] Enemies",
             "[Daze|Daze] lasts for 4.0 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Dazzle",
@@ -4443,7 +4432,8 @@
         "StatText": [
             "Supported Skills cannot inflict [Daze]",
             "[Daze|Dazed] Enemies cannot [Evasion|Evade] [HitDamage|Hits] from Supported Skills\nSupported Skills [Consume] [Daze] on [HitDamage|Hit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Deadly Herald",
@@ -4469,7 +4459,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal 30% more Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Deadly Poison I",
@@ -4496,7 +4487,8 @@
         "StatText": [
             "Supported Skills deal 25% less Damage with [HitDamage|Hits]",
             "75% more [BuffMagnitude|Magnitude] of [Poison] inflicted with Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Deadly Poison II",
@@ -4523,7 +4515,8 @@
         "StatText": [
             "Supported Skills deal 30% less Damage with [HitDamage|Hits]",
             "100% more [BuffMagnitude|Magnitude] of [Poison] inflicted with Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Deadly Resolve",
@@ -4558,7 +4551,8 @@
             "Stage duration is 10 seconds",
             "Gain a stage every 1 second",
             "3 maximum stages"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Deathmarch",
@@ -4585,7 +4579,8 @@
         "Cost": null,
         "StatText": [
             "[Minion|Minions] from Supported Skills heal [Allies|Allied] [Minion|Minions] within 3 metres for 25% of Supported [Minion|Minions'] life on death, as well as removing all [Ailments] from those [Minion|Minions]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Decaying Hex",
@@ -4612,7 +4607,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills inflict Decay, dealing 100% of [Intelligence] as [Chaos] damage per second for 8 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Deep Cuts I",
@@ -4639,7 +4635,8 @@
         "StatText": [
             "75% more [BuffMagnitude|Magnitude] of [Bleeding] inflicted with Supported Skills",
             "Supported Skills deal 25% less Damage with [HitDamage|Hits]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Deep Cuts II",
@@ -4666,7 +4663,8 @@
         "StatText": [
             "100% more [BuffMagnitude|Magnitude] of [Bleeding] inflicted with Supported Skills",
             "Supported Skills deal 30% less Damage with [HitDamage|Hits]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Deep Freeze",
@@ -4692,7 +4690,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 50% increased [Freeze] Duration on Enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Defy I",
@@ -4718,7 +4717,8 @@
         "Cost": null,
         "StatText": [
             "[Attack] Damage with [HitDamage|Hits] with Supported Skills is [Lucky] while you are [Surrounded]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Defy II",
@@ -4745,7 +4745,8 @@
         "StatText": [
             "[Attack] Damage with [HitDamage|Hits] with Supported Skills is [Lucky] while you are [Surrounded]",
             "Insufficient Mana doesn't prevent the use of Supported Skills while [Surrounded]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Delayed Gratification",
@@ -4771,7 +4772,8 @@
         "StatText": [
             "Supported [Conditional] Skills can be used an additional time within 10 seconds of using them after meeting their requirements",
             "[Conditional] requirements of Supported Skills are 150% harder to meet"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Delayed Reaction",
@@ -4799,7 +4801,8 @@
             "[Hazard|Hazards] created by Supported Skills cannot be triggered by enemies unless triggered immediately on creation\n[Hazard|Hazards] created by Supported Skills trigger at\nthe end of their duration",
             "[Hazard|Hazards] created by Supported Skills deal 15% more Damage",
             "[Hazard|Hazards] created by Supported Skills have 70% less duration"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Deliberation",
@@ -4825,7 +4828,8 @@
         "StatText": [
             "Supported Skills deal 20% more Damage",
             "30% more Movement Speed penalty while\nusing Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Derange",
@@ -4851,7 +4855,8 @@
         "StatText": [
             "Supported Skills gain an [EnergyShield|Energy Shield] cost\nequal to your [Intelligence]",
             "Supported Skills deal 8% more\nnon-[DamagingAilments|Ailment] Damage over time per 100 [Intelligence]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Desperation",
@@ -4876,7 +4881,8 @@
         "Cost": null,
         "StatText": [
             "Insufficient Mana doesn't prevent the use of Supported Skills while [Surrounded]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Devastate",
@@ -4899,7 +4905,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills Fully Break [Armour] when inflicting a [HeavyStun|Heavy Stun]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Dialla's Desire",
@@ -4924,7 +4931,8 @@
         "StatText": [
             "+1 to Level of Supported Skill Gems",
             "+10% to [Quality] of Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Direstrike I",
@@ -4951,7 +4959,8 @@
         "Cost": null,
         "StatText": [
             "Deal 50% increased [Attack] Damage while on [LowLife|Low Life] while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Direstrike II",
@@ -4978,7 +4987,8 @@
         "Cost": null,
         "StatText": [
             "Deal 70% increased [Attack] Damage while on [LowLife|Low Life] while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Doedre's Undoing",
@@ -5012,7 +5022,8 @@
             "[Curse|Cursed] Ground created by Supported Skills counts as a [Hazard]",
             "Maximum 2 areas of [Curse|Cursed] Ground",
             "[Curse|Cursed] Ground created by Supported Skills triggers Doedre's Dark Design when Enemies enter"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Dominus' Grasp",
@@ -5038,7 +5049,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Chain|Chain] 100% more times"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Double Barrel I",
@@ -5066,7 +5078,8 @@
         "StatText": [
             "Supported Skills have 30% less Reload Speed",
             "Supported Skills load an additional bolt"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Double Barrel II",
@@ -5094,7 +5107,8 @@
         "StatText": [
             "Supported Skills have 20% less Reload Speed",
             "Supported Skills load an additional bolt"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Double Barrel III",
@@ -5123,7 +5137,8 @@
             "Supported Skills reload automatically when [HeavyStun|Heavy Stunning] an enemy with them",
             "Supported Skills have 20% less Reload Speed",
             "Supported Skills load an additional bolt"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Drain Ailments",
@@ -5149,7 +5164,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Consume] all [Ailments] of a random type on the target when inflicting damage over time [Debuff|Debuffs], causing the [Debuff] to deal 35% more damage if any [Ailments] were consumed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Dreamer's Knell",
@@ -5179,7 +5195,8 @@
         "Cost": null,
         "StatText": [
             "[DNT-UNUSED] Supported Skills create a Bell for every 2 [Combo] expended when expending [Combo]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Durability",
@@ -5204,7 +5221,8 @@
         "Cost": null,
         "StatText": [
             "Objects created by Supported Skills can be [HitDamage|Hit] +2 times"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Echoing Cry",
@@ -5236,7 +5254,8 @@
             "Supported Skills deal 40% less Damage",
             "Supported Skills count enemies as having 50% less [Power]",
             "Supported Skills have 100% more area of effect per time they have Echoed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Efficiency I",
@@ -5261,7 +5280,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 30% less Cost"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Efficiency II",
@@ -5286,7 +5306,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 40% less Cost"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Einhar's Beastrite",
@@ -5314,7 +5335,8 @@
         "StatText": [
             "Supported Skills can only Damage [LowLife|Low Life] Enemies",
             "[KillingBlow|Killing Blows] from Supported [Strike|Strike] Skills against [Rarity|Rare] monsters grant two of their [MonsterModifiers|Modifiers] for 300 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Electrocute",
@@ -5341,7 +5363,8 @@
         "StatText": [
             "[Lightning] Damage from Supported Skills [Contributes] to [Electrocute|Electrocution] Buildup",
             "Supported Skills Cannot inflict [Shock|Shock]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Electromagnetism",
@@ -5373,7 +5396,8 @@
         "Cost": null,
         "StatText": [
             "On [Shock|Shocking] an enemy where there are at least 3\n[Shock|Shocked] enemies within 4 metres that are not already\nin a Shocking Rift, Supported Skills [Consume] [Shock] of\nall enemies within 4 metres to trigger Shocking Rift"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Elemental Armament I",
@@ -5399,7 +5423,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal 20% more [ElementalDamage|Elemental] [Attack] damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Elemental Armament II",
@@ -5425,7 +5450,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal 25% more [ElementalDamage|Elemental] [Attack] damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Elemental Armament III",
@@ -5452,7 +5478,8 @@
         "StatText": [
             "Supported Skills cannot inflict [ElementalAilments|Elemental Ailments]",
             "Supported Skills deal 12% more [Attack] Damage for each [ElementalAilments|Elemental Ailment] on Enemies they [HitDamage|Hit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Elemental Army",
@@ -5478,7 +5505,8 @@
         "Cost": null,
         "StatText": [
             "[Minion|Minions] from Supported Skills have +30% to all Elemental [Resistances]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Elemental Discharge",
@@ -5512,7 +5540,8 @@
         "StatText": [
             "Supported Skills Cannot inflict [Freeze], [Shock] or [Ignite]",
             "Supported Skills [Consume] [Freeze], [Shock] and [Ignite] on hit to trigger Elemental Discharge"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Elemental Focus",
@@ -5538,7 +5567,8 @@
         "StatText": [
             "Supported Skills cannot inflict [ElementalAilments|Elemental Ailments]",
             "Supported Skills deal 25% more [ElementalDamage|Elemental Damage]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Embitter",
@@ -5564,7 +5594,8 @@
         "Cost": null,
         "StatText": [
             "If Supported Skills would [Gain|gain extra] [HitDamage|Damage] of any [DamageTypes|Type] other than [Cold], they [Gain|gain extra] [Cold|Cold Damage] instead"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Empowered Sparks I",
@@ -5588,7 +5619,8 @@
         "Description": null,
         "BaseCastTime": null,
         "Cost": null,
-        "StatText": null
+        "StatText": null,
+        "GemType": "support"
     },
     {
         "Gem": "Empowered Sparks II",
@@ -5612,7 +5644,8 @@
         "Description": null,
         "BaseCastTime": null,
         "Cost": null,
-        "StatText": null
+        "StatText": null,
+        "GemType": "support"
     },
     {
         "Gem": "Encroaching Ground",
@@ -5638,7 +5671,8 @@
         "Cost": null,
         "StatText": [
             "Ground Surfaces created by Supported Skills gain 20% increased Area of Effect per second, up to a maximum of 100%"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Enduring Impact I",
@@ -5664,7 +5698,8 @@
         "StatText": [
             "30% chance to gain an [Charges|Endurance Charge] when [HeavyStun|Heavily Stunning] a non-Unique Enemy with Supported Skills",
             "Gain 1 [Charges|Endurance Charge] on [HeavyStun|Heavily Stunning] a Unique Enemy with Supported Skill"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Enduring Impact II",
@@ -5690,7 +5725,8 @@
         "StatText": [
             "30% chance to gain an [Charges|Endurance Charge] when [HeavyStun|Heavily Stunning] a non-Unique Enemy with Supported Skills",
             "Gain 3 [Charges|Endurance Charges] on [HeavyStun|Heavily Stunning] a Unique Enemy with Supported Skill"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Energy Barrier",
@@ -5713,7 +5749,8 @@
         "Cost": null,
         "StatText": [
             "[EnergyShield|Energy Shield] Recharge begins immediately and is not interrupted by Damage for 2 seconds when [Stun|Stunned] while using Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Energy Capacitor",
@@ -5738,7 +5775,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Meta] Gems have 80% increased Maximum [Energy]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Energy Retention",
@@ -5764,7 +5802,8 @@
         "Cost": null,
         "StatText": [
             "Skills Triggered by Supported [Meta] Skills\nhave 35% chance to refund half of their [Energy] cost"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Enervation",
@@ -5787,7 +5826,8 @@
         "Cost": null,
         "StatText": [
             "Regenerate 3.8 Mana per second for 4 seconds when a Supported Skill Shocks an enemy"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Enraged Warcry I",
@@ -5813,7 +5853,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Warcry|Warcries] spend 20 [Rage] to bypass their Cooldown, instead of an [Charges|Endurance Charge]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Enraged Warcry II",
@@ -5839,7 +5880,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Warcry|Warcries] spend 15 [Rage] to bypass their Cooldown, instead of an [Charges|Endurance Charge]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Eonyr's Thunder",
@@ -5866,7 +5908,8 @@
         "StatText": [
             "[Lightning] Damage from Supported Skills [Contributes] to [Electrocute|Electrocution] Buildup",
             "Supported Skills Cannot inflict [Shock|Shock]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Escalating Poison",
@@ -5893,7 +5936,8 @@
         "StatText": [
             "Targets can be affected by +1 [Poison|Poisons] from Supported Skills at the same time",
             "Supported Skills have 20% less [Poison|Poison] Duration"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Esh's Radiance",
@@ -5920,7 +5964,8 @@
         "StatText": [
             "[Chaos] Damage from [HitDamage|Hits] with Supported Skills also [Contributes|Contributes] to [Shock] Chance",
             "Supported Skills [Gain] 40% of [Lightning] Damage as Extra [Chaos] Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Essence Harvest",
@@ -5947,7 +5992,8 @@
         "Cost": null,
         "StatText": [
             "[Recoup] 8% of your maximum Mana when a [Persistent] [Reviving] [Minion] created by Supported Skill dies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Eternal Flame I",
@@ -5974,7 +6020,8 @@
         "StatText": [
             "Supported Skills have 100% increased [Ignite] Duration on Enemies",
             "Supported Skills have 25% less [Flammability] [BuffMagnitude|Magnitude]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Eternal Flame II",
@@ -6000,7 +6047,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 100% increased [Ignite] Duration on Enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Eternal Flame III",
@@ -6026,7 +6074,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 20% chance to refresh [Ignite] duration on [Critical|Critical Hit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Eternal Mark",
@@ -6052,7 +6101,8 @@
         "Cost": null,
         "StatText": [
             "[Mark|Marks] from Supported Skills are not [Consume|Consumed] the\nfirst time they [MarkActivate|Activate]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Excise",
@@ -6078,7 +6128,8 @@
         "StatText": [
             "Supported Skills have 40% more chance to [Critical|Critically Hit]",
             "Supported Skills have a Cooldown of 8 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Excoriate",
@@ -6104,7 +6155,8 @@
         "StatText": [
             "Supported Skills cannot inflict [ElementalAilments|Elemental Ailments]",
             "Supported Skills deal 10% more [Melee] Damage for each [ElementalAilments|Elemental Ailment] on Enemies they [HitDamage|Hit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Execrate",
@@ -6130,7 +6182,8 @@
         "StatText": [
             "Supported Skills have 100% more chance to inflict [Ailments]",
             "Supported Skills have a Cooldown of 8 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Execute I",
@@ -6155,7 +6208,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal 40% more Damage with [HitDamage|Hits] against Enemies that are on [LowLife|Low Life]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Execute II",
@@ -6180,7 +6234,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal 50% more Damage with [HitDamage|Hits] against Enemies that are on [LowLife|Low Life]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Execute III",
@@ -6206,7 +6261,8 @@
         "StatText": [
             "Supported Skills deal 30% more Damage with [HitDamage|Hits] while you are on [LowLife|Low Life]",
             "Supported Skills deal 30% more Damage with [HitDamage|Hits] against Enemies that are on [LowLife|Low Life]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Expand",
@@ -6234,7 +6290,8 @@
         "StatText": [
             "Supported Spells gain a Seal every 200% of cast time, to a maximum of 3 Seals\nSupported Spells are Unsealed when cast, and their area of effect is increased for each Seal lost",
             "Supported Skills have 30% increased area of effect for each Seal lost"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Expanse",
@@ -6261,7 +6318,8 @@
         "StatText": [
             "Supported Skills have 50% increased Area of Effect",
             "Supported Skills have a Cooldown of 8 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Exploit Weakness",
@@ -6288,7 +6346,8 @@
         "StatText": [
             "Supported Skills cannot [ArmourBreak|Break Armour]",
             "Supported Skills [Consume|Consume] Enemy [ArmourBreak|Fully Broken Armour] to deal 40% more Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Exposing Cry",
@@ -6315,7 +6374,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills apply [Exposure] on [HitDamage|Hit] for 5 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Extraction",
@@ -6343,7 +6403,8 @@
         "StatText": [
             "Supported Skills [Gain] 35% of Damage as extra [Chaos] Damage",
             "Supported Skills [Sacrifice] 10% of Life on use"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fan The Flames",
@@ -6373,7 +6434,8 @@
         "Cost": null,
         "StatText": [
             "[Trigger] Fan the Flames when [HitDamage|Hitting] an [Ignite|Ignited] enemy with Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fan The Flames II",
@@ -6403,7 +6465,8 @@
         "Cost": null,
         "StatText": [
             "[Trigger] Fan the Flames when [HitDamage|Hitting] an [Ignite|Ignited] enemy with Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Feeding Frenzy I",
@@ -6430,7 +6493,8 @@
         "StatText": [
             "[Minion|Minions] from Supported Skills deal 30% more Damage",
             "[Minion|Minions] from Supported Skills take 20% more Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Feeding Frenzy II",
@@ -6457,7 +6521,8 @@
         "StatText": [
             "[Minion|Minions] from Supported Skills deal 30% more Damage",
             "[Minion|Minions] from Supported Skills take 15% more Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ferocity",
@@ -6481,7 +6546,8 @@
         "StatText": [
             "Supported Skills cannot generate [Charges|Frenzy Charges]",
             "Supported Skills will consume a [Charges|Frenzy Charge] on use if possible\nSupported Skills have 40% more [SkillSpeed|Skill Speed] when consuming [Charges|Frenzy Charges]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fiery Death",
@@ -6511,7 +6577,8 @@
         "Cost": null,
         "StatText": [
             "Enemies [Ignite|Ignited] by Supported Skills have 60% chance to\nexplode on death"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fire Attunement",
@@ -6539,7 +6606,8 @@
         "StatText": [
             "Supported [Attack|Attacks] [Gain] 25% of Damage as extra [Fire|Fire] Damage",
             "Supported [Attack|Attacks] deal 50% less [Cold|Cold] and [Lightning|Lightning] Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fire Exposure",
@@ -6566,7 +6634,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills inflict [Exposure] for 8 seconds on [Ignite|Igniting] a target"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fire Mastery",
@@ -6592,7 +6661,8 @@
         "Cost": null,
         "StatText": [
             "+1 to Level of Supported [Fire] Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fire Penetration I",
@@ -6618,7 +6688,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Penetration|Penetrate] 30% [Resistances|Fire Resistance]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fire Penetration II",
@@ -6644,7 +6715,8 @@
         "Cost": null,
         "StatText": [
             "[HitDamage|Hits] from Supported Skills ignore enemy [Fire|Fire Resistance]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "First Blood",
@@ -6669,7 +6741,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 100% increased chance to inflict [Bleeding] against Enemies on full Life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fist of War I",
@@ -6697,7 +6770,8 @@
         "Cost": null,
         "StatText": [
             "[Attack|Attacks] with Supported Skill are [AncestralBoost|Ancestrally Boosted], no more than once every 6 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fist of War II",
@@ -6725,7 +6799,8 @@
         "Cost": null,
         "StatText": [
             "[Attack|Attacks] with Supported Skill are [AncestralBoost|Ancestrally Boosted], no more than once every 4 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fist of War III",
@@ -6754,7 +6829,8 @@
         "StatText": [
             "[Attack|Attacks] with Supported Skill are [AncestralBoost|Ancestrally Boosted], no more than once every 14 seconds",
             "[AncestralBoost|Ancestral Boost] has double effect on Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Flame Pillar",
@@ -6783,7 +6859,8 @@
             "Maximum 10 Flame Pillars",
             "Supported Skills cannot [Ignite]",
             "Supported Skills [Consume] [Ignite] on Enemies they [HitDamage|Hit], creating a Flame Pillar"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Flamepierce",
@@ -6809,7 +6886,8 @@
         "StatText": [
             "[Projectile|Projectiles] from Supported Skills [Pierce] [Ignite|Ignited] Enemies",
             "Supported Skills cannot [Ignite]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Flow",
@@ -6832,7 +6910,8 @@
         "Cost": null,
         "StatText": [
             "[Combo] count loss for Supported Skills occurs 60% slower"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fluke",
@@ -6859,7 +6938,8 @@
         "StatText": [
             "Skills [Trigger|Triggered] by Supported Skills recover between 0% and 20% of cost on use",
             "Skills [Trigger|Triggered] by Supported Skills deal between 40% less and 60% more Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Focused Curse",
@@ -6885,7 +6965,8 @@
         "Cost": null,
         "StatText": [
             "[Curse] zones from Supported\nSkills erupt after 50% less delay"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Font of Blood",
@@ -6911,7 +6992,8 @@
         "Cost": null,
         "StatText": [
             "[Totem|Totems] created by Supported Skills create a Blood Font with a radius of 4 metres\n[Allies] in Blood Fonts [LifeLeech|Leech Life] equal to 12% of [Physical] Damage dealt by Supported [Totem]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Font of Mana",
@@ -6937,7 +7019,8 @@
         "Cost": null,
         "StatText": [
             "[Totem|Totems] created by Supported Skills create a Mana Font with a radius of 4 metres\n[Allies] in Mana Fonts [ManaLeech|Leech Mana] equal to 12% of [Physical] Damage dealt by Supported [Totem]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Font of Rage",
@@ -6959,7 +7042,8 @@
         "Description": null,
         "BaseCastTime": null,
         "Cost": null,
-        "StatText": null
+        "StatText": null,
+        "GemType": "support"
     },
     {
         "Gem": "Fork",
@@ -6986,7 +7070,8 @@
         "StatText": [
             "[Projectile|Projectiles] from Supported Skills [Fork]",
             "[Projectile|Projectiles] from Supported Skills deal\n30% less Damage after [Fork|Forking]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fortress I",
@@ -7012,7 +7097,8 @@
         "StatText": [
             "Supported Skills deal 40% less damage with [HitDamage|Hits]",
             "Walls from Supported Skills are created in a Circle instead"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fortress II",
@@ -7039,7 +7125,8 @@
             "Supported Skills have 20% less Area of Effect",
             "Supported Skills deal 30% less damage with [HitDamage|Hits]",
             "Walls from Supported Skills are created in a Circle instead"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Freeze",
@@ -7065,7 +7152,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills cause 50% more [Freeze|Freeze] Buildup"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Freezefork",
@@ -7091,7 +7179,8 @@
         "StatText": [
             "Supported Skills [Fork] when hitting [Frozen] Enemies",
             "Supported Skills cannot cause [Freeze] buildup"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Frenzied Riposte",
@@ -7117,7 +7206,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Consume] [Parry|Parried] Debuff on [HitDamage|Hit] to grant a [Charges|Frenzy Charge]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fresh Clip I",
@@ -7142,7 +7232,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Crossbow] Skills deal 1% more Damage for\neach bolt Reloaded by that skill in the past 6 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fresh Clip II",
@@ -7167,7 +7258,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Crossbow] Skills deal 1% more Damage for\neach bolt Reloaded by that skill in the past 8 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Frost Nexus",
@@ -7194,7 +7286,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills create [ChilledGround|Chilled Ground] for 8 seconds when they [Freeze|Freeze] an Enemy"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Frostfire",
@@ -7225,7 +7318,8 @@
             "Supported Skills cannot cause [Freeze] buildup",
             "Supported Skills [Consume|Consume] [Freeze|Freeze] from Enemies they [Ignite|Ignite]",
             "25% more [BuffMagnitude|Magnitude] of [Ignite|Ignite] inflicted on [Frozen|Frozen] [Rarity|Unique] enemies with Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Frozen Spite",
@@ -7255,7 +7349,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills trigger Ice Fragments on killing [Frozen] Enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Frozen Vortex",
@@ -7283,7 +7378,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Trigger] Frozen Vortex on [Shatter|Shattering] an Enemy"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Fusillade",
@@ -7312,7 +7408,8 @@
             "Supported Skills fire an Arrow upwards which then hits the Ground",
             "Supported Skills can only be used with Bows",
             "Supported Skills have 20% less [SkillSpeed|Skill Speed]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Gambleshot",
@@ -7339,7 +7436,8 @@
         "StatText": [
             "[Projectile|Projectiles] fired by Supported Skills [Fork], [Chain] an additional time, or [Pierce] an additional time at random",
             "[Projectile|Projectiles] from Supported Skills deal 15% less Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Garukhan's Resolve",
@@ -7365,7 +7463,8 @@
         "StatText": [
             "[Critical|Attack Critical Hit Chance] with Supported Skills [ForksCrit|Bifurcates]",
             "Maximum [Critical|Critical Hit chance] with Supported Skills is 50%"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Glacier",
@@ -7390,7 +7489,8 @@
         "Cost": null,
         "StatText": [
             "[IceCrystals|Ice Crystals] created by Supported Skills have 100% more Life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Gorge",
@@ -7416,7 +7516,8 @@
         "StatText": [
             "Supported Skills grant 10 Life [Flask] Charges for each [Corpse] Consumed",
             "Supported Skills grant 10 Mana [Flask] Charges for each [Corpse] Consumed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Greatwood II",
@@ -7446,7 +7547,8 @@
             "[Totem|Totems] created by Supported Skills have 30% more Life",
             "Supported [Totem|Totems] can gain benefits for having up\nto 6 [Totem|Totems] in effect radius",
             "Counts allied [Totem|Totems] in radius of 4 metres"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Guatelitzi's Ablation",
@@ -7472,7 +7574,8 @@
             "When an [Offering] from Supported Skills dies, Regenerate 5% of your Life and Mana per second, for as long as that [Offering] was alive",
             "Supported Skills [Sacrifice] 25% of Life on use",
             "[Offering|Offerings] from Supported Skills grant you a [Charges|Power Charge] every 4 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Haemocrystals",
@@ -7505,7 +7608,8 @@
             "Supported Skills [Consume] [Bleeding] on Enemies they [HitDamage|Hit], creating 4 Haemocrystals",
             "Supported Skills create 2 additional Haemocrystals when [Consume|Consuming] [Aggravate|Aggravated Bleeding]",
             "Maximum 20 active Haemocrystals"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Hardy Totems I",
@@ -7531,7 +7635,8 @@
         "Cost": null,
         "StatText": [
             "[Totem|Totems] created by Supported\nSkills have 40% more maximum Life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Hardy Totems II",
@@ -7557,7 +7662,8 @@
         "Cost": null,
         "StatText": [
             "[Totem|Totems] created by Supported\nSkills have 50% more maximum Life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Harmonic Remnants I",
@@ -7583,7 +7689,8 @@
         "Cost": null,
         "StatText": [
             "[Remnant|Remnants] created by Supported Skills can be collected from 35% further away"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Harmonic Remnants II",
@@ -7610,7 +7717,8 @@
         "StatText": [
             "20% chance for Supported Skills to create an additional [Remnant]",
             "[Remnant|Remnants] created by Supported Skills can be collected from 35% further away"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Hayoxi's Fulmination",
@@ -7646,7 +7754,8 @@
             "Supported Skills create [Curse|Cursed] Ground\nEnemies on the [Curse|Cursed] Ground from a Supported Skill are [Curse|Cursed] while within it",
             "Maximum 2 areas of [Curse|Cursed] Ground",
             "Trigger Annihilation when [Curse|Cursed] Ground from Supported Skills have persisted for 7 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Heavy Swing",
@@ -7675,7 +7784,8 @@
         "StatText": [
             "Supported Skills deal 35% more [Melee] [Physical] Damage",
             "Supported Skills have 10% less [Attack] Speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Heft",
@@ -7701,7 +7811,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal 30% more Maximum [Physical] [HitDamage|Hit] Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Heightened Accuracy I",
@@ -7727,7 +7838,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 50% more [Accuracy|Accuracy Rating]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Heightened Accuracy II",
@@ -7754,7 +7866,8 @@
         "StatText": [
             "Supported Skills [Accuracy|Always Hit] Enemies on full Life",
             "Supported Skills have 50% more [Accuracy|Accuracy Rating]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Heightened Charges",
@@ -7779,7 +7892,8 @@
         "Cost": null,
         "StatText": [
             "Benefits from consuming [Charges] for Supported Skill have 20% chance to be doubled"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Heightened Curse",
@@ -7805,7 +7919,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Curse|Curses] have 25% increased [BuffMagnitude|Magnitudes]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Helbrym's Hide",
@@ -7829,7 +7944,8 @@
         "Description": null,
         "BaseCastTime": null,
         "Cost": null,
-        "StatText": null
+        "StatText": null,
+        "GemType": "support"
     },
     {
         "Gem": "Herbalism I",
@@ -7856,7 +7972,8 @@
         "Cost": null,
         "StatText": [
             "30% Increased Recovery from Life [Flask|Flasks] while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Herbalism II",
@@ -7883,7 +8000,8 @@
         "Cost": null,
         "StatText": [
             "50% Increased Recovery from Life [Flask|Flasks] while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Hex Bloom",
@@ -7910,7 +8028,8 @@
         "Cost": null,
         "StatText": [
             "[Curse|Curses] from Supported Skills spread to enemies within 3 metres when a [Curse|Cursed] enemy dies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Hinder",
@@ -7935,7 +8054,8 @@
         "Cost": null,
         "StatText": [
             "[Chaos] damage over time inflicted by Supported Skills also [Hinder|Hinders] enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Hit and Run",
@@ -7963,7 +8083,8 @@
         "StatText": [
             "Supported Skills become usable after you have moved 10 metres\nSupported Skills become unusable again after use",
             "Supported Skills have 40% more [SkillSpeed|Skill Speed]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Hoarfrost",
@@ -7990,7 +8111,8 @@
         "Description": null,
         "BaseCastTime": null,
         "Cost": null,
-        "StatText": null
+        "StatText": null,
+        "GemType": "support"
     },
     {
         "Gem": "Hobble",
@@ -8012,7 +8134,8 @@
         "Description": null,
         "BaseCastTime": null,
         "Cost": null,
-        "StatText": null
+        "StatText": null,
+        "GemType": "support"
     },
     {
         "Gem": "Holy Descent",
@@ -8040,7 +8163,8 @@
         "StatText": [
             "Supported Skills create [ConsecratedGround|Consecrated Ground] for 4 seconds on landing",
             "Supported Skills create [ConsecratedGround|Consecrated Ground] in an area of 2.2 metres"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Hourglass",
@@ -8066,7 +8190,8 @@
         "StatText": [
             "Supported Skills deal 30% more Damage",
             "Supported Skills have a Cooldown of 10 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Hulking Minions",
@@ -8093,7 +8218,8 @@
         "Cost": null,
         "StatText": [
             "[Minion|Minions] from Supported Skills are [Gigantic]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ice Bite I",
@@ -8122,7 +8248,8 @@
         "Cost": null,
         "StatText": [
             "[Attack|Attacks] [Gain] 25% of Damage as [Cold] Damage for 5 seconds on [Freeze|Freezing] an enemy with Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ice Bite II",
@@ -8151,7 +8278,8 @@
         "Cost": null,
         "StatText": [
             "[Attack|Attacks] [Gain] 30% of Damage as [Cold] Damage for 6 seconds on [Freeze|Freezing] an enemy with Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Icicle",
@@ -8176,7 +8304,8 @@
         "Cost": null,
         "StatText": [
             "[IceCrystals|Ice Crystals] created by Supported Skills have 50% less Life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ignite I",
@@ -8202,7 +8331,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 100% more [Flammability] [BuffMagnitude|Magnitude]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ignite II",
@@ -8228,7 +8358,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 150% more [Flammability] [BuffMagnitude|Magnitude]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ignite III",
@@ -8255,7 +8386,8 @@
         "StatText": [
             "[Ignite|Ignites] from Supported Skills deal Damage 15% faster",
             "Supported Skills have 200% more [Flammability] [BuffMagnitude|Magnitude]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Immolate",
@@ -8283,7 +8415,8 @@
         "StatText": [
             "Supported Skills cannot [Ignite]",
             "Supported [Attack|Attacks] [Gain] 30% of Damage as extra [Fire|Fire] Damage against [Ignite|Ignited] enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Impact Shockwave",
@@ -8312,7 +8445,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills cause an [Aftershock] when they [HeavyStun|Heavy Stun] an enemy, Damaging other enemies within 1.5 metres\n[Aftershock|Aftershocks] caused this way cannot [Stun]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Impale",
@@ -8340,7 +8474,8 @@
         "StatText": [
             "Supported Skills cannot Extract [Impale]",
             "Supported Skills [Impale] Enemies on [HitDamage|Hit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Impending Doom",
@@ -8370,7 +8505,8 @@
         "Cost": null,
         "StatText": [
             "Trigger Doom Blast when [Curse|Curses] from Supported Skills expire"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Incision",
@@ -8398,7 +8534,8 @@
         "StatText": [
             "[HitDamage|Hits] from Supported Skills inflict [Incision]",
             "3% more [BuffMagnitude|Magnitude] of [Bleeding] inflicted with Supported Skills per [Incision] consumed [Recently], up to 30%"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Inexorable Critical I",
@@ -8423,7 +8560,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills gain 10% increased [Critical|Critical Hit] Chance each second, up to 100%. This [Critical|Critical Hit] Chance is lost whenever a skill supported by Inexorable Critical [Critical|Critically Hits]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Inexorable Critical II",
@@ -8449,7 +8587,8 @@
         "StatText": [
             "Supported Skills gain 40% increased [Critical|Critical Hit] Chance each second, up to 200%. This [Critical|Critical Hit] Chance is lost whenever a skill supported by Inexorable Critical [Critical|Critically Hits]",
             "Supported Skills gain 10% less [CriticalDamageBonus|Critical Damage Bonus] each second, up to 50%. This [CriticalDamageBonus|Critical Damage Bonus] is lost whenever a skill supported by Inexorable Critical [Critical|Critically Hits]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Infernal Legion I",
@@ -8478,7 +8617,8 @@
         "StatText": [
             "[Minion|Minions] from Supported Skills take 20% of their maximum Life as [Fire] Damage per second",
             "[Minion|Minions] from Supported Skills [Ignite] Enemies within a radius of 1.5 metres as though dealing Base [Fire] Damage equal to 20% of [Minion|Minion's] Maximum Life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Infernal Legion II",
@@ -8507,7 +8647,8 @@
         "StatText": [
             "[Minion|Minions] from Supported Skills take 20% of their maximum Life as [Fire] Damage per second",
             "[Minion|Minions] from Supported Skills [Ignite] Enemies within a radius of 2 metres as though dealing Base [Fire] Damage equal to 20% of [Minion|Minion's] Maximum Life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Infernal Legion III",
@@ -8536,7 +8677,8 @@
         "StatText": [
             "[Minion|Minions] from Supported Skills take 30% of their maximum Life as [Fire] Damage per second",
             "[Minion|Minions] from Supported Skills [Ignite] Enemies within a radius of 2 metres as though dealing Base [Fire] Damage equal to 25% of [Minion|Minion's] Maximum Life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Infusion",
@@ -8560,7 +8702,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 30% more [Buff] effect"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Inhibitor",
@@ -8588,7 +8731,8 @@
             "Supported Skills cannot consume [ElementalInfusion|Infusions]",
             "Supported Skills cannot consume [Charges]",
             "Supported Skills deal 4% more Damage per different type of [Charges|Charge] or [ElementalInfusion|Infusion] on you"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Innervate",
@@ -8616,7 +8760,8 @@
         "Cost": null,
         "StatText": [
             "[Attack|Attacks] gain 25% of Damage as [Lightning] Damage for 5 seconds on killing a [Shock|Shocked] enemy with Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Intense Agony",
@@ -8644,7 +8789,8 @@
         "StatText": [
             "Damage over time with non-[Ailments|Ailment] [Debuff|Debuffs] inflicted on full-life enemies by Supported Skills deal 50% more damage",
             "Supported Skills have 25% less Skill Effect Duration"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Invocation",
@@ -8667,7 +8813,8 @@
         "Description": null,
         "BaseCastTime": null,
         "Cost": null,
-        "StatText": null
+        "StatText": null,
+        "GemType": "support"
     },
     {
         "Gem": "Ixchel's Torment",
@@ -8695,7 +8842,8 @@
             "Skills [Trigger|Triggered] by Supported Skills have between 40% less and 50% more Area of Effect",
             "Skills [Trigger|Triggered] by Supported Skills deal between 40% less and 60% more Damage",
             "Skills [Trigger|Triggered] by Supported Skills have between 40% less and 50% more [Projectile] Speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Jagged Ground I",
@@ -8727,7 +8875,8 @@
             "Supported Skills consume an [Charges|Endurance Charge] on Use",
             "Supported Skills create [JaggedGround|Jagged Ground] when consuming an [Charges|Endurance Charge]",
             "[JaggedGround|Jagged Ground] lasts 4 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Jagged Ground II",
@@ -8758,7 +8907,8 @@
         "StatText": [
             "[Aftershock|Aftershocks] caused by Supported Skills create [JaggedGround|Jagged Ground]",
             "[JaggedGround|Jagged Ground] lasts 4 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Kalisa's Crescendo",
@@ -8783,7 +8933,8 @@
         "StatText": [
             "Enemies [Pacify|Pacified] this way cannot be [Pacify|Pacified] again for 8 seconds",
             "Enemies affected by [Curse|Curses] from Supported Skills are [Pacify|Pacified] for the final 30% of Supported [Curse|Curse's] duration"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Kaom's Madness",
@@ -8812,7 +8963,8 @@
             "Supported Skills deal 20% less Damage",
             "Supported Skills have 20% less [SkillSpeed|Skill Speed]",
             "Supported Skills have 30% less Area of Effect"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Khatal's Rejuvenation",
@@ -8837,7 +8989,8 @@
         "Cost": null,
         "StatText": [
             "[Remnant|Remnants] created by Supported Skills grant [KhatalsRejuvenation|Khatal's Rejuvenation] when collected"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Knockback",
@@ -8863,7 +9016,8 @@
         "StatText": [
             "Supported Skills [Knockback|Knock Enemies Back] on [HitDamage|Hit]",
             "Supported Skills have 40% more [Knockback|Knockback Distance]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Kulemak's Dominion",
@@ -8887,7 +9041,8 @@
         "Cost": null,
         "StatText": [
             "[Spell|Spells] you cast which affect an area around you or a targeted location also affect an area around Supported [Offering|Offerings]\n[Spell|Spells] deal 50% less damage when affecting areas around [Offering|Offerings] this way"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Kurgal's Leash",
@@ -8914,7 +9069,8 @@
         "StatText": [
             "Gain [UnholyMight|Unholy Might] for 15 seconds on [Command|Commanding] [Minion|Minions] from Supported Skills",
             "[Minion|Minions] from Supported Skills gain [UnholyMight|Unholy Might] for 15 seconds when [Command|Commanded]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Last Gasp",
@@ -8942,7 +9098,8 @@
         "Cost": null,
         "StatText": [
             "[Minion|Minions] from Supported Skills die 4 seconds after their Life is reduced to 0"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Lasting Ground",
@@ -8965,7 +9122,8 @@
         "Cost": null,
         "StatText": [
             "50% increased duration of Ground Surfaces created by Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Lasting Shock",
@@ -8992,7 +9150,8 @@
         "StatText": [
             "Supported Skills have 100% increased [Shock] Duration",
             "Supported Skills have 30% less chance to [Shock]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Leverage",
@@ -9015,7 +9174,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 50% increased [Critical|Critical Hit] Chance against [Immobilised] Enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Life Bounty",
@@ -9038,7 +9198,8 @@
         "Cost": null,
         "StatText": [
             "Enemies killed by [HitDamage|Hits] from Supported Skills grant 100% more Life [Flask] Charges"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Life Drain",
@@ -9063,7 +9224,8 @@
         "Cost": null,
         "StatText": [
             "Recover 12% of maximum Life [NonStackingEffect|over four seconds] when Supported Skills [CullingStrike|Cull] an Enemy"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Life Leech I",
@@ -9090,7 +9252,8 @@
         "Cost": null,
         "StatText": [
             "[LifeLeech|Leech] 12% of Physical [Attack] Damage from Supported Skills as Life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Life Leech II",
@@ -9117,7 +9280,8 @@
         "Cost": null,
         "StatText": [
             "[LifeLeech|Leech] 16% of Physical [Attack] Damage from Supported Skills as Life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Life Leech III",
@@ -9145,7 +9309,8 @@
         "StatText": [
             "[LifeLeech|Leech] 16% of Physical [Attack] Damage from Supported Skills as Life",
             "[LifeLeech|Life Leeched] by Supported Skills is not removed at full Life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Lifetap",
@@ -9170,7 +9335,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have Mana Costs [StatConversion|Converted] to Life Costs"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Lightning Attunement",
@@ -9198,7 +9364,8 @@
         "StatText": [
             "Supported [Attack|Attacks] [Gain] 25% of Damage as extra [Lightning|Lightning] Damage",
             "Supported [Attack|Attacks] deal 50% less [Cold|Cold] and [Fire|Fire] Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Lightning Exposure",
@@ -9225,7 +9392,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills inflict [Exposure] for 8 seconds on [Shock|Shocking] a target"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Lightning Mastery",
@@ -9251,7 +9419,8 @@
         "Cost": null,
         "StatText": [
             "+1 to Level of Supported [Lightning] Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Lightning Penetration",
@@ -9277,7 +9446,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Penetration|Penetrate] 30% [Resistances|Lightning Resistance]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Living Lightning",
@@ -9307,7 +9477,8 @@
         "Cost": null,
         "StatText": [
             "[Trigger] Living Lightning on dealing [Lightning] Damage with Supported Skill"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Living Lightning II",
@@ -9337,7 +9508,8 @@
         "Cost": null,
         "StatText": [
             "[Trigger] Living Lightning on dealing [Lightning] Damage with Supported Skill"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Lockdown",
@@ -9360,7 +9532,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 120% more [Pinned|Pin] Buildup against enemies within 2 metres of you, scaling to no change at 12 metres"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Long Fuse I",
@@ -9387,7 +9560,8 @@
             "Supported Skills have 50% increased [DetonationTime|Detonation Time]",
             "[Grenade|Grenades] from Supported Skills cannot explode before the end of their [DetonationTime|Detonation Time]",
             "Detonations from supported Skills deal 30% more Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Long Fuse II",
@@ -9414,7 +9588,8 @@
             "Supported Skills have 70% increased [DetonationTime|Detonation Time]",
             "[Grenade|Grenades] from Supported Skills cannot explode before the end of their [DetonationTime|Detonation Time]",
             "Detonations from supported Skills deal 35% more Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Longshot I",
@@ -9440,7 +9615,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal 25% more [Attack|Attack] Damage to \nenemies further than 7 metres from you, scaling down to\nno bonus at 3.5 metres or closer"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Longshot II",
@@ -9466,7 +9642,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal 35% more [Attack|Attack] Damage to \nenemies further than 7 metres from you, scaling down to\nno bonus at 3.5 metres or closer"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Loyalty",
@@ -9493,7 +9670,8 @@
         "StatText": [
             "10% of Damage from [HitDamage|Hits] is taken from Supported [Companion]'s Life before you",
             "[Minion|Minions] from Supported Skills have 30% less maximum Life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Magnetic Remnants",
@@ -9516,7 +9694,8 @@
         "Cost": null,
         "StatText": [
             "[Remnant|Remnants] created by Supported Skills can be collected from 35% further away"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Magnified Area I",
@@ -9542,7 +9721,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 35% increased Area of Effect"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Magnified Area II",
@@ -9568,7 +9748,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 45% increased Area of Effect"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Maim",
@@ -9594,7 +9775,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Attack|Attacks] always [Maim|Maim] on [HitDamage|Hit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Malady",
@@ -9618,7 +9800,8 @@
         "StatText": [
             "Base [Bleeding] chance instead\napplies to [Poison] for Supported Skills",
             "Base [Poison] chance instead\napplies to [Bleeding] for Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Mana Bounty",
@@ -9641,7 +9824,8 @@
         "Cost": null,
         "StatText": [
             "Enemies killed by [HitDamage|Hits] from Supported Skills grant 100% more Mana [Flask] Charges"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Mana Flare",
@@ -9671,7 +9855,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills trigger Mana Flare on [Critical|Critical Hit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Mana Leech",
@@ -9698,7 +9883,8 @@
         "Cost": null,
         "StatText": [
             "[ManaLeech|Leech] 8% of Physical [Attack] Damage from Supported Skills as Mana"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Mark for Death",
@@ -9725,7 +9911,8 @@
         "Cost": null,
         "StatText": [
             "Enemies [Mark|Marked] by Supported Skills have [ArmourBreak|Armour Broken] equal to 10% of [Physical|Physical Damage] taken"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Mark for Death II",
@@ -9752,7 +9939,8 @@
         "Cost": null,
         "StatText": [
             "Enemies [Mark|Marked] by Supported Skills have [ArmourBreak|Armour Broken] equal to 15% of [Physical|Physical Damage] taken"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Mark of Siphoning",
@@ -9778,7 +9966,8 @@
         "Cost": null,
         "StatText": [
             "Enemies [Mark|Marked] by Supported Skills cause you to [ManaLeech|Leech Mana] equal to 5% of [Attack] [HitDamage|Damage] they take from your Hits"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Mark of Siphoning II",
@@ -9805,7 +9994,8 @@
         "StatText": [
             "Enemies [Mark|Marked] by Supported Skills cause you to [LifeLeech|Leech Life] equal to 5% of [Attack] [HitDamage|Damage] they take from your Hits",
             "Enemies [Mark|Marked] by Supported Skills cause you to [ManaLeech|Leech Mana] equal to 5% of [Attack] [HitDamage|Damage] they take from your Hits"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Meat Shield I",
@@ -9832,7 +10022,8 @@
         "StatText": [
             "[Minion|Minions] from Supported Skills deal 35% less Damage",
             "[Minion|Minions] from Supported Skills take 35% less Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Meat Shield II",
@@ -9859,7 +10050,8 @@
         "StatText": [
             "[Minion|Minions] from Supported Skills deal 40% less Damage",
             "[Minion|Minions] from Supported Skills take 40% less Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Minion Instability",
@@ -9886,7 +10078,8 @@
         "Cost": null,
         "StatText": [
             "[Minion|Minions] from Supported Skills explode when reduced to [LowLife|Low Life], dealing 15% of their maximum Life as [Fire] Damage to surrounding Enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Minion Mastery",
@@ -9912,7 +10105,8 @@
         "Cost": null,
         "StatText": [
             "+1 to Level of Supported [Minion] Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Minion Pact I",
@@ -9938,7 +10132,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills remove 100% of your maximum Life from a nearby [Minion] on use to deal 30% more damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Minion Pact II",
@@ -9964,7 +10159,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills remove 150% of your maximum Life from a nearby [Minion] on use to deal 35% more damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Mobility",
@@ -9989,7 +10185,8 @@
         "Cost": null,
         "StatText": [
             "25% less Movement Speed penalty while\nusing Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Momentum",
@@ -10014,7 +10211,8 @@
         "Cost": null,
         "StatText": [
             "After moving at least 2 metres during a single use of a Supported Skill, the rest of that use deals 40% more Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Morgana's Tempest",
@@ -10044,7 +10242,8 @@
             "Supported Skills have 35% less damage",
             "Supported Skills have 60% more [Storm] travel speed",
             "Supported [Storm] Skills have +1 to [Limit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Multishot I",
@@ -10072,7 +10271,8 @@
             "Supported Skills fire 2 additional [Projectile|Projectiles]",
             "Supported Skills deal 35% less Damage",
             "Supported Skills have 20% less [SkillSpeed|Skill Speed]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Multishot II",
@@ -10100,7 +10300,8 @@
             "Supported Skills fire 2 additional [Projectile|Projectiles]",
             "Supported Skills deal 25% less Damage",
             "Supported Skills have 20% less [SkillSpeed|Skill Speed]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Murderous Intent",
@@ -10123,7 +10324,8 @@
         "Cost": null,
         "StatText": [
             "Skills [Empowered] by Supported Skills have [CullingStrike|Culling Strike]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Muster",
@@ -10149,7 +10351,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Minion|Minions] deal 7% more damage for each different type of [Reviving] [Minion] you have summoned"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Mysticism I",
@@ -10176,7 +10379,8 @@
         "Cost": null,
         "StatText": [
             "Deal 30% increased [Spell] Damage while on full [EnergyShield|Energy Shield] while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Mysticism II",
@@ -10203,7 +10407,8 @@
         "Cost": null,
         "StatText": [
             "Deal 40% increased [Spell] Damage while on full [EnergyShield|Energy Shield] while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Nadir",
@@ -10228,7 +10433,8 @@
         "StatText": [
             "Supported Skills have 1 fewer Maximum Stages and Seals",
             "Minimum Stage or Seal count for Supported Skills is 1"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Neural Overload",
@@ -10254,7 +10460,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Electrocute] [PrimedElectrocution|Primed] enemies on [HitDamage|Hit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Nimble Reload",
@@ -10281,7 +10488,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 60% increased [Crossbow|Crossbow] Reload Speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Nova Projectiles I",
@@ -10307,7 +10515,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills fire [Projectile|Projectiles] in a circle"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Nova Projectiles II",
@@ -10335,7 +10544,8 @@
             "Supported Skills fire 6 additional [Projectile|Projectiles]",
             "Supported Skills fire [Projectile|Projectiles] in a circle",
             "Supported Skills deal 50% less Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Oisín's Oath",
@@ -10360,7 +10570,8 @@
         "Cost": null,
         "StatText": [
             "[ManaLeech|Mana Leech] from Supported Skills recovers based on [ElementalDamage|Elemental Damage Types] instead of [Physical] Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Opening Move",
@@ -10385,7 +10596,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Daze] when [HitDamage|Hitting] enemies that are on full life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Outmaneuver",
@@ -10409,7 +10621,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [ArmourBreak|Break Armour] on [HitDamage|Hit] against [ParriedDebuff|Parried Enemies] equal to 25% [Physical|Physical Damage] dealt"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Overabundance I",
@@ -10435,7 +10648,8 @@
         "StatText": [
             "Supported Skills have +1 to [Limit]",
             "Supported Skills have 50% less Skill Effect Duration"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Overabundance II",
@@ -10461,7 +10675,8 @@
         "StatText": [
             "Supported Skills have +1 to [Limit]",
             "Supported Skills have 40% less Skill Effect Duration"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Overabundance III",
@@ -10486,7 +10701,8 @@
         "StatText": [
             "Inflicts a random [Curse] on you when you use Supported Skills, ignoring [Curse] limit",
             "[Limit|Limits] of Supported Skills are doubled"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Overcharge",
@@ -10513,7 +10729,8 @@
         "StatText": [
             "50% increased [BuffMagnitude|Magnitude] of [Shock|Shocks] inflicted with Supported Skills",
             "[Shock|Shocks] caused by Supported Skills are reflected back to you"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Overextend",
@@ -10540,7 +10757,8 @@
         "StatText": [
             "You are [Daze|Dazed] for 5 seconds on [Critical|Critically Striking] with Supported Skill",
             "Supported Skills have 30% more [CriticalDamageBonus|Critical Damage Bonus]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Overreach",
@@ -10568,7 +10786,8 @@
         "StatText": [
             "Supported Skills have 40% increased Area of Effect",
             "Supported Skills have 80% less [Accuracy|Accuracy Rating] against Enemies within two metres"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Paquate's Pact",
@@ -10598,7 +10817,8 @@
             "[CorruptedBlood|Corrupted Blood] deals 25% of your [Strength] as\n[Physical] Damage per second",
             "[CorruptedBlood|Corrupted Blood] duration is 5 seconds",
             "Supported [Warcry|Warcries] inflict 5 [CorruptedBlood|Corrupted Blood] Debuffs"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Payload",
@@ -10625,7 +10845,8 @@
         "StatText": [
             "Supported Skills have 70% reduced [CooldownRecovery|Cooldown Recovery Rate]",
             "[Grenade|Grenades] fired by Supported Skills have 50% chance to activate a second time"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Perfected Endurance",
@@ -10651,7 +10872,8 @@
         "Cost": null,
         "StatText": [
             "Gain an [Charges|Endurance Charge] when hitting an Enemy with Supported Skill when [PerfectTiming|Perfectly Timed]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Perfection",
@@ -10676,7 +10898,8 @@
         "Cost": null,
         "StatText": [
             "Successfully executing [PerfectTiming|Perfect Timing] with Supported Skills grants [PerfectionBuff|Perfection]\nAll [PerfectionBuff|Perfection] is lost on failing to execute any [PerfectTiming|Perfect Timing]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Perpetual Charge",
@@ -10701,7 +10924,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 25% chance to not remove [Charges|Charges] but still count as consuming them"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Persistent Ground I",
@@ -10726,7 +10950,8 @@
         "Cost": null,
         "StatText": [
             "50% increased duration of Ground Surfaces created by Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Persistent Ground II",
@@ -10752,7 +10977,8 @@
         "StatText": [
             "50% increased duration of Ground Surfaces created by Supported Skills",
             "Ground Surfaces created by Supported Skills cannot be destroyed except by expiring"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Persistent Ground III",
@@ -10779,7 +11005,8 @@
             "50% increased duration of Ground Surfaces created by Supported Skills",
             "Ground Surfaces from Supported Skills apply Suppressive Ground\nSuppressive Ground inflicts 30% less [CooldownRecovery|Cooldown Recovery Rate]",
             "Ground Surfaces created by Supported Skills cannot be destroyed except by expiring"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Physical Mastery",
@@ -10805,7 +11032,8 @@
         "Cost": null,
         "StatText": [
             "+1 to Level of Supported [Physical] Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Pierce I",
@@ -10832,7 +11060,8 @@
         "StatText": [
             "[Projectile|Projectiles] from Supported Skills [Pierce] an Enemy",
             "[Projectile|Projectiles] from Supported Skills deal 20% less Damage if they've [Pierce|Pierced] an enemy"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Pierce II",
@@ -10858,7 +11087,8 @@
         "Cost": null,
         "StatText": [
             "[Projectile|Projectiles] from Supported Skills [Pierce] an Enemy"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Pierce III",
@@ -10885,7 +11115,8 @@
         "StatText": [
             "[Projectile|Projectiles] from Supported Skills [Pierce] all Targets",
             "[Projectile|Projectiles] from Supported Skills deal 20% less Damage for each Enemy they [Pierce]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Pin I",
@@ -10912,7 +11143,8 @@
         "StatText": [
             "Modifiers to [HeavyStun|Stun Buildup] for Supported Skills instead apply to [Pinned|Pin Buildup]\nSupported Skills cannot cause [HeavyStun|Stun Buildup]",
             "Physical Damage from Supported Skill is [Pinned|Pinning]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Pin II",
@@ -10940,7 +11172,8 @@
             "Supported Skills have 50% increased [Critical|Critical Hit] Chance against [Immobilised] Enemies",
             "Modifiers to [HeavyStun|Stun Buildup] for Supported Skills instead apply to [Pinned|Pin Buildup]\nSupported Skills cannot cause [HeavyStun|Stun Buildup]",
             "Physical Damage from Supported Skill is [Pinned|Pinning]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Pin III",
@@ -10969,7 +11202,8 @@
             "Physical Damage from Supported Skill is [Pinned|Pinning]",
             "[HitDamage|Hits] with Supported Skills cause 60% less [Pinned|Pin] buildup",
             "[Pinned|Pin] caused by Supported Skills has 30% more duration"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Pinpoint Critical",
@@ -10995,7 +11229,8 @@
         "StatText": [
             "Supported Skills have 60% more [Critical|Critical Hit Chance]",
             "Supported Skills have 30% less [CriticalDamageBonus|Critical Damage Bonus]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Poison I",
@@ -11021,7 +11256,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 40% chance to [Poison|Poison] on [HitDamage|Hit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Poison II",
@@ -11047,7 +11283,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 60% chance to [Poison|Poison] on [HitDamage|Hit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Poison III",
@@ -11074,7 +11311,8 @@
         "StatText": [
             "Supported Skills have 60% chance to [Poison|Poison] on [HitDamage|Hit]",
             "20% more [BuffMagnitude|Magnitude] of [Poison] inflicted by Supported Skills against [Bleeding] Enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Poison Spores",
@@ -11108,7 +11346,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Trigger] Toxic Pustule on [HitDamage|Hitting] an enemy"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Potent Exposure",
@@ -11134,7 +11373,8 @@
         "Cost": null,
         "StatText": [
             "[Exposure] applied by Supported Skills has 20% increased effect"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Potential",
@@ -11158,7 +11398,8 @@
         "StatText": [
             "Supported Skills cannot generate [Charges|Power Charges]",
             "Supported Skills will consume a [Charges|Power Charge] on use if possible\nSupported Skills have 40% more chance to [Critical|Critically Hit] when consuming [Charges|Power Charges]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Practical Magic I",
@@ -11185,7 +11426,8 @@
         "Cost": null,
         "StatText": [
             "Gain 30% increased [Spell] damage for 8 seconds on [HeavyStun|Heavy Stunning] an enemy with Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Practical Magic II",
@@ -11212,7 +11454,8 @@
         "Cost": null,
         "StatText": [
             "Gain 40% increased [Spell] damage for 8 seconds on [HeavyStun|Heavy Stunning] an enemy with Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Practiced Combo",
@@ -11240,7 +11483,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Strike] Skills have a 40% chance to build an additional [Combo] on [HitDamage|Hit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Precision I",
@@ -11267,7 +11511,8 @@
         "Cost": null,
         "StatText": [
             "30% Increased [Accuracy] Rating while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Precision II",
@@ -11294,7 +11539,8 @@
         "Cost": null,
         "StatText": [
             "50% Increased [Accuracy] Rating while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Premeditation",
@@ -11317,7 +11563,8 @@
         "Cost": null,
         "StatText": [
             "Skills [Empowered] by Supported Skills deal 15% more Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Profanity I",
@@ -11344,7 +11591,8 @@
         "StatText": [
             "Supported Skills consume a [Corpse] within 5 metres\non use, if possible",
             "Supported Skills deal 30% more\n[Chaos] Damage if consuming a [Corpse]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Profanity II",
@@ -11371,7 +11619,8 @@
         "StatText": [
             "Supported Skills consume up to 10 [Corpse|Corpses] within 5 metres\non use, if possible",
             "Supported Skills deal 5% more\n[Chaos] Damage for each [Corpse] consumed this way"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Projectile Acceleration I",
@@ -11397,7 +11646,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 40% more [Projectile|Projectile] Speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Projectile Acceleration II",
@@ -11424,7 +11674,8 @@
         "StatText": [
             "[Projectile|Projectiles] from Supported Skills have 40% chance to [Pierce] an Enemy",
             "Supported Skills have 40% more [Projectile|Projectile] Speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Projectile Acceleration III",
@@ -11451,7 +11702,8 @@
         "StatText": [
             "Increases and reductions to [Projectile] speed also apply to [Projectile] Damage with Supported Skills",
             "Supported Skills have 40% more [Projectile|Projectile] Speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Projectile Deceleration I",
@@ -11477,7 +11729,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 25% less [Projectile|Projectile] Speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Projectile Deceleration II",
@@ -11503,7 +11756,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 30% less [Projectile|Projectile] Speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Prolonged Duration I",
@@ -11529,7 +11783,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 30% more Skill Effect Duration"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Prolonged Duration II",
@@ -11555,7 +11810,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 35% more Skill Effect Duration"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Prolonged Duration III",
@@ -11579,7 +11835,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 60% more Skill Effect Duration"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Punch Through",
@@ -11606,7 +11863,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills apply [EasyTargetDebuff|Easy Target] on [Knockback]\n[EasyTargetDebuff|Easy Target] applied this way has a magnitude of 3% per metre of [ExpectedKnockback|Expected Knockback Distance]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Pursuit I",
@@ -11634,7 +11892,8 @@
         "StatText": [
             "Supported Skills deal 20% more [Melee] Damage if you have Damaged an Enemy with a [Projectile] [Attack] [HitDamage|Hit] in the last eight seconds",
             "Supported Skills deal no [Projectile] damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Pursuit II",
@@ -11662,7 +11921,8 @@
         "StatText": [
             "Supported Skills deal 25% more [Melee] Damage if you have Damaged an Enemy with a [Projectile] [Attack] [HitDamage|Hit] in the last eight seconds",
             "Supported Skills deal no [Projectile] damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Pursuit III",
@@ -11690,7 +11950,8 @@
         "StatText": [
             "Supported Skills deal 30% more [Melee] Damage if you have Damaged an Enemy with a [Projectile] [Attack] [HitDamage|Hit] in the last two seconds",
             "Supported Skills deal no [Projectile] damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Quill Burst",
@@ -11721,7 +11982,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills trigger Quill Burst on their next 3 [HitDamage|Hits] after you [ThornsRetaliation|Retaliate with Thorns]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rage I",
@@ -11748,7 +12010,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills grant 3 [Rage|Rage] on [Melee] [HitDamage|Hit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rage II",
@@ -11775,7 +12038,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills grant 5 [Rage|Rage] on [Melee] [HitDamage|Hit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rage III",
@@ -11803,7 +12067,8 @@
         "StatText": [
             "Supported Skills grant 5 [Rage|Rage] on [Melee] [HitDamage|Hit]",
             "Supported Skills have 15% increased [Attack] speed while you are not at maximum [Rage]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rageforged I",
@@ -11828,7 +12093,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills spend 10 [Rage] if possible to\ndeal 35% more Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rageforged II",
@@ -11854,7 +12120,8 @@
         "StatText": [
             "Supported Skills have 30% chance to gain the benefits of this Support without spending additional [Rage]",
             "Supported Skills spend 10 [Rage] if possible to\ndeal 35% more Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Raging Cry",
@@ -11880,7 +12147,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills grant 4 [Rage|Rage] per 5 [Power] of counted Enemies in range"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rakiata's Flow",
@@ -11904,7 +12172,8 @@
         "Cost": null,
         "StatText": [
             "[HitDamage|Hits] with Supported Skills treat Enemy Monster [ElementalDamage|Elemental] [Resistances|Resistance] values as inverted"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rally",
@@ -11930,7 +12199,8 @@
         "StatText": [
             "Supported Skills [Consume] all [Charges|Endurance Charges] on use\nSupported Skills restore 10% of your maximum Life on use per [Charges|Endurance Charge] [Consume|Consumed] this way",
             "Supported Skills cannot generate [Charges|Endurance Charges]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rapid Attacks I",
@@ -11956,7 +12226,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 15% increased [Attack] Speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rapid Attacks II",
@@ -11982,7 +12253,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 25% increased [Attack] Speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rapid Attacks III",
@@ -12009,7 +12281,8 @@
         "StatText": [
             "Supported Skills have 35% increased [Attack] Speed",
             "Supported Skills deal 50% less Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rapid Casting I",
@@ -12035,7 +12308,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 15% increased Cast Speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rapid Casting II",
@@ -12061,7 +12335,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 20% increased Cast Speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rapid Casting III",
@@ -12087,7 +12362,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 10% increased Cast Speed for each different [Spell] you've Cast in the last eight seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ratha's Assault",
@@ -12116,7 +12392,8 @@
             "Supported Skills have 20% increased [Attack] Speed",
             "Supported Skills load 5 bolts when you Dodge",
             "Supported Skills load 4 additional bolts"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rearm I",
@@ -12142,7 +12419,8 @@
         "Cost": null,
         "StatText": [
             "[Hazard|Hazards] created by Supported Skills have 20% chance to rearm after they are triggered"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rearm II",
@@ -12168,7 +12446,8 @@
         "Cost": null,
         "StatText": [
             "[Hazard|Hazards] created by Supported Skills have 30% chance to rearm after they are triggered"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Refraction I",
@@ -12195,7 +12474,8 @@
         "Cost": null,
         "StatText": [
             "Those affected by [Aura|Auras] from Supported Skills gain Refractive Plating\nRefractive Plating causes 20% of [Armour] to apply to [ElementalDamage|Elemental Hit Damage] taken"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Refraction II",
@@ -12222,7 +12502,8 @@
         "Cost": null,
         "StatText": [
             "Those affected by [Aura|Auras] from Supported Skills gain Refractive Plating\nRefractive Plating causes 30% of [Armour] to apply to [ElementalDamage|Elemental Hit Damage] taken"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Refraction III",
@@ -12249,7 +12530,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Banner|Banners] apply Refractive Dissolution to Enemies in their radius\nRefractive Dissolution applies 2% [Exposure|Elemental Exposure] per 1000 player [Armour], up to 80%"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Reinforced Totems I",
@@ -12275,7 +12557,8 @@
         "Cost": null,
         "StatText": [
             "[Totem|Totems] summoned by Supported Skills have +40% to all [ElementalDamage|Elemental] [Resistances]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Reinforced Totems II",
@@ -12302,7 +12585,8 @@
         "StatText": [
             "[Totem|Totems] summoned by Supported Skills have +40% to all [ElementalDamage|Elemental] [Resistances]",
             "[Totem|Totems] summoned by Supported Skills have +10% to all [MaximumResistances|Maximum Elemental Resistances]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Relentless Rage",
@@ -12325,7 +12609,8 @@
         "Cost": null,
         "StatText": [
             "Spending 30 [Rage] grants you a Relentless Rage [Buff], causing the next use of Supported Skills to consume that Buff to grant 10 [Rage]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Remnant Potency I",
@@ -12351,7 +12636,8 @@
         "Cost": null,
         "StatText": [
             "[Remnant|Remnants] spawned by Supported Skills have\n20% increased effect"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Remnant Potency II",
@@ -12378,7 +12664,8 @@
         "StatText": [
             "Effects of [Remnant|Remnants] generated by Supported Skills occur 4 seconds after being collected",
             "[Remnant|Remnants] spawned by Supported Skills have\n30% increased effect"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Remnant Potency III",
@@ -12405,7 +12692,8 @@
         "StatText": [
             "Effects of [Remnant|Remnants] generated by Supported Skills occur 3 seconds after being collected",
             "[Remnant|Remnants] spawned by Supported Skills have\n40% increased effect"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rending Apex",
@@ -12433,7 +12721,8 @@
         "Cost": null,
         "StatText": [
             "[FinalStrike|Final Strikes] of Supported Skills [ArmourBreak|Break Armour] equal to 75% of [Attack] Damage dealt"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Retaliate I",
@@ -12460,7 +12749,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal up to 40% more [Attack] Damage, scaling up as your [HeavyStunPlayer|Stun Bar] increases"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Retaliate II",
@@ -12488,7 +12778,8 @@
         "StatText": [
             "[HitDamage|Hits] from Supported Skills [Stun] Enemies as though dealing more Damage equivalent to the\ncurrent percentage of your [HeavyStunPlayer|Stun Bar]",
             "Supported Skills deal up to 40% more [Attack] Damage, scaling up as your [HeavyStunPlayer|Stun Bar] increases"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Retreat I",
@@ -12515,7 +12806,8 @@
         "StatText": [
             "Supported Skills deal no [Melee] damage",
             "Supported Skills deal 20% more [Projectile] Damage if you have Damaged an Enemy with a [Melee] [HitDamage|Hit] in the last eight seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Retreat II",
@@ -12542,7 +12834,8 @@
         "StatText": [
             "Supported Skills deal no [Melee] damage",
             "Supported Skills deal 25% more [Projectile] Damage if you have Damaged an Enemy with a [Melee] [HitDamage|Hit] in the last eight seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Retreat III",
@@ -12569,7 +12862,8 @@
         "StatText": [
             "Supported Skills deal no [Melee] damage",
             "Supported Skills deal 30% more [Projectile] Damage if you have Damaged an Enemy with a [Melee] [HitDamage|Hit] in the last two seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Reverberate",
@@ -12595,7 +12889,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 15% increased chance to cause [Aftershock|Aftershocks] for every quarter second of [Attack] time"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ricochet I",
@@ -12621,7 +12916,8 @@
         "Cost": null,
         "StatText": [
             "[Projectile|Projectiles] from Supported Skills have 40% chance to [Chain] an additional time from terrain"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ricochet II",
@@ -12647,7 +12943,8 @@
         "Cost": null,
         "StatText": [
             "[Projectile|Projectiles] from Supported Skills have 50% chance to [Chain] an additional time from terrain"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ricochet III",
@@ -12672,7 +12969,8 @@
         "StatText": [
             "Modifiers granting additional [Projectile|Projectiles] instead cause [Projectile|Projectiles] from Supported Skills to [Chain] an additional time from terrain per [Projectile] they would have gained",
             "[Projectile|Projectiles] from Supported Skills [Pierce] all Targets"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rigwald's Ferocity",
@@ -12700,7 +12998,8 @@
             "Supported Skills have 10% reduced [Attack] Speed if\nused in [WeaponSets|Weapon Set] II",
             "Supported Skills deal 15% less Damage if\nused in [WeaponSets|Weapon Set] I",
             "Supported Skills deal 30% more Damage if\nused in [WeaponSets|Weapon Set] II"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rime",
@@ -12725,7 +13024,8 @@
         "StatText": [
             "[HitDamage|Hits] against Enemies in [ChilledGround|Chilled Ground] created by Supported Skills build up [Freeze] as though dealing 20% more Damage",
             "30% less effect of [Chill] inflicted by Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rip",
@@ -12757,7 +13057,8 @@
             "[Remnant|Remnants] created by Supported Skills last for 8 seconds",
             "Supported Skills create a Blood [Remnant] when dealing a killing blow to a [Bleeding] Enemy\n[Remnant|Remnants] created this way increase Life regeneration rate by 10% for 5 seconds when collected, up to a maximum of 100%",
             "[Remnant|Remnants] are created within a 1.5 metre radius of the slain Enemy"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rising Tempest",
@@ -12782,7 +13083,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal 12% more [ElementalDamage|Elemental Damage] for each\nSkill used [Recently] of a different Elemental type"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ritualistic Curse",
@@ -12810,7 +13112,8 @@
         "StatText": [
             "Supported Skills have 50% increased Area of Effect",
             "[Curse] zones from Supported\nSkills erupt after 30% more delay"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Romira's Requital",
@@ -12837,7 +13140,8 @@
             "10% of Damage from [HitDamage|Hits] is taken from Supported [Companion]'s Life before you",
             "You [Recoup] 200% of Damage taken by Supported [Minion|Minions] this way as Life",
             "[Minion|Minions] from Supported Skills have 30% less maximum Life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rupture",
@@ -12863,7 +13167,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Aggravate|Aggravate] [Bleeding|Bleeding] on [HitDamage|Hitting] [HeavyStun|Heavy Stunned] Enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Rusted Spikes",
@@ -12886,7 +13191,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Aggravate] [Bleeding] on Enemies when [Pinned|Pinning] them"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Ruthless",
@@ -12909,7 +13215,8 @@
         "Cost": null,
         "StatText": [
             "Every fifth use of Supported [Attack|Attacks] causes 500% more [Stun|Stun Buildup]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Sacrificial Lamb I",
@@ -12935,7 +13242,8 @@
         "Cost": null,
         "StatText": [
             "Your Skills target [Minion|Minions] from Supported Skills within\n6 metres if possible"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Sacrificial Lamb II",
@@ -12962,7 +13270,8 @@
         "StatText": [
             "[Minion|Minions] created by Supported Skills are always considered to be Detonatable",
             "Your Skills target [Minion|Minions] from Supported Skills within\n6 metres if possible"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Sacrificial Offering",
@@ -12989,7 +13298,8 @@
             "Supported [Offering] Skills have 30% increased [Buff] effect",
             "Supported Skills [Sacrifice] 15% of Life on use",
             "Supported [Offering] Skills deal 30% more Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Salvo",
@@ -13019,7 +13329,8 @@
             "Supported Skills fire 2 additional [Projectile|Projectiles] per\nseal consumed\nSupported Skills consume all Accumulated seals on use",
             "Supported Skills have 3 maximum seals",
             "Supported Skills Accumulate a seal every 2 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Searing Flame I",
@@ -13046,7 +13357,8 @@
         "StatText": [
             "Supported Skills deal 25% less Damage with [HitDamage|Hits]",
             "75% more [BuffMagnitude|Magnitude] of [Ignite] inflicted with Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Searing Flame II",
@@ -13073,7 +13385,8 @@
         "StatText": [
             "Supported Skills deal 30% less Damage with [HitDamage|Hits]",
             "100% more [BuffMagnitude|Magnitude] of [Ignite] inflicted with Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Second Wind I",
@@ -13099,7 +13412,8 @@
         "StatText": [
             "Supported Skills have 50% less [CooldownRecovery|Cooldown Recovery Rate]",
             "Supported Skills have twice as many Cooldown Uses"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Second Wind II",
@@ -13125,7 +13439,8 @@
         "StatText": [
             "Supported Skills have 40% less [CooldownRecovery|Cooldown Recovery Rate]",
             "Supported Skills have twice as many Cooldown Uses"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Second Wind III",
@@ -13152,7 +13467,8 @@
             "Supported Skills have 40% less [CooldownRecovery|Cooldown Recovery Rate]",
             "When a Supported Skill is used and goes on cooldown, recover 1% of maximum Life per second of cooldown",
             "Supported Skills have twice as many Cooldown Uses"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "See Red",
@@ -13179,7 +13495,8 @@
             "Supported [Attack|Attacks] have 50% increased Bleeding Duration",
             "Enemies you inflict [Bleeding] on with Supported Skills have 15% increased [Attack] Speed",
             "Enemies you inflict [Bleeding] on with Supported Skills have 15% increased Movement Speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Selfless Remnants",
@@ -13205,7 +13522,8 @@
         "Cost": null,
         "StatText": [
             "[Remnant|Remnants] from Supported Skills affect [Allies] in your [Presence] instead of you when collected"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Shock",
@@ -13231,7 +13549,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 100% more chance to [Shock|Shock]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Shock Conduction I",
@@ -13258,7 +13577,8 @@
         "Cost": null,
         "StatText": [
             "[Shock|Shocking] [HitDamage|Hits] from supported Skills have a 50% chance to also [Shock] enemies in a 2.5 metre radius"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Shock Conduction II",
@@ -13286,7 +13606,8 @@
         "StatText": [
             "[HitDamage|Hits] from Supported Skills always [Shock] [Drenched] targets",
             "[Shock|Shocking] [HitDamage|Hits] from supported Skills have a 50% chance to also [Shock] enemies in a 2.5 metre radius"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Shock Siphon",
@@ -13310,7 +13631,8 @@
         "Cost": null,
         "StatText": [
             "Recover 4% of maximum [EnergyShield|Energy Shield] when a Supported Skill deals a [KillingBlow|Killing Blow] to a [Shock|Shocked] enemy"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Shocking Leap",
@@ -13337,7 +13659,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills create [ShockedGround|Shocked Ground] for 4 seconds when they [Critical|Critically Hit], no more than once per Skill use\n[ShockedGround|Shocked Ground] created this way has a radius of 2 metres"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Short Fuse I",
@@ -13362,7 +13685,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 40% less [DetonationTime|Detonation Time]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Short Fuse II",
@@ -13388,7 +13712,8 @@
         "StatText": [
             "Supported Skills have 80% less [DetonationTime|Detonation Time]",
             "Supported Skills deal 30% less Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Sione's Temper",
@@ -13415,7 +13740,8 @@
         "StatText": [
             "Gain 1 Wildshard on casting Supported [Spell|Spells]",
             "Supported Skills have a 20% chance to fire 8 additional [Projectile|Projectiles] in a circle per Wildshard\nAll Wildshards are lost when Supported Skills fire [Projectile|Projectiles] in a circle"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Skittering Stone I",
@@ -13445,7 +13771,8 @@
         "Cost": null,
         "StatText": [
             "After 5 Enemies are killed within 4 metres of objects created by Supported Skills, they will shatter and [Trigger] Skittering Stones"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Skittering Stone II",
@@ -13475,7 +13802,8 @@
         "Cost": null,
         "StatText": [
             "After 5 Enemies are killed within 4 metres of objects created by Supported Skills, they will shatter and [Trigger] Skittering Stones"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Slow Potency",
@@ -13501,7 +13829,8 @@
         "Cost": null,
         "StatText": [
             "[Debuff|Debuffs] inflicted with Supported Skills have 15% increased [SlowMagnitudeModifier|Slow Magnitude]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Soul Drain",
@@ -13526,7 +13855,8 @@
         "Cost": null,
         "StatText": [
             "Recover 12% of maximum Mana [NonStackingEffect|over four seconds] when Supported Skills [CullingStrike|Cull] an Enemy"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Soulbreaker",
@@ -13552,7 +13882,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills trigger Soulbreaker on breaking Enemy [EnergyShield|Energy Shield]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Spar",
@@ -13577,7 +13908,8 @@
         "Cost": null,
         "StatText": [
             "[HitDamage|Hits] from Supported Skills [Stun] Enemies as though dealing more Damage equivalent to the\ncurrent percentage of your [HeavyStunPlayer|Stun Bar]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Spectral Volley",
@@ -13608,7 +13940,8 @@
             "Supported Skills deal 60% less Damage when not fired from Spectral Projectiles",
             "Supported Skills deal 20% more Damage when fired from Spectral Projectiles",
             "Maximum 5 Spectral Projectiles"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Spell Cascade",
@@ -13637,7 +13970,8 @@
             "Cascades from Supported Skills have 20% less Area of Effect",
             "Supported Skills deal 30% less Damage",
             "Supported Skills also affect Areas on either side of the targeted Area along a random axis"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Spell Echo",
@@ -13666,7 +14000,8 @@
             "Supported Skills have 30% less Cast Speed",
             "Echoes from Supported [Spell|Spells] have 40% increased Area of Effect",
             "Supported [Spell|Spells] Echo once"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Splinter Totem I",
@@ -13698,7 +14033,8 @@
             "[Totem|Totems] created by Supported Skills have 20% less maximum\nLife for each time they have splintered",
             "[Totem|Totems] created by Supported Skills have 10% less [SkillSpeed|Skill Speed] for each time they have splintered",
             "[Totem|Totems] created by Supported Skills splinter after\nperforming 1 action"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Splinter Totem II",
@@ -13730,7 +14066,8 @@
             "[Totem|Totems] created by Supported Skills have 15% less maximum\nLife for each time they have splintered",
             "[Totem|Totems] created by Supported Skills have 7% less [SkillSpeed|Skill Speed] for each time they have splintered",
             "[Totem|Totems] created by Supported Skills splinter after\nperforming 1 action"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Spreading Frost",
@@ -13754,7 +14091,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Chill] Enemies in 4 metre radius when [Freeze|Freezing] an Enemy"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Static Shocks",
@@ -13786,7 +14124,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Trigger] Static Shocks when [Shock|Shocking] an enemy"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Steadfast I",
@@ -13812,7 +14151,8 @@
         "Cost": null,
         "StatText": [
             "You have 50% more [StunThreshold|Stun Threshold] while [Channelling] Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Steadfast II",
@@ -13839,7 +14179,8 @@
         "StatText": [
             "You have 100% more [AilmentThreshold|Ailment Threshold] while [Channelling] Supported Skills",
             "You have 50% more [StunThreshold|Stun Threshold] while [Channelling] Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Stoicism I",
@@ -13864,7 +14205,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills gain 1% more Damage\nevery second, up to 20%\nThis Damage Bonus resets if you\nDodge Roll or use a [Travel] Skill"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Stoicism II",
@@ -13889,7 +14231,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills gain 2% more Damage\nevery second, up to 20%\nThis Damage Bonus resets if you\nDodge Roll or use a [Travel] Skill"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Stomping Ground",
@@ -13918,7 +14261,8 @@
         "Cost": null,
         "StatText": [
             "Triggers a Shockwave when you take a step while using Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Stormchain",
@@ -13945,7 +14289,8 @@
         "StatText": [
             "Supported Skills [Chain] from [Shock|Shocked] Enemies",
             "Supported Skills Cannot inflict [Shock|Shock]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Stormfire",
@@ -13972,7 +14317,8 @@
         "Cost": null,
         "StatText": [
             "Enemies [Shock|Shocked] by Supported Skills take 20% of damage from [Ignite] as [Lightning] damage as well as [Fire] damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Streamlined Rounds",
@@ -14002,7 +14348,8 @@
             "Supported Skills deal 60% less Damage",
             "Supported Skills have 50% less reload speed",
             "Supported Skills load 5 additional bolts"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Strong Hearted",
@@ -14029,7 +14376,8 @@
         "Cost": null,
         "StatText": [
             "50% less [Shock] duration on you while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Stun I",
@@ -14054,7 +14402,8 @@
         "Cost": null,
         "StatText": [
             "Hits with Supported Skills cause 50% more [Stun] buildup"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Stun II",
@@ -14079,7 +14428,8 @@
         "Cost": null,
         "StatText": [
             "Hits with Supported Skills cause 70% more [Stun] buildup"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Stun III",
@@ -14105,7 +14455,8 @@
         "StatText": [
             "Supported Skills deal 50% less Damage",
             "Hits with Supported Skills cause 300% more [Stun] buildup"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Supercritical",
@@ -14131,7 +14482,8 @@
         "StatText": [
             "Supported Skills have 100% increased [CriticalDamageBonus|Critical Damage Bonus]",
             "Supported Skills have 20% less [Critical|Critical Hit] chance"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Swift Affliction I",
@@ -14158,7 +14510,8 @@
         "StatText": [
             "Supported Skills deal 30% more non-[Ailments|Ailment] Damage over Time",
             "20% less Duration of Supported Skills and Damaging [Ailments] they inflict"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Swift Affliction II",
@@ -14185,7 +14538,8 @@
         "StatText": [
             "Supported Skills deal 30% more non-[Ailments|Ailment] Damage over Time",
             "10% less Duration of Supported Skills and Damaging [Ailments] they inflict"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Swift Affliction III",
@@ -14212,7 +14566,8 @@
         "StatText": [
             "Supported Skills deal 50% more non-[DamagingAilments|Ailment] damage over time if their duration is less than one second",
             "30% less Duration of Supported Skills and Damaging [Ailments] they inflict"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Syzygy",
@@ -14242,7 +14597,8 @@
         "StatText": [
             "[HitDamage|Hits] from Supported Skills are considered [CrushingBlow|Crushing Blows] against [Ignite|Ignited] and [ArmourBreak|Fully Armour Broken] Enemies",
             "[HeavyStun|Heavily Stunning] Enemies which are [Ignite|Ignited] and [ArmourBreak|Fully Armour Broken] with Supported Skills will permanently [Intimidate] them"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Tacati's Ire",
@@ -14267,7 +14623,8 @@
         "Cost": null,
         "StatText": [
             "[Poison|Poisons] from Supported Skills deal Damage 2% faster per [Rage]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Tasalio's Rhythm",
@@ -14292,7 +14649,8 @@
         "StatText": [
             "Successfully executing [PerfectTiming|Perfect Timing] with Supported Skills grants a stack of Tasalio's Rhythm\nAll Tasalio's Rhythm is lost on failing to execute any [PerfectTiming|Perfect Timing]\n Supported Skills deal 10% more Damage for each stack of Tasalio's Rhythm\n Supported Skills have a 30% shorter [PerfectTiming|Perfect Timing] window for each stack of Tasalio's Rhythm\n Tasalio's Rhythm stacks up to 5 times",
             "Supported Skills have a 100% longer [PerfectTiming|Perfect Timing] window"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Tawhoa's Tending",
@@ -14322,7 +14680,8 @@
         "StatText": [
             "[Totem|Totems] created by Supported Skills trigger Tawhoa's Vengeance on death",
             "[Totem|Totems] created by Supported\nSkills have 25% more maximum Life"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Tear",
@@ -14350,7 +14709,8 @@
         "Cost": null,
         "StatText": [
             "50% Chance for On-Kill Effects caused by killing blows on [Bleeding] Enemies with Supported Skills to occur twice"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Tecrod's Revenge",
@@ -14379,7 +14739,8 @@
             "[Minion|Minions] from Supported Skills gain 40% increased [Attack] and Cast Speed when their Life is reduced to 0",
             "[Minion|Minions] from Supported Skills die 20 seconds after their Life is reduced to 0",
             "[Minion|Minions] from Supported Skills gain [SoulEater|Soul Eater] when their Life is reduced to 0"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Tectonic Slams",
@@ -14410,7 +14771,8 @@
             "Supported Skills deal 45% less damage with [Aftershock|Aftershocks]",
             "Supported Skills cause 1 additional [Aftershock] ahead and to each side of the initial area",
             "Supported Skills have 15% less [Attack] Speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Thornskin I",
@@ -14437,7 +14799,8 @@
         "Cost": null,
         "StatText": [
             "Deal 40% increased [Thorns] Damage while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Thornskin II",
@@ -14464,7 +14827,8 @@
         "Cost": null,
         "StatText": [
             "Deal 70% increased [Thorns] Damage while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Thrill of the Kill",
@@ -14492,7 +14856,8 @@
         "Cost": null,
         "StatText": [
             "[Attack|Attacks] [Gain] 25% of Damage as [Lightning] Damage for 8 seconds on [CullingStrike|Culling] an enemy with Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Thrill of the Kill II",
@@ -14521,7 +14886,8 @@
         "StatText": [
             "[Attack|Attacks] [Gain] 25% of Damage as [Lightning] Damage for 8 seconds on [CullingStrike|Culling] an enemy with Supported Skills",
             "Thrill of the Kill [Buff] also grants 40% increased [Shock] chance"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Tireless",
@@ -14547,7 +14913,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 25% chance to not count [Attack|Attacks] they [Empowered|Empower]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Tremors",
@@ -14576,7 +14943,8 @@
             "Supported Skills have 10% chance to cause\nthree additional [Aftershock|Aftershocks]",
             "Supported Skills have 15% chance to\ncause two additional [Aftershock|Aftershocks]",
             "Supported Skills deal 35% less Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Tul's Stillness",
@@ -14603,7 +14971,8 @@
         "StatText": [
             "[Chaos] Damage from [HitDamage|Hits] with Supported Skills also [Contributes|Contributes] to [Freeze] Buildup",
             "Supported Skills [Gain] 40% of [Cold] Damage as Extra [Chaos] Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Tumult",
@@ -14627,7 +14996,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills [Consume] a [Charges|Frenzy Charge] on use to [ArmourBreak|Break Armour] equal to 50% of [Physical|Physical Damage] dealt"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Uhtred's Augury",
@@ -14651,7 +15021,8 @@
         "Cost": null,
         "StatText": [
             "+3 to level of Supported Skills if exactly two other Supports are modifying them"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Uhtred's Exodus",
@@ -14675,7 +15046,8 @@
         "Cost": null,
         "StatText": [
             "+3 to level of Supported Skills if no other Supports are modifying them"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Uhtred's Omen",
@@ -14699,7 +15071,8 @@
         "Cost": null,
         "StatText": [
             "+3 to level of Supported Skills if exactly one other Support is modifying them"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Unabating",
@@ -14723,7 +15096,8 @@
         "Cost": null,
         "StatText": [
             "25% increased [Armour] while using Supported Skills per quarter second of [Attack] time of Supported Skill"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Unbending",
@@ -14747,7 +15121,8 @@
         "Cost": null,
         "StatText": [
             "8% of Damage taken while using Supported Skills is [Recoup|Recouped] as Mana per quarter second of Cast time of Supported Skill"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Unbreakable",
@@ -14771,7 +15146,8 @@
         "StatText": [
             "30% more [StunThreshold|Stun Threshold] for [HeavyStunPlayer|Heavy Stuns] while using Supported Skills",
             "200% more [StunThreshold|Stun Threshold] for [LightStun|Light Stuns] while using Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Undermine",
@@ -14796,7 +15172,8 @@
         "StatText": [
             "Supported Skills cannot inflict [Maim]",
             "Supported Skills [Consume] [Maim] on [HitDamage|Hit] to [ArmourBreak|Break] 35% of the [Maim|Maimed] target's [Armour]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Unerring Power",
@@ -14821,7 +15198,8 @@
         "StatText": [
             "Supported Skills have 30% more [Accuracy|Accuracy Rating] if used while [Empowered]",
             "Supported Skills cost 30% less if used while [Empowered]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Unleash",
@@ -14848,7 +15226,8 @@
         "StatText": [
             "Supported Skills deal 50% less Damage when Reoccurring",
             "Supported Spells gain a Seal every 200% of cast time, to a maximum of 2 Seals\nSupported Spells are Unsealed when cast, and their effects Reoccur for each Seal lost"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Unsteady Tempo",
@@ -14871,7 +15250,8 @@
         "Description": null,
         "BaseCastTime": null,
         "Cost": null,
-        "StatText": null
+        "StatText": null,
+        "GemType": "support"
     },
     {
         "Gem": "Untouchable",
@@ -14895,7 +15275,8 @@
         "Cost": null,
         "StatText": [
             "25% increased [Evasion|Evasion Rating] while using Supported Skills per quarter second of [Attack] time of Supported Skill"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Unyielding",
@@ -14920,7 +15301,8 @@
         "Cost": null,
         "StatText": [
             "8% of Damage taken while using Supported Skills is [Recoup|Recouped] as Life per quarter second of [Attack] time of Supported Skill"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Upheaval I",
@@ -14947,7 +15329,8 @@
             "Supported Skills create an additional fissure",
             "Supported Skills deal 20% less Damage",
             "Supported Skills have 20% less [SkillSpeed|Skill Speed]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Upheaval II",
@@ -14974,7 +15357,8 @@
             "Supported Skills create 2 additional fissures",
             "Supported Skills deal 40% less Damage",
             "Supported Skills have 20% less [SkillSpeed|Skill Speed]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Upwelling I",
@@ -15001,7 +15385,8 @@
         "Cost": null,
         "StatText": [
             "Your [Minion|Minions] deal 30% increased Damage while you are not on full Mana while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Upwelling II",
@@ -15028,7 +15413,8 @@
         "Cost": null,
         "StatText": [
             "Your [Minion|Minions] deal 50% increased Damage while you are not on full Mana while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Urgent Totems I",
@@ -15054,7 +15440,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 80% increased [Totem|Totem] Placement speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Urgent Totems II",
@@ -15080,7 +15467,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have 100% increased [Totem|Totem] Placement speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Urgent Totems III",
@@ -15108,7 +15496,8 @@
             "Supported Skills have 100% increased [Totem|Totem] Placement speed",
             "[Attack|Attacks] used by [Totem|Totems] created by Supported Skills have 20% increased [Attack] Speed",
             "[Spell|Spells] Cast by [Totem|Totems] created by Supported Skills have 20% increased Cast Speed"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Uruk's Smelting",
@@ -15134,7 +15523,8 @@
         "StatText": [
             "[ArmourBreak|Fully Breaking Armour] with Supported Skills causes affected targets to permanently take 5% increased [Physical] Damage, up to 20%",
             "Supported Skills [ArmourBreak|Break] 70% more [Armour|Armour]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Uul-Netol's Embrace",
@@ -15161,7 +15551,8 @@
         "StatText": [
             "[ArmourBreak|Break Armour] equal to 20% of [Chaos] Damage dealt by Supported Skills",
             "Supported Skills [Gain] 40% of [Physical] Damage as Extra [Chaos] Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Vanguard I",
@@ -15186,7 +15577,8 @@
         "Cost": null,
         "StatText": [
             "Gain 2 [Guard] per ten [Strength] when you [Stun] an Enemy\nGain an additional 4 [Guard] per ten [Strength] if [HeavyStun|Heavily Stunning]\n[Guard] duration is 4 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Vanguard II",
@@ -15211,7 +15603,8 @@
         "Cost": null,
         "StatText": [
             "Gain 2 [Guard] per ten [Strength] when you [Stun] an Enemy\nGain an additional 6 [Guard] per ten [Strength] if [HeavyStun|Heavily Stunning]\n[Guard] duration is 4 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Varashta's Blessing",
@@ -15235,7 +15628,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills deal 10% more Damage for each different [Command] Skill used in the last 15 seconds"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Verglas",
@@ -15261,7 +15655,8 @@
         "Cost": null,
         "StatText": [
             "Destroying an [IceCrystals|Ice Crystal] grants Supported Skills 1% of Damage [Gain|Gained] as extra [Cold] for 6 seconds, per two thousand maximum Life of the destroyed [IceCrystals|Ice Crystal]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Vilenta's Propulsion",
@@ -15287,7 +15682,8 @@
         "Cost": null,
         "StatText": [
             "75% of increases and reductions to Cast speed also apply to [Projectile] Speed for Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Vitality I",
@@ -15314,7 +15710,8 @@
         "Cost": null,
         "StatText": [
             "Regenerate 1% of maximum Life per second while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Vitality II",
@@ -15341,7 +15738,8 @@
         "Cost": null,
         "StatText": [
             "Regenerate 2% of maximum Life per second while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Volatile Power",
@@ -15366,7 +15764,8 @@
         "Cost": null,
         "StatText": [
             "Gain 5 [Volatility] on using Supported Skills while they are [Empowered]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Volatility",
@@ -15393,7 +15792,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills grant [Volatility] on [Critical|Critical Hit]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Volcanic Eruption",
@@ -15426,7 +15826,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Strike|Strikes] trigger Volcanic Eruption on [HitDamage|Hitting] [Ignite|Ignited] Enemies"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Volt",
@@ -15457,7 +15858,8 @@
             "Supported Skills gain 5% of Damage as extra [Lightning] Damage per ten Voltaic Charge consumed",
             "Supported Skills gain 3 Voltaic Charge per Metre travelled",
             "Supported Skills have 30 maximum Voltaic Charge\nSupported Skills consume all Voltaic Charge on use"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Warm Blooded",
@@ -15484,7 +15886,8 @@
         "Cost": null,
         "StatText": [
             "50% less [Freeze] duration on you while a Supported Skill is active"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Wildfire",
@@ -15511,7 +15914,8 @@
         "Cost": null,
         "StatText": [
             "[Ignite|Ignites] inflicted by Supported Skills [AilmentSpread|Spread] to other\nenemies that stay within 1.5 metres for 1 second"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Wildshards I",
@@ -15538,7 +15942,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have a 20% chance to fire 8 additional [Projectile|Projectiles] in a circle"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Wildshards II",
@@ -15565,7 +15970,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills have a 25% chance to fire 8 additional [Projectile|Projectiles] in a circle"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Wind Wave",
@@ -15591,7 +15997,8 @@
         "Cost": null,
         "StatText": [
             "Trigger Wind Wave when [Stun|Stunned] while using Supported Skills"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Window of Opportunity I",
@@ -15618,7 +16025,8 @@
         "StatText": [
             "Supported Skills have a 35% shorter [PerfectTiming|Perfect Timing] window",
             "Supported Skills deal 35% more Damage when released with [PerfectTiming|Perfect Timing]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Window of Opportunity II",
@@ -15646,7 +16054,8 @@
             "Releasing Supported Skills with [PerfectTiming|Perfect Timing] grants [Deflect|Deflection Rating] equal to 15% of [Evasion|Evasion Rating] for 8 seconds",
             "Supported Skills have a 35% shorter [PerfectTiming|Perfect Timing] window",
             "Supported Skills deal 35% more Damage when released with [PerfectTiming|Perfect Timing]"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Withering Touch",
@@ -15676,7 +16085,8 @@
             "Supported Skills deal 25% less Damage",
             "Chance to inflict [Withered] on [HitDamage|Hit] with Supported\nSkills can [SurpassChance|Surpass 100%]",
             "Supported Skills have 1% chance to inflict\n[Withered] on [HitDamage|Hit] for every 0.57% of enemy\n[AilmentThreshold|Ailment Threshold] dealt as [Chaos] damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Xibaqua's Rending",
@@ -15704,7 +16114,8 @@
         "Cost": null,
         "StatText": [
             "Supported Skills trigger Fiery Reclamation on landing"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Xoph's Pyre",
@@ -15731,7 +16142,8 @@
         "StatText": [
             "[Chaos] Damage from [HitDamage|Hits] with Supported Skills also [Contributes|Contributes] to [Flammability] and [Ignite] [BuffMagnitude|Magnitudes]",
             "Supported Skills [Gain] 40% of [Fire] Damage as Extra [Chaos] Damage"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Zarokh's Refrain",
@@ -15758,7 +16170,8 @@
         "StatText": [
             "Echoes from Supported [Spell|Spells] have 40% increased Area of Effect",
             "Supported [Spell|Spells] Echo 3 times"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Zarokh's Revolt",
@@ -15783,7 +16196,8 @@
         "StatText": [
             "Supported Skills deal 20% less Damage when Reoccurring",
             "Supported Spells gain a Seal every 50% of cast time, to a maximum of 5 Seals\nSupported Spells are Unsealed when cast, and their effects Reoccur for each Seal lost"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Zenith I",
@@ -15809,7 +16223,8 @@
         "Cost": null,
         "StatText": [
             "Supported [Spell|Spells] deal 30% more Damage while you are above 90% of your Maximum Mana"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Zenith II",
@@ -15836,7 +16251,8 @@
         "StatText": [
             "Supported Skills have 25% increased Mana Cost [Efficiency]",
             "Supported [Spell|Spells] deal 30% more Damage while you are above 90% of your Maximum Mana"
-        ]
+        ],
+        "GemType": "support"
     },
     {
         "Gem": "Zerphi's Infamy",
@@ -15865,6 +16281,7 @@
             "Supported Skills requires 50 [Glory] to use",
             "Supported Skills have 50% increased Area of Effect",
             "Supported Skills deal 50% more Damage"
-        ]
+        ],
+        "GemType": "support"
     }
 ]

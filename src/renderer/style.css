@@ -21,6 +21,8 @@
     --gem-blue-glow: rgba(58, 121, 209, 0.4);
     --gem-spirit: #b844e3;
     --gem-spirit-glow: rgba(184, 68, 227, 0.4);
+    --gem-white: #e8e8e8;
+    --gem-white-glow: rgba(232, 232, 232, 0.4);
 
     --font-header: 'Cinzel', serif;
     --font-body: 'Inter', sans-serif;
@@ -664,6 +666,11 @@ textarea.form-control {
     border-color: #ce55e8;
 }
 
+.socket-active.gem-white {
+    background: radial-gradient(circle, var(--gem-white) 0%, #151515 100%);
+    border-color: #ffffff;
+}
+
 .socket-active.selected.gem-red {
     box-shadow: 0 0 18px var(--gem-red-glow);
 }
@@ -680,6 +687,10 @@ textarea.form-control {
     box-shadow: 0 0 18px var(--gem-spirit-glow);
 }
 
+.socket-active.selected.gem-white {
+    box-shadow: 0 0 18px var(--gem-white-glow);
+}
+
 .socket-active .gem-label-symbol {
     font-family: var(--font-header);
     font-size: 26px;
@@ -693,6 +704,10 @@ textarea.form-control {
 .socket-active.gem-blue .gem-label-symbol,
 .socket-active.gem-spirit .gem-label-symbol {
     color: #fff;
+}
+
+.socket-active.gem-white .gem-label-symbol {
+    color: #111;
 }
 
 /* SUPPORT SOCKETS (Smaller) */
@@ -745,6 +760,11 @@ textarea.form-control {
     border-color: #5599e8;
 }
 
+.socket-support.gem-white {
+    background: radial-gradient(circle, var(--gem-white) 0%, #151515 100%);
+    border-color: #ffffff;
+}
+
 .socket-support.selected.gem-red {
     box-shadow: 0 0 15px var(--gem-red-glow);
 }
@@ -755,6 +775,10 @@ textarea.form-control {
 
 .socket-support.selected.gem-blue {
     box-shadow: 0 0 15px var(--gem-blue-glow);
+}
+
+.socket-support.selected.gem-white {
+    box-shadow: 0 0 15px var(--gem-white-glow);
 }
 
 .socket-support .support-label-symbol {
@@ -768,6 +792,10 @@ textarea.form-control {
 .socket-support.gem-green .support-label-symbol,
 .socket-support.gem-blue .support-label-symbol {
     color: #fff;
+}
+
+.socket-support.gem-white .support-label-symbol {
+    color: #111;
 }
 
 .socket-support.empty-support {

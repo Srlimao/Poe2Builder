@@ -685,6 +685,12 @@ function getGemColor(id) {
     // First, find in databases
     const found = activeGemsDb.concat(supportGemsDb).find(x => x.id === id);
     if (found) {
+        if (found.Color) {
+            if (found.Color === 'r') return 'red';
+            if (found.Color === 'g') return 'green';
+            if (found.Color === 'b') return 'blue';
+            if (found.Color === 'w') return 'white';
+        }
         if (found.type === 'spirit') return 'spirit';
         
         // Find tier details or default colors based on loaded files
@@ -1536,6 +1542,17 @@ function showAutocompleteSuggestions(query) {
         db = activeGemsDb;
     } else if (selectedElement.type === 'support') {
         db = supportGemsDb;
+        
+        if (selectedElement.skillIndex !== undefined && window.buildState && window.buildState.skills) {
+            const parentSkill = window.buildState.skills[selectedElement.skillIndex];
+            if (parentSkill && parentSkill.id) {
+                const parentGemData = activeGemsDb.find(g => g.id === parentSkill.id);
+                if (parentGemData && parentGemData.GemType === 'spirit') {
+                    const activeSkills = activeGemsDb.filter(g => g.GemType === 'active');
+                    db = supportGemsDb.concat(activeSkills);
+                }
+            }
+        }
     } else {
         sugContainer.classList.add("hidden");
         return; // No autocomplete for Slot ID

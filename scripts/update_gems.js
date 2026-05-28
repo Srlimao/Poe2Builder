@@ -23,8 +23,8 @@ async function updateGems() {
         const rawGems = await gemsResponse.json();
         const rawSkills = await skillsResponse.json();
 
-        const skillGems = [];
-        const supportGems = [];
+        const skillGemsMap = new Map();
+        const supportGemsMap = new Map();
         const spiritGems = [];
 
         Object.values(rawGems).forEach(gem => {
@@ -98,16 +98,29 @@ async function updateGems() {
                 Description: description,
                 BaseCastTime: baseCastTime,
                 Cost: maxLevelCost,
-                StatText: combinedStatText.length > 0 ? combinedStatText : null
+                StatText: combinedStatText.length > 0 ? combinedStatText : null,
+                GemType: gem.gem_type
             };
             
-            if (gem.gem_type === 'active') {
-                skillGems.push(entry);
-            } else if (gem.gem_type === 'support') {
-                supportGems.push(entry);
+            const isSpirit = gem.gem_type === 'spirit';
+            const isActive = gem.gem_type === 'active';
+            const isSupport = gem.gem_type === 'support';
+            const id = entry.Id;
+            
+            if (isActive || isSpirit) {
+                if (!skillGemsMap.has(entry.Gem) || (id.includes('SkillGem') && !id.includes('Unique') && !id.includes('Default'))) {
+                    skillGemsMap.set(entry.Gem, entry);
+                }
+            } else if (isSupport) {
+                if (!supportGemsMap.has(entry.Gem) || (id.includes('SupportGem') && !id.includes('Unique') && !id.includes('Default'))) {
+                    supportGemsMap.set(entry.Gem, entry);
+                }
             }
         });
         
+        const skillGems = Array.from(skillGemsMap.values());
+        const supportGems = Array.from(supportGemsMap.values());
+
         // Sort alphabetically for consistency
         skillGems.sort((a, b) => a.Gem.localeCompare(b.Gem));
         supportGems.sort((a, b) => a.Gem.localeCompare(b.Gem));
