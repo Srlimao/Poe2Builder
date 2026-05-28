@@ -322,6 +322,25 @@
         </div>
     </div>
 
+    <!-- Gem Hover Tooltip -->
+    <div id="gem-tooltip" class="game-tooltip-panel hidden" style="position: fixed; pointer-events: none; z-index: 1050; max-width: 400px; background: rgba(10, 15, 20, 0.95); border: 1px solid var(--color-gold-dark);">
+        <div class="tooltip-border-top"></div>
+        <div class="tooltip-header" style="text-align: center; padding-bottom: 5px;">
+            <h4 id="gem-tooltip-title" class="tooltip-title" style="color: var(--color-gem-active, #189dbd); font-size: 1.2em; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Gem Name</h4>
+            <div id="gem-tooltip-tags" style="color: #666; font-size: 0.75em; text-transform: uppercase; margin-bottom: 5px; font-family: 'Cinzel', serif;">SPELL, AOE, PROJECTILE</div>
+            <div style="font-size: 0.85em; color: #aaa;">Level: <span style="color: white;">20 (MAX)</span></div>
+        </div>
+        <div class="tooltip-divider"></div>
+        <div id="gem-tooltip-stats" class="tooltip-content" style="text-align: center; font-size: 0.9em; padding: 10px 0;">
+            <!-- Stats populated here -->
+        </div>
+        <div id="gem-tooltip-desc-divider" class="tooltip-divider hidden"></div>
+        <div id="gem-tooltip-desc" class="tooltip-content" style="color: #a38d6d; font-style: italic; font-size: 0.85em; text-align: left; padding: 5px 10px;">
+            <!-- Description populated here -->
+        </div>
+        <div class="tooltip-border-bottom"></div>
+    </div>
+
     <!-- SCRIPTS -->
     <script src="treeVisualizer.js?v=1"></script>
     <script src="app.js?v=25"></script>
