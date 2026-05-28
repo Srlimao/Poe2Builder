@@ -14,7 +14,11 @@
     "pathofexile",
     "build-planner"
   ],
-  "author": "",
+  "author": "Srlimao",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Srlimao/Poe2Builder.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "electron": "^31.0.0",
