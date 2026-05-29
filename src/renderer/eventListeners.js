@@ -83,7 +83,14 @@ function setupEventListeners() {
         if (!code) return;
 
         try {
-            const result   = await window.electronAPI.importPob2(code);
+            let result;
+            if (typeof window.electronAPI !== 'undefined') {
+                result = await window.electronAPI.importPob2(code);
+            } else if (typeof window.parsePob2Browser === 'function') {
+                result = await window.parsePob2Browser(code);
+            } else {
+                throw new Error("PoB2 parser not available.");
+            }
 
             const options = await showPob2ImportOptions(result);
             if (!options) return;

@@ -5,6 +5,9 @@ const os = require('os');
 const zlib = require('zlib');
 const { exec } = require('child_process');
 
+// Workaround for Windows GPU cache locking bug that causes startup hangs
+app.commandLine.appendSwitch('disable-gpu-shader-disk-cache');
+
 let mainWindow;
 
 function createWindow() {
