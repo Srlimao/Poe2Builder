@@ -77,14 +77,14 @@ function showGemTooltip(gemId, targetElement) {
     const rect = targetElement.getBoundingClientRect();
     const tooltipRect = tooltip.getBoundingClientRect();
 
-    let top  = rect.bottom + 10;
+    let top = rect.bottom + 10;
     let left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
 
     if (left < 10) left = 10;
     if (left + tooltipRect.width > window.innerWidth - 10) left = window.innerWidth - tooltipRect.width - 10;
     if (top + tooltipRect.height > window.innerHeight - 10) top = rect.top - tooltipRect.height - 10;
 
-    tooltip.style.top  = top  + "px";
+    tooltip.style.top = top + "px";
     tooltip.style.left = left + "px";
 }
 

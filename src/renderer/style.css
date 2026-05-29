@@ -24,6 +24,8 @@
     --gem-white: #e8e8e8;
     --gem-white-glow: rgba(232, 232, 232, 0.4);
 
+    --color-gem-active: #15c599;
+
     --font-header: 'Cinzel', serif;
     --font-body: 'Inter', sans-serif;
 }
