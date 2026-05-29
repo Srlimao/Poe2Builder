@@ -518,7 +518,7 @@ textarea.form-control {
     background-color: rgba(24, 24, 28, 0.5);
     border: 1px solid var(--border-gold-dark);
     border-radius: 6px;
-    padding: 15px;
+    padding: 30px 15px 15px 15px;
     display: flex;
     align-items: center;
     gap: 20px;
@@ -755,6 +755,9 @@ textarea.form-control {
 
 /* GEM DESCRIPTIONS / TOOLTIPS */
 .skill-info-overlay {
+    position: absolute;
+    top: 5px;
+    left: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -791,8 +794,31 @@ textarea.form-control {
     border-radius: 0 0 6px 6px;
     border-top: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-    pointer-events: none;
     letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.skill-level-inline-input {
+    width: 30px;
+    height: 16px;
+    background: #000;
+    border: 1px solid var(--border-gold-dark);
+    color: var(--text-gold);
+    font-size: 10px;
+    text-align: center;
+    border-radius: 2px;
+    -moz-appearance: textfield; /* Firefox */
+}
+.skill-level-inline-input::-webkit-outer-spin-button,
+.skill-level-inline-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.skill-level-inline-input:focus {
+    outline: none;
+    border-color: #ffa500;
 }
 
 .btn-remove-skill-row {

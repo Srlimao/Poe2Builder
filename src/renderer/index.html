@@ -172,6 +172,11 @@
                     Meta (Spirit) Gems are currently disabled in Settings.
                 </div>
 
+                <div id="skills-level-filter-container" class="skills-level-filter-container" style="padding: 10px 15px; display: flex; align-items: center; gap: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.2);">
+                    <label for="skills-level-slider" style="color: var(--text-gold); font-size: 12px; font-weight: bold; white-space: nowrap;">Level Filter: <span id="skills-level-display" style="color: #fff;">100</span></label>
+                    <input type="range" id="skills-level-slider" min="1" max="100" value="100" class="form-control" style="flex: 1; cursor: pointer;">
+                </div>
+
                 <div class="skills-scroll-container">
                     <div id="skills-list" class="skills-list">
                         <!-- Skill Socket Groups will be rendered dynamically here -->

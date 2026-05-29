@@ -530,4 +530,15 @@ function setupEventListeners() {
             selectElement({ type: 'slot', id: slotId });
         });
     });
+
+    // --- Skills Level Filter ---
+    const skillsSlider = document.getElementById("skills-level-slider");
+    if (skillsSlider) {
+        skillsSlider.addEventListener("input", () => {
+            if (typeof window.filterSkillsGrid === 'function') {
+                window.filterSkillsGrid();
+            }
+        });
+    }
 }
+

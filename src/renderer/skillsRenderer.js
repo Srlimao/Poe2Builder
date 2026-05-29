@@ -128,13 +128,71 @@ function renderSkillsGrid() {
         skillInfo.appendChild(skillDetails);
         skillGroup.appendChild(skillInfo);
 
-        // Level Interval Badge
+        // Level Interval Inline Editor
+        const lvlBadge = document.createElement("div");
+        lvlBadge.className = "skill-level-badge";
+        
+        const lvlLabel = document.createElement("span");
+        lvlLabel.textContent = "Lvl:";
+        
+        const minInput = document.createElement("input");
+        minInput.type = "number";
+        minInput.className = "skill-level-inline-input";
+        minInput.min = 0;
+        minInput.max = 100;
+        minInput.placeholder = "0";
+        
+        const maxInput = document.createElement("input");
+        maxInput.type = "number";
+        maxInput.className = "skill-level-inline-input";
+        maxInput.min = 0;
+        maxInput.max = 100;
+        maxInput.placeholder = "100";
+        
         if (skill.level_interval) {
-            const lvlBadge = document.createElement("div");
-            lvlBadge.className = "skill-level-badge";
-            lvlBadge.textContent = getLevelIntervalString(skill.level_interval);
-            skillGroup.appendChild(lvlBadge);
+            if (Array.isArray(skill.level_interval)) {
+                minInput.value = skill.level_interval[0];
+                maxInput.value = skill.level_interval[1];
+            } else {
+                minInput.value = skill.level_interval;
+                maxInput.value = 100;
+            }
         }
+        
+        const separator = document.createElement("span");
+        separator.textContent = "-";
+
+        lvlBadge.appendChild(lvlLabel);
+        lvlBadge.appendChild(minInput);
+        lvlBadge.appendChild(separator);
+        lvlBadge.appendChild(maxInput);
+        
+        const onLvlChange = () => {
+            const min = parseInt(minInput.value);
+            const max = parseInt(maxInput.value);
+            
+            let interval = null;
+            if (!isNaN(min) || !isNaN(max)) {
+                interval = [isNaN(min) ? 0 : min, isNaN(max) ? 100 : max];
+            }
+            
+            skill.level_interval = interval;
+            
+            if (skill.support_skills) {
+                skill.support_skills.forEach(sup => {
+                    sup.level_interval = interval;
+                });
+            }
+            
+            if (window.markAsDirty) window.markAsDirty();
+            if (window.syncEditorForm) window.syncEditorForm();
+            if (window.renderLivePreview) window.renderLivePreview();
+        };
+        
+        minInput.addEventListener("change", onLvlChange);
+        maxInput.addEventListener("change", onLvlChange);
+
+        skillGroup.appendChild(lvlBadge);
 
         // Delete button for the whole skill line
         const btnDeleteRow = document.createElement("button");
@@ -149,6 +207,10 @@ function renderSkillsGrid() {
 
         listContainer.appendChild(skillGroup);
     });
+
+    if (typeof filterSkillsGrid === 'function') {
+        filterSkillsGrid();
+    }
 }
 
 // 8. GEM CRUD OPERATIONS
@@ -186,3 +248,33 @@ async function deleteSkillLine(skillIndex) {
         updateUI();
     }
 }
+
+function filterSkillsGrid() {
+    const slider = document.getElementById("skills-level-slider");
+    if (!slider) return;
+    const filterLevel = parseInt(slider.value);
+    
+    document.getElementById("skills-level-display").textContent = filterLevel;
+    
+    const groups = document.querySelectorAll("#skills-list .skill-socket-group");
+    window.buildState.skills.forEach((skill, idx) => {
+        const groupEl = groups[idx];
+        if (!groupEl) return;
+        
+        let isVisible = true;
+        if (skill.level_interval && Array.isArray(skill.level_interval)) {
+            const min = skill.level_interval[0];
+            const max = skill.level_interval[1];
+            if (filterLevel < min || filterLevel > max) {
+                isVisible = false;
+            }
+        }
+        
+        if (isVisible) {
+            groupEl.style.display = "";
+        } else {
+            groupEl.style.display = "none";
+        }
+    });
+}
+
