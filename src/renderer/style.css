@@ -340,19 +340,22 @@ textarea.form-control {
 }
 
 .eq-icon {
-    width: 28px;
-    height: 28px;
-    opacity: 0.35;
+    width: 48px;
+    height: 48px;
+    opacity: 0.6;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s, transform 0.2s;
 }
 
 .eq-slot:hover .eq-icon,
-.eq-slot.active .eq-icon,
+.eq-slot.active .eq-icon {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
 .eq-slot.configured .eq-icon {
-    opacity: 0.85;
+    opacity: 1;
 }
 
 .eq-label {
@@ -383,72 +386,12 @@ textarea.form-control {
     font-weight: 500;
 }
 
-/* Specific Grid Placements to match standard RPG UI */
-#slot-Helm1 {
-    grid-column: 2;
-    grid-row: 1;
-}
-
-#slot-Amulet1 {
-    grid-column: 3;
-    grid-row: 1;
-}
-
-#slot-Weapon1 {
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    height: 100%;
-}
-
-/* Weapon 1 is tall */
-#slot-BodyArmour1 {
-    grid-column: 2;
-    grid-row: 2 / span 2;
-    height: 100%;
-}
-
-/* Chest is tall */
-#slot-Weapon2 {
-    grid-column: 3;
-    grid-row: 2 / span 2;
-    height: 100%;
-}
-
-/* Weapon 2/Shield is tall */
-#slot-Gloves1 {
-    grid-column: 1;
-    grid-row: 3;
-}
-
-#slot-Ring1 {
-    grid-column: 1;
-    grid-row: 4;
-}
-
-#slot-Belt1 {
-    grid-column: 2;
-    grid-row: 4;
-}
-
-#slot-Boots1 {
-    grid-column: 3;
-    grid-row: 4;
-}
-
-#slot-Ring2 {
-    grid-column: 3;
-    grid-row: 5;
-    display: none;
-}
-
-/* We combine rings or show Ring 2 */
-/* Wait, let's make Ring 2 fit! Row 4 can have Gloves1(left), Belt1(center), Boots1(right)
-   Wait, let's redefine the 3x4 grid mapping explicitly:
+/* Specific Grid Placements to match standard RPG UI
    Row 1: [Empty] [Helm1] [Amulet1]
    Row 2: [Weapon1 (tall)] [BodyArmour1 (tall)] [Weapon2 (tall)]
    Row 3: [Weapon1 (tall)] [BodyArmour1 (tall)] [Weapon2 (tall)]
    Row 4: [Gloves1] [Ring1] [Ring2]
-   Row 5: [Boots1] [Belt1] [Empty]
+   Row 5: [Empty] [Boots1] [Empty]
 */
 #slot-Helm1 {
     grid-column: 2;
@@ -503,38 +446,38 @@ textarea.form-control {
     grid-row: 5;
 }
 
-/* Let's embed SVG Icons in CSS backgrounds so they look clean and don't require external files */
+/* Use High Quality RPG Icons */
 .helm-icon {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>');
+    background-image: url('icons/helm.png');
 }
 
 .amulet-icon {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12 2L1 21h22L12 2zm0 4l7.53 13H4.47L12 6zm-1 8h2v2h-2v-2zm0-4h2v2h-2V10z"/></svg>');
+    background-image: url('icons/amulet.png');
 }
 
 .weapon1-icon,
 .weapon2-icon {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M19.36 4.64a5 5 0 0 0-7.07 0L2 14.93V22h7.07l10.29-10.29a5 5 0 0 0 0-7.07zm-4.24 7.07L12.3 8.88l1.41-1.41 2.83 2.83-1.42 1.41z"/></svg>');
+    background-image: url('icons/weapon.png');
 }
 
 .body-icon {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10zm1-17h-2v6h2V5zm0 8h-2v2h2v-2z"/></svg>');
+    background-image: url('icons/body.png');
 }
 
 .gloves-icon {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>');
+    background-image: url('icons/gloves.png');
 }
 
 .belt-icon {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 10H6V6h12v6z"/></svg>');
+    background-image: url('icons/belt.png');
 }
 
 .boots-icon {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12.01 21.49L23.64 7c-.45-.34-4.93-4-11.64-4C5.28 3 .81 6.66.36 7l11.63 14.49.01.01.01-.01z"/></svg>');
+    background-image: url('icons/boots.png');
 }
 
 .ring-icon {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23dfc190"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>');
+    background-image: url('icons/ring.png');
 }
 
 

@@ -12,7 +12,7 @@ function showConfirm(title, message) {
         const cancelBtn = document.getElementById("modal-btn-cancel");
 
         titleEl.textContent = title;
-        msgEl.textContent = message;
+        msgEl.innerHTML = message;
 
         cancelBtn.classList.remove("hidden");
         confirmBtn.textContent = "Confirm";
@@ -42,7 +42,7 @@ function showAlert(title, message) {
         const cancelBtn = document.getElementById("modal-btn-cancel");
 
         titleEl.textContent = title;
-        msgEl.textContent = message;
+        msgEl.innerHTML = message;
 
         cancelBtn.classList.add("hidden");
         confirmBtn.textContent = "OK";
@@ -70,7 +70,7 @@ function showPrompt(title, message) {
         const cancelBtn = document.getElementById("modal-btn-cancel");
 
         titleEl.textContent = title;
-        msgEl.textContent = message;
+        msgEl.innerHTML = message;
         inputEl.value = "";
 
         cancelBtn.classList.remove("hidden");
@@ -185,8 +185,9 @@ function showPob2ImportOptions(result) {
         selGearSet.addEventListener("change", updateLabels);
         
         chkPassives.checked = true;
-        chkAppend.checked = false;
+        chkAppend.checked = true;
         chkGems.checked = true;
+        if (chkGearAppend) chkGearAppend.checked = true;
         
         const updateAppendState = () => {
             chkAppend.disabled = !chkPassives.checked;

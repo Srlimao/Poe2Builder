@@ -73,8 +73,37 @@ function setupEventListeners() {
 
     // --- PoB2 Import ---
     document.getElementById("btn-import-pob2").addEventListener("click", async () => {
-        const code = await showPrompt("Import PoB2 Build", "Paste your PoB2 base64 build code here:");
+        let code = await showPrompt(
+            "Import PoB2 Build", 
+            "Paste your PoB2 base64 build code or a link to it here:<br><span style='font-size: 0.85em; color: var(--text-muted); display: block; margin-top: 8px;'>Supported auto-links: pobb.in, poe.ninja, poe2db.tw, pastebin</span>"
+        );
         if (!code) return;
+
+        code = code.trim();
+        if (code.match(/^https?:\/\//)) {
+            try {
+                let url = code;
+                try {
+                    const urlObj = new URL(code);
+                    if ((urlObj.hostname === 'pobb.in' || urlObj.hostname === 'poe2db.tw') && !url.endsWith('/raw')) {
+                        url = url.replace(/\/$/, '') + '/raw';
+                    } else if (urlObj.hostname === 'pastebin.com' && !url.includes('/raw/')) {
+                        url = url.replace('pastebin.com/', 'pastebin.com/raw/');
+                    } else if (urlObj.hostname === 'poe.ninja' && !url.includes('/raw/')) {
+                        url = url.replace('/poe2/pob/', '/pob/raw/').replace('/pob/', '/pob/raw/');
+                    }
+                } catch (e) {
+                    // Ignore URL parsing errors, just try fetching the raw string
+                }
+
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+                code = await response.text();
+            } catch (e) {
+                await showAlert("Error", "Could not fetch build from URL: " + e.message);
+                return;
+            }
+        }
 
         try {
             let result;
