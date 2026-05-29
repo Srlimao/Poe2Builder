@@ -341,8 +341,19 @@
         <div class="tooltip-border-bottom"></div>
     </div>
 
-    <!-- SCRIPTS -->
+    <!-- SCRIPTS — load order: dependencies before consumers -->
+    <script src="state.js?v=1"></script>
+    <script src="modals.js?v=1"></script>
+    <script src="database.js?v=1"></script>
+    <script src="buildSerializer.js?v=1"></script>
+    <script src="gemTooltip.js?v=1"></script>
+    <script src="autocomplete.js?v=1"></script>
+    <script src="skillsRenderer.js?v=1"></script>
+    <script src="editorPanel.js?v=1"></script>
+    <script src="ui.js?v=1"></script>
+    <script src="fileHandlers.js?v=1"></script>
+    <script src="eventListeners.js?v=1"></script>
     <script src="treeVisualizer.js?v=1"></script>
-    <script src="app.js?v=25"></script>
+    <script src="app.js?v=26"></script>
 </body>
 </html>
