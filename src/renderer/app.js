@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function initApp() {
     setupEventListeners();
+    if (window.setupTreeVariantEvents) window.setupTreeVariantEvents();
     await loadGemsDatabases();
     await loadAscendancies();
     resetToNewBuild();

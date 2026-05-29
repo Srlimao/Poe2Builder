@@ -4,3 +4,7 @@ node_modules/
 
 releases/
 test_scripts/
+
+# Agent & reference files (not shipped)
+GEMINI.md
+AGENTS.md

@@ -41,3 +41,6 @@ window.standardSlots = [
 // Current editor selection
 // Shape: { type: 'slot'|'skill'|'support'|'passive', id, skillIndex, supportIndex, variantIndex }
 window.selectedElement = null;
+
+// Index of the currently-displayed passive tree variant
+window.currentTreeIndex = 0;

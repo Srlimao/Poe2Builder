@@ -31,6 +31,7 @@ function setupEventListeners() {
             centerPanel.classList.add("hidden");
             treeOverlay.classList.remove("hidden");
             if (window.selectElement) window.selectElement(null);
+            if (window.renderTreeVariantBar) window.renderTreeVariantBar();
             if (window.renderTree) window.renderTree();
         });
     }
@@ -84,7 +85,9 @@ function setupEventListeners() {
         try {
             const result   = await window.electronAPI.importPob2(code);
             const passives = result.passives || result;
-            window.buildState.passives = passives;
+            window.buildState.passive_trees = [{ level_interval: null, nodes: passives }];
+            window.currentTreeIndex = 0;
+            syncPassivesAlias();
 
             if (result.className) {
                 let targetText = result.className + " (General)";
@@ -115,6 +118,7 @@ function setupEventListeners() {
             markAsDirty();
             updateUI();
             renderSkillsGrid();
+            if (window.renderTreeVariantBar) window.renderTreeVariantBar();
             if (window.renderTree) window.renderTree();
 
             await showAlert("Success", `Successfully imported ${passives.length} passive nodes${result.className ? ' for ' + result.className : ''} from PoB2.`);

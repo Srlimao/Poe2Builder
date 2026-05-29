@@ -1390,3 +1390,53 @@ textarea.form-control {
     padding: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
 }
+
+/* ── Tree Variant Bar ──────────────────────────────────────── */
+.tree-variant-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: rgba(9, 9, 10, 0.92);
+    border-bottom: 1px solid var(--border-gold-dark);
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.tree-variant-label {
+    color: var(--text-gold);
+    font-size: 10px;
+    font-family: var(--font-header);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.tree-variant-select {
+    flex: 0 0 auto;
+    width: 200px;
+    height: 30px;
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.tree-lvl-input {
+    width: 58px;
+    height: 30px;
+    padding: 4px 6px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.tree-variant-sep {
+    color: var(--text-muted);
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.tree-variant-actions {
+    display: flex;
+    gap: 6px;
+    margin-left: auto;
+}
