@@ -533,8 +533,18 @@ function setupEventListeners() {
 
     // --- Skills Level Filter ---
     const skillsSlider = document.getElementById("skills-level-slider");
+    const chkShowAll = document.getElementById("chk-skills-show-all");
+    
     if (skillsSlider) {
         skillsSlider.addEventListener("input", () => {
+            if (typeof window.filterSkillsGrid === 'function') {
+                window.filterSkillsGrid();
+            }
+        });
+    }
+    
+    if (chkShowAll) {
+        chkShowAll.addEventListener("change", () => {
             if (typeof window.filterSkillsGrid === 'function') {
                 window.filterSkillsGrid();
             }

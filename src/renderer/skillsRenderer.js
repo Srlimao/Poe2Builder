@@ -251,10 +251,21 @@ async function deleteSkillLine(skillIndex) {
 
 function filterSkillsGrid() {
     const slider = document.getElementById("skills-level-slider");
+    const chkShowAll = document.getElementById("chk-skills-show-all");
     if (!slider) return;
-    const filterLevel = parseInt(slider.value);
     
-    document.getElementById("skills-level-display").textContent = filterLevel;
+    const filterLevel = parseInt(slider.value);
+    const showAll = chkShowAll ? chkShowAll.checked : false;
+    
+    if (showAll) {
+        slider.disabled = true;
+        slider.style.opacity = "0.5";
+        document.getElementById("skills-level-display").textContent = "All";
+    } else {
+        slider.disabled = false;
+        slider.style.opacity = "1";
+        document.getElementById("skills-level-display").textContent = filterLevel;
+    }
     
     const groups = document.querySelectorAll("#skills-list .skill-socket-group");
     window.buildState.skills.forEach((skill, idx) => {
@@ -262,7 +273,7 @@ function filterSkillsGrid() {
         if (!groupEl) return;
         
         let isVisible = true;
-        if (skill.level_interval && Array.isArray(skill.level_interval)) {
+        if (!showAll && skill.level_interval && Array.isArray(skill.level_interval)) {
             const min = skill.level_interval[0];
             const max = skill.level_interval[1];
             if (filterLevel < min || filterLevel > max) {
