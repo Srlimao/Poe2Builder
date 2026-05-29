@@ -1383,3 +1383,214 @@ textarea.form-control {
     gap: 6px;
     margin-left: auto;
 }
+
+/* POB2 IMPORT MODAL NEW UI */
+.pob2-modal-content {
+    background-color: #0c0c0e;
+    border: 1px solid var(--border-gold-dark);
+    max-width: 550px !important;
+    padding: 0;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+}
+
+.pob2-modal-header {
+    padding: 20px 20px 10px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pob2-modal-title {
+    font-family: var(--font-header);
+    color: var(--text-gold-light);
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.pob2-modal-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.pob2-modal-close:hover {
+    color: #fff;
+}
+
+.pob2-modal-subtitle {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.pob2-reset-container {
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pob2-checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.pob2-checkbox-input {
+    display: none;
+}
+
+.pob2-checkbox-custom {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--text-muted);
+    border-radius: 4px;
+    margin-top: 2px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+.pob2-checkbox-input:checked + .pob2-checkbox-custom {
+    border-color: #ffa500;
+    background-color: rgba(255, 165, 0, 0.1);
+}
+
+.pob2-checkbox-input:checked + .pob2-checkbox-custom::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid #ffa500;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.pob2-checkbox-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text-gold);
+}
+
+.pob2-checkbox-desc {
+    color: var(--text-muted);
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+.pob2-tabs-nav {
+    display: flex;
+    border-bottom: 1px solid var(--border-gold-dark);
+}
+
+.pob2-tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 12px 0;
+    color: var(--text-muted);
+    font-family: var(--font-header);
+    font-size: 12px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid transparent;
+}
+
+.pob2-tab-btn.active {
+    color: var(--text-gold-light);
+    border-bottom: 2px solid var(--border-gold);
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.pob2-tabs-content {
+    padding: 20px;
+    min-height: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.pob2-tab-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.pob2-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pob2-card {
+    border: 1px solid var(--border-gold-dark);
+    border-radius: 4px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.02);
+    transition: all 0.2s ease;
+}
+
+.pob2-card:hover {
+    border-color: rgba(207, 169, 104, 0.5);
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.pob2-card.selected {
+    border-color: #ffa500;
+    background-color: rgba(255, 165, 0, 0.05);
+}
+
+.pob2-card .pob2-checkbox-custom {
+    margin-top: 0;
+}
+
+.pob2-card.selected .pob2-checkbox-custom {
+    border-color: #ffa500;
+    background-color: #ffa500;
+}
+
+.pob2-card.selected .pob2-checkbox-custom::after {
+    border-color: #000;
+}
+
+.pob2-card-title {
+    color: var(--text-gold-light);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.pob2-card-desc {
+    color: var(--text-muted);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.pob2-modal-footer {
+    padding: 15px 20px;
+    background-color: #08080a;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    align-items: center;
+}
+
+.pob2-footer-left {
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+.pob2-footer-right {
+    display: flex;
+    gap: 10px;
+}

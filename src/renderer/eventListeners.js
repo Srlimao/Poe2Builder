@@ -118,22 +118,16 @@ function setupEventListeners() {
             const options = await showPob2ImportOptions(result);
             if (!options) return;
 
-            const chosenPassives = result.trees && result.trees[options.selectedTreeIndex] 
-                                    ? result.trees[options.selectedTreeIndex].passives 
-                                    : (result.passives || result);
-            const chosenSkills = result.skillSets && result.skillSets[options.selectedSkillSetIndex]
-                                    ? result.skillSets[options.selectedSkillSetIndex].skills
-                                    : (result.skills || []);
-
-            if (options.importPassives) {
-                const mappedPassives = chosenPassives.map(p => typeof p === 'string' ? { id: p, additional_text: "" } : p);
-                if (options.appendTree) {
-                    window.buildState.passive_trees.push({ level_interval: null, nodes: mappedPassives });
-                    window.currentTreeIndex = window.buildState.passive_trees.length - 1;
-                } else {
-                    window.buildState.passive_trees = [{ level_interval: null, nodes: mappedPassives }];
-                    window.currentTreeIndex = 0;
+            if (options.selectedTrees && options.selectedTrees.length > 0) {
+                if (options.resetAll) {
+                    window.buildState.passive_trees = [];
                 }
+                options.selectedTrees.forEach(idx => {
+                    const chosenPassives = result.trees[idx].passives;
+                    const mappedPassives = chosenPassives.map(p => typeof p === 'string' ? { id: p, additional_text: "" } : p);
+                    window.buildState.passive_trees.push({ level_interval: null, nodes: mappedPassives });
+                });
+                window.currentTreeIndex = window.buildState.passive_trees.length - 1;
                 syncPassivesAlias();
 
                 if (result.className) {
@@ -156,28 +150,33 @@ function setupEventListeners() {
                 }
             }
 
-            if (options.importGems) {
-                if (chosenSkills && chosenSkills.length > 0) {
-                    window.buildState.skills = chosenSkills;
-                    if (window.selectedElement && (window.selectedElement.type === 'skill' || window.selectedElement.type === 'support')) {
-                        window.selectedElement = null;
+            if (options.selectedSkillSets && options.selectedSkillSets.length > 0) {
+                if (options.resetAll) {
+                    window.buildState.skills = [];
+                }
+                options.selectedSkillSets.forEach(idx => {
+                    const chosenSkills = result.skillSets[idx].skills;
+                    if (chosenSkills && chosenSkills.length > 0) {
+                        window.buildState.skills.push(...chosenSkills);
                     }
+                });
+                if (window.selectedElement && (window.selectedElement.type === 'skill' || window.selectedElement.type === 'support')) {
+                    window.selectedElement = null;
                 }
             }
 
-            if (options.importGear) {
-                const chosenGearset = result.itemSets && result.itemSets[options.selectedGearSetIndex] 
-                                      ? result.itemSets[options.selectedGearSetIndex].inventory_slots 
-                                      : (result.inventory_slots || []);
-                if (chosenGearset && chosenGearset.length > 0) {
-                    if (options.appendGear) {
+            if (options.selectedGearSets && options.selectedGearSets.length > 0) {
+                if (options.resetAll) {
+                    window.buildState.inventory_slots = [];
+                }
+                options.selectedGearSets.forEach(idx => {
+                    const chosenGearset = result.itemSets[idx].inventory_slots;
+                    if (chosenGearset && chosenGearset.length > 0) {
                         chosenGearset.forEach(newSlot => window.buildState.inventory_slots.push(newSlot));
-                    } else {
-                        window.buildState.inventory_slots = chosenGearset;
-                        if (window.selectedElement && window.selectedElement.type === 'slot') {
-                            window.selectedElement = null;
-                        }
                     }
+                });
+                if (window.selectedElement && window.selectedElement.type === 'slot') {
+                    window.selectedElement = null;
                 }
             }
 
@@ -188,17 +187,9 @@ function setupEventListeners() {
             if (window.renderTree) window.renderTree();
 
             let msgs = [];
-            let importedGearCount = 0;
-            if (options.importGear) {
-                const chosenGearset = result.itemSets && result.itemSets[options.selectedGearSetIndex] 
-                                      ? result.itemSets[options.selectedGearSetIndex].inventory_slots 
-                                      : (result.inventory_slots || []);
-                importedGearCount = chosenGearset.length;
-            }
-
-            if (options.importPassives) msgs.push(`${chosenPassives.length} passive nodes${result.className ? ' for ' + result.className : ''}`);
-            if (options.importGems && chosenSkills.length > 0) msgs.push(`${chosenSkills.length} skills`);
-            if (options.importGear && importedGearCount > 0) msgs.push(`${importedGearCount} items`);
+            if (options.selectedTrees && options.selectedTrees.length > 0) msgs.push(`${options.selectedTrees.length} passive trees`);
+            if (options.selectedSkillSets && options.selectedSkillSets.length > 0) msgs.push(`${options.selectedSkillSets.length} skill sets`);
+            if (options.selectedGearSets && options.selectedGearSets.length > 0) msgs.push(`${options.selectedGearSets.length} gear sets`);
 
             await showAlert("Success", `Successfully imported: ${msgs.join(', ')}.`);
         } catch (err) {

@@ -99,145 +99,142 @@ function showPob2ImportOptions(result) {
         const modal = document.getElementById("pob2-import-modal");
         const confirmBtn = document.getElementById("pob2-import-btn-confirm");
         const cancelBtn = document.getElementById("pob2-import-btn-cancel");
+        const closeBtn = document.getElementById("pob2-import-btn-close");
         
-        const chkPassives = document.getElementById("chk-import-passives");
-        const chkAppend = document.getElementById("chk-import-append-tree");
-        const chkGems = document.getElementById("chk-import-gems");
-        const chkGear = document.getElementById("chk-import-gear");
-        
-        const lblPassives = document.getElementById("label-import-passives");
-        const lblGems = document.getElementById("label-import-gems");
-        
-        const selTree = document.getElementById("sel-import-tree");
-        const selTreeContainer = document.getElementById("pob2-tree-select-container");
-        
-        const selSkillSet = document.getElementById("sel-import-skillset");
-        const selSkillSetContainer = document.getElementById("pob2-skillset-select-container");
-
-        const selGearSet = document.getElementById("sel-import-gearset");
-        const selGearSetContainer = document.getElementById("pob2-gearset-select-container");
-        const chkGearAppend = document.getElementById("chk-import-gear-append");
-        
-        // Populate Tree Dropdown
-        selTree.innerHTML = "";
-        let trees = result.trees || [{ title: "Default Tree", passives: result.passives }];
-        trees.forEach((t, i) => {
-            const opt = document.createElement("option");
-            opt.value = i;
-            opt.textContent = `${t.title} (${t.passives ? t.passives.length : 0} nodes)`;
-            selTree.appendChild(opt);
-        });
-        if (trees.length > 1) {
-            selTreeContainer.classList.remove("hidden");
-        } else {
-            selTreeContainer.classList.add("hidden");
-        }
-        
-        // Populate Skill Set Dropdown
-        selSkillSet.innerHTML = "";
-        let skillSets = result.skillSets || [{ title: "Default Skill Set", skills: result.skills }];
-        skillSets.forEach((s, i) => {
-            const opt = document.createElement("option");
-            opt.value = i;
-            opt.textContent = `${s.title} (${s.skills ? s.skills.length : 0} skills)`;
-            selSkillSet.appendChild(opt);
-        });
-        if (skillSets.length > 1) {
-            selSkillSetContainer.classList.remove("hidden");
-        } else {
-            selSkillSetContainer.classList.add("hidden");
-        }
-        
-        // Populate Gear Set Dropdown
-        selGearSet.innerHTML = "";
-        let itemSets = result.itemSets || [{ title: "Default Item Set", inventory_slots: result.inventory_slots }];
-        itemSets.forEach((s, i) => {
-            const opt = document.createElement("option");
-            opt.value = i;
-            opt.textContent = `${s.title} (${s.inventory_slots ? s.inventory_slots.length : 0} items)`;
-            selGearSet.appendChild(opt);
-        });
-        if (itemSets.length > 1) {
-            selGearSetContainer.classList.remove("hidden");
-        } else {
-            selGearSetContainer.classList.add("hidden");
-        }
-        
-        const updateLabels = () => {
-            const selectedTreeIdx = parseInt(selTree.value) || 0;
-            const passivesCount = trees[selectedTreeIdx].passives ? trees[selectedTreeIdx].passives.length : 0;
-            lblPassives.textContent = `Import Passives (${passivesCount} nodes)`;
-            
-            const selectedSkillSetIdx = parseInt(selSkillSet.value) || 0;
-            const skillsCount = skillSets[selectedSkillSetIdx].skills ? skillSets[selectedSkillSetIdx].skills.length : 0;
-            lblGems.textContent = `Import Gems (${skillsCount} skills) (Replaces current skills)`;
-            
-            const selectedGearSetIdx = parseInt(selGearSet.value) || 0;
-            const gearCount = itemSets[selectedGearSetIdx].inventory_slots ? itemSets[selectedGearSetIdx].inventory_slots.length : 0;
-            const lblGear = document.getElementById("label-import-gear");
-            if (lblGear) {
-                lblGear.textContent = `Import Gear (${gearCount} items)`;
+        const subtitle = document.getElementById("pob2-import-subtitle");
+        let buildNameStr = "Unknown Build";
+        if (result.className) {
+            buildNameStr = result.className;
+            if (result.ascendancyName && result.ascendancyName !== "None") {
+                buildNameStr += ` / ${result.ascendancyName}`;
             }
+        }
+        subtitle.textContent = buildNameStr;
+        
+        const chkResetAll = document.getElementById("chk-import-reset-all");
+        chkResetAll.checked = false;
+        
+        const tabBtns = document.querySelectorAll(".pob2-tab-btn");
+        const tabPanes = document.querySelectorAll(".pob2-tab-pane");
+        
+        const switchTab = (tabId) => {
+            tabBtns.forEach(btn => btn.classList.toggle("active", btn.dataset.tab === tabId));
+            tabPanes.forEach(pane => pane.classList.toggle("hidden", pane.id !== `pob2-tab-${tabId}`));
         };
         
-        selTree.addEventListener("change", updateLabels);
-        selSkillSet.addEventListener("change", updateLabels);
-        selGearSet.addEventListener("change", updateLabels);
+        tabBtns.forEach(btn => {
+            btn.onclick = () => switchTab(btn.dataset.tab);
+        });
         
-        chkPassives.checked = true;
-        chkAppend.checked = true;
-        chkGems.checked = true;
-        if (chkGearAppend) chkGearAppend.checked = true;
-        
-        const updateAppendState = () => {
-            chkAppend.disabled = !chkPassives.checked;
-            if (!chkPassives.checked) chkAppend.checked = false;
+        const createCard = (title, desc, isSelected = true) => {
+            const card = document.createElement("div");
+            card.className = `pob2-card ${isSelected ? 'selected' : ''}`;
             
-            selTree.disabled = !chkPassives.checked;
-            selSkillSet.disabled = !chkGems.checked;
+            const checkboxLabel = document.createElement("label");
+            checkboxLabel.className = "pob2-checkbox-label";
+            checkboxLabel.style.pointerEvents = "none";
             
-            if (chkGearAppend) chkGearAppend.disabled = !(chkGear && chkGear.checked);
-            if (!(chkGear && chkGear.checked) && chkGearAppend) chkGearAppend.checked = false;
-            selGearSet.disabled = !(chkGear && chkGear.checked);
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.className = "pob2-checkbox-input";
+            checkbox.checked = isSelected;
+            
+            const customBox = document.createElement("div");
+            customBox.className = "pob2-checkbox-custom";
+            
+            const textContainer = document.createElement("div");
+            textContainer.className = "pob2-checkbox-text";
+            
+            const titleEl = document.createElement("div");
+            titleEl.className = "pob2-card-title";
+            titleEl.textContent = title;
+            
+            const descEl = document.createElement("div");
+            descEl.className = "pob2-card-desc";
+            descEl.textContent = desc;
+            
+            textContainer.appendChild(titleEl);
+            textContainer.appendChild(descEl);
+            
+            checkboxLabel.appendChild(checkbox);
+            checkboxLabel.appendChild(customBox);
+            
+            card.appendChild(checkboxLabel);
+            card.appendChild(textContainer);
+            
+            card.onclick = () => {
+                checkbox.checked = !checkbox.checked;
+                card.classList.toggle("selected", checkbox.checked);
+            };
+            
+            return { card, checkbox };
         };
         
-        chkPassives.addEventListener("change", updateAppendState);
-        chkGems.addEventListener("change", updateAppendState);
-        if (chkGear) chkGear.addEventListener("change", updateAppendState);
+        const passivesList = document.getElementById("pob2-passives-list");
+        passivesList.innerHTML = "";
+        let trees = result.trees || [{ title: "Default Tree", passives: result.passives }];
+        const treeCheckboxes = [];
+        trees.forEach((t, i) => {
+            const { card, checkbox } = createCard(t.title, `Allocates ${t.passives ? t.passives.length : 0} nodes`, true);
+            passivesList.appendChild(card);
+            treeCheckboxes.push(checkbox);
+        });
         
-        updateLabels();
-        updateAppendState();
+        const gemsList = document.getElementById("pob2-gems-list");
+        gemsList.innerHTML = "";
+        let skillSets = result.skillSets || [{ title: "Default Skill Set", skills: result.skills }];
+        const gemCheckboxes = [];
+        skillSets.forEach((s, i) => {
+            const { card, checkbox } = createCard(s.title, `Contains ${s.skills ? s.skills.length : 0} skills`, true);
+            gemsList.appendChild(card);
+            gemCheckboxes.push(checkbox);
+        });
+        
+        const gearList = document.getElementById("pob2-gear-list");
+        gearList.innerHTML = "";
+        let itemSets = result.itemSets || [{ title: "Default Item Set", inventory_slots: result.inventory_slots }];
+        const gearCheckboxes = [];
+        itemSets.forEach((s, i) => {
+            const { card, checkbox } = createCard(s.title, `Contains ${s.inventory_slots ? s.inventory_slots.length : 0} items`, true);
+            gearList.appendChild(card);
+            gearCheckboxes.push(checkbox);
+        });
+
+        switchTab("passives");
+        
+        const cleanup = () => {
+            confirmBtn.removeEventListener("click", onConfirm);
+            cancelBtn.removeEventListener("click", onCancel);
+            if (closeBtn) closeBtn.removeEventListener("click", onCancel);
+            tabBtns.forEach(btn => btn.onclick = null);
+            modal.classList.add("hidden");
+        };
 
         const onConfirm = () => { 
+            const selectedTrees = [];
+            treeCheckboxes.forEach((cb, i) => { if (cb.checked) selectedTrees.push(i); });
+            
+            const selectedSkillSets = [];
+            gemCheckboxes.forEach((cb, i) => { if (cb.checked) selectedSkillSets.push(i); });
+            
+            const selectedGearSets = [];
+            gearCheckboxes.forEach((cb, i) => { if (cb.checked) selectedGearSets.push(i); });
+
             const options = {
-                importPassives: chkPassives.checked,
-                appendTree: chkAppend.checked,
-                importGems: chkGems.checked,
-                importGear: chkGear ? chkGear.checked : false,
-                appendGear: chkGearAppend ? chkGearAppend.checked : false,
-                selectedTreeIndex: parseInt(selTree.value) || 0,
-                selectedSkillSetIndex: parseInt(selSkillSet.value) || 0,
-                selectedGearSetIndex: parseInt(selGearSet.value) || 0
+                resetAll: chkResetAll.checked,
+                selectedTrees,
+                selectedSkillSets,
+                selectedGearSets
             };
             cleanup(); 
             resolve(options); 
         };
         const onCancel  = () => { cleanup(); resolve(null); };
 
-        const cleanup = () => {
-            confirmBtn.removeEventListener("click", onConfirm);
-            cancelBtn.removeEventListener("click", onCancel);
-            chkPassives.removeEventListener("change", updateAppendState);
-            chkGems.removeEventListener("change", updateAppendState);
-            selTree.removeEventListener("change", updateLabels);
-            selSkillSet.removeEventListener("change", updateLabels);
-            if (chkGear) chkGear.removeEventListener("change", updateAppendState);
-            selGearSet.removeEventListener("change", updateLabels);
-            modal.classList.add("hidden");
-        };
-
         confirmBtn.addEventListener("click", onConfirm);
         cancelBtn.addEventListener("click", onCancel);
+        if (closeBtn) closeBtn.addEventListener("click", onCancel);
+        
         modal.classList.remove("hidden");
         confirmBtn.focus();
     });
