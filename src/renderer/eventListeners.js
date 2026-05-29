@@ -84,34 +84,54 @@ function setupEventListeners() {
 
         try {
             const result   = await window.electronAPI.importPob2(code);
-            const passives = result.passives || result;
-            window.buildState.passive_trees = [{ level_interval: null, nodes: passives }];
-            window.currentTreeIndex = 0;
-            syncPassivesAlias();
 
-            if (result.className) {
-                let targetText = result.className + " (General)";
-                if (result.ascendancyName && result.ascendancyName !== "None") {
-                    targetText = result.className + " (" + result.ascendancyName + ")";
-                }
-                const ascSelect   = document.getElementById("meta-ascendancy");
-                const matchedOpt  = Array.from(ascSelect.options).find(opt => opt.textContent === targetText);
+            const options = await showPob2ImportOptions(result);
+            if (!options) return;
 
-                if (matchedOpt) {
-                    window.buildState.ascendancy = matchedOpt.value;
+            const chosenPassives = result.trees && result.trees[options.selectedTreeIndex] 
+                                    ? result.trees[options.selectedTreeIndex].passives 
+                                    : (result.passives || result);
+            const chosenSkills = result.skillSets && result.skillSets[options.selectedSkillSetIndex]
+                                    ? result.skillSets[options.selectedSkillSetIndex].skills
+                                    : (result.skills || []);
+
+            if (options.importPassives) {
+                const mappedPassives = chosenPassives.map(p => typeof p === 'string' ? { id: p, additional_text: "" } : p);
+                if (options.appendTree) {
+                    window.buildState.passive_trees.push({ level_interval: null, nodes: mappedPassives });
+                    window.currentTreeIndex = window.buildState.passive_trees.length - 1;
                 } else {
-                    window.buildState.ascendancy = result.ascendancyName && result.ascendancyName !== "None"
-                        ? result.ascendancyName
-                        : result.className;
+                    window.buildState.passive_trees = [{ level_interval: null, nodes: mappedPassives }];
+                    window.currentTreeIndex = 0;
                 }
-            } else {
-                window.buildState.ascendancy = "";
+                syncPassivesAlias();
+
+                if (result.className) {
+                    let targetText = result.className + " (General)";
+                    if (result.ascendancyName && result.ascendancyName !== "None") {
+                        targetText = result.className + " (" + result.ascendancyName + ")";
+                    }
+                    const ascSelect   = document.getElementById("meta-ascendancy");
+                    const matchedOpt  = Array.from(ascSelect.options).find(opt => opt.textContent === targetText);
+
+                    if (matchedOpt) {
+                        window.buildState.ascendancy = matchedOpt.value;
+                    } else {
+                        window.buildState.ascendancy = result.ascendancyName && result.ascendancyName !== "None"
+                            ? result.ascendancyName
+                            : result.className;
+                    }
+                } else {
+                    window.buildState.ascendancy = "";
+                }
             }
 
-            if (result.skills && result.skills.length > 0) {
-                window.buildState.skills = result.skills;
-                if (window.selectedElement && (window.selectedElement.type === 'skill' || window.selectedElement.type === 'support')) {
-                    window.selectedElement = null;
+            if (options.importGems) {
+                if (chosenSkills && chosenSkills.length > 0) {
+                    window.buildState.skills = chosenSkills;
+                    if (window.selectedElement && (window.selectedElement.type === 'skill' || window.selectedElement.type === 'support')) {
+                        window.selectedElement = null;
+                    }
                 }
             }
 
@@ -121,7 +141,11 @@ function setupEventListeners() {
             if (window.renderTreeVariantBar) window.renderTreeVariantBar();
             if (window.renderTree) window.renderTree();
 
-            await showAlert("Success", `Successfully imported ${passives.length} passive nodes${result.className ? ' for ' + result.className : ''} from PoB2.`);
+            let msgs = [];
+            if (options.importPassives) msgs.push(`${chosenPassives.length} passive nodes${result.className ? ' for ' + result.className : ''}`);
+            if (options.importGems && chosenSkills.length > 0) msgs.push(`${chosenSkills.length} skills`);
+
+            await showAlert("Success", `Successfully imported: ${msgs.join(', ')}.`);
         } catch (err) {
             await showAlert("Error", "Failed to import: " + err.message);
         }

@@ -198,12 +198,15 @@ function exportBuildJson() {
         window.buildState.passive_trees.forEach(tree => {
             if (tree.nodes && tree.nodes.length > 0) {
                 tree.nodes.forEach(p => {
-                    if (!tree.level_interval && !p.additional_text) {
-                        passivesOut.push(p.id);
+                    const id = typeof p === 'string' ? p : p.id;
+                    const text = typeof p === 'string' ? undefined : p.additional_text;
+                    
+                    if (!tree.level_interval && !text) {
+                        passivesOut.push(id);
                     } else {
-                        const outNode = { id: p.id };
+                        const outNode = { id: id };
                         if (tree.level_interval) outNode.level_interval = tree.level_interval;
-                        if (p.additional_text) outNode.additional_text = p.additional_text;
+                        if (text) outNode.additional_text = text;
                         passivesOut.push(outNode);
                     }
                 });

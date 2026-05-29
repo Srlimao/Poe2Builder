@@ -1,6 +1,6 @@
 {
   "name": "poe2-build-planner",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "An editor and creator for Path of Exile 2 Build Planner files",
   "main": "src/main/main.js",
   "scripts": {

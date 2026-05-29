@@ -8,3 +8,4 @@ test_scripts/
 # Agent & reference files (not shipped)
 GEMINI.md
 AGENTS.md
+future_features/

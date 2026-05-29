@@ -175,81 +175,114 @@ ipcMain.handle('import-pob2', async (event, base64Code) => {
     // 2. zlib inflate
     let decompressed = zlib.inflateSync(buffer).toString('utf-8');
     
-    // 3. Extract nodes="..." from <Spec ... nodes="...">
-    let nodesMatch = decompressed.match(/<Spec[^>]*nodes="([^"]*)"/);
-    if (!nodesMatch || nodesMatch.length < 2) {
-      throw new Error("Could not find nodes in PoB2 build data.");
-    }
-    
-    let numericNodes = nodesMatch[1].split(',').map(n => n.trim()).filter(n => n);
-    
-    // 4. Load mapping and translate
+    // 3. Load mapping and extract multiple passive trees (<Spec>)
     const mappingPath = path.join(__dirname, '..', '..', 'data', 'passive_mapping.json');
     if (!fs.existsSync(mappingPath)) {
         throw new Error("passive_mapping.json mapping file not found.");
     }
     const mapping = JSON.parse(fs.readFileSync(mappingPath, 'utf-8'));
+
+    let trees = [];
+    let specBlocks = decompressed.match(/<Spec[^>]*>/g) || [];
+    for (let spec of specBlocks) {
+        let titleMatch = spec.match(/title="([^"]*)"/);
+        let nodesMatch = spec.match(/nodes="([^"]*)"/);
+        if (nodesMatch) {
+            let numericNodes = nodesMatch[1].split(',').map(n => n.trim()).filter(n => n);
+            let stringNodes = [];
+            numericNodes.forEach(num => {
+                if (mapping[num]) stringNodes.push(mapping[num]);
+            });
+            trees.push({
+                title: titleMatch ? titleMatch[1] : `Tree ${trees.length + 1}`,
+                passives: stringNodes
+            });
+        }
+    }
     
-    let stringNodes = [];
-    numericNodes.forEach(num => {
-      if (mapping[num]) {
-        stringNodes.push(mapping[num]);
-      }
-    });
+    if (trees.length === 0) {
+      throw new Error("Could not find nodes in PoB2 build data.");
+    }
     
+    // 4. Extract class metadata
     let className = null;
     let ascendancyName = null;
-    
     let classNameMatch = decompressed.match(/<Build[^>]*className="([^"]*)"/);
     let ascendNameMatch = decompressed.match(/<Build[^>]*ascendClassName="([^"]*)"/);
     
-    if (classNameMatch) {
-        className = classNameMatch[1];
-    }
-    if (ascendNameMatch) {
-        ascendancyName = ascendNameMatch[1];
-    }
+    if (classNameMatch) className = classNameMatch[1];
+    if (ascendNameMatch) ascendancyName = ascendNameMatch[1];
     
-    let skills = [];
-    let skillBlocks = decompressed.match(/<Skill [^>]*>([\s\S]*?)<\/Skill>/g) || [];
+    // 5. Extract multiple skill sets
+    let skillSets = [];
+    let skillsWrapperMatch = decompressed.match(/<Skills[^>]*>([\s\S]*?)<\/Skills>/);
+    if (skillsWrapperMatch) {
+        let skillsInner = skillsWrapperMatch[1];
+        let setBlocks = skillsInner.match(/<SkillSet[^>]*>([\s\S]*?)<\/SkillSet>/g);
+        
+        const parseSkillsFromBlock = (blockStr) => {
+            let skillsArr = [];
+            let skillBlocks = blockStr.match(/<Skill [^>]*>([\s\S]*?)<\/Skill>/g) || [];
+            for (let block of skillBlocks) {
+                let gemStrs = block.match(/<Gem [^>]*>/g) || [];
+                let parsedGems = [];
+                for (let gemStr of gemStrs) {
+                    let idMatch = gemStr.match(/gemId="([^"]*)"/);
+                    let lvlMatch = gemStr.match(/level="([^"]*)"/);
+                    if (idMatch) {
+                        parsedGems.push({
+                            id: idMatch[1],
+                            level: lvlMatch ? parseInt(lvlMatch[1], 10) : 1
+                        });
+                    }
+                }
+                if (parsedGems.length > 0) {
+                    let activeGem = parsedGems[0];
+                    let skillObj = {
+                        id: activeGem.id,
+                        level_interval: [activeGem.level, activeGem.level],
+                        additional_text: "",
+                        support_skills: []
+                    };
+                    for (let i = 1; i < parsedGems.length; i++) {
+                        skillObj.support_skills.push({
+                            id: parsedGems[i].id,
+                            level_interval: [parsedGems[i].level, parsedGems[i].level],
+                            additional_text: ""
+                        });
+                    }
+                    skillsArr.push(skillObj);
+                }
+            }
+            return skillsArr;
+        };
 
-    for (let block of skillBlocks) {
-        let gemStrs = block.match(/<Gem [^>]*>/g) || [];
-        let parsedGems = [];
-        
-        for (let gemStr of gemStrs) {
-            let idMatch = gemStr.match(/gemId="([^"]*)"/);
-            let lvlMatch = gemStr.match(/level="([^"]*)"/);
-            
-            if (idMatch) {
-                parsedGems.push({
-                    id: idMatch[1],
-                    level: lvlMatch ? parseInt(lvlMatch[1], 10) : 1
+        if (setBlocks && setBlocks.length > 0) {
+            for (let setBlock of setBlocks) {
+                let titleMatch = setBlock.match(/<SkillSet[^>]*title="([^"]*)"/);
+                let parsedSkills = parseSkillsFromBlock(setBlock);
+                skillSets.push({
+                    title: titleMatch ? titleMatch[1] : `Skill Set ${skillSets.length + 1}`,
+                    skills: parsedSkills
                 });
             }
-        }
-        
-        if (parsedGems.length > 0) {
-            let activeGem = parsedGems[0];
-            let skillObj = {
-                id: activeGem.id,
-                level_interval: [activeGem.level, activeGem.level],
-                additional_text: "",
-                support_skills: []
-            };
-            
-            for (let i = 1; i < parsedGems.length; i++) {
-                skillObj.support_skills.push({
-                    id: parsedGems[i].id,
-                    level_interval: [parsedGems[i].level, parsedGems[i].level],
-                    additional_text: ""
-                });
+        } else {
+            // Fallback for older formats without <SkillSet>
+            let parsedSkills = parseSkillsFromBlock(skillsInner);
+            if (parsedSkills.length > 0) {
+                skillSets.push({ title: "Default Skill Set", skills: parsedSkills });
             }
-            skills.push(skillObj);
         }
     }
-    
-    return { passives: stringNodes, className, ascendancyName, skills };
+
+    return { 
+        passives: trees[0].passives, 
+        className, 
+        ascendancyName, 
+        skills: skillSets.length > 0 ? skillSets[0].skills : [],
+        trees,
+        skillSets
+    };
   } catch (err) {
     console.error("Error importing PoB2:", err);
     throw new Error("Failed to import PoB2 build: " + err.message);
