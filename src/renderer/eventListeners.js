@@ -136,6 +136,31 @@ function setupEventListeners() {
         settingsModal.classList.add("hidden");
     });
 
+    const chkDisableMeta = document.getElementById("setting-disable-meta-gems");
+    const warningBanner  = document.getElementById("meta-gems-warning");
+    
+    const updateMetaWarning = (disabled) => {
+        if (warningBanner) {
+            if (disabled) warningBanner.classList.remove("hidden");
+            else warningBanner.classList.add("hidden");
+        }
+    };
+
+    if (chkDisableMeta) {
+        // Default to true if not set
+        if (localStorage.getItem("disableMetaGems") === null) {
+            localStorage.setItem("disableMetaGems", "true");
+        }
+        const isMetaDisabled = localStorage.getItem("disableMetaGems") === "true";
+        chkDisableMeta.checked = isMetaDisabled;
+        updateMetaWarning(isMetaDisabled);
+
+        chkDisableMeta.addEventListener("change", (e) => {
+            localStorage.setItem("disableMetaGems", e.target.checked);
+            updateMetaWarning(e.target.checked);
+        });
+    }
+
     document.getElementById("btn-run-update-tree").addEventListener("click", async () => {
         const isElectron = typeof window.electronAPI !== 'undefined';
         if (!isElectron) {

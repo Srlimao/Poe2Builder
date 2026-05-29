@@ -149,6 +149,11 @@
                     <button id="btn-add-skill" class="btn btn-sm btn-gold">+ Add Skill</button>
                 </div>
                 
+                <div id="meta-gems-warning" class="hidden" style="background: rgba(168, 58, 58, 0.1); border: 1px solid var(--gem-red); color: #ffb3b3; padding: 10px; margin: 15px 15px 0 15px; border-radius: 4px; font-size: 12px; text-align: center;">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="vertical-align: text-bottom; margin-right: 4px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    Meta (Spirit) Gems are currently disabled in Settings.
+                </div>
+
                 <div class="skills-scroll-container">
                     <div id="skills-list" class="skills-list">
                         <!-- Skill Socket Groups will be rendered dynamically here -->
@@ -319,6 +324,15 @@
             <h3 class="modal-title">App Settings</h3>
             
             <div class="settings-section" style="margin-top: 20px; text-align: left;">
+                <h4 style="color: var(--color-gold); margin-bottom: 10px;">General Options</h4>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-body); font-size: 13px;">
+                        <input type="checkbox" id="setting-disable-meta-gems">
+                        Disable Meta (Spirit) Gems
+                    </label>
+                    <p style="color: var(--text-muted); font-size: 0.85em; margin-top: 5px; margin-left: 24px;">Meta gems are currently unsupported by the official Build Planner. Check this to hide them from search.</p>
+                </div>
+
                 <h4 style="color: var(--color-gold); margin-bottom: 10px;">Data Management</h4>
                 <p style="color: var(--color-text-muted); font-size: 0.9em; margin-bottom: 15px;">
                     Fetch the latest passive skill tree mapping data from the official PoE2 export repository.

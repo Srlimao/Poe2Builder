@@ -16,8 +16,10 @@ function showAutocompleteSuggestions(query) {
 
     // Determine database based on current selection type
     let db = [];
+    const disableMeta = localStorage.getItem("disableMetaGems") !== "false";
+
     if (window.selectedElement.type === 'skill') {
-        db = window.activeGemsDb;
+        db = disableMeta ? window.activeGemsDb.filter(g => g.type !== 'spirit') : window.activeGemsDb;
     } else if (window.selectedElement.type === 'support') {
         db = window.supportGemsDb;
 
@@ -26,11 +28,16 @@ function showAutocompleteSuggestions(query) {
             const parentSkill = window.buildState.skills[window.selectedElement.skillIndex];
             if (parentSkill && parentSkill.id) {
                 const parentGemData = window.activeGemsDb.find(g => g.id === parentSkill.id);
-                if (parentGemData && parentGemData.GemType === 'spirit') {
-                    const activeSkills = window.activeGemsDb.filter(g => g.GemType === 'active');
+                if (parentGemData && parentGemData.type === 'spirit') {
+                    const activeSkills = window.activeGemsDb.filter(g => g.type === 'skill');
                     db = window.supportGemsDb.concat(activeSkills);
                 }
             }
+        }
+        
+        // Filter out spirit gems if they accidentally ended up here and the setting is on
+        if (disableMeta) {
+            db = db.filter(g => g.type !== 'spirit');
         }
     } else {
         sugContainer.classList.add("hidden");
