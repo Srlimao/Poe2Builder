@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,12 @@
     <!-- Load PoE2 style fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="app-container">
         <!-- TOP NAVIGATION & CONTROLS -->
@@ -24,7 +28,7 @@
                     <span id="dirty-indicator" class="dirty-dot hidden"></span>
                 </div>
             </div>
-            
+
             <div class="header-center">
                 <div class="main-tabs">
                     <button class="tab-btn active" id="tab-equipment">Equipment & Skills</button>
@@ -42,20 +46,26 @@
                         <div class="dropdown-divider"></div>
                         <button id="btn-save" class="dropdown-item">Save</button>
                         <button id="btn-save-as" class="dropdown-item">Save As...</button>
-                        <button id="btn-export-poe" class="dropdown-item text-gold" title="Quick save to PoE2 default path">Quick Save (PoE2)</button>
+                        <button id="btn-export-poe" class="dropdown-item text-gold"
+                            title="Quick save to PoE2 default path">Quick Save (PoE2)</button>
                     </div>
                 </div>
-                
+
                 <button id="btn-settings" class="btn btn-secondary btn-icon" title="Settings">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path
+                            d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                    </svg>
                 </button>
-                <a href="https://github.com/Srlimao/Poe2Builder/releases" target="_blank" class="btn btn-gold highlight-pulse" id="btn-desktop-version" style="text-decoration: none;">Download Desktop App</a>
+                <a href="https://github.com/Srlimao/Poe2Builder/releases" target="_blank"
+                    class="btn btn-gold highlight-pulse" id="btn-desktop-version"
+                    style="text-decoration: none;">Download Desktop App</a>
             </div>
         </header>
 
         <!-- MAIN LAYOUT WRAPPER -->
         <div class="main-layout">
-            
+
             <!-- LEFT COLUMN: BUILD METADATA & CHARACTER EQUIPMENT GRID -->
             <aside class="left-panel">
                 <div class="panel-section-title">BUILD METADATA</div>
@@ -75,12 +85,14 @@
                                 <option value="">None / Base Class</option>
                                 <option value="Custom">Custom...</option>
                             </select>
-                            <input type="text" id="meta-ascendancy-custom" class="form-control hidden" placeholder="Enter custom class/ascendancy">
+                            <input type="text" id="meta-ascendancy-custom" class="form-control hidden"
+                                placeholder="Enter custom class/ascendancy">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="meta-desc">Description</label>
-                        <textarea id="meta-desc" rows="2" placeholder="Brief build summary..." class="form-control"></textarea>
+                        <textarea id="meta-desc" rows="2" placeholder="Brief build summary..."
+                            class="form-control"></textarea>
                     </div>
                 </div>
 
@@ -148,9 +160,14 @@
                     <span>SKILLS & SOCKETS</span>
                     <button id="btn-add-skill" class="btn btn-sm btn-gold">+ Add Skill</button>
                 </div>
-                
-                <div id="meta-gems-warning" class="hidden" style="background: rgba(168, 58, 58, 0.1); border: 1px solid var(--gem-red); color: #ffb3b3; padding: 10px; margin: 15px 15px 0 15px; border-radius: 4px; font-size: 12px; text-align: center;">
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="vertical-align: text-bottom; margin-right: 4px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+
+                <div id="meta-gems-warning" class="hidden"
+                    style="background: rgba(168, 58, 58, 0.1); border: 1px solid var(--gem-red); color: #ffb3b3; padding: 10px; margin: 15px 15px 0 15px; border-radius: 4px; font-size: 12px; text-align: center;">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"
+                        style="vertical-align: text-bottom; margin-right: 4px;">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                    </svg>
                     Meta (Spirit) Gems are currently disabled in Settings.
                 </div>
 
@@ -165,28 +182,36 @@
             </main>
 
             <!-- Tree Visualizer Pane (Flex Item) -->
-            <div id="tree-visualizer-overlay" class="hidden" style="flex: 1; position: relative; background: #050505; min-width: 0; display: flex; flex-direction: column;">
+            <div id="tree-visualizer-overlay" class="hidden"
+                style="flex: 1; position: relative; background: #050505; min-width: 0; display: flex; flex-direction: column;">
 
                 <!-- Tree Variant Control Bar -->
                 <div id="tree-variant-bar" class="tree-variant-bar">
                     <label class="tree-variant-label">Tree Variant:</label>
                     <select id="tree-variant-dropdown" class="form-control tree-variant-select"></select>
                     <label class="tree-variant-label">Level:</label>
-                    <input id="tree-lvl-min" type="number" min="0" max="100" placeholder="0" class="form-control tree-lvl-input">
+                    <input id="tree-lvl-min" type="number" min="0" max="100" placeholder="0"
+                        class="form-control tree-lvl-input">
                     <span class="tree-variant-sep">–</span>
-                    <input id="tree-lvl-max" type="number" min="0" max="100" placeholder="100" class="form-control tree-lvl-input">
+                    <input id="tree-lvl-max" type="number" min="0" max="100" placeholder="100"
+                        class="form-control tree-lvl-input">
                     <div class="tree-variant-actions">
-                        <button id="btn-tree-duplicate" class="btn btn-sm btn-secondary" title="Duplicate current tree variant">Duplicate</button>
+                        <button id="btn-tree-duplicate" class="btn btn-sm btn-secondary"
+                            title="Duplicate current tree variant">Duplicate</button>
                         <button id="btn-tree-add-new" class="btn btn-sm btn-gold">+ New</button>
-                        <button id="btn-tree-delete" class="btn btn-sm btn-danger hidden" title="Delete this variant">Delete</button>
+                        <button id="btn-tree-delete" class="btn btn-sm btn-danger hidden"
+                            title="Delete this variant">Delete</button>
                     </div>
                 </div>
 
-                <canvas id="tree-canvas" style="display: block; flex: 1; width: 100%; background: #050505; cursor: grab;"></canvas>
-                <div id="tree-tooltip" class="game-tooltip-panel hidden" style="position: absolute; pointer-events: none; z-index: 1020; max-width: 350px;">
+                <canvas id="tree-canvas"
+                    style="display: block; flex: 1; width: 100%; background: #050505; cursor: grab;"></canvas>
+                <div id="tree-tooltip" class="game-tooltip-panel hidden"
+                    style="position: absolute; pointer-events: none; z-index: 1020; max-width: 350px;">
                     <div class="tooltip-border-top"></div>
                     <div class="tooltip-header">
-                        <h4 id="tree-tooltip-title" class="tooltip-title" style="color: var(--color-gold);">Node Name</h4>
+                        <h4 id="tree-tooltip-title" class="tooltip-title" style="color: var(--color-gold);">Node Name
+                        </h4>
                     </div>
                     <div class="tooltip-divider"></div>
                     <div id="tree-tooltip-content" class="tooltip-content">
@@ -199,7 +224,7 @@
             <!-- RIGHT COLUMN: EDITOR AND LIVE PREVIEW -->
             <section class="right-panel">
                 <div class="panel-section-title">PROPERTIES EDITOR</div>
-                
+
                 <div id="editor-placeholder" class="editor-placeholder-view">
                     <div class="placeholder-icon"></div>
                     <p>Select an Equipment Slot or Skill/Support Gem to configure its details.</p>
@@ -213,24 +238,29 @@
                     </div>
 
                     <!-- Variant Selector (Visible for Slots) -->
-                    <div id="editor-variant-selector" class="variant-selector hidden" style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 4px;">
+                    <div id="editor-variant-selector" class="variant-selector hidden"
+                        style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 4px;">
                         <label for="variant-dropdown" style="margin: 0; color: var(--color-gold);">Variant:</label>
-                        <select id="variant-dropdown" class="form-control" style="flex: 1; padding: 5px; height: auto; font-size: 0.9em;"></select>
-                        <button id="btn-add-variant" class="btn btn-sm btn-secondary" title="Add a new level variant configuration for this slot">+ Add</button>
+                        <select id="variant-dropdown" class="form-control"
+                            style="flex: 1; padding: 5px; height: auto; font-size: 0.9em;"></select>
+                        <button id="btn-add-variant" class="btn btn-sm btn-secondary"
+                            title="Add a new level variant configuration for this slot">+ Add</button>
                     </div>
 
                     <!-- Common form fields -->
                     <div class="form-group" id="editor-group-id">
                         <label for="edit-id" id="edit-id-label">Gem / Item ID</label>
                         <div class="autocomplete-wrapper">
-                            <input type="text" id="edit-id" placeholder="e.g. Metadata/Items/Gems/SkillGemEarthquake" class="form-control">
+                            <input type="text" id="edit-id" placeholder="e.g. Metadata/Items/Gems/SkillGemEarthquake"
+                                class="form-control">
                             <div id="id-autocomplete-suggestions" class="autocomplete-suggestions hidden"></div>
                         </div>
                     </div>
 
                     <div class="form-group hidden" id="editor-group-unique">
                         <label for="edit-unique-name">Unique Item Name (Optional)</label>
-                        <input type="text" id="edit-unique-name" placeholder="e.g. Kalandra's Touch" class="form-control">
+                        <input type="text" id="edit-unique-name" placeholder="e.g. Kalandra's Touch"
+                            class="form-control">
                     </div>
 
                     <div class="form-group">
@@ -238,11 +268,13 @@
                         <div class="level-interval-inputs">
                             <div class="level-input-col">
                                 <label for="edit-level-min" class="sub-label">Min Level</label>
-                                <input type="number" id="edit-level-min" min="0" max="100" placeholder="0" class="form-control">
+                                <input type="number" id="edit-level-min" min="0" max="100" placeholder="0"
+                                    class="form-control">
                             </div>
                             <div class="level-input-col">
                                 <label for="edit-level-max" class="sub-label">Max Level</label>
-                                <input type="number" id="edit-level-max" min="0" max="100" placeholder="100" class="form-control">
+                                <input type="number" id="edit-level-max" min="0" max="100" placeholder="100"
+                                    class="form-control">
                             </div>
                         </div>
                     </div>
@@ -252,21 +284,26 @@
                             <label for="edit-text">Additional Text / Instructions</label>
                             <span class="character-count" id="text-char-count">0/1000</span>
                         </div>
-                        
+
                         <!-- Rich Text Helper Tags -->
                         <div class="markup-helpers">
                             <button type="button" class="markup-btn" data-tag="red" title="Red text">Red</button>
                             <button type="button" class="markup-btn" data-tag="green" title="Green text">Green</button>
                             <button type="button" class="markup-btn" data-tag="blue" title="Blue text">Blue</button>
                             <button type="button" class="markup-btn" data-tag="gold" title="Gold text">Gold</button>
-                            <button type="button" class="markup-btn" data-tag="silver" title="Silver text">Silver</button>
-                            <button type="button" class="markup-btn" data-tag="grey" title="Grey description text">Grey</button>
+                            <button type="button" class="markup-btn" data-tag="silver"
+                                title="Silver text">Silver</button>
+                            <button type="button" class="markup-btn" data-tag="grey"
+                                title="Grey description text">Grey</button>
                             <button type="button" class="markup-btn" data-tag="b" title="Bold text">Bold</button>
-                            <button type="button" class="markup-btn" data-tag="m" title="Medium font size">Medium</button>
+                            <button type="button" class="markup-btn" data-tag="m"
+                                title="Medium font size">Medium</button>
                             <button type="button" class="markup-btn" data-tag="l" title="Large font size">Large</button>
                         </div>
 
-                        <textarea id="edit-text" rows="8" placeholder="Enter instructions here. Use formatting tags above to colorize and format in-game build planner guide." class="form-control code-font"></textarea>
+                        <textarea id="edit-text" rows="8"
+                            placeholder="Enter instructions here. Use formatting tags above to colorize and format in-game build planner guide."
+                            class="form-control code-font"></textarea>
                     </div>
                 </div>
 
@@ -292,7 +329,8 @@
         <!-- FOOTER / STATS BAR -->
         <footer class="app-footer">
             <div class="footer-left">
-                <span id="poe-path-status">PoE2 BuildPlanner directory: <span class="path-val text-red">Searching...</span></span>
+                <span id="poe-path-status">PoE2 BuildPlanner directory: <span
+                        class="path-val text-red">Searching...</span></span>
             </div>
             <div class="footer-right">
                 <span>Active Skills: <span id="stat-skills-count">0</span></span>
@@ -308,7 +346,8 @@
             <div class="modal-border-top"></div>
             <h3 id="modal-title" class="modal-title">Confirm Action</h3>
             <p id="modal-message" class="modal-message">Are you sure?</p>
-            <input type="text" id="modal-input" class="form-control hidden" placeholder="Enter text here..." style="margin-bottom: 15px;">
+            <input type="text" id="modal-input" class="form-control hidden" placeholder="Enter text here..."
+                style="margin-bottom: 15px;">
             <div class="modal-buttons">
                 <button id="modal-btn-cancel" class="btn btn-secondary">Cancel</button>
                 <button id="modal-btn-confirm" class="btn btn-gold">Confirm</button>
@@ -322,29 +361,33 @@
         <div class="modal-content" style="max-width: 500px;">
             <div class="modal-border-top"></div>
             <h3 class="modal-title">App Settings</h3>
-            
+
             <div class="settings-section" style="margin-top: 20px; text-align: left;">
                 <h4 style="color: var(--color-gold); margin-bottom: 10px;">General Options</h4>
                 <div style="margin-bottom: 20px;">
-                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-body); font-size: 13px;">
+                    <label
+                        style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-body); font-size: 13px;">
                         <input type="checkbox" id="setting-disable-meta-gems">
                         Disable Meta (Spirit) Gems
                     </label>
-                    <p style="color: var(--text-muted); font-size: 0.85em; margin-top: 5px; margin-left: 24px;">Meta gems are currently unsupported by the official Build Planner. Check this to hide them from search.</p>
+                    <p style="color: var(--text-muted); font-size: 0.85em; margin-top: 5px; margin-left: 24px;">Meta
+                        gems are currently unsupported by the official Build Planner. Check this to hide them from
+                        search (This may break the in game build planner).</p>
                 </div>
 
                 <h4 style="color: var(--color-gold); margin-bottom: 10px;">Data Management</h4>
                 <p style="color: var(--color-text-muted); font-size: 0.9em; margin-bottom: 15px;">
                     Fetch the latest passive skill tree mapping data from the official PoE2 export repository.
                 </p>
-                <button id="btn-run-update-tree" class="btn btn-secondary" style="width: 100%; margin-bottom: 15px;">Update Passive Skill Tree Data</button>
+                <button id="btn-run-update-tree" class="btn btn-secondary"
+                    style="width: 100%; margin-bottom: 15px;">Update Passive Skill Tree Data</button>
 
                 <p style="color: var(--color-text-muted); font-size: 0.9em; margin-bottom: 15px;">
                     Fetch the latest skill and support gems data from the repoe-fork.
                 </p>
                 <button id="btn-run-update-gems" class="btn btn-secondary" style="width: 100%;">Update Gem Data</button>
             </div>
-            
+
             <div class="modal-buttons" style="margin-top: 30px;">
                 <button id="btn-close-settings" class="btn btn-primary">Close</button>
             </div>
@@ -353,19 +396,26 @@
     </div>
 
     <!-- Gem Hover Tooltip -->
-    <div id="gem-tooltip" class="game-tooltip-panel hidden" style="position: fixed; pointer-events: none; z-index: 1050; max-width: 400px; background: rgba(10, 15, 20, 0.95); border: 1px solid var(--color-gold-dark);">
+    <div id="gem-tooltip" class="game-tooltip-panel hidden"
+        style="position: fixed; pointer-events: none; z-index: 1050; max-width: 400px; background: rgba(10, 15, 20, 0.95); border: 1px solid var(--color-gold-dark);">
         <div class="tooltip-border-top"></div>
         <div class="tooltip-header" style="text-align: center; padding-bottom: 5px;">
-            <h4 id="gem-tooltip-title" class="tooltip-title" style="color: var(--color-gem-active, #189dbd); font-size: 1.2em; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Gem Name</h4>
-            <div id="gem-tooltip-tags" style="color: #666; font-size: 0.75em; text-transform: uppercase; margin-bottom: 5px; font-family: 'Cinzel', serif;">SPELL, AOE, PROJECTILE</div>
+            <h4 id="gem-tooltip-title" class="tooltip-title"
+                style="color: var(--color-gem-active, #189dbd); font-size: 1.2em; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">
+                Gem Name</h4>
+            <div id="gem-tooltip-tags"
+                style="color: #666; font-size: 0.75em; text-transform: uppercase; margin-bottom: 5px; font-family: 'Cinzel', serif;">
+                SPELL, AOE, PROJECTILE</div>
             <div style="font-size: 0.85em; color: #aaa;">Level: <span style="color: white;">20 (MAX)</span></div>
         </div>
         <div class="tooltip-divider"></div>
-        <div id="gem-tooltip-stats" class="tooltip-content" style="text-align: center; font-size: 0.9em; padding: 10px 0;">
+        <div id="gem-tooltip-stats" class="tooltip-content"
+            style="text-align: center; font-size: 0.9em; padding: 10px 0;">
             <!-- Stats populated here -->
         </div>
         <div id="gem-tooltip-desc-divider" class="tooltip-divider hidden"></div>
-        <div id="gem-tooltip-desc" class="tooltip-content" style="color: #a38d6d; font-style: italic; font-size: 0.85em; text-align: left; padding: 5px 10px;">
+        <div id="gem-tooltip-desc" class="tooltip-content"
+            style="color: #a38d6d; font-style: italic; font-size: 0.85em; text-align: left; padding: 5px 10px;">
             <!-- Description populated here -->
         </div>
         <div class="tooltip-border-bottom"></div>
@@ -387,4 +437,5 @@
     <script src="treeVisualizer.js?v=1"></script>
     <script src="app.js?v=27"></script>
 </body>
+
 </html>

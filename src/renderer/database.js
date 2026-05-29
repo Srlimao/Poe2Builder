@@ -34,12 +34,13 @@ async function loadGemsDatabases() {
         window.activeGemsDb = [];
 
         skillGems.forEach(g => {
+            const isSpirit = g.GemType === 'spirit';
             window.activeGemsDb.push({
                 ...g,
                 name: g.Gem,
-                type: 'skill',
+                type: isSpirit ? 'spirit' : 'skill',
                 tier: g.Tier,
-                id: g.Id || generateGemId(g.Gem, 'skill')
+                id: g.Id || generateGemId(g.Gem, isSpirit ? 'spirit' : 'skill')
             });
         });
 
