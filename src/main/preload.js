@@ -9,5 +9,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
   readLocalJson: (filename) => ipcRenderer.invoke('read-local-json', filename),
   importPob2: (code) => ipcRenderer.invoke('import-pob2', code),
   updateSkilltree: () => ipcRenderer.invoke('update-skilltree'),
-  updateGems: () => ipcRenderer.invoke('update-gems')
+  updateGems: () => ipcRenderer.invoke('update-gems'),
+  updateUniques: () => ipcRenderer.invoke('update-uniques')
 });

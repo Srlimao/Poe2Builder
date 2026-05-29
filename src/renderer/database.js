@@ -18,6 +18,7 @@ async function loadGemsDatabases() {
             skillGems   = await window.electronAPI.readLocalJson('skill_gems.json')   || [];
             supportGems = await window.electronAPI.readLocalJson('support_gems.json') || [];
             spiritGems  = await window.electronAPI.readLocalJson('spirit_gems.json')  || [];
+            window.uniquesDb = await window.electronAPI.readLocalJson('uniques.json') || [];
         } else {
             console.log("Loading databases via HTTP fetch...");
             const fetchJson = async (url) => {
@@ -28,6 +29,7 @@ async function loadGemsDatabases() {
             skillGems   = await fetchJson('../../data/skill_gems.json').catch(() => []);
             supportGems = await fetchJson('../../data/support_gems.json').catch(() => []);
             spiritGems  = await fetchJson('../../data/spirit_gems.json').catch(() => []);
+            window.uniquesDb = await fetchJson('../../data/uniques.json').catch(() => []);
         }
 
         // Active gems = skill gems + spirit gems

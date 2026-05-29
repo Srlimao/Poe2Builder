@@ -287,3 +287,20 @@ ipcMain.handle('update-gems', async () => {
     });
   });
 });
+
+// Settings: Run Update Uniques Script
+ipcMain.handle('update-uniques', async () => {
+  return new Promise((resolve, reject) => {
+    const scriptPath = path.join(__dirname, '..', '..', 'scripts', 'update_uniques.js');
+    exec(`node "${scriptPath}"`, { cwd: path.join(__dirname, '..', '..') }, (error, stdout, stderr) => {
+      if (error) {
+        console.error("Error updating uniques:", error);
+        reject(new Error(stderr || error.message));
+      } else {
+        console.log("Uniques updated:", stdout);
+        resolve(stdout);
+      }
+    });
+  });
+});
+

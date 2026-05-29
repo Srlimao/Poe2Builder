@@ -203,6 +203,27 @@ function setupEventListeners() {
         }
     });
 
+    document.getElementById("btn-run-update-uniques").addEventListener("click", async () => {
+        const isElectron = typeof window.electronAPI !== 'undefined';
+        if (!isElectron) {
+            await showAlert("Unavailable", "Scripts can only be run in the Desktop app.");
+            return;
+        }
+        const btn          = document.getElementById("btn-run-update-uniques");
+        const originalText = btn.textContent;
+        btn.textContent    = "Updating... Please wait.";
+        btn.disabled       = true;
+        try {
+            const output = await window.electronAPI.updateUniques();
+            await showAlert("Success", "Unique items data successfully updated!\n\n" + output);
+        } catch (err) {
+            await showAlert("Error", "Failed to update unique items data:\n" + err.message);
+        } finally {
+            btn.textContent = originalText;
+            btn.disabled    = false;
+        }
+    });
+
     // --- Build Metadata Changes ---
     document.getElementById("meta-name").addEventListener("input", (e) => {
         window.buildState.name = e.target.value;
@@ -295,6 +316,7 @@ function setupEventListeners() {
         if (slotEl) {
             slotEl.querySelector(".eq-value").textContent = e.target.value || "Configured";
         }
+        showUniqueAutocompleteSuggestions(e.target.value);
     });
 
     // --- Editor: Level Interval ---

@@ -259,8 +259,10 @@
 
                     <div class="form-group hidden" id="editor-group-unique">
                         <label for="edit-unique-name">Unique Item Name (Optional)</label>
-                        <input type="text" id="edit-unique-name" placeholder="e.g. Kalandra's Touch"
-                            class="form-control">
+                        <div class="autocomplete-wrapper">
+                            <input type="text" id="edit-unique-name" placeholder="e.g. Kalandra's Touch" class="form-control">
+                            <div id="unique-autocomplete-suggestions" class="autocomplete-suggestions hidden"></div>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -385,7 +387,12 @@
                 <p style="color: var(--color-text-muted); font-size: 0.9em; margin-bottom: 15px;">
                     Fetch the latest skill and support gems data from the repoe-fork.
                 </p>
-                <button id="btn-run-update-gems" class="btn btn-secondary" style="width: 100%;">Update Gem Data</button>
+                <button id="btn-run-update-gems" class="btn btn-secondary" style="width: 100%; margin-bottom: 15px;">Update Gem Data</button>
+
+                <p style="color: var(--color-text-muted); font-size: 0.9em; margin-bottom: 15px;">
+                    Fetch the latest unique items data from the repoe-fork.
+                </p>
+                <button id="btn-run-update-uniques" class="btn btn-secondary" style="width: 100%;">Update Unique Items</button>
             </div>
 
             <div class="modal-buttons" style="margin-top: 30px;">

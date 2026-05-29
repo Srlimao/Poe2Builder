@@ -101,5 +101,100 @@ function showAutocompleteSuggestions(query) {
 function hideAutocomplete() {
     const sug = document.getElementById("id-autocomplete-suggestions");
     if (sug) sug.classList.add("hidden");
+    const uniqueSug = document.getElementById("unique-autocomplete-suggestions");
+    if (uniqueSug) uniqueSug.classList.add("hidden");
     hideGemTooltip();
+}
+
+function showUniqueAutocompleteSuggestions(query) {
+    const sugContainer = document.getElementById("unique-autocomplete-suggestions");
+    if (!sugContainer || !window.selectedElement || window.selectedElement.type !== 'slot') return;
+
+    if (!query || query.length < 1) {
+        sugContainer.classList.add("hidden");
+        return;
+    }
+
+    if (!window.uniquesDb || window.uniquesDb.length === 0) {
+        return;
+    }
+
+    const qLower = query.toLowerCase();
+    
+    // Map slots to allowed item classes
+    const slotClassMap = {
+        'Helm1': ['Helmet'],
+        'BodyArmour1': ['Body Armour'],
+        'Gloves1': ['Gloves'],
+        'Boots1': ['Boots'],
+        'Amulet1': ['Amulet', 'Talisman'],
+        'Ring1': ['Ring'],
+        'Ring2': ['Ring'],
+        'Belt1': ['Belt'],
+        'Weapon1': ['Wand', 'Shield', 'Focii', 'Spear', 'Staff', 'Mace', 'Warstaff', 'Bow', 'Crossbow', 'Sceptre', 'Quiver', 'Axe', 'Sword', 'Claw', 'Dagger', 'Flail', 'Two Hand Mace', 'One Hand Mace'],
+        'Weapon2': ['Wand', 'Shield', 'Focii', 'Spear', 'Staff', 'Mace', 'Warstaff', 'Bow', 'Crossbow', 'Sceptre', 'Quiver', 'Axe', 'Sword', 'Claw', 'Dagger', 'Flail', 'Two Hand Mace', 'One Hand Mace']
+    };
+
+    const allowedClasses = slotClassMap[window.selectedElement.id];
+
+    const filtered = window.uniquesDb.filter(item => {
+        // First filter by item class if applicable
+        if (allowedClasses && !allowedClasses.includes(item.ItemClass)) {
+            // For weapons, since PoE2 has many weapon types, we can also do a fallback check:
+            // If the slot is a Weapon slot and the item class isn't in one of the strict non-weapon categories, allow it.
+            if (window.selectedElement.id === 'Weapon1' || window.selectedElement.id === 'Weapon2') {
+                const nonWeapons = ['Helmet', 'Body Armour', 'Gloves', 'Boots', 'Amulet', 'Talisman', 'Ring', 'Belt', 'Flask', 'Jewel', 'Charm'];
+                if (nonWeapons.includes(item.ItemClass)) return false;
+            } else {
+                return false;
+            }
+        }
+        return item.Name.toLowerCase().includes(qLower);
+    }).slice(0, 8);
+
+    if (filtered.length === 0) {
+        sugContainer.classList.add("hidden");
+        return;
+    }
+
+    sugContainer.innerHTML = "";
+    filtered.forEach(item => {
+        const itemEl = document.createElement("div");
+        itemEl.className = "suggestion-item";
+
+        const nameSpan = document.createElement("span");
+        nameSpan.className = "sug-name";
+        nameSpan.textContent = item.Name;
+
+        const detailsSpan = document.createElement("span");
+        detailsSpan.className = "sug-details";
+        detailsSpan.textContent = item.ItemClass;
+
+        itemEl.appendChild(nameSpan);
+        itemEl.appendChild(detailsSpan);
+
+        itemEl.addEventListener("click", () => {
+            const input = document.getElementById("edit-unique-name");
+            input.value = item.Name;
+
+            // Trigger the actual update logic
+            const variants = window.buildState.inventory_slots.filter(x => x.inventory_id === window.selectedElement.id);
+            if (variants.length > 0) {
+                const slot = variants[window.selectedElement.variantIndex || 0];
+                slot.unique_name = item.Name;
+                markAsDirty();
+                if (window.renderLivePreview) window.renderLivePreview();
+                const slotEl = document.getElementById(`slot-${window.selectedElement.id}`);
+                if (slotEl) {
+                    slotEl.querySelector(".eq-value").textContent = item.Name;
+                }
+            }
+
+            sugContainer.classList.add("hidden");
+        });
+
+        sugContainer.appendChild(itemEl);
+    });
+
+    sugContainer.classList.remove("hidden");
 }
