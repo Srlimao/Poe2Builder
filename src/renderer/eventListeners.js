@@ -73,12 +73,6 @@ function setupEventListeners() {
 
     // --- PoB2 Import ---
     document.getElementById("btn-import-pob2").addEventListener("click", async () => {
-        const isElectron = typeof window.electronAPI !== 'undefined';
-        if (!isElectron) {
-            await showAlert("Unavailable", "PoB2 Import is only available in the Desktop app.");
-            return;
-        }
-
         const code = await showPrompt("Import PoB2 Build", "Paste your PoB2 base64 build code here:");
         if (!code) return;
 
