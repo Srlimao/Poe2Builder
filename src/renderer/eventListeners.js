@@ -136,6 +136,22 @@ function setupEventListeners() {
                 }
             }
 
+            if (options.importGear) {
+                const chosenGearset = result.itemSets && result.itemSets[options.selectedGearSetIndex] 
+                                      ? result.itemSets[options.selectedGearSetIndex].inventory_slots 
+                                      : (result.inventory_slots || []);
+                if (chosenGearset && chosenGearset.length > 0) {
+                    if (options.appendGear) {
+                        chosenGearset.forEach(newSlot => window.buildState.inventory_slots.push(newSlot));
+                    } else {
+                        window.buildState.inventory_slots = chosenGearset;
+                        if (window.selectedElement && window.selectedElement.type === 'slot') {
+                            window.selectedElement = null;
+                        }
+                    }
+                }
+            }
+
             markAsDirty();
             updateUI();
             renderSkillsGrid();
@@ -143,8 +159,17 @@ function setupEventListeners() {
             if (window.renderTree) window.renderTree();
 
             let msgs = [];
+            let importedGearCount = 0;
+            if (options.importGear) {
+                const chosenGearset = result.itemSets && result.itemSets[options.selectedGearSetIndex] 
+                                      ? result.itemSets[options.selectedGearSetIndex].inventory_slots 
+                                      : (result.inventory_slots || []);
+                importedGearCount = chosenGearset.length;
+            }
+
             if (options.importPassives) msgs.push(`${chosenPassives.length} passive nodes${result.className ? ' for ' + result.className : ''}`);
             if (options.importGems && chosenSkills.length > 0) msgs.push(`${chosenSkills.length} skills`);
+            if (options.importGear && importedGearCount > 0) msgs.push(`${importedGearCount} items`);
 
             await showAlert("Success", `Successfully imported: ${msgs.join(', ')}.`);
         } catch (err) {

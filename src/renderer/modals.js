@@ -103,6 +103,7 @@ function showPob2ImportOptions(result) {
         const chkPassives = document.getElementById("chk-import-passives");
         const chkAppend = document.getElementById("chk-import-append-tree");
         const chkGems = document.getElementById("chk-import-gems");
+        const chkGear = document.getElementById("chk-import-gear");
         
         const lblPassives = document.getElementById("label-import-passives");
         const lblGems = document.getElementById("label-import-gems");
@@ -112,6 +113,10 @@ function showPob2ImportOptions(result) {
         
         const selSkillSet = document.getElementById("sel-import-skillset");
         const selSkillSetContainer = document.getElementById("pob2-skillset-select-container");
+
+        const selGearSet = document.getElementById("sel-import-gearset");
+        const selGearSetContainer = document.getElementById("pob2-gearset-select-container");
+        const chkGearAppend = document.getElementById("chk-import-gear-append");
         
         // Populate Tree Dropdown
         selTree.innerHTML = "";
@@ -143,6 +148,21 @@ function showPob2ImportOptions(result) {
             selSkillSetContainer.classList.add("hidden");
         }
         
+        // Populate Gear Set Dropdown
+        selGearSet.innerHTML = "";
+        let itemSets = result.itemSets || [{ title: "Default Item Set", inventory_slots: result.inventory_slots }];
+        itemSets.forEach((s, i) => {
+            const opt = document.createElement("option");
+            opt.value = i;
+            opt.textContent = `${s.title} (${s.inventory_slots ? s.inventory_slots.length : 0} items)`;
+            selGearSet.appendChild(opt);
+        });
+        if (itemSets.length > 1) {
+            selGearSetContainer.classList.remove("hidden");
+        } else {
+            selGearSetContainer.classList.add("hidden");
+        }
+        
         const updateLabels = () => {
             const selectedTreeIdx = parseInt(selTree.value) || 0;
             const passivesCount = trees[selectedTreeIdx].passives ? trees[selectedTreeIdx].passives.length : 0;
@@ -151,10 +171,18 @@ function showPob2ImportOptions(result) {
             const selectedSkillSetIdx = parseInt(selSkillSet.value) || 0;
             const skillsCount = skillSets[selectedSkillSetIdx].skills ? skillSets[selectedSkillSetIdx].skills.length : 0;
             lblGems.textContent = `Import Gems (${skillsCount} skills) (Replaces current skills)`;
+            
+            const selectedGearSetIdx = parseInt(selGearSet.value) || 0;
+            const gearCount = itemSets[selectedGearSetIdx].inventory_slots ? itemSets[selectedGearSetIdx].inventory_slots.length : 0;
+            const lblGear = document.getElementById("label-import-gear");
+            if (lblGear) {
+                lblGear.textContent = `Import Gear (${gearCount} items)`;
+            }
         };
         
         selTree.addEventListener("change", updateLabels);
         selSkillSet.addEventListener("change", updateLabels);
+        selGearSet.addEventListener("change", updateLabels);
         
         chkPassives.checked = true;
         chkAppend.checked = false;
@@ -166,10 +194,15 @@ function showPob2ImportOptions(result) {
             
             selTree.disabled = !chkPassives.checked;
             selSkillSet.disabled = !chkGems.checked;
+            
+            if (chkGearAppend) chkGearAppend.disabled = !(chkGear && chkGear.checked);
+            if (!(chkGear && chkGear.checked) && chkGearAppend) chkGearAppend.checked = false;
+            selGearSet.disabled = !(chkGear && chkGear.checked);
         };
         
         chkPassives.addEventListener("change", updateAppendState);
         chkGems.addEventListener("change", updateAppendState);
+        if (chkGear) chkGear.addEventListener("change", updateAppendState);
         
         updateLabels();
         updateAppendState();
@@ -179,8 +212,11 @@ function showPob2ImportOptions(result) {
                 importPassives: chkPassives.checked,
                 appendTree: chkAppend.checked,
                 importGems: chkGems.checked,
+                importGear: chkGear ? chkGear.checked : false,
+                appendGear: chkGearAppend ? chkGearAppend.checked : false,
                 selectedTreeIndex: parseInt(selTree.value) || 0,
-                selectedSkillSetIndex: parseInt(selSkillSet.value) || 0
+                selectedSkillSetIndex: parseInt(selSkillSet.value) || 0,
+                selectedGearSetIndex: parseInt(selGearSet.value) || 0
             };
             cleanup(); 
             resolve(options); 
@@ -194,6 +230,8 @@ function showPob2ImportOptions(result) {
             chkGems.removeEventListener("change", updateAppendState);
             selTree.removeEventListener("change", updateLabels);
             selSkillSet.removeEventListener("change", updateLabels);
+            if (chkGear) chkGear.removeEventListener("change", updateAppendState);
+            selGearSet.removeEventListener("change", updateLabels);
             modal.classList.add("hidden");
         };
 

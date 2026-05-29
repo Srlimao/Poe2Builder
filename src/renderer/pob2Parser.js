@@ -153,11 +153,112 @@ window.parsePob2Browser = async function(code) {
         }
     }
 
+    // 6. Extract Items
+    let itemsMap = {}; // itemId -> additional_text string
+    let itemSets = [];
+    let itemsMatch = decompressed.match(/<Items([^>]*)>([\s\S]*?)<\/Items>/);
+    
+    if (itemsMatch) {
+        let itemsAttrs = itemsMatch[1];
+        let itemsInner = itemsMatch[2];
+        let activeItemSetId = "1";
+        let activeSetMatch = itemsAttrs.match(/activeItemSet="([^"]*)"/);
+        if (activeSetMatch) {
+            activeItemSetId = activeSetMatch[1];
+        }
+
+        // Parse individual items
+        let itemBlocks = itemsInner.match(/<Item[^>]*>([\s\S]*?)<\/Item>/g) || [];
+        for (let block of itemBlocks) {
+            let idMatch = block.match(/id="([^"]*)"/);
+            if (idMatch) {
+                let id = idMatch[1];
+                let textContent = block.replace(/<[^>]+>/g, '').trim();
+                textContent = textContent.replace(/&apos;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+                
+                let lines = textContent.split('\n').map(l => l.trim()).filter(l => l);
+                let implicitsIdx = lines.findIndex(l => l.startsWith('Implicits: '));
+                if (implicitsIdx !== -1) {
+                    lines = lines.slice(implicitsIdx + 1);
+                } else {
+                    let lastMetaIdx = -1;
+                    const metaPrefixes = ['LevelReq: ', 'Sockets: ', 'Quality: ', 'Suffix: ', 'Prefix: ', 'Crafted: ', 'Energy Shield: ', 'Evasion: ', 'Armour: ', 'Spirit: ', 'Charm Slots: ', 'Rune: '];
+                    for(let i=0; i<lines.length; i++) {
+                        if (metaPrefixes.some(p => lines[i].startsWith(p))) {
+                            lastMetaIdx = i;
+                        }
+                    }
+                    if (lastMetaIdx !== -1) {
+                        lines = lines.slice(lastMetaIdx + 1);
+                    } else if (lines.length > 3) {
+                        lines = lines.slice(3);
+                    }
+                }
+                
+                lines = lines.map(l => l.replace(/\{[^}]+\}/g, '').trim()).filter(l => l);
+                itemsMap[id] = lines.join('\n');
+            }
+        }
+
+        const slotNameMapping = {
+            "Helmet": "Helm1",
+            "Amulet": "Amulet1",
+            "Weapon 1": "Weapon1",
+            "Body Armour": "BodyArmour1",
+            "Weapon 2": "Weapon2",
+            "Gloves": "Gloves1",
+            "Ring 1": "Ring1",
+            "Ring 2": "Ring2",
+            "Belt": "Belt1",
+            "Boots": "Boots1"
+        };
+
+        // Parse ItemSets
+        let itemSetBlocks = itemsInner.match(/<ItemSet[^>]*>([\s\S]*?)<\/ItemSet>/g) || [];
+        for (let setBlock of itemSetBlocks) {
+            let idMatch = setBlock.match(/id="([^"]*)"/);
+            let titleMatch = setBlock.match(/title="([^"]*)"/);
+            let setId = idMatch ? idMatch[1] : "1";
+            let setTitle = titleMatch ? titleMatch[1] : `Item Set ${setId}`;
+            
+            let setSlots = [];
+            let slotStrs = setBlock.match(/<Slot [^>]*\/>/g) || [];
+            for (let slotStr of slotStrs) {
+                let nameMatch = slotStr.match(/name="([^"]*)"/);
+                let itemIdMatch = slotStr.match(/itemId="([^"]*)"/);
+                if (nameMatch && itemIdMatch) {
+                    let name = nameMatch[1];
+                    let itemId = itemIdMatch[1];
+                    let mappedSlotId = slotNameMapping[name];
+                    
+                    if (mappedSlotId && itemId !== "0" && itemsMap[itemId]) {
+                        setSlots.push({
+                            inventory_id: mappedSlotId,
+                            additional_text: itemsMap[itemId]
+                        });
+                    }
+                }
+            }
+            itemSets.push({ id: setId, title: setTitle, inventory_slots: setSlots });
+        }
+        
+        if (itemSets.length === 0) {
+            itemSets.push({ id: "1", title: "Default Item Set", inventory_slots: [] });
+        }
+    } else {
+        itemSets.push({ id: "1", title: "Default Item Set", inventory_slots: [] });
+    }
+    
+    let activeItemSetIdx = itemSets.findIndex(s => s.id === (itemsMatch ? itemsMatch[1].match(/activeItemSet="([^"]*)"/)?.[1] || "1" : "1"));
+    if (activeItemSetIdx === -1) activeItemSetIdx = 0;
+
     return { 
         passives: trees[0].passives, 
         className, 
         ascendancyName, 
         skills: skillSets.length > 0 ? skillSets[0].skills : [],
+        inventory_slots: itemSets[activeItemSetIdx].inventory_slots,
+        itemSets,
         trees,
         skillSets
     };
