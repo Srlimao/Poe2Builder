@@ -387,10 +387,10 @@ textarea.form-control {
 }
 
 /* Specific Grid Placements to match standard RPG UI
-   Row 1: [Empty] [Helm1] [Amulet1]
+   Row 1: [Weapon1 (tall)] [Helm1] [Weapon2 (tall)]
    Row 2: [Weapon1 (tall)] [BodyArmour1 (tall)] [Weapon2 (tall)]
-   Row 3: [Weapon1 (tall)] [BodyArmour1 (tall)] [Weapon2 (tall)]
-   Row 4: [Gloves1] [Ring1] [Ring2]
+   Row 3: [Gloves1] [BodyArmour1 (tall)] [Amulet1]
+   Row 4: [Ring1] [Belt1] [Ring2]
    Row 5: [Empty] [Boots1] [Empty]
 */
 #slot-Helm1 {
@@ -400,7 +400,7 @@ textarea.form-control {
 
 #slot-Amulet1 {
     grid-column: 3;
-    grid-row: 1;
+    grid-row: 3;
 }
 
 #slot-Weapon1 {
@@ -417,7 +417,7 @@ textarea.form-control {
 
 #slot-Weapon2 {
     grid-column: 3;
-    grid-row: 2 / span 2;
+    grid-row: 1 / span 2;
     height: 100%;
 }
 

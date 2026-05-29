@@ -106,11 +106,6 @@
                             <div class="eq-label">Helmet</div>
                             <div class="eq-value">Empty</div>
                         </div>
-                        <div class="eq-slot" data-slot="Amulet1" id="slot-Amulet1">
-                            <div class="eq-icon amulet-icon"></div>
-                            <div class="eq-label">Amulet</div>
-                            <div class="eq-value">Empty</div>
-                        </div>
                         <div class="eq-slot" data-slot="Weapon1" id="slot-Weapon1">
                             <div class="eq-icon weapon1-icon"></div>
                             <div class="eq-label">Weapon 1</div>
@@ -124,6 +119,11 @@
                         <div class="eq-slot" data-slot="Weapon2" id="slot-Weapon2">
                             <div class="eq-icon weapon2-icon"></div>
                             <div class="eq-label">Weapon 2</div>
+                            <div class="eq-value">Empty</div>
+                        </div>
+                        <div class="eq-slot" data-slot="Amulet1" id="slot-Amulet1">
+                            <div class="eq-icon amulet-icon"></div>
+                            <div class="eq-label">Amulet</div>
                             <div class="eq-value">Empty</div>
                         </div>
                         <div class="eq-slot" data-slot="Gloves1" id="slot-Gloves1">
@@ -261,7 +261,8 @@
                     <div class="form-group hidden" id="editor-group-unique">
                         <label for="edit-unique-name">Unique Item Name (Optional)</label>
                         <div class="autocomplete-wrapper">
-                            <input type="text" id="edit-unique-name" placeholder="e.g. Kalandra's Touch" class="form-control">
+                            <input type="text" id="edit-unique-name" placeholder="e.g. Kalandra's Touch"
+                                class="form-control">
                             <div id="unique-autocomplete-suggestions" class="autocomplete-suggestions hidden"></div>
                         </div>
                     </div>
@@ -364,35 +365,44 @@
         <div class="modal-content" style="max-width: 450px;">
             <div class="modal-border-top"></div>
             <h3 class="modal-title">PoB2 Import Options</h3>
-            <p style="color: var(--text-muted); font-size: 0.9em; margin-bottom: 20px; text-align: center;">Select what data to import from this build code.</p>
-            
+            <p style="color: var(--text-muted); font-size: 0.9em; margin-bottom: 20px; text-align: center;">Select what
+                data to import from this build code.</p>
+
             <div style="text-align: left; margin-bottom: 20px; padding: 0 10px;">
-                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-body); margin-bottom: 10px;">
+                <label
+                    style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-body); margin-bottom: 10px;">
                     <input type="checkbox" id="chk-import-passives" checked>
                     <span id="label-import-passives">Import Passives</span>
                 </label>
                 <div id="pob2-tree-select-container" class="hidden" style="margin-left: 28px; margin-bottom: 10px;">
-                    <select id="sel-import-tree" class="form-control" style="width: 100%; padding: 5px; font-size: 0.9em;"></select>
+                    <select id="sel-import-tree" class="form-control"
+                        style="width: 100%; padding: 5px; font-size: 0.9em;"></select>
                 </div>
-                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-body); margin-bottom: 15px; margin-left: 28px;">
+                <label
+                    style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-body); margin-bottom: 15px; margin-left: 28px;">
                     <input type="checkbox" id="chk-import-append-tree" checked>
                     <span>Append as new skill tree variant</span>
                 </label>
-                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-body); margin-bottom: 10px;">
+                <label
+                    style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-body); margin-bottom: 10px;">
                     <input type="checkbox" id="chk-import-gems" checked>
                     <span id="label-import-gems">Import Gems (Replaces current skills)</span>
                 </label>
                 <div id="pob2-skillset-select-container" class="hidden" style="margin-left: 28px; margin-bottom: 10px;">
-                    <select id="sel-import-skillset" class="form-control" style="width: 100%; padding: 5px; font-size: 0.9em;"></select>
+                    <select id="sel-import-skillset" class="form-control"
+                        style="width: 100%; padding: 5px; font-size: 0.9em;"></select>
                 </div>
-                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-body); margin-bottom: 10px;">
+                <label
+                    style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-body); margin-bottom: 10px;">
                     <input type="checkbox" id="chk-import-gear" checked>
                     <span id="label-import-gear">Import Gear (Replaces current equipment)</span>
                 </label>
                 <div id="pob2-gearset-select-container" class="hidden" style="margin-left: 28px; margin-bottom: 10px;">
-                    <select id="sel-import-gearset" class="form-control" style="width: 100%; padding: 5px; font-size: 0.9em;"></select>
+                    <select id="sel-import-gearset" class="form-control"
+                        style="width: 100%; padding: 5px; font-size: 0.9em;"></select>
                 </div>
-                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-body); margin-bottom: 15px; margin-left: 28px;">
+                <label
+                    style="display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-body); margin-bottom: 15px; margin-left: 28px;">
                     <input type="checkbox" id="chk-import-gear-append" checked>
                     <span>Append as new equipment variants (do not replace)</span>
                 </label>
@@ -435,12 +445,14 @@
                 <p style="color: var(--color-text-muted); font-size: 0.9em; margin-bottom: 15px;">
                     Fetch the latest skill and support gems data from the repoe-fork.
                 </p>
-                <button id="btn-run-update-gems" class="btn btn-secondary" style="width: 100%; margin-bottom: 15px;">Update Gem Data</button>
+                <button id="btn-run-update-gems" class="btn btn-secondary"
+                    style="width: 100%; margin-bottom: 15px;">Update Gem Data</button>
 
                 <p style="color: var(--color-text-muted); font-size: 0.9em; margin-bottom: 15px;">
                     Fetch the latest unique items data from the repoe-fork.
                 </p>
-                <button id="btn-run-update-uniques" class="btn btn-secondary" style="width: 100%;">Update Unique Items</button>
+                <button id="btn-run-update-uniques" class="btn btn-secondary" style="width: 100%;">Update Unique
+                    Items</button>
             </div>
 
             <div class="modal-buttons" style="margin-top: 30px;">
