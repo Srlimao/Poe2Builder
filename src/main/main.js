@@ -224,7 +224,7 @@ ipcMain.handle('import-pob2', async (event, base64Code) => {
         let setBlocks = skillsInner.match(/<SkillSet[^>]*>([\s\S]*?)<\/SkillSet>/g);
         
         const parseSkillsFromBlock = (blockStr) => {
-            let skillsArr = [];
+            let skillsMap = {};
             let skillBlocks = blockStr.match(/<Skill [^>]*>([\s\S]*?)<\/Skill>/g) || [];
             for (let block of skillBlocks) {
                 let gemStrs = block.match(/<Gem [^>]*>/g) || [];
@@ -241,23 +241,30 @@ ipcMain.handle('import-pob2', async (event, base64Code) => {
                 }
                 if (parsedGems.length > 0) {
                     let activeGem = parsedGems[0];
-                    let skillObj = {
-                        id: activeGem.id,
-                        level_interval: [activeGem.level, activeGem.level],
-                        additional_text: "",
-                        support_skills: []
-                    };
-                    for (let i = 1; i < parsedGems.length; i++) {
-                        skillObj.support_skills.push({
-                            id: parsedGems[i].id,
-                            level_interval: [parsedGems[i].level, parsedGems[i].level],
-                            additional_text: ""
-                        });
+                    let existingSkill = skillsMap[activeGem.id];
+                    if (!existingSkill) {
+                        existingSkill = {
+                            id: activeGem.id,
+                            level_interval: [activeGem.level, activeGem.level],
+                            additional_text: "",
+                            support_skills: []
+                        };
+                        skillsMap[activeGem.id] = existingSkill;
                     }
-                    skillsArr.push(skillObj);
+                    for (let i = 1; i < parsedGems.length; i++) {
+                        let supportId = parsedGems[i].id;
+                        let hasSupport = existingSkill.support_skills.some(sup => sup.id === supportId);
+                        if (!hasSupport) {
+                            existingSkill.support_skills.push({
+                                id: supportId,
+                                level_interval: [parsedGems[i].level, parsedGems[i].level],
+                                additional_text: ""
+                            });
+                        }
+                    }
                 }
             }
-            return skillsArr;
+            return Object.values(skillsMap);
         };
 
         if (setBlocks && setBlocks.length > 0) {

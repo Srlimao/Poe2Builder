@@ -91,22 +91,20 @@ function renderSkillsGrid() {
             supportsWrapper.appendChild(supportSocket);
         });
 
-        // Empty slot for adding a new support gem (limit 5)
-        if (supports.length < 5) {
-            const addSupportSocket = document.createElement("div");
-            addSupportSocket.className = "socket-support empty-support";
+        // Empty slot for adding a new support gem
+        const addSupportSocket = document.createElement("div");
+        addSupportSocket.className = "socket-support empty-support";
 
-            const plus = document.createElement("span");
-            plus.className = "support-label-symbol";
-            plus.textContent = "+";
-            addSupportSocket.appendChild(plus);
+        const plus = document.createElement("span");
+        plus.className = "support-label-symbol";
+        plus.textContent = "+";
+        addSupportSocket.appendChild(plus);
 
-            addSupportSocket.addEventListener("click", (e) => {
-                e.stopPropagation();
-                addSupportGem(sIdx);
-            });
-            supportsWrapper.appendChild(addSupportSocket);
-        }
+        addSupportSocket.addEventListener("click", (e) => {
+            e.stopPropagation();
+            addSupportGem(sIdx);
+        });
+        supportsWrapper.appendChild(addSupportSocket);
 
         linkageRow.appendChild(supportsWrapper);
         skillGroup.appendChild(linkageRow);
@@ -218,7 +216,6 @@ function renderSkillsGrid() {
 function addSupportGem(skillIndex) {
     const skill = window.buildState.skills[skillIndex];
     if (!skill.support_skills) skill.support_skills = [];
-    if (skill.support_skills.length >= 5) return;
 
     const newSupport = {
         id: "Metadata/Items/Gems/SupportGemNewSupport",

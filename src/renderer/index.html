@@ -172,11 +172,16 @@
                     Meta (Spirit) Gems are currently disabled in Settings.
                 </div>
 
-                <div id="skills-level-filter-container" class="skills-level-filter-container" style="padding: 10px 15px; display: flex; align-items: center; gap: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.2);">
-                    <label for="skills-level-slider" style="color: var(--text-gold); font-size: 12px; font-weight: bold; white-space: nowrap;">Level Filter: <span id="skills-level-display" style="color: #fff;">100</span></label>
-                    <input type="range" id="skills-level-slider" min="1" max="100" value="100" class="form-control" style="flex: 1; cursor: pointer;">
-                    <label style="display: flex; align-items: center; gap: 5px; color: var(--text-muted); font-size: 11px; cursor: pointer; white-space: nowrap;">
-                        <input type="checkbox" id="chk-skills-show-all"> Show All
+                <div id="skills-level-filter-container" class="skills-level-filter-container"
+                    style="padding: 10px 15px; display: flex; align-items: center; gap: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.2);">
+                    <label for="skills-level-slider"
+                        style="color: var(--text-gold); font-size: 12px; font-weight: bold; white-space: nowrap;">Level
+                        Filter: <span id="skills-level-display" style="color: #fff;">100</span></label>
+                    <input type="range" id="skills-level-slider" min="1" max="100" value="100" class="form-control"
+                        style="flex: 1; cursor: pointer;">
+                    <label
+                        style="display: flex; align-items: center; gap: 5px; color: var(--text-muted); font-size: 11px; cursor: pointer; white-space: nowrap;">
+                        <input type="checkbox" id="chk-skills-show-all" value="true" checked> Show All
                     </label>
                 </div>
 
@@ -376,7 +381,8 @@
                     <h3 class="pob2-modal-title">POB2 IMPORT OPTIONS</h3>
                     <button id="pob2-import-btn-close" class="pob2-modal-close" title="Close">×</button>
                 </div>
-                <div class="pob2-modal-subtitle">Build: <span id="pob2-import-subtitle" class="text-gold-light">Unknown Build</span></div>
+                <div class="pob2-modal-subtitle">Build: <span id="pob2-import-subtitle" class="text-gold-light">Unknown
+                        Build</span></div>
             </div>
 
             <div class="pob2-reset-container">
@@ -385,22 +391,36 @@
                     <div class="pob2-checkbox-custom"></div>
                     <div class="pob2-checkbox-text">
                         <div class="pob2-checkbox-title text-gold">RESET ALL EXISTING BUILD COMPONENTS</div>
-                        <div class="pob2-checkbox-desc">Overwrites current setup entirely instead of appending as new variants</div>
+                        <div class="pob2-checkbox-desc">Overwrites current setup entirely instead of appending as new
+                            variants</div>
                     </div>
                 </label>
             </div>
 
             <div class="pob2-tabs-nav">
                 <button class="pob2-tab-btn active" data-tab="passives">
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                        style="margin-right: 6px;">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
                     PASSIVES
                 </button>
                 <button class="pob2-tab-btn" data-tab="gems">
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                        style="margin-right: 6px;">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
                     GEMS
                 </button>
                 <button class="pob2-tab-btn" data-tab="gear">
-                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><rect x="3" y="8" width="18" height="12" rx="2" ry="2"></rect><line x1="8" y1="8" x2="8" y2="4"></line><line x1="16" y1="8" x2="16" y2="4"></line></svg>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                        style="margin-right: 6px;">
+                        <rect x="3" y="8" width="18" height="12" rx="2" ry="2"></rect>
+                        <line x1="8" y1="8" x2="8" y2="4"></line>
+                        <line x1="16" y1="8" x2="16" y2="4"></line>
+                    </svg>
                     GEAR
                 </button>
             </div>
@@ -408,7 +428,12 @@
             <div class="pob2-tabs-content">
                 <div id="pob2-tab-passives" class="pob2-tab-pane active">
                     <div class="pob2-tab-info">
-                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
                         <span>Select one or more passive tree progression tiers to import:</span>
                     </div>
                     <div id="pob2-passives-list" class="pob2-cards-list"></div>
@@ -416,7 +441,12 @@
 
                 <div id="pob2-tab-gems" class="pob2-tab-pane hidden">
                     <div class="pob2-tab-info">
-                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
                         <span>Select one or more skill sets to import:</span>
                     </div>
                     <div id="pob2-gems-list" class="pob2-cards-list"></div>
@@ -424,7 +454,12 @@
 
                 <div id="pob2-tab-gear" class="pob2-tab-pane hidden">
                     <div class="pob2-tab-info">
-                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
                         <span>Select one or more gear setups to import:</span>
                     </div>
                     <div id="pob2-gear-list" class="pob2-cards-list"></div>
@@ -435,7 +470,9 @@
                 <div class="pob2-footer-left">Format: PoE2 .build</div>
                 <div class="pob2-footer-right">
                     <button id="pob2-import-btn-cancel" class="btn btn-secondary">CANCEL</button>
-                    <button id="pob2-import-btn-confirm" class="btn btn-gold" style="background: linear-gradient(180deg, #dfc190 0%, #b3935b 100%); color: #000; font-weight: 700;">IMPORT SELECTED</button>
+                    <button id="pob2-import-btn-confirm" class="btn btn-gold"
+                        style="background: linear-gradient(180deg, #dfc190 0%, #b3935b 100%); color: #000; font-weight: 700;">IMPORT
+                        SELECTED</button>
                 </div>
             </div>
         </div>

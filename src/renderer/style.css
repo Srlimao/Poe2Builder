@@ -540,7 +540,7 @@ textarea.form-control {
 /* Sockets container with linking line behind */
 .sockets-linkage-row {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
     padding: 10px 0;
     flex: 1;
@@ -552,7 +552,7 @@ textarea.form-control {
     position: absolute;
     left: 40px;
     right: 40px;
-    top: 50%;
+    top: 44px; /* 10px padding + 34px to center of active socket */
     transform: translateY(-50%);
     height: 6px;
     background: linear-gradient(90deg, #302618 0%, #534530 50%, #302618 100%);
@@ -566,6 +566,7 @@ textarea.form-control {
 .socket-active {
     width: 68px;
     height: 68px;
+    flex-shrink: 0;
     border-radius: 50%;
     border: 3px solid var(--border-gold-dark);
     background-color: #101012;
@@ -658,8 +659,10 @@ textarea.form-control {
 /* SUPPORT SOCKETS (Smaller) */
 .support-sockets-wrapper {
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
     margin-left: 20px;
+    margin-top: 12px; /* aligns 44px support gems to center of 68px active gem */
     position: relative;
     z-index: 2;
 }
