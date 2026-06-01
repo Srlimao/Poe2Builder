@@ -27,7 +27,7 @@ function createWindow() {
     icon: path.join(__dirname, '..', 'renderer', 'icon.png') // Fallback if present
   });
 
-  mainWindow.loadFile(path.join(__dirname, '..', 'renderer', 'index.html'));
+  mainWindow.loadFile(path.join(__dirname, '..', 'renderer', 'dist', 'index.html'));
 
   // Remove default menu for a more clean game-like UI
   mainWindow.setMenuBarVisibility(false);

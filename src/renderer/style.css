@@ -53,6 +53,11 @@ body {
     height: 100vh;
 }
 
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
 /* HEADER */
 .app-header {
     background-color: var(--bg-dark);
@@ -804,37 +809,51 @@ textarea.form-control {
 }
 
 .skill-level-inline-input {
-    width: 30px;
-    height: 16px;
-    background: #000;
-    border: 1px solid var(--border-gold-dark);
-    color: var(--text-gold);
-    font-size: 10px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: #fff;
+    width: 26px;
     text-align: center;
-    border-radius: 2px;
-    -moz-appearance: textfield; /* Firefox */
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: bold;
+    outline: none;
+    transition: border-color 0.2s;
+    border-radius: 3px;
+    padding: 2px 0;
+    -moz-appearance: textfield;
 }
+
+.skill-level-inline-input:hover,
+.skill-level-inline-input:focus {
+    border-color: var(--border-gold-dark);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .skill-level-inline-input::-webkit-outer-spin-button,
 .skill-level-inline-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-.skill-level-inline-input:focus {
-    outline: none;
-    border-color: #ffa500;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .btn-remove-skill-row {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 6px;
+    right: 6px;
     background: transparent;
     border: none;
     color: var(--text-muted);
+    font-size: 18px;
     cursor: pointer;
-    font-size: 14px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    transition: all 0.2s;
+    line-height: 1;
     opacity: 0.3;
-    transition: opacity 0.2s, color 0.2s;
 }
 
 .skill-socket-group:hover .btn-remove-skill-row {
@@ -842,7 +861,9 @@ textarea.form-control {
 }
 
 .btn-remove-skill-row:hover {
-    color: var(--gem-red) !important;
+    color: #ffb3b3 !important;
+    background-color: rgba(168, 58, 58, 0.2);
+    opacity: 1;
 }
 
 
