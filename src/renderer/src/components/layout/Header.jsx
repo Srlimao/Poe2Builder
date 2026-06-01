@@ -189,7 +189,12 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
           // Ignore
         }
 
-        const response = await fetch(url);
+        let fetchUrl = url;
+        if (!isElectron) {
+          fetchUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+        }
+        
+        const response = await fetch(fetchUrl);
         if (!response.ok) throw new Error(`HTTP error ${response.status}`);
         code = await response.text();
       } catch (e) {
