@@ -427,6 +427,17 @@ export const showPrompt = (title, message) => {
   });
 };
 
+export const showPob2ImportPrompt = (isElectron) => {
+  return new Promise((resolve) => {
+    useBuildStore.getState().openModal({
+      type: 'pob2-prompt',
+      title: 'Import PoB2 Build',
+      isElectron,
+      resolve
+    });
+  });
+};
+
 export const showPob2ImportOptions = (pob2Result) => {
   return new Promise((resolve) => {
     useBuildStore.getState().openModal({

@@ -5,7 +5,8 @@ export default function Modal() {
   const modal = useBuildStore((state) => state.modal);
   const closeModal = useBuildStore((state) => state.closeModal);
   const [promptInput, setPromptInput] = useState('');
-  
+  const [promptInputUrl, setPromptInputUrl] = useState('');
+
   // POB2 Import State
   const [pob2Tab, setPob2Tab] = useState('passives');
   const [resetAll, setResetAll] = useState(false);
@@ -19,8 +20,9 @@ export default function Modal() {
 
   useEffect(() => {
     if (modal) {
-      if (modal.type === 'prompt') {
+      if (modal.type === 'prompt' || modal.type === 'pob2-prompt') {
         setPromptInput('');
+        setPromptInputUrl('');
         setTimeout(() => promptInputRef.current?.focus(), 50);
       } else {
         setTimeout(() => confirmBtnRef.current?.focus(), 50);
@@ -42,6 +44,8 @@ export default function Modal() {
   const handleConfirm = () => {
     if (modal.type === 'prompt') {
       closeModal(promptInput);
+    } else if (modal.type === 'pob2-prompt') {
+      closeModal({ code: promptInput, url: promptInputUrl });
     } else if (modal.type === 'pob2') {
       closeModal({
         resetAll,
@@ -66,14 +70,14 @@ export default function Modal() {
           <div className="modal-border-top"></div>
           <h3 className="modal-title">{modal.title}</h3>
           <p className="modal-message" dangerouslySetInnerHTML={{ __html: modal.message }}></p>
-          
+
           {modal.type === 'prompt' && (
-            <input 
-              type="text" 
+            <input
+              type="text"
               ref={promptInputRef}
-              className="form-control" 
-              placeholder="Enter text here..." 
-              value={promptInput} 
+              className="form-control"
+              placeholder="Enter text here..."
+              value={promptInput}
               onChange={(e) => setPromptInput(e.target.value)}
               onKeyDown={(e) => { if (e.key === 'Enter') handleConfirm(); }}
               style={{ marginBottom: '15px' }}
@@ -84,12 +88,72 @@ export default function Modal() {
             {modal.type !== 'alert' && (
               <button className="btn btn-secondary" onClick={handleCancel}>Cancel</button>
             )}
-            <button 
+            <button
               ref={confirmBtnRef}
-              className="btn btn-gold" 
+              className="btn btn-gold"
               onClick={handleConfirm}
             >
               {modal.type === 'prompt' ? 'Import' : 'Confirm'}
+            </button>
+          </div>
+          <div className="modal-border-bottom"></div>
+        </div>
+      </div>
+    );
+  }
+
+  // Render pob2-prompt Modal
+  if (modal.type === 'pob2-prompt') {
+    return (
+      <div className="modal-overlay">
+        <div className="modal-content" style={{ minWidth: '400px' }}>
+          <div className="modal-border-top"></div>
+          <h3 className="modal-title">{modal.title}</h3>
+
+          <div style={{ marginBottom: '15px' }}>
+            <label style={{ display: 'block', marginBottom: '5px', fontSize: '13px', color: 'var(--text-gold)' }}>PoB Code:</label>
+            <input
+              type="text"
+              ref={promptInputRef}
+              className="form-control"
+              placeholder="Paste Base64 build code..."
+              value={promptInput}
+              onChange={(e) => setPromptInput(e.target.value)}
+              onKeyDown={(e) => { if (e.key === 'Enter') handleConfirm(); }}
+            />
+          </div>
+
+          <div style={{ marginBottom: '20px' }}>
+            <label style={{ display: 'block', marginBottom: '5px', fontSize: '13px', color: 'var(--text-gold)' }}>
+              Or Link URL:
+              {!modal.isElectron && <span style={{ color: 'var(--gem-red)', fontSize: '11px', marginLeft: '10px' }}>(Desktop App Only)</span>}
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="https://pobb.in/..."
+              value={promptInputUrl}
+              onChange={(e) => {
+                if (modal.isElectron) setPromptInputUrl(e.target.value);
+              }}
+              onKeyDown={(e) => { if (e.key === 'Enter' && modal.isElectron) handleConfirm(); }}
+              disabled={!modal.isElectron}
+              style={{ opacity: !modal.isElectron ? 0.5 : 1 }}
+            />
+            {modal.isElectron && (
+              <span style={{ fontSize: '11px', color: 'var(--text-muted)', display: 'block', marginTop: '5px' }}>
+                Supported auto-links: pobb.in, poe.ninja, poe2db.tw, pastebin
+              </span>
+            )}
+          </div>
+
+          <div className="modal-buttons">
+            <button className="btn btn-secondary" onClick={handleCancel}>Cancel</button>
+            <button
+              className="btn btn-gold"
+              onClick={handleConfirm}
+            >
+              Import
             </button>
           </div>
           <div className="modal-border-bottom"></div>
@@ -138,9 +202,9 @@ export default function Modal() {
 
           <div className="pob2-reset-container">
             <label className="pob2-checkbox-label" style={{ cursor: 'pointer' }}>
-              <input 
-                type="checkbox" 
-                className="pob2-checkbox-input" 
+              <input
+                type="checkbox"
+                className="pob2-checkbox-input"
                 checked={resetAll}
                 onChange={(e) => setResetAll(e.target.checked)}
               />
@@ -153,7 +217,7 @@ export default function Modal() {
           </div>
 
           <div className="pob2-tabs-nav">
-            <button 
+            <button
               className={`pob2-tab-btn ${pob2Tab === 'passives' ? 'active' : ''}`}
               onClick={() => setPob2Tab('passives')}
             >
@@ -162,7 +226,7 @@ export default function Modal() {
               </svg>
               PASSIVES
             </button>
-            <button 
+            <button
               className={`pob2-tab-btn ${pob2Tab === 'gems' ? 'active' : ''}`}
               onClick={() => setPob2Tab('gems')}
             >
@@ -173,7 +237,7 @@ export default function Modal() {
               </svg>
               GEMS
             </button>
-            <button 
+            <button
               className={`pob2-tab-btn ${pob2Tab === 'gear' ? 'active' : ''}`}
               onClick={() => setPob2Tab('gear')}
             >
@@ -199,15 +263,15 @@ export default function Modal() {
                 </div>
                 <div className="pob2-cards-list">
                   {trees.map((t, idx) => (
-                    <div 
+                    <div
                       key={idx}
                       className={`pob2-card ${selectedTrees.includes(idx) ? 'selected' : ''}`}
                       onClick={() => toggleSelection(idx, 'passives')}
                     >
                       <label className="pob2-checkbox-label" style={{ pointerEvents: 'none' }}>
-                        <input 
-                          type="checkbox" 
-                          className="pob2-checkbox-input" 
+                        <input
+                          type="checkbox"
+                          className="pob2-checkbox-input"
                           checked={selectedTrees.includes(idx)}
                           readOnly
                         />
@@ -235,15 +299,15 @@ export default function Modal() {
                 </div>
                 <div className="pob2-cards-list">
                   {skillSets.map((s, idx) => (
-                    <div 
+                    <div
                       key={idx}
                       className={`pob2-card ${selectedSkillSets.includes(idx) ? 'selected' : ''}`}
                       onClick={() => toggleSelection(idx, 'gems')}
                     >
                       <label className="pob2-checkbox-label" style={{ pointerEvents: 'none' }}>
-                        <input 
-                          type="checkbox" 
-                          className="pob2-checkbox-input" 
+                        <input
+                          type="checkbox"
+                          className="pob2-checkbox-input"
                           checked={selectedSkillSets.includes(idx)}
                           readOnly
                         />
@@ -271,15 +335,15 @@ export default function Modal() {
                 </div>
                 <div className="pob2-cards-list">
                   {itemSets.map((s, idx) => (
-                    <div 
+                    <div
                       key={idx}
                       className={`pob2-card ${selectedGearSets.includes(idx) ? 'selected' : ''}`}
                       onClick={() => toggleSelection(idx, 'gear')}
                     >
                       <label className="pob2-checkbox-label" style={{ pointerEvents: 'none' }}>
-                        <input 
-                          type="checkbox" 
-                          className="pob2-checkbox-input" 
+                        <input
+                          type="checkbox"
+                          className="pob2-checkbox-input"
                           checked={selectedGearSets.includes(idx)}
                           readOnly
                         />
@@ -300,9 +364,9 @@ export default function Modal() {
             <div className="pob2-footer-left">Format: PoE2 .build</div>
             <div className="pob2-footer-right">
               <button className="btn btn-secondary" onClick={handleCancel}>CANCEL</button>
-              <button 
+              <button
                 ref={confirmBtnRef}
-                className="btn btn-gold" 
+                className="btn btn-gold"
                 style={{ background: 'linear-gradient(180deg, #dfc190 0%, #b3935b 100%)', color: '#000', fontWeight: '700' }}
                 onClick={handleConfirm}
               >

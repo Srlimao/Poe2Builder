@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useBuildStore, showAlert, showConfirm, showPrompt, showPob2ImportOptions } from '../../store/useBuildStore';
+import { useBuildStore, showAlert, showConfirm, showPrompt, showPob2ImportOptions, showPob2ImportPrompt } from '../../store/useBuildStore';
 import { loadBuildJson, exportBuildJson } from '../../utils/buildSerializer';
 import { parsePob2Browser } from '../../utils/pob2Parser';
 
@@ -166,34 +166,37 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
   };
 
   const handleImportPob2 = async () => {
-    let code = await showPrompt(
-      "Import PoB2 Build",
-      "Paste your PoB2 base64 build code or a link to it here:<br><span style='font-size: 0.85em; color: var(--text-muted); display: block; margin-top: 8px;'>Supported auto-links: pobb.in, poe.ninja, poe2db.tw, pastebin</span>"
-    );
-    if (!code) return;
+    const inputs = await showPob2ImportPrompt(isElectron);
+    if (!inputs) return;
+    
+    let { code, url } = inputs;
 
-    code = code.trim();
-    if (code.match(/^https?:\/\//)) {
+    code = (code || "").trim();
+    url = (url || "").trim();
+    
+    if (!code && !url) return;
+
+    if (url) {
+      if (!isElectron) {
+        await showAlert("Desktop Only", "Fetching builds directly from URLs is restricted by browser security (CORS). Please paste the raw base64 build code instead, or use the Desktop version of the app.");
+        return;
+      }
+
       try {
-        let url = code;
+        let fetchUrl = url;
         try {
-          const urlObj = new URL(code);
-          if ((urlObj.hostname === 'pobb.in' || urlObj.hostname === 'poe2db.tw') && !url.endsWith('/raw')) {
-            url = url.replace(/\/$/, '') + '/raw';
-          } else if (urlObj.hostname === 'pastebin.com' && !url.includes('/raw/')) {
-            url = url.replace('pastebin.com/', 'pastebin.com/raw/');
-          } else if (urlObj.hostname === 'poe.ninja' && !url.includes('/raw/')) {
-            url = url.replace('/poe2/pob/', '/pob/raw/').replace('/pob/', '/pob/raw/');
+          const urlObj = new URL(url);
+          if ((urlObj.hostname === 'pobb.in' || urlObj.hostname === 'poe2db.tw') && !fetchUrl.endsWith('/raw')) {
+            fetchUrl = fetchUrl.replace(/\/$/, '') + '/raw';
+          } else if (urlObj.hostname === 'pastebin.com' && !fetchUrl.includes('/raw/')) {
+            fetchUrl = fetchUrl.replace('pastebin.com/', 'pastebin.com/raw/');
+          } else if (urlObj.hostname === 'poe.ninja' && !fetchUrl.includes('/raw/')) {
+            fetchUrl = fetchUrl.replace('/poe2/pob/', '/pob/raw/').replace('/pob/', '/pob/raw/');
           }
         } catch (e) {
           // Ignore
         }
 
-        let fetchUrl = url;
-        if (!isElectron) {
-          fetchUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
-        }
-        
         const response = await fetch(fetchUrl);
         if (!response.ok) throw new Error(`HTTP error ${response.status}`);
         code = await response.text();
