@@ -9,15 +9,15 @@ export default function CenterPanel() {
   return (
     <div className="center-panel flex-column">
       <div className="panel-section-title">Skill Socket Grid</div>
-      
-      <SkillsFilter 
+
+      <SkillsFilter
         filterLevel={filterLevel}
         setFilterLevel={setFilterLevel}
         showAll={showAll}
         setShowAll={setShowAll}
       />
-      
-      <SkillsList 
+
+      <SkillsList
         filterLevel={filterLevel}
         showAll={showAll}
       />

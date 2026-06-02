@@ -359,6 +359,7 @@ textarea.form-control {
     opacity: 0.9;
     transform: scale(1.05);
 }
+
 .eq-slot.configured .eq-icon {
     opacity: 1;
 }
@@ -496,6 +497,23 @@ textarea.form-control {
     overflow: hidden;
 }
 
+/* NEW: Explicitly define the row bar container */
+.skills-filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    /* Replaces manual margins to align cleanly with your scroll padding */
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* NEW: Prevent the button text from wrapping */
+.btn-gold {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
 .skills-scroll-container {
     flex: 1;
     overflow-y: auto;
@@ -516,6 +534,47 @@ textarea.form-control {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.filter-slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+    /* Slightly increased for better layout breathing room */
+    flex-grow: 1;
+    margin-left: 30px;
+    /* Ensures the slider block leaves space after the button */
+}
+
+/* Keeps the checkbox and text perfectly aligned and prevents shrinking */
+.checkbox-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Wrapper for the slider elements */
+.slider-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-grow: 1;
+    max-width: 500px;
+    /* Bumped slightly so it can stretch wider across the panel */
+}
+
+/* The actual HTML range input */
+#skills-level-slider {
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+#skills-level-slider:disabled {
+    cursor: not-allowed;
 }
 
 /* SKILL SOCKET GROUP ROW */
@@ -557,7 +616,8 @@ textarea.form-control {
     position: absolute;
     left: 40px;
     right: 40px;
-    top: 44px; /* 10px padding + 34px to center of active socket */
+    top: 44px;
+    /* 10px padding + 34px to center of active socket */
     transform: translateY(-50%);
     height: 6px;
     background: linear-gradient(90deg, #302618 0%, #534530 50%, #302618 100%);
@@ -667,7 +727,8 @@ textarea.form-control {
     flex-wrap: wrap;
     gap: 15px;
     margin-left: 20px;
-    margin-top: 12px; /* aligns 44px support gems to center of 68px active gem */
+    margin-top: 12px;
+    /* aligns 44px support gems to center of 68px active gem */
     position: relative;
     z-index: 2;
 }
@@ -832,12 +893,12 @@ textarea.form-control {
 /* Remove spin buttons globally for number inputs */
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 .btn-remove-skill-row {
@@ -1506,12 +1567,12 @@ input[type=number] {
     flex-shrink: 0;
 }
 
-.pob2-checkbox-input:checked + .pob2-checkbox-custom {
+.pob2-checkbox-input:checked+.pob2-checkbox-custom {
     border-color: #ffa500;
     background-color: rgba(255, 165, 0, 0.1);
 }
 
-.pob2-checkbox-input:checked + .pob2-checkbox-custom::after {
+.pob2-checkbox-input:checked+.pob2-checkbox-custom::after {
     content: '';
     position: absolute;
     left: 6px;
@@ -1686,24 +1747,65 @@ input[type=number] {
 
 .eq-slot.configured {
     background-color: rgba(76, 175, 80, 0.05);
-    border-color: #ffd700; /* Match screenshot gold border */
+    border-color: #ffd700;
+    /* Match screenshot gold border */
 }
+
 .eq-slot.configured.active {
     border-color: #fff;
     box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
 }
 
 /* Screenshot Layout Mapping (3-Column) */
-.eq-slot-weapon1 { grid-column: 1; grid-row: 1 / span 2; }
-.eq-slot-helm1 { grid-column: 2; grid-row: 1; }
-.eq-slot-weapon2 { grid-column: 3; grid-row: 1 / span 2; }
-.eq-slot-bodyarmour1 { grid-column: 2; grid-row: 2 / span 2; }
-.eq-slot-gloves1 { grid-column: 1; grid-row: 3; }
-.eq-slot-amulet1 { grid-column: 3; grid-row: 3; }
-.eq-slot-ring1 { grid-column: 1; grid-row: 4; }
-.eq-slot-belt1 { grid-column: 2; grid-row: 4; }
-.eq-slot-ring2 { grid-column: 3; grid-row: 4; }
-.eq-slot-boots1 { grid-column: 2; grid-row: 5; }
+.eq-slot-weapon1 {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.eq-slot-helm1 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.eq-slot-weapon2 {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+}
+
+.eq-slot-bodyarmour1 {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+}
+
+.eq-slot-gloves1 {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.eq-slot-amulet1 {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.eq-slot-ring1 {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.eq-slot-belt1 {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.eq-slot-ring2 {
+    grid-column: 3;
+    grid-row: 4;
+}
+
+.eq-slot-boots1 {
+    grid-column: 2;
+    grid-row: 5;
+}
 
 .eq-icon {
     width: 42px;
@@ -1715,7 +1817,8 @@ input[type=number] {
     opacity: 0.9;
 }
 
-.eq-slot:hover .eq-icon, .eq-slot.active .eq-icon {
+.eq-slot:hover .eq-icon,
+.eq-slot.active .eq-icon {
     opacity: 1;
 }
 

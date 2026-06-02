@@ -18,20 +18,20 @@ export default function SkillsFilter({
   };
 
   return (
-    <div className="skills-filter-bar flex-between" style={{ gap: '15px', marginBottom: '15px' }}>
-      <button 
-        id="btn-add-skill-socket" 
+    <div className="skills-filter-bar">
+      <button
+        id="btn-add-skill-socket"
         className="btn btn-gold"
         onClick={addSkill}
       >
         + Add Skill
       </button>
 
-      <div className="filter-slider-container flex-row" style={{ alignItems: 'center', gap: '12px', flexGrow: 1, justifyContent: 'flex-end' }}>
+      <div className="filter-slider-container">
         <label className="checkbox-container">
-          <input 
-            type="checkbox" 
-            id="chk-skills-show-all" 
+          <input
+            type="checkbox"
+            id="chk-skills-show-all"
             checked={showAll}
             onChange={handleCheckboxChange}
           />
@@ -39,19 +39,18 @@ export default function SkillsFilter({
           Show All
         </label>
 
-        <div className="slider-wrapper flex-row" style={{ alignItems: 'center', gap: '8px', opacity: showAll ? 0.5 : 1 }}>
+        <div className="slider-wrapper" style={{ opacity: showAll ? 0.5 : 1 }}>
           <span className="slider-label">Lvl:</span>
-          <input 
-            type="range" 
-            id="skills-level-slider" 
-            min="1" 
-            max="100" 
+          <input
+            type="range"
+            id="skills-level-slider"
+            min="1"
+            max="100"
             value={filterLevel}
             disabled={showAll}
             onChange={handleSliderChange}
-            style={{ width: '100px', cursor: showAll ? 'not-allowed' : 'pointer' }}
           />
-          <span id="skills-level-display" style={{ minWidth: '24px', fontWeight: 'bold' }}>
+          <span id="skills-level-display" style={{ minWidth: '30px', fontWeight: 'bold' }}>
             {showAll ? 'All' : filterLevel}
           </span>
         </div>
