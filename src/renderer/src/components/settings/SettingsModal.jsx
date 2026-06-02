@@ -2,29 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { showAlert } from '../../store/useBuildStore';
 
 export default function SettingsModal({ isOpen, onClose, onMetaSettingChange }) {
-  const [disableMeta, setDisableMeta] = useState(true);
   const [updatingTree, setUpdatingTree] = useState(false);
   const [updatingGems, setUpdatingGems] = useState(false);
   const [updatingUniques, setUpdatingUniques] = useState(false);
 
   const isElectron = typeof window.electronAPI !== 'undefined';
 
-  useEffect(() => {
-    if (localStorage.getItem("disableMetaGems") === null) {
-      localStorage.setItem("disableMetaGems", "true");
-    }
-    const val = localStorage.getItem("disableMetaGems") === "true";
-    setDisableMeta(val);
-  }, [isOpen]);
 
-  const handleDisableMetaChange = (e) => {
-    const checked = e.target.checked;
-    localStorage.setItem("disableMetaGems", checked ? "true" : "false");
-    setDisableMeta(checked);
-    if (onMetaSettingChange) {
-      onMetaSettingChange(checked);
-    }
-  };
 
   const handleUpdateTree = async () => {
     if (!isElectron) {
@@ -83,20 +67,7 @@ export default function SettingsModal({ isOpen, onClose, onMetaSettingChange }) 
         <h3 className="modal-title">App Settings</h3>
 
         <div className="settings-section" style={{ marginTop: '20px', textAlign: 'left' }}>
-          <h4 style={{ color: 'var(--text-gold)', marginBottom: '10px' }}>General Options</h4>
-          <div style={{ marginBottom: '20px' }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', color: '#dfc190', fontSize: '13px' }}>
-              <input 
-                type="checkbox" 
-                checked={disableMeta}
-                onChange={handleDisableMetaChange}
-              />
-              Disable Meta (Spirit) Gems
-            </label>
-            <p style={{ color: '#8c8270', fontSize: '0.85em', marginTop: '5px', marginLeft: '24px' }}>
-              Meta gems are currently unsupported by the official Build Planner. Check this to hide them from search (This may break the in-game build planner).
-            </p>
-          </div>
+
 
           <h4 style={{ color: 'var(--text-gold)', marginBottom: '10px' }}>Data Management</h4>
           

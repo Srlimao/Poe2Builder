@@ -48,13 +48,10 @@ export default function Autocomplete({
     const query = val.toLowerCase();
 
     if (type === 'gem' && selectedElement) {
-      const disableMeta = localStorage.getItem("disableMetaGems") !== "false";
       let db = [];
 
       if (selectedElement.type === 'skill') {
-        db = disableMeta 
-          ? activeGemsDb.filter(g => g.type !== 'spirit') 
-          : activeGemsDb;
+        db = activeGemsDb;
       } else if (selectedElement.type === 'support') {
         db = supportGemsDb;
 
@@ -68,10 +65,6 @@ export default function Autocomplete({
               db = supportGemsDb.concat(activeSkills);
             }
           }
-        }
-
-        if (disableMeta) {
-          db = db.filter(g => g.type !== 'spirit');
         }
       }
 

@@ -38,6 +38,7 @@ export default function EquipmentSlot({ slot }) {
 
   const classNames = [
     'eq-slot',
+    `eq-slot-${id.toLowerCase()}`,
     isSelected ? 'active' : '',
     hasConfig ? 'configured' : ''
   ].filter(Boolean).join(' ');

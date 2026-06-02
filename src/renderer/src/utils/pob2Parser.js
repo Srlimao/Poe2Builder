@@ -1,4 +1,4 @@
-export async function parsePob2Browser(code) {
+export async function parsePob2(code) {
   if (!code) throw new Error("No code provided.");
   
   // 1. base64 decode
@@ -47,10 +47,16 @@ export async function parsePob2Browser(code) {
   // 3. Load mapping and extract multiple passive trees (<Spec>)
   let mapping;
   try {
-    // Fetch from the data folder (relative path for React app)
-    const res = await fetch("data/passive_mapping.json");
-    if (!res.ok) throw new Error("Network response was not ok");
-    mapping = await res.json();
+    const isElectron = typeof window.electronAPI !== 'undefined';
+    if (isElectron) {
+      mapping = await window.electronAPI.readLocalJson('passive_mapping.json');
+    } else {
+      // Fetch from the data folder (relative path for React app)
+      const res = await fetch("data/passive_mapping.json");
+      if (!res.ok) throw new Error("Network response was not ok");
+      mapping = await res.json();
+    }
+    if (!mapping) throw new Error("Mapping data is empty");
   } catch (err) {
     throw new Error("passive_mapping.json mapping file not found or failed to load: " + err.message);
   }
@@ -66,9 +72,21 @@ export async function parsePob2Browser(code) {
       numericNodes.forEach(num => {
         if (mapping[num]) stringNodes.push(mapping[num]);
       });
+      let mainNodesCount = stringNodes.filter(n => !n.toLowerCase().includes('ascendancy')).length;
+      let minLevel = 1;
+      if (trees.length > 0) {
+        let prevMax = trees[trees.length - 1].level_interval[1];
+        if (prevMax < 100) {
+          minLevel = prevMax + 1;
+        }
+      }
+      let maxLevel = mainNodesCount > 0 ? Math.min(100, mainNodesCount) : 100;
+      if (minLevel > maxLevel) minLevel = Math.max(1, maxLevel);
+
       trees.push({
         title: titleMatch ? titleMatch[1] : `Tree ${trees.length + 1}`,
-        passives: stringNodes
+        passives: stringNodes,
+        level_interval: [minLevel, maxLevel]
       });
     }
   }

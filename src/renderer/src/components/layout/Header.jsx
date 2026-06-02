@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useBuildStore, showAlert, showConfirm, showPrompt, showPob2ImportOptions, showPob2ImportPrompt } from '../../store/useBuildStore';
 import { loadBuildJson, exportBuildJson } from '../../utils/buildSerializer';
-import { parsePob2Browser } from '../../utils/pob2Parser';
+import { parsePob2 } from '../../utils/pob2Parser';
 
 export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
   const buildState = useBuildStore((state) => state.buildState);
@@ -207,12 +207,7 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
     }
 
     try {
-      let result;
-      if (isElectron) {
-        result = await window.electronAPI.importPob2(code);
-      } else {
-        result = await parsePob2Browser(code);
-      }
+      let result = await parsePob2(code);
 
       const options = await showPob2ImportOptions(result);
       if (!options) return;
@@ -244,8 +239,9 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
           }
           options.selectedTrees.forEach(idx => {
             const chosenPassives = result.trees[idx].passives;
+            const chosenLevelInterval = result.trees[idx].level_interval || null;
             const mappedPassives = chosenPassives.map(p => typeof p === 'string' ? { id: p, additional_text: "" } : p);
-            nextState.passive_trees.push({ level_interval: null, nodes: mappedPassives });
+            nextState.passive_trees.push({ level_interval: chosenLevelInterval, nodes: mappedPassives });
           });
           nextTreeIndex = nextState.passive_trees.length - 1;
 

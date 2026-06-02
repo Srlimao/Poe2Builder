@@ -18,6 +18,8 @@ export default function Modal() {
   const confirmBtnRef = useRef(null);
   const promptInputRef = useRef(null);
 
+  const buildState = useBuildStore((state) => state.buildState);
+
   useEffect(() => {
     if (modal) {
       if (modal.type === 'prompt' || modal.type === 'pob2-prompt') {
@@ -33,11 +35,16 @@ export default function Modal() {
         setSelectedTrees((modal.pob2Result.trees || []).map((_, i) => i));
         setSelectedSkillSets((modal.pob2Result.skillSets || []).map((_, i) => i));
         setSelectedGearSets((modal.pob2Result.itemSets || []).map((_, i) => i));
-        setResetAll(false);
+
+        const isNewBuild = buildState.skills.length === 0 && 
+                           buildState.passive_trees.length === 1 && 
+                           buildState.passive_trees[0].nodes.length === 0;
+
+        setResetAll(isNewBuild);
         setPob2Tab('passives');
       }
     }
-  }, [modal]);
+  }, [modal, buildState]);
 
   if (!modal) return null;
 

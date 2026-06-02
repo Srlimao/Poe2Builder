@@ -47,7 +47,7 @@ export default function SkillGroup({ skill, sIdx }) {
     const min = parseInt(e.target.value);
     const max = skill.level_interval ? skill.level_interval[1] : 100;
     const interval = isNaN(min) && isNaN(max) ? null : [isNaN(min) ? 0 : min, isNaN(max) ? 100 : max];
-    
+
     // Update skill + all nested supports
     const updatedSupports = (skill.support_skills || []).map(sup => ({
       ...sup,
@@ -87,16 +87,16 @@ export default function SkillGroup({ skill, sIdx }) {
   return (
     <div className={`skill-socket-group ${isActiveGroup ? 'active-group' : ''}`}>
       <div className="sockets-linkage-row">
-        <GemSocket 
+        <GemSocket
           gemId={skill.id}
           socketType="skill"
           sIdx={sIdx}
           onClick={handleActiveSocketClick}
         />
-        
+
         <div className="support-sockets-wrapper">
           {(skill.support_skills || []).map((support, supIdx) => (
-            <GemSocket 
+            <GemSocket
               key={supIdx}
               gemId={support.id}
               socketType="support"
@@ -105,8 +105,8 @@ export default function SkillGroup({ skill, sIdx }) {
               onClick={handleSupportSocketClick(supIdx, support.id)}
             />
           ))}
-          
-          <GemSocket 
+
+          <GemSocket
             socketType="empty-support"
             sIdx={sIdx}
             onClick={handleAddSupportClick}
@@ -116,34 +116,35 @@ export default function SkillGroup({ skill, sIdx }) {
 
       <div className="skill-info-overlay">
         <div className="skill-row-title">{displayName}</div>
-        <div className="skill-row-details">{detailsStr}</div>
       </div>
 
       <div className="skill-level-badge">
         <span>Lvl:</span>
-        <input 
-          type="number" 
+        <input
+          type="number"
           className="skill-level-inline-input"
           min={0}
           max={100}
           placeholder="0"
           value={minLvlVal}
           onChange={handleMinLvlChange}
+          onFocus={(e) => e.target.select()}
         />
         <span>-</span>
-        <input 
-          type="number" 
+        <input
+          type="number"
           className="skill-level-inline-input"
           min={0}
           max={100}
           placeholder="100"
           value={maxLvlVal}
           onChange={handleMaxLvlChange}
+          onFocus={(e) => e.target.select()}
         />
       </div>
 
-      <button 
-        className="btn-remove-skill-row" 
+      <button
+        className="btn-remove-skill-row"
         title="Delete Skill"
         onClick={handleDeleteRowClick}
       >

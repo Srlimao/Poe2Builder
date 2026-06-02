@@ -18,7 +18,6 @@ export default function App() {
   const [dbLoaded, setDbLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState('equipment'); // 'equipment' | 'tree'
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [disableMeta, setDisableMeta] = useState(true);
 
   const setDbs = useBuildStore((state) => state.setDbs);
   const setAscendancies = useBuildStore((state) => state.setAscendancies);
@@ -33,11 +32,6 @@ export default function App() {
         setDbs(activeGemsDb, supportGemsDb, uniquesDb);
         setAscendancies(ascendancies);
 
-        // Fetch initial disableMetaGems setting
-        if (localStorage.getItem("disableMetaGems") === null) {
-          localStorage.setItem("disableMetaGems", "true");
-        }
-        setDisableMeta(localStorage.getItem("disableMetaGems") === "true");
 
         setDbLoaded(true);
       } catch (err) {
@@ -87,23 +81,6 @@ export default function App() {
         onOpenSettings={() => setSettingsOpen(true)}
       />
 
-      {disableMeta && (
-        <div id="meta-gems-warning" style={{
-          background: 'rgba(168, 58, 58, 0.1)',
-          border: '1px solid var(--gem-red)',
-          color: '#ffb3b3',
-          padding: '10px',
-          margin: '15px 15px 0 15px',
-          borderRadius: '4px',
-          fontSize: '12px',
-          textAlign: 'center'
-        }}>
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style={{ verticalAlign: 'text-bottom', marginRight: '4px' }}>
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
-          </svg>
-          Meta (Spirit) Gems are currently disabled in Settings.
-        </div>
-      )}
 
       {activeTab === 'equipment' ? (
         <div className="main-layout">
@@ -123,13 +100,12 @@ export default function App() {
 
       <Footer />
 
-      <Modal />
-      <GemTooltip />
       <SettingsModal 
         isOpen={settingsOpen} 
         onClose={() => setSettingsOpen(false)} 
-        onMetaSettingChange={(checked) => setDisableMeta(checked)}
       />
+      <GemTooltip />
+      <Modal />
     </div>
   );
 }
