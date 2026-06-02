@@ -95,6 +95,11 @@ body {
     flex-direction: column;
 }
 
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
 /* ─── §HEADER ─── Top app header bar ─── */
 .app-header {
     background-color: var(--bg-dark);

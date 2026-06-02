@@ -62,13 +62,12 @@ export default function PassiveTreeHeader() {
   }
 
   return (
-    <div className="tree-variant-bar flex-between" style={{ padding: '10px 15px', backgroundColor: '#140f0b', borderBottom: '1px solid #2d261e', gap: '15px' }}>
+    <div className="tree-variant-bar flex-between">
       <div className="flex-row" style={{ alignItems: 'center', gap: '10px', flexGrow: 1 }}>
-        <label htmlFor="tree-variant-dropdown" style={{ color: 'var(--text-gold)', fontWeight: 'bold' }}>Tree Variant:</label>
+        <label htmlFor="tree-variant-dropdown" className="tree-variant-label">Tree Variant:</label>
         <select 
           id="tree-variant-dropdown" 
-          className="form-control"
-          style={{ maxWidth: '280px' }}
+          className="form-control tree-variant-select"
           value={currentTreeIndex}
           onChange={handleDropdownChange}
         >
@@ -78,24 +77,22 @@ export default function PassiveTreeHeader() {
         </select>
       </div>
 
-      <div className="flex-row" style={{ alignItems: 'center', gap: '12px' }}>
+      <div className="tree-variant-actions" style={{ alignItems: 'center' }}>
         <div className="flex-row" style={{ alignItems: 'center', gap: '6px' }}>
           <span style={{ color: '#aaa', fontSize: '0.9em' }}>Lvl Range:</span>
           <input 
             type="number" 
             id="tree-lvl-min" 
-            className="form-control" 
-            style={{ width: '60px', textAlign: 'center' }}
+            className="form-control tree-lvl-input" 
             placeholder="1"
             value={minLvlVal}
             onChange={handleMinLvlChange}
           />
-          <span style={{ color: '#aaa' }}>-</span>
+          <span className="tree-variant-sep">-</span>
           <input 
             type="number" 
             id="tree-lvl-max" 
-            className="form-control" 
-            style={{ width: '60px', textAlign: 'center' }}
+            className="form-control tree-lvl-input" 
             placeholder="100"
             value={maxLvlVal}
             onChange={handleMaxLvlChange}
@@ -121,7 +118,7 @@ export default function PassiveTreeHeader() {
         {passive_trees.length > 1 && (
           <button 
             id="btn-tree-delete" 
-            className="btn btn-red"
+            className="btn btn-danger"
             onClick={handleDeleteClick}
           >
             Delete
