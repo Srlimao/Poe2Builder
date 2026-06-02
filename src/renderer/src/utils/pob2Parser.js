@@ -1,6 +1,6 @@
 export async function parsePob2(code) {
   if (!code) throw new Error("No code provided.");
-  
+
   // 1. base64 decode
   let b64 = code.trim().replace(/-/g, '+').replace(/_/g, '/');
   let binStr;
@@ -26,7 +26,7 @@ export async function parsePob2(code) {
     const chunks = [];
     const reader = ds.readable.getReader();
     while (true) {
-      const {done, value} = await reader.read();
+      const { done, value } = await reader.read();
       if (done) break;
       chunks.push(value);
     }
@@ -177,7 +177,7 @@ export async function parsePob2(code) {
   let itemsMap = {}; // itemId -> additional_text string
   let itemSets = [];
   let itemsMatch = decompressed.match(/<Items([^>]*)>([\s\S]*?)<\/Items>/);
-  
+
   if (itemsMatch) {
     let itemsAttrs = itemsMatch[1];
     let itemsInner = itemsMatch[2];
@@ -195,17 +195,61 @@ export async function parsePob2(code) {
         let id = idMatch[1];
         let textContent = block.replace(/<[^>]+>/g, '').trim();
         textContent = textContent.replace(/&apos;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-        
+
         let lines = textContent.split('\n').map(l => l.trim()).filter(l => l);
-        
+
+        // Detect defensive type before slicing
+        let hasArmour = false;
+        let hasEvasion = false;
+        let hasEnergyShield = false;
+        for (let line of lines) {
+          if (line.startsWith('Armour:') || line.startsWith('Armor:')) {
+            hasArmour = true;
+          }
+          if (line.startsWith('Evasion:')) {
+            hasEvasion = true;
+          }
+          if (line.startsWith('Energy Shield:')) {
+            hasEnergyShield = true;
+          }
+        }
+        let defenseTypes = [];
+        if (hasArmour) defenseTypes.push("Armour");
+        if (hasEvasion) defenseTypes.push("Evasion");
+        if (hasEnergyShield) defenseTypes.push("Energy Shield");
+        let defenseTag = defenseTypes.length > 0 ? `<green>{${defenseTypes.join('/')}}` : "";
+
         let uniqueName = "";
+        let itemName = "";
+        let rarity = "";
         let rarityIdx = lines.findIndex(l => l.toUpperCase().startsWith('RARITY: '));
         if (rarityIdx !== -1) {
-          let rarity = lines[rarityIdx].substring(8).trim().toUpperCase();
+          rarity = lines[rarityIdx].substring(8).trim().toUpperCase();
           if (rarity === 'UNIQUE') {
             if (lines[rarityIdx + 1]) {
               uniqueName = lines[rarityIdx + 1].replace(/\{[^}]+\}/g, '').trim();
             }
+          } else if (rarity === 'RARE' || rarity === 'MAGIC') {
+            let line1 = lines[rarityIdx + 1] || "";
+            let line2 = lines[rarityIdx + 2] || "";
+
+            const isMeta = (str) => {
+              const metaPrefixes = ['LevelReq: ', 'Sockets: ', 'Quality: ', 'Suffix: ', 'Prefix: ', 'Crafted: ', 'Energy Shield: ', 'Evasion: ', 'Armour: ', 'Spirit: ', 'Charm Slots: ', 'Rune: ', 'Implicits: '];
+              return metaPrefixes.some(p => str.startsWith(p));
+            };
+
+            if (rarity === 'RARE') {
+              if (line1 === 'New Item' || line1 === 'Crafted') {
+                itemName = (!isMeta(line2) && line2) ? line2 : line1;
+              } else if (!isMeta(line2) && line2 && line2 !== line1) {
+                itemName = line1 + " " + line2;
+              } else {
+                itemName = line1;
+              }
+            } else {
+              itemName = line1;
+            }
+            itemName = itemName.replace(/\{[^}]+\}/g, '').trim();
           }
         }
 
@@ -215,7 +259,7 @@ export async function parsePob2(code) {
         } else {
           let lastMetaIdx = -1;
           const metaPrefixes = ['LevelReq: ', 'Sockets: ', 'Quality: ', 'Suffix: ', 'Prefix: ', 'Crafted: ', 'Energy Shield: ', 'Evasion: ', 'Armour: ', 'Spirit: ', 'Charm Slots: ', 'Rune: '];
-          for(let i=0; i<lines.length; i++) {
+          for (let i = 0; i < lines.length; i++) {
             if (metaPrefixes.some(p => lines[i].startsWith(p))) {
               lastMetaIdx = i;
             }
@@ -226,10 +270,21 @@ export async function parsePob2(code) {
             lines = lines.slice(3);
           }
         }
-        
+
         lines = lines.map(l => l.replace(/\{[^}]+\}/g, '').trim()).filter(l => l);
+
+        let additionalText = lines.join('\n');
+        if (defenseTag) {
+          additionalText = defenseTag + '\n' + additionalText;
+        }
+        if (rarity === 'RARE' && itemName) {
+          additionalText = `<yellow>{${itemName}}\n` + additionalText;
+        } else if (rarity === 'MAGIC' && itemName) {
+          additionalText = `<blue>{${itemName}}\n` + additionalText;
+        }
+
         itemsMap[id] = {
-          additional_text: lines.join('\n'),
+          additional_text: additionalText,
           unique_name: uniqueName
         };
       }
@@ -255,7 +310,7 @@ export async function parsePob2(code) {
       let titleMatch = setBlock.match(/title="([^"]*)"/);
       let setId = idMatch ? idMatch[1] : "1";
       let setTitle = titleMatch ? titleMatch[1] : `Item Set ${setId}`;
-      
+
       let setSlots = [];
       let slotStrs = setBlock.match(/<Slot [^>]*\/>/g) || [];
       for (let slotStr of slotStrs) {
@@ -265,7 +320,7 @@ export async function parsePob2(code) {
           let name = nameMatch[1];
           let itemId = itemIdMatch[1];
           let mappedSlotId = slotNameMapping[name];
-          
+
           if (mappedSlotId && itemId !== "0" && itemsMap[itemId]) {
             const itemData = itemsMap[itemId];
             const slotObj = {
@@ -281,21 +336,21 @@ export async function parsePob2(code) {
       }
       itemSets.push({ id: setId, title: setTitle, inventory_slots: setSlots });
     }
-    
+
     if (itemSets.length === 0) {
       itemSets.push({ id: "1", title: "Default Item Set", inventory_slots: [] });
     }
   } else {
     itemSets.push({ id: "1", title: "Default Item Set", inventory_slots: [] });
   }
-  
+
   let activeItemSetIdx = itemSets.findIndex(s => s.id === (itemsMatch ? itemsMatch[1].match(/activeItemSet="([^"]*)"/)?.[1] || "1" : "1"));
   if (activeItemSetIdx === -1) activeItemSetIdx = 0;
 
-  return { 
-    passives: trees[0].passives, 
-    className, 
-    ascendancyName, 
+  return {
+    passives: trees[0].passives,
+    className,
+    ascendancyName,
     skills: skillSets.length > 0 ? skillSets[0].skills : [],
     inventory_slots: itemSets[activeItemSetIdx].inventory_slots,
     itemSets,

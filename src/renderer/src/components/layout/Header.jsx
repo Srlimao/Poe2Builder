@@ -277,6 +277,46 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
               chosenGearset.forEach(newSlot => nextState.inventory_slots.push(newSlot));
             }
           });
+
+          // De-duplicate slots and pre-calculate level intervals for variants
+          const allSlotIds = [...new Set(nextState.inventory_slots.map(s => s.inventory_id))];
+          const processedSlots = [];
+          allSlotIds.forEach(slotId => {
+            let slotVariants = nextState.inventory_slots.filter(s => s.inventory_id === slotId);
+            
+            // Remove empty slots if configured ones are present
+            const hasConfigured = slotVariants.some(s => s.additional_text || s.unique_name || s.level_interval);
+            if (hasConfigured) {
+              slotVariants = slotVariants.filter(s => s.additional_text || s.unique_name || s.level_interval);
+            }
+            
+            // Remove exact duplicates
+            const uniqueVariants = [];
+            const seen = new Set();
+            slotVariants.forEach(s => {
+              const key = `${s.unique_name || ''}|||${s.additional_text || ''}`;
+              if (!seen.has(key)) {
+                seen.add(key);
+                uniqueVariants.push(s);
+              }
+            });
+            
+            // Distribute level intervals
+            const N = uniqueVariants.length;
+            if (N > 1) {
+              uniqueVariants.forEach((v, i) => {
+                const start = Math.floor(i * (100 / N)) + 1;
+                const end = (i === N - 1) ? 100 : Math.floor((i + 1) * (100 / N));
+                v.level_interval = [start, end];
+              });
+            } else if (N === 1) {
+              uniqueVariants[0].level_interval = null;
+            }
+            
+            processedSlots.push(...uniqueVariants);
+          });
+          nextState.inventory_slots = processedSlots;
+
           if (nextSelectedElement && nextSelectedElement.type === 'slot') {
             nextSelectedElement = null;
           }
