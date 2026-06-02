@@ -153,7 +153,7 @@ export const useBuildStore = create((set, get) => ({
     const skills = [...state.buildState.skills];
     const newSupport = {
       id: "Metadata/Items/Gems/SupportGemNewSupport",
-      level_interval: null,
+      level_interval: skills[skillIndex].level_interval ?? null,
       additional_text: ""
     };
     const updatedSkill = {
