@@ -87,6 +87,7 @@ export default function PassiveTreeHeader() {
             placeholder="1"
             value={minLvlVal}
             onChange={handleMinLvlChange}
+            onFocus={(e) => e.target.select()}
           />
           <span className="tree-variant-sep">-</span>
           <input 
@@ -96,6 +97,7 @@ export default function PassiveTreeHeader() {
             placeholder="100"
             value={maxLvlVal}
             onChange={handleMaxLvlChange}
+            onFocus={(e) => e.target.select()}
           />
         </div>
 

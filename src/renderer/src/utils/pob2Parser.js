@@ -197,6 +197,18 @@ export async function parsePob2(code) {
         textContent = textContent.replace(/&apos;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
         
         let lines = textContent.split('\n').map(l => l.trim()).filter(l => l);
+        
+        let uniqueName = "";
+        let rarityIdx = lines.findIndex(l => l.toUpperCase().startsWith('RARITY: '));
+        if (rarityIdx !== -1) {
+          let rarity = lines[rarityIdx].substring(8).trim().toUpperCase();
+          if (rarity === 'UNIQUE') {
+            if (lines[rarityIdx + 1]) {
+              uniqueName = lines[rarityIdx + 1].replace(/\{[^}]+\}/g, '').trim();
+            }
+          }
+        }
+
         let implicitsIdx = lines.findIndex(l => l.startsWith('Implicits: '));
         if (implicitsIdx !== -1) {
           lines = lines.slice(implicitsIdx + 1);
@@ -216,7 +228,10 @@ export async function parsePob2(code) {
         }
         
         lines = lines.map(l => l.replace(/\{[^}]+\}/g, '').trim()).filter(l => l);
-        itemsMap[id] = lines.join('\n');
+        itemsMap[id] = {
+          additional_text: lines.join('\n'),
+          unique_name: uniqueName
+        };
       }
     }
 
@@ -252,10 +267,15 @@ export async function parsePob2(code) {
           let mappedSlotId = slotNameMapping[name];
           
           if (mappedSlotId && itemId !== "0" && itemsMap[itemId]) {
-            setSlots.push({
+            const itemData = itemsMap[itemId];
+            const slotObj = {
               inventory_id: mappedSlotId,
-              additional_text: itemsMap[itemId]
-            });
+              additional_text: itemData.additional_text
+            };
+            if (itemData.unique_name) {
+              slotObj.unique_name = itemData.unique_name;
+            }
+            setSlots.push(slotObj);
           }
         }
       }
