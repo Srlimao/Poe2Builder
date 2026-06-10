@@ -13887,6 +13887,7 @@
             "[ParriedDebuff|Parried Debuff] makes targets take 50% more [Attack] Damage",
             "[Buff] duration is 4 seconds",
             "While the [Buff] is active, automatically [Block] from all directions and inflict [ParriedDebuff|Parried] to [Block|Blocked] enemies",
+            "Cooldown does not recover during Buff effect",
             "50% less [StunThreshold|Stun Threshold] while [Buff] is active",
             "5% more [StunThreshold|Stun Threshold] while [Buff] is active per 10 [Ward|Runic Ward] spent"
         ],

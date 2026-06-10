@@ -1238,7 +1238,7 @@
         "BaseCastTime": null,
         "Cost": null,
         "StatText": [
-            "Supported Skills [Reservation|Reserve] 2% of maximum Life for every\n5 [Spirit] they would have [Reservation|Reserved]"
+            "Supported Skills [Reservation|Reserve] a percentage of your maximum\nLife equal to 66% of base [Spirit] [Reservation]"
         ],
         "GemType": "support"
     },
@@ -2873,7 +2873,6 @@
         "Color": "b",
         "Tags": [
             "support",
-            "attack",
             "chaos"
         ],
         "Icon": "Art/2DArt/SkillIcons/Support/4k/AddedChaosDamageSupport.dds",
@@ -2890,7 +2889,7 @@
         "BaseCastTime": null,
         "Cost": null,
         "StatText": [
-            "Supported [Attack|Attacks] [Gain] 25% of Damage as extra [Chaos|Chaos] Damage",
+            "Supported Skills [Gain] 25% of Damage as extra [Chaos] Damage",
             "Supported [Attack|Attacks] deal 50% less non-[Chaos|Chaos] Damage"
         ],
         "GemType": "support"
@@ -3294,7 +3293,6 @@
         "Color": "b",
         "Tags": [
             "support",
-            "attack",
             "cold"
         ],
         "Icon": "Art/2DArt/SkillIcons/Support/4k/AddedColdDamageSupport.dds",
@@ -3311,8 +3309,8 @@
         "BaseCastTime": null,
         "Cost": null,
         "StatText": [
-            "Supported [Attack|Attacks] [Gain] 25% of Damage as extra [Cold|Cold] Damage",
-            "Supported [Attack|Attacks] deal 50% less [Fire|Fire] and [Lightning|Lightning] Damage"
+            "[Gain] 25% of Damage as Extra [Cold] Damage",
+            "Supported Skills deal 50% less [Fire|Fire] and [Lightning|Lightning] Damage"
         ],
         "GemType": "support"
     },
@@ -6773,7 +6771,6 @@
         "Color": "r",
         "Tags": [
             "support",
-            "attack",
             "fire"
         ],
         "Icon": "Art/2DArt/SkillIcons/Support/4k/AddedFireDamageSupport.dds",
@@ -6790,8 +6787,8 @@
         "BaseCastTime": null,
         "Cost": null,
         "StatText": [
-            "Supported [Attack|Attacks] [Gain] 25% of Damage as extra [Fire|Fire] Damage",
-            "Supported [Attack|Attacks] deal 50% less [Cold|Cold] and [Lightning|Lightning] Damage"
+            "[Gain] 25% of Damage as Extra [Fire] Damage",
+            "Supported Skills deal 50% less [Cold|Cold] and [Lightning|Lightning] Damage"
         ],
         "GemType": "support"
     },
@@ -8504,7 +8501,6 @@
         "Color": "b",
         "Tags": [
             "support",
-            "attack",
             "warcry",
             "cold",
             "duration"
@@ -8523,7 +8519,7 @@
         "BaseCastTime": null,
         "Cost": null,
         "StatText": [
-            "[Attack|Attacks] [Gain] 25% of Damage as [Cold] Damage for 5 seconds on [Freeze|Freezing] an enemy with Supported Skills"
+            "[Gain] 25% of Damage as [Cold] Damage for 5 seconds on [Freeze|Freezing] an enemy with Supported Skills"
         ],
         "GemType": "support"
     },
@@ -8534,7 +8530,6 @@
         "Color": "b",
         "Tags": [
             "support",
-            "attack",
             "warcry",
             "cold",
             "duration"
@@ -8553,7 +8548,7 @@
         "BaseCastTime": null,
         "Cost": null,
         "StatText": [
-            "[Attack|Attacks] [Gain] 30% of Damage as [Cold] Damage for 6 seconds on [Freeze|Freezing] an enemy with Supported Skills"
+            "[Gain] 30% of Damage as [Cold] Damage for 6 seconds on [Freeze|Freezing] an enemy with Supported Skills"
         ],
         "GemType": "support"
     },
@@ -9017,7 +9012,6 @@
         "Color": "g",
         "Tags": [
             "support",
-            "attack",
             "lightning",
             "duration"
         ],
@@ -9035,7 +9029,7 @@
         "BaseCastTime": null,
         "Cost": null,
         "StatText": [
-            "[Attack|Attacks] gain 25% of Damage as [Lightning] Damage for 5 seconds on killing a [Shock|Shocked] enemy with Supported Skills"
+            "[Gain] 25% of Damage as [Lightning] Damage for 5 seconds on killing a [Shock|Shocked] enemy with Supported Skills"
         ],
         "GemType": "support"
     },
@@ -9621,7 +9615,6 @@
         "Color": "g",
         "Tags": [
             "support",
-            "attack",
             "lightning"
         ],
         "Icon": "Art/2DArt/SkillIcons/Support/4k/AddedLightningDamageSupport.dds",
@@ -9638,8 +9631,8 @@
         "BaseCastTime": null,
         "Cost": null,
         "StatText": [
-            "Supported [Attack|Attacks] [Gain] 25% of Damage as extra [Lightning|Lightning] Damage",
-            "Supported [Attack|Attacks] deal 50% less [Cold|Cold] and [Fire|Fire] Damage"
+            "[Gain] 25% of Damage as Extra [Lightning] Damage",
+            "Supported Skills deal 50% less [Cold|Cold] and [Fire|Fire] Damage"
         ],
         "GemType": "support"
     },

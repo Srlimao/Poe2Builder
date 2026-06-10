@@ -18,6 +18,7 @@ export default function PassiveCanvas() {
   // Custom update helper to keep store mutations clean
   const setBuildState = useBuildStore((state) => state.setBuildState);
   const buildState = useBuildStore((state) => state.buildState);
+  const updatePassiveText = useBuildStore((state) => state.updatePassiveText);
 
   // Canvas Viewport Camera state
   const cameraRef = useRef({ x: 0, y: 0, zoom: 0.2 });
@@ -33,6 +34,7 @@ export default function PassiveCanvas() {
   // Hover Tooltip state
   const [hoveredNode, setHoveredNode] = useState(null);
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
+  const hideTooltipTimeout = useRef(null);
 
   const activeTree = passive_trees[currentTreeIndex] || passive_trees[0];
   const allocatedNodes = new Set((activeTree?.nodes || []).filter(n => n !== null && n !== undefined).map(n => (n.id || n).toString()));
@@ -249,12 +251,21 @@ export default function PassiveCanvas() {
       }
 
       if (foundHover) {
-        setHoveredNode(foundHover);
-        setTooltipPos({ x: e.clientX, y: e.clientY });
+        if (hideTooltipTimeout.current) clearTimeout(hideTooltipTimeout.current);
+        
+        if (foundHover.id !== hoveredNode?.id) {
+          setHoveredNode(foundHover);
+          setTooltipPos({ x: e.clientX, y: e.clientY });
+        }
         canvas.style.cursor = 'pointer';
       } else {
-        setHoveredNode(null);
         canvas.style.cursor = 'default';
+        if (hoveredNode && !hideTooltipTimeout.current) {
+          hideTooltipTimeout.current = setTimeout(() => {
+            setHoveredNode(null);
+            hideTooltipTimeout.current = null;
+          }, 150);
+        }
       }
     }
   };
@@ -344,6 +355,38 @@ export default function PassiveCanvas() {
     }
   };
 
+  const handleTooltipMouseEnter = () => {
+    if (hideTooltipTimeout.current) {
+      clearTimeout(hideTooltipTimeout.current);
+      hideTooltipTimeout.current = null;
+    }
+  };
+
+  const handleTooltipMouseLeave = () => {
+    setHoveredNode(null);
+  };
+
+  const handleAttributeSelect = (e, attribute, colorTag) => {
+    e.stopPropagation();
+    if (!hoveredNode) return;
+    
+    const currentNodes = [...activeTree.nodes];
+    const isAllocated = currentNodes.some(n => n.id === hoveredNode.id);
+    const textToSave = `${colorTag}{${attribute}}`;
+
+    if (!isAllocated) {
+      currentNodes.push({ id: hoveredNode.id, additional_text: textToSave });
+      const newTrees = [...buildState.passive_trees];
+      newTrees[currentTreeIndex] = { ...activeTree, nodes: currentNodes };
+      setBuildState({ ...buildState, passive_trees: newTrees });
+      setSelectedElement({ type: 'passive', id: hoveredNode.id });
+    } else {
+      updatePassiveText(hoveredNode.id, textToSave);
+    }
+  };
+
+  const allocatedNodeData = hoveredNode ? activeTree.nodes.find(n => n.id === hoveredNode.id) : null;
+
   return (
     <div 
       className="tree-canvas-wrapper" 
@@ -364,16 +407,36 @@ export default function PassiveCanvas() {
         <div 
           id="tree-tooltip"
           className="tooltip-box" 
+          onMouseEnter={handleTooltipMouseEnter}
+          onMouseLeave={handleTooltipMouseLeave}
           style={{ 
             position: 'fixed', 
             left: `${tooltipPos.x + 15}px`, 
             top: `${tooltipPos.y + 15}px`, 
             zIndex: 1000, 
-            pointerEvents: 'none' 
+            pointerEvents: 'auto' 
           }}
         >
           <div className="tooltip-title">{hoveredNode.name}</div>
           <div className="tooltip-content" style={{ marginTop: '5px' }}>
+            {allocatedNodeData?.additional_text && (
+              <div style={{ marginBottom: '5px', paddingBottom: '5px', borderBottom: '1px solid #333' }}>
+                <span style={{ color: '#aaa' }}>Allocated: </span>
+                <span dangerouslySetInnerHTML={{ 
+                  __html: allocatedNodeData.additional_text
+                    .replace(/<red>{(.*?)}/g, '<span style="color: #ff4444">$1</span>')
+                    .replace(/<green>{(.*?)}/g, '<span style="color: #44ff44">$1</span>')
+                    .replace(/<blue>{(.*?)}/g, '<span style="color: #4444ff">$1</span>')
+                }} />
+              </div>
+            )}
+            {hoveredNode.name === "Attribute" && (
+              <div style={{ display: 'flex', gap: '5px', marginBottom: '8px', pointerEvents: 'auto' }}>
+                <button onClick={(e) => handleAttributeSelect(e, 'Strength', '<red>')} style={{ padding: '2px 6px', background: '#301818', color: '#ff4444', border: '1px solid #502020', borderRadius: '3px', cursor: 'pointer' }}>Str</button>
+                <button onClick={(e) => handleAttributeSelect(e, 'Dexterity', '<green>')} style={{ padding: '2px 6px', background: '#183018', color: '#44ff44', border: '1px solid #205020', borderRadius: '3px', cursor: 'pointer' }}>Dex</button>
+                <button onClick={(e) => handleAttributeSelect(e, 'Intelligence', '<blue>')} style={{ padding: '2px 6px', background: '#181830', color: '#4444ff', border: '1px solid #202050', borderRadius: '3px', cursor: 'pointer' }}>Int</button>
+              </div>
+            )}
             {hoveredNode.stats.length > 0 ? (
               hoveredNode.stats.map((s, idx) => (
                 <div key={idx} style={{ color: '#8888FF', marginBottom: '2px' }}>{s}</div>
