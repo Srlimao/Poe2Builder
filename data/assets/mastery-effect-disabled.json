@@ -1,0 +1,460 @@
+{
+    "frames": {
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAccuracyPattern.png": {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEnergyShieldPattern.png": {
+            "frame": {
+                "x": 244,
+                "y": 0,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourAndEvasionPattern.png": {
+            "frame": {
+                "x": 488,
+                "y": 0,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryArmourPattern.png": {
+            "frame": {
+                "x": 732,
+                "y": 0,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttackPattern.png": {
+            "frame": {
+                "x": 976,
+                "y": 0,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAttributesPattern.png": {
+            "frame": {
+                "x": 1220,
+                "y": 0,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryAxePattern.png": {
+            "frame": {
+                "x": 1464,
+                "y": 0,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBannerPattern.png": {
+            "frame": {
+                "x": 1708,
+                "y": 0,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBleedingPattern.png": {
+            "frame": {
+                "x": 0,
+                "y": 241,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlindPattern.png": {
+            "frame": {
+                "x": 244,
+                "y": 241,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBlockPattern.png": {
+            "frame": {
+                "x": 488,
+                "y": 241,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBowPattern.png": {
+            "frame": {
+                "x": 732,
+                "y": 241,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryBucklersPattern.png": {
+            "frame": {
+                "x": 976,
+                "y": 241,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCasterPattern.png": {
+            "frame": {
+                "x": 1220,
+                "y": 241,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChaosPattern.png": {
+            "frame": {
+                "x": 1464,
+                "y": 241,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryChargesPattern.png": {
+            "frame": {
+                "x": 1708,
+                "y": 241,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCharmsPattern.png": {
+            "frame": {
+                "x": 0,
+                "y": 482,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryColdPattern.png": {
+            "frame": {
+                "x": 244,
+                "y": 482,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCompanionsPattern.png": {
+            "frame": {
+                "x": 488,
+                "y": 482,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCriticalsPattern.png": {
+            "frame": {
+                "x": 732,
+                "y": 482,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryCursePattern.png": {
+            "frame": {
+                "x": 976,
+                "y": 482,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDualWieldPattern.png": {
+            "frame": {
+                "x": 1220,
+                "y": 482,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryDurationPattern.png": {
+            "frame": {
+                "x": 1464,
+                "y": 482,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryElementalPattern.png": {
+            "frame": {
+                "x": 1708,
+                "y": 482,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEnergyPattern.png": {
+            "frame": {
+                "x": 0,
+                "y": 723,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionAndEnergyShieldPattern.png": {
+            "frame": {
+                "x": 244,
+                "y": 723,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryEvasionPattern.png": {
+            "frame": {
+                "x": 488,
+                "y": 723,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFirePattern.png": {
+            "frame": {
+                "x": 732,
+                "y": 723,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFlaskPattern.png": {
+            "frame": {
+                "x": 976,
+                "y": 723,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryFortifyPattern.png": {
+            "frame": {
+                "x": 1220,
+                "y": 723,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryImpalePattern.png": {
+            "frame": {
+                "x": 1464,
+                "y": 723,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryInstillationsPattern.png": {
+            "frame": {
+                "x": 1708,
+                "y": 723,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLeechPattern.png": {
+            "frame": {
+                "x": 0,
+                "y": 964,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLifePattern.png": {
+            "frame": {
+                "x": 244,
+                "y": 964,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern.png": {
+            "frame": {
+                "x": 488,
+                "y": 964,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLinkPattern.png": {
+            "frame": {
+                "x": 732,
+                "y": 964,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMacePattern.png": {
+            "frame": {
+                "x": 976,
+                "y": 964,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryManaPattern.png": {
+            "frame": {
+                "x": 1220,
+                "y": 964,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMarkPattern.png": {
+            "frame": {
+                "x": 1464,
+                "y": 964,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionDefencePattern.png": {
+            "frame": {
+                "x": 1708,
+                "y": 964,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryMinionOffencePattern.png": {
+            "frame": {
+                "x": 0,
+                "y": 1205,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPhysicalPattern.png": {
+            "frame": {
+                "x": 244,
+                "y": 1205,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryPoisonPattern.png": {
+            "frame": {
+                "x": 488,
+                "y": 1205,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryProjectilePattern.png": {
+            "frame": {
+                "x": 732,
+                "y": 1205,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryRecoveryPattern.png": {
+            "frame": {
+                "x": 976,
+                "y": 1205,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryReservationPattern.png": {
+            "frame": {
+                "x": 1220,
+                "y": 1205,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryShieldPattern.png": {
+            "frame": {
+                "x": 1464,
+                "y": 1205,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySpearsPattern.png": {
+            "frame": {
+                "x": 1708,
+                "y": 1205,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySpellSuppressionPattern.png": {
+            "frame": {
+                "x": 0,
+                "y": 1446,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryStaffPattern.png": {
+            "frame": {
+                "x": 244,
+                "y": 1446,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasterySwordPattern.png": {
+            "frame": {
+                "x": 488,
+                "y": 1446,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryThornsPattern.png": {
+            "frame": {
+                "x": 732,
+                "y": 1446,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTotemPattern.png": {
+            "frame": {
+                "x": 976,
+                "y": 1446,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTrapsPattern.png": {
+            "frame": {
+                "x": 1220,
+                "y": 1446,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTwoHandsPattern.png": {
+            "frame": {
+                "x": 1464,
+                "y": 1446,
+                "w": 244,
+                "h": 241
+            }
+        },
+        "masteryEffectInactive:Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryWarcryPattern.png": {
+            "frame": {
+                "x": 1708,
+                "y": 1446,
+                "w": 244,
+                "h": 241
+            }
+        }
+    },
+    "meta": {
+        "image": "mastery-effect-disabled.webp",
+        "scale": "0.5",
+        "size": {
+            "w": 1952,
+            "h": 1687
+        }
+    }
+}

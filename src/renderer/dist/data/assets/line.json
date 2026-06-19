@@ -1,0 +1,268 @@
+{
+    "frames": {
+        "line:LineConnectorActive": {
+            "frame": {
+                "x": 0,
+                "y": 16,
+                "w": 717,
+                "h": 17
+            }
+        },
+        "line:Orbit1Active": {
+            "frame": {
+                "x": 665,
+                "y": 665,
+                "w": 52,
+                "h": 52
+            }
+        },
+        "line:Orbit2Active": {
+            "frame": {
+                "x": 625,
+                "y": 625,
+                "w": 92,
+                "h": 92
+            }
+        },
+        "line:Orbit3Active": {
+            "frame": {
+                "x": 539,
+                "y": 539,
+                "w": 178,
+                "h": 178
+            }
+        },
+        "line:Orbit4Active": {
+            "frame": {
+                "x": 460,
+                "y": 460,
+                "w": 257,
+                "h": 257
+            }
+        },
+        "line:Orbit5Active": {
+            "frame": {
+                "x": 375,
+                "y": 375,
+                "w": 342,
+                "h": 342
+            }
+        },
+        "line:Orbit6Active": {
+            "frame": {
+                "x": 288,
+                "y": 288,
+                "w": 429,
+                "h": 429
+            }
+        },
+        "line:Orbit7Active": {
+            "frame": {
+                "x": 582,
+                "y": 582,
+                "w": 135,
+                "h": 135
+            }
+        },
+        "line:Orbit8Active": {
+            "frame": {
+                "x": 163,
+                "y": 163,
+                "w": 554,
+                "h": 554
+            }
+        },
+        "line:Orbit9Active": {
+            "frame": {
+                "x": 43,
+                "y": 43,
+                "w": 674,
+                "h": 674
+            }
+        },
+        "line:LineConnectorNormal": {
+            "frame": {
+                "x": 0,
+                "y": 733,
+                "w": 717,
+                "h": 17
+            }
+        },
+        "line:Orbit1Normal": {
+            "frame": {
+                "x": 673,
+                "y": 1391,
+                "w": 44,
+                "h": 44
+            }
+        },
+        "line:Orbit2Normal": {
+            "frame": {
+                "x": 633,
+                "y": 1351,
+                "w": 84,
+                "h": 84
+            }
+        },
+        "line:Orbit3Normal": {
+            "frame": {
+                "x": 547,
+                "y": 1264,
+                "w": 170,
+                "h": 170
+            }
+        },
+        "line:Orbit4Normal": {
+            "frame": {
+                "x": 468,
+                "y": 1185,
+                "w": 249,
+                "h": 249
+            }
+        },
+        "line:Orbit5Normal": {
+            "frame": {
+                "x": 383,
+                "y": 1101,
+                "w": 334,
+                "h": 334
+            }
+        },
+        "line:Orbit6Normal": {
+            "frame": {
+                "x": 296,
+                "y": 1014,
+                "w": 421,
+                "h": 421
+            }
+        },
+        "line:Orbit7Normal": {
+            "frame": {
+                "x": 590,
+                "y": 1308,
+                "w": 127,
+                "h": 127
+            }
+        },
+        "line:Orbit8Normal": {
+            "frame": {
+                "x": 171,
+                "y": 889,
+                "w": 546,
+                "h": 546
+            }
+        },
+        "line:Orbit9Normal": {
+            "frame": {
+                "x": 51,
+                "y": 769,
+                "w": 666,
+                "h": 666
+            }
+        },
+        "line:LineConnectorIntermediate": {
+            "frame": {
+                "x": 0,
+                "y": 1451,
+                "w": 717,
+                "h": 17
+            }
+        },
+        "line:Orbit1Intermediate": {
+            "frame": {
+                "x": 673,
+                "y": 2108,
+                "w": 44,
+                "h": 44
+            }
+        },
+        "line:Orbit2Intermediate": {
+            "frame": {
+                "x": 633,
+                "y": 2068,
+                "w": 84,
+                "h": 84
+            }
+        },
+        "line:Orbit3Intermediate": {
+            "frame": {
+                "x": 547,
+                "y": 1982,
+                "w": 170,
+                "h": 170
+            }
+        },
+        "line:Orbit4Intermediate": {
+            "frame": {
+                "x": 468,
+                "y": 1903,
+                "w": 249,
+                "h": 249
+            }
+        },
+        "line:Orbit5Intermediate": {
+            "frame": {
+                "x": 383,
+                "y": 1818,
+                "w": 334,
+                "h": 334
+            }
+        },
+        "line:Orbit6Intermediate": {
+            "frame": {
+                "x": 296,
+                "y": 1731,
+                "w": 421,
+                "h": 421
+            }
+        },
+        "line:Orbit7Intermediate": {
+            "frame": {
+                "x": 590,
+                "y": 2025,
+                "w": 127,
+                "h": 127
+            }
+        },
+        "line:Orbit8Intermediate": {
+            "frame": {
+                "x": 171,
+                "y": 1606,
+                "w": 546,
+                "h": 546
+            }
+        },
+        "line:Orbit9Intermediate": {
+            "frame": {
+                "x": 51,
+                "y": 1486,
+                "w": 666,
+                "h": 666
+            }
+        },
+        "line:PSLineDecoHighlighted": {
+            "frame": {
+                "x": 0,
+                "y": 2152,
+                "w": 33,
+                "h": 31
+            }
+        },
+        "line:PSLineDeco": {
+            "frame": {
+                "x": 0,
+                "y": 2184,
+                "w": 33,
+                "h": 31
+            }
+        }
+    },
+    "meta": {
+        "image": "line.webp",
+        "scale": "0.5",
+        "size": {
+            "w": 717,
+            "h": 2215
+        }
+    }
+}

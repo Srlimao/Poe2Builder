@@ -1,0 +1,28 @@
+{
+    "frames": {
+        "startNode:MainCircleActive": {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 2000,
+                "h": 2000
+            }
+        },
+        "startNode:MainCircle": {
+            "frame": {
+                "x": 2000,
+                "y": 0,
+                "w": 2000,
+                "h": 2000
+            }
+        }
+    },
+    "meta": {
+        "image": "group-background.webp",
+        "scale": "0.5",
+        "size": {
+            "w": 4000,
+            "h": 2000
+        }
+    }
+}

@@ -1,5 +1,40 @@
-/* PoE2 Build Planner Editor Style Sheet */
+/*
+ * PoE2 Build Planner — style.css
+ * ─────────────────────────────────────────────────────────────────────────────
+ * TABLE OF CONTENTS  (search for the §ANCHOR to jump to a section)
+ * ─────────────────────────────────────────────────────────────────────────────
+ *  §TOKENS          CSS custom properties / design tokens
+ *  §RESET           Box-sizing, margin/padding reset
+ *  §BODY            Body base styles
+ *  §APP             App container & flex helpers
+ *  §HEADER          Top app header bar
+ *  §BUTTONS         .btn, .btn-primary, .btn-gold, .btn-sm …
+ *  §LAYOUT          Main 3-column layout
+ *  §LEFT-PANEL      Metadata form, left panel chrome
+ *  §EQUIPMENT       Equipment grid slots, icons, RPG layout
+ *  §CENTER-PANEL    Center panel chrome
+ *  §SKILLS-FILTER   Level slider / show-all filter bar
+ *  §SKILL-GROUP     Skill socket group row
+ *  §SOCKETS         Active & support socket circles + gem colors
+ *  §SKILL-OVERLAY   Skill name overlay, level badge, remove button
+ *  §GEM-TOOLTIP     Gem description tooltip panel
+ *  §NUMBER-INPUTS   Spin-button reset, inline level inputs
+ *  §RIGHT-PANEL     Right editor/preview panel
+ *  §MARKUP-BTNS     Rich-text markup helper buttons
+ *  §AUTOCOMPLETE    Gem/item autocomplete dropdown
+ *  §PREVIEW         In-game tooltip preview panel
+ *  §FOOTER          Bottom status bar
+ *  §SCROLLBARS      Custom scrollbar styling
+ *  §MODAL           Modal overlay, alert/confirm/prompt dialogs
+ *  §TABS            Tab bar & tab buttons
+ *  §DROPDOWN        Header dropdown menus
+ *  §ANIMATIONS      Keyframes & highlight-pulse
+ *  §PASSIVE-TREE    Passive skill tree visualizer & variant bar
+ *  §POB2-MODAL      PoB2 import modal UI
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
 
+/* ─── §TOKENS ─── CSS custom properties / design tokens ─── */
 :root {
     --bg-darker: #09090a;
     --bg-dark: #121214;
@@ -30,12 +65,14 @@
     --font-body: 'Inter', sans-serif;
 }
 
+/* ─── §RESET ─── */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* ─── §BODY ─── */
 body {
     background-color: var(--bg-darker);
     color: var(--text-body);
@@ -46,14 +83,24 @@ body {
     overflow: hidden;
 }
 
-/* APP CONTAINER */
+/* ─── §APP ─── App container & flex helpers ─── */
 .app-container {
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-/* HEADER */
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+/* ─── §HEADER ─── Top app header bar ─── */
 .app-header {
     background-color: var(--bg-dark);
     border-bottom: 2px solid var(--border-gold-dark);
@@ -116,7 +163,7 @@ body {
     display: none !important;
 }
 
-/* BUTTONS */
+/* ─── §BUTTONS ─── .btn, variants, .btn-sm ─── */
 .btn {
     font-family: var(--font-body);
     font-weight: 600;
@@ -181,7 +228,7 @@ body {
     font-size: 10px;
 }
 
-/* MAIN LAYOUT */
+/* ─── §LAYOUT ─── Main 3-column layout ─── */
 .main-layout {
     display: flex;
     flex: 1;
@@ -193,10 +240,13 @@ body {
     font-size: 12px;
     color: var(--text-gold);
     border-bottom: 1px solid var(--border-gold-dark);
-    padding: 8px 15px;
+    padding: 6px 15px;
     background-color: rgba(0, 0, 0, 0.2);
     letter-spacing: 1px;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .flex-between {
@@ -205,7 +255,7 @@ body {
     align-items: center;
 }
 
-/* LEFT PANEL (METADATA & EQUIPMENT GRID) */
+/* ─── §LEFT-PANEL ─── Metadata form & left panel chrome ─── */
 .left-panel {
     width: 380px;
     border-right: 2px solid var(--border-gold-dark);
@@ -277,7 +327,7 @@ textarea.form-control {
     font-size: 12px;
 }
 
-/* EQUIPMENT GRID */
+/* ─── §EQUIPMENT ─── Equipment grid slots, icons, RPG layout ─── */
 .equipment-container {
     padding: 20px 15px;
     flex: 1;
@@ -354,6 +404,7 @@ textarea.form-control {
     opacity: 0.9;
     transform: scale(1.05);
 }
+
 .eq-slot.configured .eq-icon {
     opacity: 1;
 }
@@ -481,7 +532,7 @@ textarea.form-control {
 }
 
 
-/* CENTER PANEL (SKILLS & SOCKETS) */
+/* ─── §CENTER-PANEL ─── Center panel chrome ─── */
 .center-panel {
     flex: 1;
     border-right: 2px solid var(--border-gold-dark);
@@ -489,6 +540,15 @@ textarea.form-control {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+}
+
+/* ─── §SKILLS-FILTER ─── Level slider / show-all filter bar ─── */
+.skills-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 15px;
+    border-bottom: 1px solid var(--border-gold-dark);
 }
 
 .skills-scroll-container {
@@ -513,7 +573,37 @@ textarea.form-control {
     gap: 20px;
 }
 
-/* SKILL SOCKET GROUP ROW */
+
+
+/* Keeps the checkbox and text perfectly aligned and prevents shrinking */
+.checkbox-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Wrapper for the slider elements */
+.slider-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+/* The actual HTML range input */
+#skills-level-slider {
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+#skills-level-slider:disabled {
+    cursor: not-allowed;
+}
+
+/* ─── §SKILL-GROUP ─── Skill socket group row ─── */
 .skill-socket-group {
     background-color: rgba(24, 24, 28, 0.5);
     border: 1px solid var(--border-gold-dark);
@@ -552,7 +642,8 @@ textarea.form-control {
     position: absolute;
     left: 40px;
     right: 40px;
-    top: 44px; /* 10px padding + 34px to center of active socket */
+    top: 44px;
+    /* 10px padding + 34px to center of active socket */
     transform: translateY(-50%);
     height: 6px;
     background: linear-gradient(90deg, #302618 0%, #534530 50%, #302618 100%);
@@ -562,7 +653,7 @@ textarea.form-control {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* ACTIVE GEM SOCKET (Large) */
+/* ─── §SOCKETS ─── Active & support socket circles + gem colors ─── */
 .socket-active {
     width: 68px;
     height: 68px;
@@ -662,7 +753,8 @@ textarea.form-control {
     flex-wrap: wrap;
     gap: 15px;
     margin-left: 20px;
-    margin-top: 12px; /* aligns 44px support gems to center of 68px active gem */
+    margin-top: 12px;
+    /* aligns 44px support gems to center of 68px active gem */
     position: relative;
     z-index: 2;
 }
@@ -756,7 +848,7 @@ textarea.form-control {
     font-weight: 300;
 }
 
-/* GEM DESCRIPTIONS / TOOLTIPS */
+/* ─── §SKILL-OVERLAY ─── Skill name overlay, level badge, remove button ─── */
 .skill-info-overlay {
     position: absolute;
     top: 5px;
@@ -804,37 +896,55 @@ textarea.form-control {
 }
 
 .skill-level-inline-input {
-    width: 30px;
-    height: 16px;
-    background: #000;
-    border: 1px solid var(--border-gold-dark);
-    color: var(--text-gold);
-    font-size: 10px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: #fff;
+    width: 26px;
     text-align: center;
-    border-radius: 2px;
-    -moz-appearance: textfield; /* Firefox */
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: bold;
+    outline: none;
+    transition: border-color 0.2s;
+    border-radius: 3px;
+    padding: 2px 0;
 }
-.skill-level-inline-input::-webkit-outer-spin-button,
-.skill-level-inline-input::-webkit-inner-spin-button {
+
+.skill-level-inline-input:hover,
+.skill-level-inline-input:focus {
+    border-color: var(--border-gold-dark);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ─── §NUMBER-INPUTS ─── Spin-button reset, inline level inputs ─── */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-.skill-level-inline-input:focus {
-    outline: none;
-    border-color: #ffa500;
+
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
 .btn-remove-skill-row {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 6px;
+    right: 6px;
     background: transparent;
     border: none;
     color: var(--text-muted);
+    font-size: 18px;
     cursor: pointer;
-    font-size: 14px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    transition: all 0.2s;
+    line-height: 1;
     opacity: 0.3;
-    transition: opacity 0.2s, color 0.2s;
 }
 
 .skill-socket-group:hover .btn-remove-skill-row {
@@ -842,11 +952,13 @@ textarea.form-control {
 }
 
 .btn-remove-skill-row:hover {
-    color: var(--gem-red) !important;
+    color: #ffb3b3 !important;
+    background-color: rgba(168, 58, 58, 0.2);
+    opacity: 1;
 }
 
 
-/* RIGHT PANEL (EDITOR & PREVIEW) */
+/* ─── §RIGHT-PANEL ─── Right editor/preview panel ─── */
 .right-panel {
     width: 440px;
     background-color: var(--bg-panel);
@@ -924,7 +1036,7 @@ textarea.form-control {
     color: var(--text-muted);
 }
 
-/* MARKUP HELPER BUTTONS */
+/* ─── §MARKUP-BTNS ─── Rich-text markup helper buttons ─── */
 .markup-helpers {
     display: flex;
     flex-wrap: wrap;
@@ -983,7 +1095,7 @@ textarea.form-control {
     font-weight: bold;
 }
 
-/* AUTOCOMPLETE SUGGESTIONS */
+/* ─── §AUTOCOMPLETE ─── Gem/item autocomplete dropdown ─── */
 .autocomplete-wrapper {
     position: relative;
     width: 100%;
@@ -1029,7 +1141,7 @@ textarea.form-control {
     color: var(--text-muted);
 }
 
-/* PREVIEW TOOLTIP PANELS */
+/* ─── §PREVIEW ─── In-game tooltip preview panel ─── */
 .preview-container {
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.4);
@@ -1041,6 +1153,7 @@ textarea.form-control {
     min-height: 250px;
 }
 
+/* ─── §GEM-TOOLTIP ─── Gem description tooltip panel ─── */
 .game-tooltip-panel {
     background-color: rgba(9, 9, 11, 0.95);
     border-left: 2px solid var(--border-gold);
@@ -1104,7 +1217,7 @@ textarea.form-control {
 }
 
 
-/* FOOTER STYLING */
+/* ─── §FOOTER ─── Bottom status bar ─── */
 .app-footer {
     height: 35px;
     background-color: var(--bg-dark);
@@ -1141,7 +1254,7 @@ textarea.form-control {
 }
 
 
-/* SCROLLBARS */
+/* ─── §SCROLLBARS ─── Custom scrollbar styling ─── */
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
@@ -1160,7 +1273,7 @@ textarea.form-control {
     background: var(--border-gold);
 }
 
-/* CUSTOM MODAL OVERLAY */
+/* ─── §MODAL ─── Modal overlay, alert/confirm/prompt dialogs ─── */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -1233,9 +1346,7 @@ textarea.form-control {
     min-width: 100px;
 }
 
-/* --- NEW UI ORGANIZATION STYLES --- */
-
-/* Tabs */
+/* ─── §TABS ─── Tab bar & tab buttons ─── */
 .main-tabs {
     display: flex;
     background-color: rgba(0, 0, 0, 0.4);
@@ -1270,7 +1381,7 @@ textarea.form-control {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-/* Dropdown Menu */
+/* ─── §DROPDOWN ─── Header dropdown menus ─── */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -1325,7 +1436,7 @@ textarea.form-control {
     color: var(--text-gold) !important;
 }
 
-/* Highlight Pulse Animation */
+/* ─── §ANIMATIONS ─── Keyframes & highlight-pulse ─── */
 @keyframes highlight-pulse {
     0% {
         box-shadow: 0 0 0 0 rgba(207, 169, 104, 0.4);
@@ -1351,7 +1462,7 @@ textarea.form-control {
     justify-content: center;
 }
 
-/* Tree Visualizer Styles */
+/* ─── §PASSIVE-TREE ─── Passive skill tree visualizer & variant bar ─── */
 #tree-visualizer-overlay canvas {
     outline: none;
 }
@@ -1413,7 +1524,7 @@ textarea.form-control {
     margin-left: auto;
 }
 
-/* POB2 IMPORT MODAL NEW UI */
+/* ─── §POB2-MODAL ─── PoB2 import modal UI ─── */
 .pob2-modal-content {
     background-color: #0c0c0e;
     border: 1px solid var(--border-gold-dark);
@@ -1481,12 +1592,12 @@ textarea.form-control {
     flex-shrink: 0;
 }
 
-.pob2-checkbox-input:checked + .pob2-checkbox-custom {
+.pob2-checkbox-input:checked+.pob2-checkbox-custom {
     border-color: #ffa500;
     background-color: rgba(255, 165, 0, 0.1);
 }
 
-.pob2-checkbox-input:checked + .pob2-checkbox-custom::after {
+.pob2-checkbox-input:checked+.pob2-checkbox-custom::after {
     content: '';
     position: absolute;
     left: 6px;
@@ -1622,4 +1733,133 @@ textarea.form-control {
 .pob2-footer-right {
     display: flex;
     gap: 10px;
+}
+
+/* Equipment Grid RPG Layout */
+.equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(5, 90px);
+    gap: 12px;
+    justify-content: center;
+    margin: 15px auto;
+}
+
+.eq-slot {
+    background-color: #121212;
+    border: 1px solid #333;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    box-sizing: border-box;
+    padding: 4px;
+}
+
+.eq-slot:hover {
+    border-color: #ffd700;
+    background-color: #1a1a1a;
+}
+
+.eq-slot.active {
+    border-color: #ffd700;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.eq-slot.configured {
+    background-color: rgba(76, 175, 80, 0.05);
+    border-color: #ffd700;
+    /* Match screenshot gold border */
+}
+
+.eq-slot.configured.active {
+    border-color: #fff;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+/* Screenshot Layout Mapping (3-Column) */
+.eq-slot-weapon1 {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.eq-slot-helm1 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.eq-slot-weapon2 {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+}
+
+.eq-slot-bodyarmour1 {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+}
+
+.eq-slot-gloves1 {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.eq-slot-amulet1 {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.eq-slot-ring1 {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.eq-slot-belt1 {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.eq-slot-ring2 {
+    grid-column: 3;
+    grid-row: 4;
+}
+
+.eq-slot-boots1 {
+    grid-column: 2;
+    grid-row: 5;
+}
+
+.eq-icon {
+    width: 42px;
+    height: 42px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 4px;
+    opacity: 0.9;
+}
+
+.eq-slot:hover .eq-icon,
+.eq-slot.active .eq-icon {
+    opacity: 1;
+}
+
+.eq-label {
+    font-size: 9px;
+    color: #999;
+    text-transform: uppercase;
+}
+
+.eq-value {
+    font-size: 10px;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 95%;
+    margin-top: 2px;
 }

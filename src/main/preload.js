@@ -7,7 +7,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
   getDefaultBuildPath: () => ipcRenderer.invoke('get-default-build-path'),
   saveToDefaultPath: (payload) => ipcRenderer.invoke('save-to-default-path', payload),
   readLocalJson: (filename) => ipcRenderer.invoke('read-local-json', filename),
-  importPob2: (code) => ipcRenderer.invoke('import-pob2', code),
   updateSkilltree: () => ipcRenderer.invoke('update-skilltree'),
   updateGems: () => ipcRenderer.invoke('update-gems'),
   updateUniques: () => ipcRenderer.invoke('update-uniques')
