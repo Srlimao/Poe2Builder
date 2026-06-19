@@ -91,13 +91,17 @@ export async function fetchGemsDatabases() {
 
 export async function fetchAscendancies() {
   const isElectron = typeof window.electronAPI !== 'undefined';
+  let data = [];
   if (isElectron) {
-    return await window.electronAPI.readLocalJson('ascendancies.json') || [];
+    data = await window.electronAPI.readLocalJson('ascendancies.json') || [];
   } else {
     const res = await fetch('data/ascendancies.json').catch(() => null);
-    if (res && res.ok) return await res.json();
-    return [];
+    if (res && res.ok) {
+      data = await res.json();
+    }
   }
+
+  return data.filter(a => a.id && !a.name.includes('(General)'));
 }
 
 export function getGemDisplayName(id) {

@@ -77,7 +77,7 @@ export default function PropertiesEditor() {
     const skill = buildState.skills[selectedElement.skillIndex];
     itemType = "SKILL GEM";
     itemTitle = getGemDisplayName(skill?.id) || "New Active Gem";
-    idLabel = "Skill Gem ID";
+    idLabel = "Skill Gem";
     
     if (skill) {
       currentId = skill.id;
@@ -90,7 +90,7 @@ export default function PropertiesEditor() {
     const support = skill?.support_skills?.[selectedElement.supportIndex];
     itemType = "SUPPORT GEM";
     itemTitle = getGemDisplayName(support?.id) || "New Support Gem";
-    idLabel = "Support Gem ID";
+    idLabel = "Support Gem";
 
     if (support) {
       currentId = support.id;
@@ -270,7 +270,7 @@ export default function PropertiesEditor() {
               value={currentId} 
               onChange={(val) => handleFieldChange('id', val)} 
               type="gem"
-              placeholder="e.g. Metadata/Items/Gems/SkillGemEarthquake"
+              placeholder="e.g. Earthquake"
             />
           ) : (
             <input 

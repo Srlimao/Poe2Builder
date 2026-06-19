@@ -45,12 +45,14 @@ function poePlannerAssetsPlugin() {
       const destIconsDir = path.resolve(__dirname, 'src/renderer/dist/icons');
 
       try {
+        const copyFilter = (source) => !source.includes('.git');
+        
         if (fs.existsSync(srcDataDir)) {
-          fs.cpSync(srcDataDir, destDataDir, { recursive: true });
+          fs.cpSync(srcDataDir, destDataDir, { recursive: true, filter: copyFilter });
           console.log('Successfully copied data folder to dist/data');
         }
         if (fs.existsSync(srcIconsDir)) {
-          fs.cpSync(srcIconsDir, destIconsDir, { recursive: true });
+          fs.cpSync(srcIconsDir, destIconsDir, { recursive: true, filter: copyFilter });
           console.log('Successfully copied icons folder to dist/icons');
         }
       } catch (err) {

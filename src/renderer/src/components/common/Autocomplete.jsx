@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useBuildStore } from '../../store/useBuildStore';
-import { getGemColor } from '../../utils/database';
+import { getGemColor, getGemDisplayName, generateGemId } from '../../utils/database';
 
 export default function Autocomplete({ 
   value, 
@@ -9,6 +9,7 @@ export default function Autocomplete({
   placeholder = "",
   className = "form-control"
 }) {
+  const [inputValue, setInputValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   
@@ -22,6 +23,36 @@ export default function Autocomplete({
   const hideTooltip = useBuildStore((state) => state.hideTooltip);
   
   const containerRef = useRef(null);
+  const inputRef = useRef(null);
+  const isTypingRef = useRef(false);
+
+  // Sync internal display value when external value changes
+  useEffect(() => {
+    if (isTypingRef.current) {
+      isTypingRef.current = false;
+      return;
+    }
+    if (type === 'gem') {
+      if (value === "Metadata/Items/Gems/SkillGemNewSkill" || value === "Metadata/Items/Gems/SupportGemNewSupport") {
+        setInputValue("");
+      } else {
+        setInputValue(getGemDisplayName(value));
+      }
+    } else {
+      setInputValue(value || "");
+    }
+  }, [value, type]);
+
+  // Focus the input when a gem is selected to edit
+  useEffect(() => {
+    if (type === 'gem' && inputRef.current) {
+      inputRef.current.focus();
+      // If it's not a new skill/support, select the text so they can overwrite it
+      if (value !== "Metadata/Items/Gems/SkillGemNewSkill" && value !== "Metadata/Items/Gems/SupportGemNewSupport") {
+        inputRef.current.select();
+      }
+    }
+  }, [selectedElement, type]);
 
   // Close suggestions when clicking outside
   useEffect(() => {
@@ -35,10 +66,7 @@ export default function Autocomplete({
     return () => window.removeEventListener('click', handleOutsideClick);
   }, []);
 
-  const handleInputChange = (e) => {
-    const val = e.target.value;
-    onChange(val);
-    
+  const filterSuggestions = (val) => {
     if (!val || val.trim().length < 1) {
       setSuggestions([]);
       setIsOpen(false);
@@ -110,11 +138,55 @@ export default function Autocomplete({
     }
   };
 
+  const handleInputChange = (e) => {
+    const val = e.target.value;
+    isTypingRef.current = true;
+    setInputValue(val);
+    
+    let resolvedVal = val;
+    if (type === 'gem' && selectedElement) {
+      let db = [];
+
+      if (selectedElement.type === 'skill') {
+        db = activeGemsDb;
+      } else if (selectedElement.type === 'support') {
+        db = supportGemsDb;
+
+        // Spirit gems can also accept active skill links
+        if (selectedElement.skillIndex !== undefined && buildState.skills) {
+          const parentSkill = buildState.skills[selectedElement.skillIndex];
+          if (parentSkill && parentSkill.id) {
+            const parentGemData = activeGemsDb.find(g => g.id === parentSkill.id);
+            if (parentGemData && parentGemData.type === 'spirit') {
+              const activeSkills = activeGemsDb.filter(g => g.type === 'skill');
+              db = supportGemsDb.concat(activeSkills);
+            }
+          }
+        }
+      }
+
+      const lowerVal = val.toLowerCase();
+      const matchedGem = db.find(g => g.name.toLowerCase() === lowerVal);
+      if (matchedGem) {
+        resolvedVal = matchedGem.id;
+      } else {
+        const gemType = selectedElement.type === 'support' ? 'support' : 'skill';
+        resolvedVal = generateGemId(val, gemType);
+      }
+    }
+
+    onChange(resolvedVal);
+    filterSuggestions(val);
+  };
+
   const handleSelect = (item) => {
+    isTypingRef.current = false;
     if (type === 'gem') {
       onChange(item.id);
+      setInputValue(item.name);
     } else if (type === 'unique') {
       onChange(item.Name);
+      setInputValue(item.Name);
     }
     setIsOpen(false);
     hideTooltip();
@@ -133,14 +205,15 @@ export default function Autocomplete({
   return (
     <div className="autocomplete-container" ref={containerRef} style={{ position: 'relative' }}>
       <input 
+        ref={inputRef}
         type="text" 
         className={className} 
         placeholder={placeholder}
-        value={value}
+        value={inputValue}
         onChange={handleInputChange}
         onFocus={(e) => {
-          if (value && value.trim().length > 0) {
-            handleInputChange(e);
+          if (inputValue && inputValue.trim().length > 0) {
+            filterSuggestions(inputValue);
           }
         }}
       />

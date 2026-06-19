@@ -1,0 +1,20 @@
+{
+    "frames": {
+        "background:Background2": {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 128,
+                "h": 128
+            }
+        }
+    },
+    "meta": {
+        "image": "background.webp",
+        "scale": "0.5",
+        "size": {
+            "w": 128,
+            "h": 128
+        }
+    }
+}

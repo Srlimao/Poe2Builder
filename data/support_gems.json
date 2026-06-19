@@ -6473,7 +6473,7 @@
         "StatText": [
             "Supported Skills have a maximum of 3 [Seal|Seals]",
             "Supported Skills get 30% increased area of effect per [Seal] broken",
-            "Supported Spells gain a [Seal] every 0.2% of cast time"
+            "Supported Spells gain a [Seal] every 200% of cast time"
         ],
         "GemType": "support"
     },
@@ -13605,7 +13605,7 @@
         "Cost": null,
         "StatText": [
             "10% of Damage from [HitDamage|Hits] is taken from Supported [Companion]'s Life before you",
-            "You [Recoup] 200% of Damage taken by Supported [Minion|Minions] this way as Life",
+            "You [Recoup] 200% of Damage taken from Supported [Minion|Minion's] Life this way as Life",
             "[Minion|Minions] from Supported Skills have 30% less maximum Life"
         ],
         "GemType": "support"
@@ -16046,7 +16046,7 @@
         "StatText": [
             "Supported Skills have a maximum of 2 [Seal|Seals]",
             "Supported Skills [Repeat] 1 time per [Seal] broken",
-            "Supported Spells gain a [Seal] every 0.2% of cast time",
+            "Supported Spells gain a [Seal] every 200% of cast time",
             "Supported Skills deal 50% less Damage when [Repeat|Repeating]"
         ],
         "GemType": "support"
@@ -17102,7 +17102,7 @@
         "StatText": [
             "Supported Skills have a maximum of 5 [Seal|Seals]",
             "Supported Skills [Repeat] 1 time per [Seal] broken",
-            "Supported Spells gain a [Seal] every 0.05% of cast time",
+            "Supported Spells gain a [Seal] every 50% of cast time",
             "Supported Skills deal 20% less Damage when [Repeat|Repeating]"
         ],
         "GemType": "support"

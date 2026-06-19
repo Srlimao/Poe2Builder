@@ -1,0 +1,132 @@
+{
+    "frames": {
+        "jewel:JewelSocketActiveRedAlt": {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 100
+            }
+        },
+        "jewel:JewelSocketActivePrismaticAlt": {
+            "frame": {
+                "x": 100,
+                "y": 0,
+                "w": 100,
+                "h": 100
+            }
+        },
+        "jewel:JewelSocketActiveLegionAlt": {
+            "frame": {
+                "x": 0,
+                "y": 100,
+                "w": 100,
+                "h": 100
+            }
+        },
+        "jewel:JewelSocketActiveGreenAlt": {
+            "frame": {
+                "x": 100,
+                "y": 100,
+                "w": 100,
+                "h": 100
+            }
+        },
+        "jewel:JewelSocketActiveBlueAlt": {
+            "frame": {
+                "x": 200,
+                "y": 0,
+                "w": 100,
+                "h": 100
+            }
+        },
+        "jewel:JewelSocketActiveAltRed": {
+            "frame": {
+                "x": 200,
+                "y": 100,
+                "w": 100,
+                "h": 100
+            }
+        },
+        "jewel:JewelSocketActiveAltPurple": {
+            "frame": {
+                "x": 0,
+                "y": 200,
+                "w": 100,
+                "h": 100
+            }
+        },
+        "jewel:JewelSocketActiveAltBlue": {
+            "frame": {
+                "x": 100,
+                "y": 200,
+                "w": 100,
+                "h": 100
+            }
+        },
+        "jewel:JewelSocketActiveAbyssAlt": {
+            "frame": {
+                "x": 200,
+                "y": 200,
+                "w": 100,
+                "h": 100
+            }
+        },
+        "jewel:JewelSocketActiveRed": {
+            "frame": {
+                "x": 300,
+                "y": 0,
+                "w": 76,
+                "h": 76
+            }
+        },
+        "jewel:JewelSocketActivePrismatic": {
+            "frame": {
+                "x": 300,
+                "y": 76,
+                "w": 76,
+                "h": 76
+            }
+        },
+        "jewel:JewelSocketActiveLegion": {
+            "frame": {
+                "x": 300,
+                "y": 152,
+                "w": 76,
+                "h": 76
+            }
+        },
+        "jewel:JewelSocketActiveGreen": {
+            "frame": {
+                "x": 0,
+                "y": 300,
+                "w": 76,
+                "h": 76
+            }
+        },
+        "jewel:JewelSocketActiveBlue": {
+            "frame": {
+                "x": 76,
+                "y": 300,
+                "w": 76,
+                "h": 76
+            }
+        },
+        "jewel:JewelSocketActiveAbyss": {
+            "frame": {
+                "x": 152,
+                "y": 300,
+                "w": 76,
+                "h": 76
+            }
+        }
+    },
+    "meta": {
+        "image": "jewel.webp",
+        "scale": "0.5",
+        "size": {
+            "w": 376,
+            "h": 376
+        }
+    }
+}

@@ -230,16 +230,14 @@
         "RecommendedSupports": [
             "Metadata/Items/Gems/SupportGemMeatShield",
             "Metadata/Items/Gems/SupportGemMagnifiedEffect",
-            "Metadata/Items/Gems/SupportGemPersistence",
             "Metadata/Items/Gems/SupportGemMaim",
-            "Metadata/Items/Gems/SupportGemPinTwo",
             "Metadata/Items/Gems/SupportGemInfernalLegion",
             "Metadata/Items/Gems/SupportGemMeatShieldTwo",
             "Metadata/Items/Gems/SupportGemMagnifiedEffectTwo",
-            "Metadata/Items/Gems/SupportGemPersistenceTwo",
             "Metadata/Items/Gem/SupportGemCullingStrike",
             "Metadata/Items/Gem/SupportGemImpale",
-            "Metadata/Items/Gems/SupportGemMinionMastery"
+            "Metadata/Items/Gems/SupportGemMinionMastery",
+            "Metadata/Items/Gem/SupportGemCullingStrikeTwo"
         ],
         "RequirementWeights": {
             "dexterity": 0,
@@ -3223,7 +3221,7 @@
         },
         "CraftingTypes": null,
         "CraftingLevel": 0,
-        "Description": "Spend [Ward|Runic Ward] to create a number of [Hazard|Hazardous] Runes in a cone in front of you, which arm after a time. After arming, these Runes will activate when enemies step on them, exploding to deal [Attack] damage and apply [Electrocute|Electrocution] buildup.",
+        "Description": "Spend [Ward|Runic Ward] to create a number of [Hazard|Hazardous] Runes in a cone in front of you, which arm after a time. After arming, these Runes will activate when enemies step on them, exploding to deal [Attack] damage that is not based on your [MartialWeapon|Weapon]'s damage and apply [Electrocute|Electrocution] buildup.",
         "BaseCastTime": 1000,
         "Cost": {
             "Ward": 251
@@ -11474,8 +11472,10 @@
             "Metadata/Items/Gems/SupportGemPrecision",
             "Metadata/Items/Gem/SupportGemDireStrike",
             "Metadata/Items/Gems/SupportGemHerbalism",
-            "Metadata/Items/Gem/SupportGemCoolHeaded",
-            "Metadata/Items/Gem/SupportGemWarmBlooded"
+            "Metadata/Items/Gem/SupportGemWarmBlooded",
+            "Metadata/Items/Gems/SupportGemPersistenceTwo",
+            "Metadata/Items/Gems/SupportGemIngenuityTwo",
+            "Metadata/Items/Gems/SupportGemIngenuity"
         ],
         "RequirementWeights": {
             "dexterity": 100,
@@ -11507,7 +11507,12 @@
             "meta"
         ],
         "Icon": "Art/2DArt/SkillIcons/4k/RangerDeadeyeMirageSkill.dds",
-        "RecommendedSupports": [],
+        "RecommendedSupports": [
+            "Metadata/Items/Gems/SupportGemIngenuity",
+            "Metadata/Items/Gems/SupportGemIngenuityTwo",
+            "Metadata/Items/Gems/SupportGemPersistence",
+            "Metadata/Items/Gems/SupportGemPersistenceTwo"
+        ],
         "RequirementWeights": {
             "dexterity": 0,
             "intelligence": 0,
@@ -16137,6 +16142,7 @@
             "Impact radius is 1.6 metres",
             "[Conversion|Converts] 100% of [Physical|Physical] damage to [Fire|Fire] damage",
             "[ArmourBreak|Break Armour] equal to 200% of [Fire|Fire Damage] dealt",
+            "Has no Sockets",
             "[Trigger|Triggers] when you [HeavyStun|Heavy Stun] an enemy"
         ],
         "GemType": "active"
@@ -19293,6 +19299,7 @@
             "[Conversion|Converts] 60% of [Physical] damage to [Lightning] damage",
             "50% more chance to [Shock]",
             "[ShockedGround|Shocked Ground] duration is 4 seconds",
+            "[Trigger|Triggered] when you [Attack], creating one Stag per Vivid Wisp",
             "Stags leap 4 times"
         ],
         "GemType": "active"

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { showAlert } from '../../store/useBuildStore';
+import { showAlert, useBuildStore } from '../../store/useBuildStore';
 
 export default function SettingsModal({ isOpen, onClose, onMetaSettingChange }) {
+  const debugMode = useBuildStore(state => state.debugMode);
+  const setDebugMode = useBuildStore(state => state.setDebugMode);
   const [updatingTree, setUpdatingTree] = useState(false);
   const [updatingGems, setUpdatingGems] = useState(false);
   const [updatingUniques, setUpdatingUniques] = useState(false);
@@ -71,6 +73,16 @@ export default function SettingsModal({ isOpen, onClose, onMetaSettingChange }) 
 
           <h4 style={{ color: 'var(--text-gold)', marginBottom: '10px' }}>Data Management</h4>
           
+          <div style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <input 
+              type="checkbox" 
+              id="debugModeToggle" 
+              checked={debugMode} 
+              onChange={(e) => setDebugMode(e.target.checked)} 
+              style={{ accentColor: 'var(--text-gold)', width: '16px', height: '16px' }}
+            />
+            <label htmlFor="debugModeToggle" style={{ color: '#fff', cursor: 'pointer' }}>Enable Developer Debug Mode (shows raw node data on hover)</label>
+          </div>
           <p style={{ color: '#8c8270', fontSize: '0.9em', marginBottom: '10px' }}>
             Fetch the latest passive skill tree mapping data from the official PoE2 export repository.
           </p>

@@ -30,6 +30,7 @@ export const useBuildStore = create((set, get) => ({
   currentFilePath: null,
   isDirty: false,
   selectedElement: null, // { type: 'slot'|'skill'|'support'|'passive', id, skillIndex, supportIndex, variantIndex }
+  debugMode: false,
 
   // Databases
   activeGemsDb: [],
@@ -66,6 +67,7 @@ export const useBuildStore = create((set, get) => ({
   setIsDirty: (dirty) => set({ isDirty: dirty }),
   setSelectedElement: (element) => set({ selectedElement: element }),
   setCurrentTreeIndex: (index) => set({ currentTreeIndex: index }),
+  setDebugMode: (val) => set({ debugMode: val }),
 
   // Set entire state from external load
   setBuildState: (newBuildState) => set({ buildState: newBuildState, isDirty: false }),
