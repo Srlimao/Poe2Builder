@@ -14,6 +14,7 @@ const CLIENT_ID = process.env.POE_CLIENT_ID || 'Poe2BuildPlannerEditor';
 const CLIENT_SECRET = process.env.POE_CLIENT_SECRET || '';
 const REDIRECT_URI = process.env.POE_REDIRECT_URI || 'http://localhost:3000/api/auth/callback';
 const CONTACT_EMAIL = process.env.POE_CONTACT_EMAIL || 'admin@poe2builder.dev';
+const FRONTEND_URL = process.env.FRONTEND_URL || '/';
 
 // Middleware
 app.use(express.json());
@@ -261,7 +262,7 @@ app.get('/api/auth/callback', async (req, res) => {
     });
 
     // Redirect user back to the application home page
-    res.redirect('/');
+    res.redirect(FRONTEND_URL);
   } catch (err) {
     console.error('OAuth Callback Error:', err.message);
     res.status(500).send(`Authentication Failed: ${err.message}`);

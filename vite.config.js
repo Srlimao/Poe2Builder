@@ -66,6 +66,15 @@ export default defineConfig({
   root: path.resolve(__dirname, 'src/renderer'),
   base: './', // Ensures assets are loaded with relative paths, vital for Electron file:// URLs
   plugins: [react(), poePlannerAssetsPlugin()],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        secure: false
+      }
+    }
+  },
   build: {
     outDir: path.resolve(__dirname, 'src/renderer/dist'),
     emptyOutDir: true,
