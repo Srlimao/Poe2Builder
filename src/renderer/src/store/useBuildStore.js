@@ -32,6 +32,10 @@ export const useBuildStore = create((set, get) => ({
   selectedElement: null, // { type: 'slot'|'skill'|'support'|'passive', id, skillIndex, supportIndex, variantIndex }
   debugMode: false,
 
+  // PoE integration state
+  poeUser: null,
+  poeLoading: false,
+
   // Databases
   activeGemsDb: [],
   supportGemsDb: [],
@@ -392,7 +396,61 @@ export const useBuildStore = create((set, get) => ({
       buildState: { ...state.buildState, inventory_slots },
       isDirty: true
     };
-  })
+  }),
+
+  checkPoEAuthStatus: async () => {
+    try {
+      const res = await fetch('/api/poe/profile');
+      if (res.ok) {
+        const data = await res.json();
+        if (data.loggedIn) {
+          set({ poeUser: { name: data.name } });
+        } else {
+          set({ poeUser: null });
+        }
+      }
+    } catch (e) {
+      console.error('Failed to check PoE auth status:', e);
+    }
+  },
+
+  loginWithPoE: () => {
+    window.location.href = '/api/auth/login';
+  },
+
+  logoutPoE: async () => {
+    set({ poeLoading: true });
+    try {
+      const res = await fetch('/api/auth/logout', { method: 'POST' });
+      if (res.ok) {
+        set({ poeUser: null });
+      }
+    } catch (e) {
+      console.error('Failed to log out:', e);
+    } finally {
+      set({ poeLoading: false });
+    }
+  },
+
+  uploadBuildToPoE: async () => {
+    const buildState = get().buildState;
+    if (!buildState) throw new Error('No build data to upload');
+
+    const res = await fetch('/api/poe/upload', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(buildState)
+    });
+
+    if (!res.ok) {
+      const errData = await res.json().catch(() => ({}));
+      throw new Error(errData.error || `HTTP ${res.status} - Upload failed`);
+    }
+
+    return await res.json();
+  }
 }));
 
 // Promise-based UI Modal triggers

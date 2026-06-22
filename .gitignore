@@ -2,8 +2,15 @@ node_modules/
 .DS_Store
 *.log
 
+# Build releases
 releases/
 test_scripts/
+
+# Environment files and credentials
+.env
+.env.local
+.env.*
+server/.env
 
 # Agent & reference files (not shipped)
 GEMINI.md

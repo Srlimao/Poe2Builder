@@ -1,64 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { showAlert, useBuildStore } from '../../store/useBuildStore';
 
-export default function SettingsModal({ isOpen, onClose, onMetaSettingChange }) {
+export default function SettingsModal({ isOpen, onClose }) {
   const debugMode = useBuildStore(state => state.debugMode);
   const setDebugMode = useBuildStore(state => state.setDebugMode);
-  const [updatingTree, setUpdatingTree] = useState(false);
-  const [updatingGems, setUpdatingGems] = useState(false);
-  const [updatingUniques, setUpdatingUniques] = useState(false);
-
-  const isElectron = typeof window.electronAPI !== 'undefined';
-
-
-
-  const handleUpdateTree = async () => {
-    if (!isElectron) {
-      await showAlert("Unavailable", "Scripts can only be run in the Desktop app.");
-      return;
-    }
-    setUpdatingTree(true);
-    try {
-      const output = await window.electronAPI.updateSkilltree();
-      await showAlert("Success", "Skill tree data successfully updated!\n\n" + output);
-    } catch (err) {
-      await showAlert("Error", "Failed to update skill tree data:\n" + err.message);
-    } finally {
-      setUpdatingTree(false);
-    }
-  };
-
-  const handleUpdateGems = async () => {
-    if (!isElectron) {
-      await showAlert("Unavailable", "Scripts can only be run in the Desktop app.");
-      return;
-    }
-    setUpdatingGems(true);
-    try {
-      const output = await window.electronAPI.updateGems();
-      await showAlert("Success", "Gem data successfully updated! Please restart the app or reload the UI.\n\n" + output);
-    } catch (err) {
-      await showAlert("Error", "Failed to update gem data:\n" + err.message);
-    } finally {
-      setUpdatingGems(false);
-    }
-  };
-
-  const handleUpdateUniques = async () => {
-    if (!isElectron) {
-      await showAlert("Unavailable", "Scripts can only be run in the Desktop app.");
-      return;
-    }
-    setUpdatingUniques(true);
-    try {
-      const output = await window.electronAPI.updateUniques();
-      await showAlert("Success", "Unique items data successfully updated!\n\n" + output);
-    } catch (err) {
-      await showAlert("Error", "Failed to update unique items data:\n" + err.message);
-    } finally {
-      setUpdatingUniques(false);
-    }
-  };
+  const poeUser = useBuildStore(state => state.poeUser);
+  const poeLoading = useBuildStore(state => state.poeLoading);
+  const loginWithPoE = useBuildStore(state => state.loginWithPoE);
+  const logoutPoE = useBuildStore(state => state.logoutPoE);
 
   if (!isOpen) return null;
 
@@ -69,9 +18,7 @@ export default function SettingsModal({ isOpen, onClose, onMetaSettingChange }) 
         <h3 className="modal-title">App Settings</h3>
 
         <div className="settings-section" style={{ marginTop: '20px', textAlign: 'left' }}>
-
-
-          <h4 style={{ color: 'var(--text-gold)', marginBottom: '10px' }}>Data Management</h4>
+          <h4 style={{ color: 'var(--text-gold)', marginBottom: '10px' }}>General Settings</h4>
           
           <div style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
             <input 
@@ -83,41 +30,48 @@ export default function SettingsModal({ isOpen, onClose, onMetaSettingChange }) 
             />
             <label htmlFor="debugModeToggle" style={{ color: '#fff', cursor: 'pointer' }}>Enable Developer Debug Mode (shows raw node data on hover)</label>
           </div>
-          <p style={{ color: '#8c8270', fontSize: '0.9em', marginBottom: '10px' }}>
-            Fetch the latest passive skill tree mapping data from the official PoE2 export repository.
-          </p>
-          <button 
-            className="btn btn-secondary" 
-            style={{ width: '100%', marginBottom: '15px' }}
-            disabled={updatingTree}
-            onClick={handleUpdateTree}
-          >
-            {updatingTree ? "Updating... Please wait." : "Update Passive Skill Tree Data"}
-          </button>
 
-          <p style={{ color: '#8c8270', fontSize: '0.9em', marginBottom: '10px' }}>
-            Fetch the latest skill and support gems data from the repoe-fork.
+          <h4 style={{ color: 'var(--text-gold)', marginBottom: '10px', marginTop: '25px' }}>Path of Exile Integration</h4>
+          <p style={{ color: '#8c8270', fontSize: '0.9em', marginBottom: '15px' }}>
+            Link your Path of Exile account to sync and upload your builds directly to your profile.
           </p>
-          <button 
-            className="btn btn-secondary" 
-            style={{ width: '100%', marginBottom: '15px' }}
-            disabled={updatingGems}
-            onClick={handleUpdateGems}
-          >
-            {updatingGems ? "Updating... Please wait." : "Update Gem Data"}
-          </button>
+          {poeLoading ? (
+            <div style={{ color: '#fff', fontSize: '0.95em', padding: '10px 0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span className="spinner"></span> Waiting for authentication...
+            </div>
+          ) : poeUser ? (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#fff', fontSize: '0.95em' }}>
+                <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#4caf50' }}></span>
+                Linked Account: <strong style={{ color: 'var(--text-gold)' }}>{poeUser.name}</strong>
+              </div>
+              <button 
+                className="btn btn-secondary" 
+                onClick={logoutPoE}
+                style={{ width: '100%' }}
+              >
+                Disconnect Account
+              </button>
+            </div>
+          ) : (
+            <button 
+              className="btn btn-primary" 
+              onClick={loginWithPoE}
+              style={{ width: '100%' }}
+            >
+              Connect PoE Account
+            </button>
+          )}
 
+          <h4 style={{ color: 'var(--text-gold)', marginBottom: '10px', marginTop: '30px' }}>Developer Database CLI</h4>
           <p style={{ color: '#8c8270', fontSize: '0.9em', marginBottom: '10px' }}>
-            Fetch the latest unique items data from the repoe-fork.
+            To update the local JSON database files, run these Node scripts in the project directory:
           </p>
-          <button 
-            className="btn btn-secondary" 
-            style={{ width: '100%' }}
-            disabled={updatingUniques}
-            onClick={handleUpdateUniques}
-          >
-            {updatingUniques ? "Updating... Please wait." : "Update Unique Items"}
-          </button>
+          <div style={{ backgroundColor: '#1a1a1a', padding: '10px', borderRadius: '4px', fontFamily: 'monospace', fontSize: '0.85em', color: '#ccc', lineHeight: '1.6' }}>
+            <div>npm run update-tree <span style={{ color: '#666' }}># passive tree mapping</span></div>
+            <div>npm run update-gems <span style={{ color: '#666' }}># skill/support gems</span></div>
+            <div>npm run update-uniques <span style={{ color: '#666' }}># unique items dataset</span></div>
+          </div>
         </div>
 
         <div className="modal-buttons" style={{ marginTop: '30px' }}>

@@ -14,6 +14,32 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
   const setSelectedElement = useBuildStore((state) => state.setSelectedElement);
   const setCurrentTreeIndex = useBuildStore((state) => state.setCurrentTreeIndex);
 
+  const poeUser = useBuildStore((state) => state.poeUser);
+  const uploadBuildToPoE = useBuildStore((state) => state.uploadBuildToPoE);
+  const checkPoEAuthStatus = useBuildStore((state) => state.checkPoEAuthStatus);
+
+  useEffect(() => {
+    if (checkPoEAuthStatus) {
+      checkPoEAuthStatus();
+    }
+  }, [checkPoEAuthStatus]);
+
+  const handleUploadBuild = async () => {
+    if (!poeUser) {
+      await showAlert("Not Connected", "Please link your Path of Exile account in settings first.");
+      return;
+    }
+    const confirm = await showConfirm("Upload Build", `Are you sure you want to upload this build to your PoE account (${poeUser.name})?`);
+    if (!confirm) return;
+
+    try {
+      await uploadBuildToPoE();
+      await showAlert("Success", "Build successfully uploaded to your Path of Exile account!");
+    } catch (err) {
+      await showAlert("Upload Failed", err.message);
+    }
+  };
+
   const [menuOpen, setMenuOpen] = useState(false);
   const isElectron = typeof window.electronAPI !== 'undefined';
 
@@ -44,47 +70,30 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
       if (!confirm) return;
     }
 
-    if (isElectron) {
-      try {
-        const result = await window.electronAPI.openBuildFile();
-        if (result) {
-          setCurrentFilePath(result.filePath);
-          const loaded = loadBuildJson(result.content);
+    // Browser file upload
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.build, .json';
+    input.onchange = (e) => {
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.onload = async (event) => {
+        try {
+          const parsed = JSON.parse(event.target.result);
+          setCurrentFilePath(file.name);
+          const loaded = loadBuildJson(parsed);
           if (loaded) {
             setBuildState(loaded);
             setSelectedElement(null);
             setCurrentTreeIndex(0);
           }
+        } catch (err) {
+          await showAlert("Invalid File", "Invalid JSON file selected.");
         }
-      } catch (err) {
-        await showAlert("Error", "Error loading build file: " + err.message);
-      }
-    } else {
-      // Browser file upload fallback
-      const input = document.createElement('input');
-      input.type = 'file';
-      input.accept = '.build, .json';
-      input.onchange = (e) => {
-        const file = e.target.files[0];
-        const reader = new FileReader();
-        reader.onload = async (event) => {
-          try {
-            const parsed = JSON.parse(event.target.result);
-            setCurrentFilePath(file.name);
-            const loaded = loadBuildJson(parsed);
-            if (loaded) {
-              setBuildState(loaded);
-              setSelectedElement(null);
-              setCurrentTreeIndex(0);
-            }
-          } catch (err) {
-            await showAlert("Invalid File", "Invalid JSON file selected.");
-          }
-        };
-        reader.readAsText(file);
       };
-      input.click();
-    }
+      reader.readAsText(file);
+    };
+    input.click();
   };
 
   const triggerJsonDownload = (content, filename) => {
@@ -100,46 +109,12 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
 
   const handleSaveFile = async () => {
     const content = exportBuildJson(buildState);
-    if (isElectron) {
-      if (currentFilePath) {
-        try {
-          await window.electronAPI.saveBuildFile({
-            filePath: currentFilePath,
-            content
-          });
-          setIsDirty(false);
-        } catch (err) {
-          await showAlert("Error", "Error saving build file: " + err.message);
-        }
-      } else {
-        await handleSaveFileAs();
-      }
-    } else {
-      triggerJsonDownload(content, currentFilePath || "new_build.build");
-    }
+    triggerJsonDownload(content, currentFilePath || "new_build.build");
   };
 
   const handleSaveFileAs = async () => {
     const content = exportBuildJson(buildState);
-    if (isElectron) {
-      try {
-        const defaultName = buildState.name
-          ? `${buildState.name.toLowerCase().replace(/\s+/g, '_')}.build`
-          : 'new_build.build';
-        const result = await window.electronAPI.saveBuildFileAs({
-          content,
-          defaultFilename: defaultName
-        });
-        if (result) {
-          setCurrentFilePath(result.filePath);
-          setIsDirty(false);
-        }
-      } catch (err) {
-        await showAlert("Error", "Error saving build file as: " + err.message);
-      }
-    } else {
-      triggerJsonDownload(content, "new_build.build");
-    }
+    triggerJsonDownload(content, "new_build.build");
   };
 
   const handleQuickSavePoE = async () => {
@@ -148,25 +123,12 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
       ? `${buildState.name.toLowerCase().replace(/[^a-z0-9_]/g, '')}.build`
       : 'my_build.build';
 
-    if (isElectron) {
-      try {
-        const result = await window.electronAPI.saveToDefaultPath({ content, filename });
-        if (result) {
-          await showAlert("Success", `Successfully saved build to PoE2 path:\n${result.filePath}`);
-          if (!currentFilePath) setCurrentFilePath(result.filePath);
-          setIsDirty(false);
-        }
-      } catch (err) {
-        await showAlert("Error", "Error saving to PoE2 Default path: " + err.message);
-      }
-    } else {
-      await showAlert("Unavailable", "Quick Save (PoE2 Path) is only available when running as an Electron Desktop app.\n\nDownloading file instead.");
-      triggerJsonDownload(content, filename);
-    }
+    await showAlert("Unavailable", "Quick Save (PoE2 Path) is only available when running as an Electron Desktop app.\n\nDownloading file instead.");
+    triggerJsonDownload(content, filename);
   };
 
   const handleImportPob2 = async () => {
-    const inputs = await showPob2ImportPrompt(isElectron);
+    const inputs = await showPob2ImportPrompt(false); // isElectron is false for web-only
     if (!inputs) return;
     
     let { code, url } = inputs;
@@ -177,11 +139,6 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
     if (!code && !url) return;
 
     if (url) {
-      if (!isElectron) {
-        await showAlert("Desktop Only", "Fetching builds directly from URLs is restricted by browser security (CORS). Please paste the raw base64 build code instead, or use the Desktop version of the app.");
-        return;
-      }
-
       try {
         let fetchUrl = url;
         try {
@@ -197,7 +154,7 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
           // Ignore
         }
 
-        const response = await fetch(fetchUrl);
+        const response = await fetch(`/api/pob2/fetch?url=${encodeURIComponent(fetchUrl)}`);
         if (!response.ok) throw new Error(`HTTP error ${response.status}`);
         code = await response.text();
       } catch (e) {
@@ -372,6 +329,32 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
       </div>
 
       <div className="header-right">
+        {poeUser ? (
+          <button 
+            className="btn btn-gold" 
+            title={`Upload build to PoE account: ${poeUser.name}`}
+            onClick={handleUploadBuild}
+            style={{ marginRight: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M4 19h16v2H4zm8-17L6.5 7.5l1.42 1.42L11 5.83V16h2V5.83l3.08 3.09 1.42-1.42z" />
+            </svg>
+            Upload Build
+          </button>
+        ) : (
+          <button 
+            className="btn btn-secondary" 
+            title="Connect PoE account in settings to upload"
+            onClick={() => showAlert("PoE Account Required", "Please open settings (⚙) and link your Path of Exile account first.")}
+            style={{ marginRight: '8px', opacity: 0.6, display: 'flex', alignItems: 'center', gap: '6px' }}
+          >
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M4 19h16v2H4zm8-17L6.5 7.5l1.42 1.42L11 5.83V16h2V5.83l3.08 3.09 1.42-1.42z" />
+            </svg>
+            Upload Build
+          </button>
+        )}
+
         <div className="dropdown" onClick={(e) => e.stopPropagation()}>
           <button 
             className="btn btn-secondary dropdown-toggle"
@@ -387,35 +370,15 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
               <div className="dropdown-divider"></div>
               <button className="dropdown-item" onClick={() => { setMenuOpen(false); handleSaveFile(); }}>Save</button>
               <button className="dropdown-item" onClick={() => { setMenuOpen(false); handleSaveFileAs(); }}>Save As...</button>
-              <button 
-                className="dropdown-item text-gold" 
-                title="Quick save to PoE2 default path"
-                onClick={() => { setMenuOpen(false); handleQuickSavePoE(); }}
-              >
-                Quick Save (PoE2)
-              </button>
             </div>
           )}
         </div>
 
-        <button className="btn btn-secondary btn-icon" title="Settings" onClick={onOpenSettings}>
+        <button className="btn btn-secondary btn-icon" title="Settings" onClick={onOpenSettings} style={{ marginLeft: '8px' }}>
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
             <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
           </svg>
         </button>
-
-        {!isElectron && (
-          <a 
-            href="https://github.com/Srlimao/Poe2Builder/releases" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="btn btn-gold highlight-pulse" 
-            id="btn-desktop-version"
-            style={{ textDecoration: 'none' }}
-          >
-            Download Desktop App
-          </a>
-        )}
       </div>
     </header>
   );

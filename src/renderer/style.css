@@ -1863,3 +1863,18 @@ input[type=number] {
     width: 95%;
     margin-top: 2px;
 }
+
+/* ─── §OAUTH ─── Path of Exile Authentication & API integration ─── */
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--text-gold);
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

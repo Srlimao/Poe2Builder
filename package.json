@@ -2,15 +2,12 @@
   "name": "poe2-build-planner",
   "version": "1.4.0",
   "description": "An editor and creator for Path of Exile 2 Build Planner files",
-  "main": "src/main/main.js",
   "scripts": {
-    "start": "npm run build-renderer && electron .",
     "dev": "vite",
-    "build-renderer": "vite build",
+    "build": "vite build",
     "update-tree": "node scripts/update_skilltree.js",
     "update-gems": "node scripts/update_gems.js",
-    "update-uniques": "node scripts/update_uniques.js",
-    "build": "npm run build-renderer && electron-builder"
+    "update-uniques": "node scripts/update_uniques.js"
   },
   "keywords": [
     "poe2",
@@ -25,29 +22,7 @@
   "license": "ISC",
   "devDependencies": {
     "@vitejs/plugin-react": "^6.0.2",
-    "electron": "^31.0.0",
-    "electron-builder": "^26.8.1",
-    "png-to-ico": "^3.0.1",
     "vite": "^8.0.15"
-  },
-  "build": {
-    "appId": "com.poe2buildplanner.app",
-    "productName": "PoE2 Build Planner",
-    "directories": {
-      "output": "releases"
-    },
-    "win": {
-      "target": [
-        "nsis",
-        "portable"
-      ]
-    },
-    "mac": {
-      "target": "dmg"
-    },
-    "linux": {
-      "target": "AppImage"
-    }
   },
   "dependencies": {
     "react": "^19.2.6",
