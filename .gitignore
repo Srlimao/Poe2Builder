@@ -10,6 +10,8 @@ test_scripts/
 .env
 .env.local
 .env.*
+!.env.example
+!server/.env.example
 server/.env
 
 # Agent & reference files (not shipped)
