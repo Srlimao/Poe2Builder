@@ -36,10 +36,10 @@
 
 /* ─── §TOKENS ─── CSS custom properties / design tokens ─── */
 :root {
-    --bg-darker: #09090a;
-    --bg-dark: #121214;
-    --bg-panel: #18181c;
-    --bg-card: #202026;
+    --bg-darker: #050506;
+    --bg-dark: #0d0d0f;
+    --bg-panel: #121215;
+    --bg-card: #19191d;
     --border-gold: #cfa968;
     --border-gold-dark: #5e4d32;
     --border-gold-light: #fbe0b2;
@@ -61,8 +61,53 @@
 
     --color-gem-active: #15c599;
 
-    --font-header: 'Cinzel', serif;
+    --font-header: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
+}
+
+body.theme-default {
+    --border-gold: #cfa968;
+    --border-gold-dark: #5e4d32;
+    --border-gold-light: #fbe0b2;
+    --text-gold: #dfc190;
+    --text-gold-light: #f5e4cc;
+    --text-muted: #8c8270;
+}
+
+body.theme-necrotic {
+    --border-gold: #5cd65c;
+    --border-gold-dark: #1f5c1f;
+    --border-gold-light: #b3ffb3;
+    --text-gold: #85e085;
+    --text-gold-light: #e6ffe6;
+    --text-muted: #668066;
+}
+
+body.theme-glacial {
+    --border-gold: #70b5ff;
+    --border-gold-dark: #2c496c;
+    --border-gold-light: #d0e7ff;
+    --text-gold: #a3d2ff;
+    --text-gold-light: #f0f7ff;
+    --text-muted: #728294;
+}
+
+body.theme-crimson {
+    --border-gold: #e63946;
+    --border-gold-dark: #5e1c22;
+    --border-gold-light: #ffccd5;
+    --text-gold: #ff4d6d;
+    --text-gold-light: #ffe5ec;
+    --text-muted: #8c7074;
+}
+
+body.theme-void {
+    --border-gold: #a855f7;
+    --border-gold-dark: #4c1d95;
+    --border-gold-light: #d8b4fe;
+    --text-gold: #c084fc;
+    --text-gold-light: #f3e8ff;
+    --text-muted: #8b7d9c;
 }
 
 /* ─── §RESET ─── */

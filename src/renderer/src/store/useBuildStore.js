@@ -32,6 +32,7 @@ export const useBuildStore = create((set, get) => ({
   isDirty: false,
   selectedElement: null, // { type: 'slot'|'skill'|'support'|'passive', id, skillIndex, supportIndex }
   debugMode: false,
+  theme: localStorage.getItem('poe2_planner_theme') || 'default',
 
   // PoE integration state
   poeUser: null,
@@ -74,6 +75,10 @@ export const useBuildStore = create((set, get) => ({
   setCurrentTreeIndex: (index) => set({ currentTreeIndex: index }),
   setCurrentEquipmentSetIndex: (index) => set({ currentEquipmentSetIndex: index }),
   setDebugMode: (val) => set({ debugMode: val }),
+  setTheme: (theme) => {
+    localStorage.setItem('poe2_planner_theme', theme);
+    set({ theme });
+  },
 
   // Set entire state from external load
   setBuildState: (newBuildState) => set({ buildState: newBuildState, isDirty: false }),

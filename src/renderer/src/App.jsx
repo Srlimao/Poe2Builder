@@ -13,14 +13,21 @@ import GemTooltip from './components/common/GemTooltip';
 import PassiveTreeHeader from './components/tree/PassiveTreeHeader';
 import PassiveCanvas from './components/tree/PassiveCanvas';
 import SettingsModal from './components/settings/SettingsModal';
+import BuildMetadata from './components/metadata/BuildMetadata';
 
 export default function App() {
   const [dbLoaded, setDbLoaded] = useState(false);
-  const [activeTab, setActiveTab] = useState('equipment'); // 'equipment' | 'tree'
+  const [activeTab, setActiveTab] = useState('build'); // 'build' | 'equipment' | 'tree'
   const [settingsOpen, setSettingsOpen] = useState(false);
 
   const setDbs = useBuildStore((state) => state.setDbs);
   const setAscendancies = useBuildStore((state) => state.setAscendancies);
+  const theme = useBuildStore((state) => state.theme);
+
+  // Apply theme class to document body
+  useEffect(() => {
+    document.body.className = `theme-${theme}`;
+  }, [theme]);
 
   // 1. Initialize databases on mount
   useEffect(() => {
@@ -82,7 +89,18 @@ export default function App() {
       />
 
 
-      {activeTab === 'equipment' ? (
+      {activeTab === 'build' ? (
+        <div className="main-layout">
+          <div className="left-panel flex-column" />
+          <div className="center-panel flex-column" style={{ padding: '20px', overflowY: 'auto' }}>
+            <div className="panel-section-title" style={{ margin: '-20px -20px 20px -20px' }}>Build Guide Configuration</div>
+            <div style={{ maxWidth: '600px', margin: '0 auto', width: '100%' }}>
+              <BuildMetadata />
+            </div>
+          </div>
+          <div className="right-panel flex-column" />
+        </div>
+      ) : activeTab === 'equipment' ? (
         <div className="main-layout">
           <LeftPanel />
           <CenterPanel />

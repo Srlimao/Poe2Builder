@@ -323,6 +323,12 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
       <div className="header-center">
         <div className="main-tabs">
           <button 
+            className={`tab-btn ${activeTab === 'build' ? 'active' : ''}`} 
+            onClick={() => setActiveTab('build')}
+          >
+            Build Info
+          </button>
+          <button 
             className={`tab-btn ${activeTab === 'equipment' ? 'active' : ''}`} 
             onClick={() => setActiveTab('equipment')}
           >

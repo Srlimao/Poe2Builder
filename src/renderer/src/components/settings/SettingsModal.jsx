@@ -4,6 +4,8 @@ import { showAlert, useBuildStore } from '../../store/useBuildStore';
 export default function SettingsModal({ isOpen, onClose }) {
   const debugMode = useBuildStore(state => state.debugMode);
   const setDebugMode = useBuildStore(state => state.setDebugMode);
+  const theme = useBuildStore(state => state.theme);
+  const setTheme = useBuildStore(state => state.setTheme);
   const poeUser = useBuildStore(state => state.poeUser);
   const poeLoading = useBuildStore(state => state.poeLoading);
   const loginWithPoE = useBuildStore(state => state.loginWithPoE);
@@ -20,6 +22,23 @@ export default function SettingsModal({ isOpen, onClose }) {
         <div className="settings-section" style={{ marginTop: '20px', textAlign: 'left' }}>
           <h4 style={{ color: 'var(--text-gold)', marginBottom: '10px' }}>General Settings</h4>
           
+          <div style={{ marginBottom: '20px' }}>
+            <label htmlFor="themeSelect" style={{ color: 'var(--text-muted)', marginBottom: '8px', fontSize: '0.9em', display: 'block', textTransform: 'uppercase', fontWeight: 600 }}>Active Theme</label>
+            <select
+              id="themeSelect"
+              className="form-control"
+              value={theme}
+              onChange={(e) => setTheme(e.target.value)}
+              style={{ width: '100%' }}
+            >
+              <option value="default">Default RPG Gold</option>
+              <option value="necrotic">Eldritch / Necrotic Green</option>
+              <option value="glacial">Glacial / Frost Blue</option>
+              <option value="crimson">Crimson / Vampiric Red</option>
+              <option value="void">Cyberpunk / Void Purple</option>
+            </select>
+          </div>
+
           <div style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
             <input 
               type="checkbox" 
@@ -28,7 +47,7 @@ export default function SettingsModal({ isOpen, onClose }) {
               onChange={(e) => setDebugMode(e.target.checked)} 
               style={{ accentColor: 'var(--text-gold)', width: '16px', height: '16px' }}
             />
-            <label htmlFor="debugModeToggle" style={{ color: '#fff', cursor: 'pointer' }}>Enable Developer Debug Mode (shows raw node data on hover)</label>
+            <label htmlFor="debugModeToggle" style={{ color: '#fff', cursor: 'pointer', fontSize: '0.95em' }}>Enable Developer Debug Mode (shows raw node data on hover)</label>
           </div>
 
           <h4 style={{ color: 'var(--text-gold)', marginBottom: '10px', marginTop: '25px' }}>Path of Exile Integration</h4>
