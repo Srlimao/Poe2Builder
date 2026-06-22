@@ -14,6 +14,7 @@ import PassiveTreeHeader from './components/tree/PassiveTreeHeader';
 import PassiveCanvas from './components/tree/PassiveCanvas';
 import SettingsModal from './components/settings/SettingsModal';
 import BuildMetadata from './components/metadata/BuildMetadata';
+import Changelog from './components/metadata/Changelog';
 
 export default function App() {
   const [dbLoaded, setDbLoaded] = useState(false);
@@ -91,7 +92,9 @@ export default function App() {
 
       {activeTab === 'build' ? (
         <div className="main-layout">
-          <div className="left-panel flex-column" />
+          <div className="left-panel flex-column">
+            <Changelog />
+          </div>
           <div className="center-panel flex-column" style={{ padding: '20px', overflowY: 'auto' }}>
             <div className="panel-section-title" style={{ margin: '-20px -20px 20px -20px' }}>Build Guide Configuration</div>
             <div style={{ maxWidth: '600px', margin: '0 auto', width: '100%' }}>
