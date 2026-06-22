@@ -9,6 +9,7 @@ export default function LivePreview() {
   const selectedElement = useBuildStore((state) => state.selectedElement);
   const buildState = useBuildStore((state) => state.buildState);
   const currentTreeIndex = useBuildStore((state) => state.currentTreeIndex);
+  const currentEquipmentSetIndex = useBuildStore((state) => state.currentEquipmentSetIndex);
 
   const getSlotLabel = (id) => {
     const found = standardSlots.find(x => x.id === id);
@@ -38,13 +39,13 @@ export default function LivePreview() {
   let additionalText = "";
 
   if (selectedElement.type === 'slot') {
-    const variants = buildState.inventory_slots.filter(x => x.inventory_id === selectedElement.id);
-    const slot = variants[selectedElement.variantIndex || 0] || variants[0];
+    const currentSet = buildState.equipment_sets[currentEquipmentSetIndex] || buildState.equipment_sets[0];
+    const slot = currentSet?.slots?.find(x => x.inventory_id === selectedElement.id);
     if (slot) {
       titleText = slot.unique_name 
         ? `${getSlotLabel(slot.inventory_id)}: ${slot.unique_name}` 
         : `${getSlotLabel(slot.inventory_id)} recommendation`;
-      lvlText = getLevelIntervalString(slot.level_interval);
+      lvlText = getLevelIntervalString(currentSet.level_interval);
       additionalText = slot.additional_text || "";
     }
   } else if (selectedElement.type === 'skill') {

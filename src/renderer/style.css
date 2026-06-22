@@ -328,6 +328,72 @@ textarea.form-control {
 }
 
 /* ─── §EQUIPMENT ─── Equipment grid slots, icons, RPG layout ─── */
+/* ── Equipment Set Header / Bar ────────────────────────────── */
+.eq-set-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 15px;
+    background: rgba(9, 9, 10, 0.4);
+    border-bottom: 1px solid var(--border-gold-dark);
+    flex-shrink: 0;
+}
+
+.eq-set-row1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.eq-set-row2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.eq-set-label {
+    color: var(--text-gold);
+    font-size: 10px;
+    font-family: var(--font-header);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.eq-set-select {
+    flex-grow: 1;
+    height: 30px;
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.eq-set-lvl-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.eq-set-lvl-input {
+    width: 48px;
+    height: 28px;
+    padding: 2px 4px;
+    font-size: 11px;
+    text-align: center;
+}
+
+.eq-set-lvl-sep {
+    color: var(--text-muted);
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.eq-set-actions {
+    display: flex;
+    gap: 4px;
+}
+
 .equipment-container {
     padding: 20px 15px;
     flex: 1;
@@ -466,7 +532,7 @@ textarea.form-control {
     height: 100%;
 }
 
-#slot-Weapon2 {
+#slot-Offhand1 {
     grid-column: 3;
     grid-row: 1 / span 2;
     height: 100%;
@@ -507,7 +573,7 @@ textarea.form-control {
 }
 
 .weapon1-icon,
-.weapon2-icon {
+.offhand1-icon {
     background-image: url('icons/weapon.png');
 }
 
@@ -1792,7 +1858,7 @@ input[type=number] {
     grid-row: 1;
 }
 
-.eq-slot-weapon2 {
+.eq-slot-offhand1 {
     grid-column: 3;
     grid-row: 1 / span 2;
 }

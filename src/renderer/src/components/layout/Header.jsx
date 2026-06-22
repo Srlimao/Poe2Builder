@@ -188,6 +188,7 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
       useBuildStore.setState((state) => {
         const nextState = { ...state.buildState };
         let nextTreeIndex = state.currentTreeIndex;
+        let nextEquipmentSetIndex = state.currentEquipmentSetIndex;
         let nextSelectedElement = state.selectedElement;
 
         if (options.selectedTrees && options.selectedTrees.length > 0) {
@@ -226,53 +227,60 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
 
         if (options.selectedGearSets && options.selectedGearSets.length > 0) {
           if (options.resetAll) {
-            nextState.inventory_slots = [];
+            nextState.equipment_sets = [];
           }
-          options.selectedGearSets.forEach(idx => {
-            const chosenGearset = result.itemSets[idx].inventory_slots;
-            if (chosenGearset && chosenGearset.length > 0) {
-              chosenGearset.forEach(newSlot => nextState.inventory_slots.push(newSlot));
-            }
-          });
+          const defaultStandardSlots = [
+            { id: "Helm1",        label: "Helmet" },
+            { id: "Amulet1",      label: "Amulet" },
+            { id: "Weapon1",      label: "Weapon 1" },
+            { id: "BodyArmour1",  label: "Body Armour" },
+            { id: "Offhand1",     label: "Off Hand / Shield" },
+            { id: "Gloves1",      label: "Gloves" },
+            { id: "Ring1",        label: "Left Ring" },
+            { id: "Ring2",        label: "Right Ring" },
+            { id: "Belt1",        label: "Belt" },
+            { id: "Boots1",       label: "Boots" }
+          ];
 
-          // De-duplicate slots and pre-calculate level intervals for variants
-          const allSlotIds = [...new Set(nextState.inventory_slots.map(s => s.inventory_id))];
-          const processedSlots = [];
-          allSlotIds.forEach(slotId => {
-            let slotVariants = nextState.inventory_slots.filter(s => s.inventory_id === slotId);
+          options.selectedGearSets.forEach((idx, i) => {
+            const pobSet = result.itemSets[idx];
             
-            // Remove empty slots if configured ones are present
-            const hasConfigured = slotVariants.some(s => s.additional_text || s.unique_name || s.level_interval);
-            if (hasConfigured) {
-              slotVariants = slotVariants.filter(s => s.additional_text || s.unique_name || s.level_interval);
-            }
-            
-            // Remove exact duplicates
-            const uniqueVariants = [];
-            const seen = new Set();
-            slotVariants.forEach(s => {
-              const key = `${s.unique_name || ''}|||${s.additional_text || ''}`;
-              if (!seen.has(key)) {
-                seen.add(key);
-                uniqueVariants.push(s);
-              }
+            // map slots
+            const slots = defaultStandardSlots.map(s => {
+              const match = pobSet.inventory_slots.find(x => x.inventory_id === s.id);
+              return {
+                inventory_id: s.id,
+                unique_name: match?.unique_name || "",
+                additional_text: match?.additional_text || ""
+              };
             });
             
-            // Distribute level intervals
-            const N = uniqueVariants.length;
-            if (N > 1) {
-              uniqueVariants.forEach((v, i) => {
-                const start = Math.floor(i * (100 / N)) + 1;
-                const end = (i === N - 1) ? 100 : Math.floor((i + 1) * (100 / N));
-                v.level_interval = [start, end];
-              });
-            } else if (N === 1) {
-              uniqueVariants[0].level_interval = null;
-            }
-            
-            processedSlots.push(...uniqueVariants);
+            // also add non-standard slots
+            pobSet.inventory_slots.forEach(s => {
+              if (!defaultStandardSlots.some(x => x.id === s.inventory_id)) {
+                slots.push({
+                  inventory_id: s.inventory_id,
+                  unique_name: s.unique_name || "",
+                  additional_text: s.additional_text || ""
+                });
+              }
+            });
+
+            // calculate level_interval automatically
+            const N = options.selectedGearSets.length;
+            const start = Math.floor(i * (100 / N)) + 1;
+            const end = (i === N - 1) ? 100 : Math.floor((i + 1) * (100 / N));
+            const level_interval = N > 1 ? [start, end] : null;
+
+            nextState.equipment_sets.push({
+              level_interval,
+              slots
+            });
           });
-          nextState.inventory_slots = processedSlots;
+
+          if (nextState.equipment_sets.length > 0) {
+            nextEquipmentSetIndex = nextState.equipment_sets.length - 1;
+          }
 
           if (nextSelectedElement && nextSelectedElement.type === 'slot') {
             nextSelectedElement = null;
@@ -282,6 +290,7 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
         return {
           buildState: nextState,
           currentTreeIndex: nextTreeIndex,
+          currentEquipmentSetIndex: nextEquipmentSetIndex,
           selectedElement: nextSelectedElement,
           isDirty: true
         };

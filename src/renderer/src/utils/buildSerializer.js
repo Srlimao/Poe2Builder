@@ -3,7 +3,7 @@ const defaultStandardSlots = [
   { id: "Amulet1",      label: "Amulet" },
   { id: "Weapon1",      label: "Weapon 1" },
   { id: "BodyArmour1",  label: "Body Armour" },
-  { id: "Weapon2",      label: "Weapon 2 / Shield" },
+  { id: "Offhand1",     label: "Off Hand / Shield" },
   { id: "Gloves1",      label: "Gloves" },
   { id: "Ring1",        label: "Left Ring" },
   { id: "Ring2",        label: "Right Ring" },
@@ -32,7 +32,7 @@ export function loadBuildJson(json) {
     description: json.description || "",
     ascendancy: json.ascendancy || "",
     skills: [],
-    inventory_slots: [],
+    equipment_sets: [],
     passive_trees: []
   };
 
@@ -116,30 +116,56 @@ export function loadBuildJson(json) {
 
   // ── Inventory Slots ─────────────────────────────────────────
   const loadedSlots = Array.isArray(json.inventory_slots) ? json.inventory_slots : [];
-  defaultStandardSlots.forEach(s => {
-    const matchingSlots = loadedSlots.filter(x => x.inventory_id === s.id);
-    if (matchingSlots.length > 0) {
-      matchingSlots.forEach(found => {
-        buildState.inventory_slots.push({
-          inventory_id: s.id,
-          level_interval: found.level_interval || null,
-          unique_name: found.unique_name || "",
-          additional_text: found.additional_text || ""
-        });
-      });
-    } else {
-      buildState.inventory_slots.push({ inventory_id: s.id, additional_text: "" });
+  
+  function isSameInterval(a, b) {
+    if (!a && !b) return true;
+    if (!a || !b) return false;
+    if (Array.isArray(a) && Array.isArray(b)) {
+      return a[0] === b[0] && a[1] === b[1];
+    }
+    return a === b;
+  }
+
+  const intervals = [];
+  const findIntervalIndex = (interval) => {
+    return intervals.findIndex(i => isSameInterval(i, interval));
+  };
+  
+  loadedSlots.forEach(s => {
+    const interval = s.level_interval || null;
+    if (findIntervalIndex(interval) === -1) {
+      intervals.push(interval);
     }
   });
-  loadedSlots.forEach(s => {
-    if (!defaultStandardSlots.some(x => x.id === s.inventory_id)) {
-      buildState.inventory_slots.push({
-        inventory_id: s.inventory_id,
-        level_interval: s.level_interval || null,
-        unique_name: s.unique_name || "",
-        additional_text: s.additional_text || ""
-      });
-    }
+
+  if (intervals.length === 0) {
+    intervals.push(null);
+  }
+
+  buildState.equipment_sets = intervals.map(interval => {
+    const slots = defaultStandardSlots.map(s => {
+      const match = loadedSlots.find(x => x.inventory_id === s.id && isSameInterval(x.level_interval, interval));
+      return {
+        inventory_id: s.id,
+        unique_name: match?.unique_name || "",
+        additional_text: match?.additional_text || ""
+      };
+    });
+
+    loadedSlots.forEach(s => {
+      if (!defaultStandardSlots.some(x => x.id === s.inventory_id) && isSameInterval(s.level_interval, interval)) {
+        slots.push({
+          inventory_id: s.inventory_id,
+          unique_name: s.unique_name || "",
+          additional_text: s.additional_text || ""
+        });
+      }
+    });
+
+    return {
+      level_interval: interval,
+      slots
+    };
   });
 
   return buildState;
@@ -195,16 +221,26 @@ export function exportBuildJson(buildState) {
     return out;
   });
 
-  // Inventory slots (only populated ones)
-  const activeSlots = buildState.inventory_slots.filter(s => s.additional_text || s.unique_name || s.level_interval);
-  if (activeSlots.length > 0) {
-    json.inventory_slots = activeSlots.map(s => {
-      const out = { inventory_id: s.inventory_id };
-      if (s.level_interval) out.level_interval = s.level_interval;
-      if (s.unique_name) out.unique_name = s.unique_name;
-      if (s.additional_text) out.additional_text = s.additional_text;
-      return out;
+  // Inventory slots (flattened from equipment_sets)
+  if (buildState.equipment_sets && buildState.equipment_sets.length > 0) {
+    const slotsOut = [];
+    buildState.equipment_sets.forEach(set => {
+      if (set.slots && set.slots.length > 0) {
+        set.slots.forEach(s => {
+          const hasConfig = s.additional_text || s.unique_name;
+          if (hasConfig) {
+            const outNode = { inventory_id: s.inventory_id };
+            if (set.level_interval) outNode.level_interval = set.level_interval;
+            if (s.unique_name) outNode.unique_name = s.unique_name;
+            if (s.additional_text) outNode.additional_text = s.additional_text;
+            slotsOut.push(outNode);
+          }
+        });
+      }
     });
+    if (slotsOut.length > 0) {
+      json.inventory_slots = slotsOut;
+    }
   }
 
   return json;

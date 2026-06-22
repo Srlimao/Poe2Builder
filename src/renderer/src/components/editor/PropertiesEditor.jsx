@@ -10,15 +10,14 @@ export default function PropertiesEditor() {
   const setSelectedElement = useBuildStore((state) => state.setSelectedElement);
   const buildState = useBuildStore((state) => state.buildState);
   const currentTreeIndex = useBuildStore((state) => state.currentTreeIndex);
+  const currentEquipmentSetIndex = useBuildStore((state) => state.currentEquipmentSetIndex);
 
   // Store actions
   const updateSkill = useBuildStore((state) => state.updateSkill);
   const deleteSkill = useBuildStore((state) => state.deleteSkill);
   const updateSupportSkill = useBuildStore((state) => state.updateSupportSkill);
   const deleteSupportSkill = useBuildStore((state) => state.deleteSupportSkill);
-  const updateEquipmentVariant = useBuildStore((state) => state.updateEquipmentVariant);
-  const deleteEquipmentVariant = useBuildStore((state) => state.deleteEquipmentVariant);
-  const addEquipmentVariant = useBuildStore((state) => state.addEquipmentVariant);
+  const updateEquipmentSlot = useBuildStore((state) => state.updateEquipmentSlot);
   const updatePassiveText = useBuildStore((state) => state.updatePassiveText);
   const togglePassiveNode = useBuildStore((state) => state.togglePassiveNode);
 
@@ -56,21 +55,19 @@ export default function PropertiesEditor() {
   let variants = [];
 
   if (selectedElement.type === 'slot') {
-    variants = buildState.inventory_slots.filter(x => x.inventory_id === selectedElement.id);
-    const slot = variants[selectedElement.variantIndex || 0] || variants[0];
+    const currentSet = buildState.equipment_sets[currentEquipmentSetIndex] || buildState.equipment_sets[0];
+    const slot = currentSet?.slots?.find(x => x.inventory_id === selectedElement.id);
     
     itemType = "SLOT";
     itemTitle = getSlotLabel(selectedElement.id);
     idLabel = "Slot ID";
     showUniqueGroup = true;
-    showVariantsGroup = true;
+    showVariantsGroup = false;
     isIdDisabled = true;
 
     if (slot) {
       currentId = slot.inventory_id;
       currentUniqueName = slot.unique_name || "";
-      currentMinLvl = slot.level_interval ? (Array.isArray(slot.level_interval) ? slot.level_interval[0] : slot.level_interval) : "";
-      currentMaxLvl = slot.level_interval && Array.isArray(slot.level_interval) ? slot.level_interval[1] : "";
       currentText = slot.additional_text || "";
     }
   } else if (selectedElement.type === 'skill') {
@@ -115,20 +112,12 @@ export default function PropertiesEditor() {
   const handleFieldChange = (field, val) => {
     if (selectedElement.type === 'slot') {
       let fields = {};
-      if (field === 'min_lvl') {
-        const min = parseInt(val);
-        const max = currentMaxLvl !== "" ? parseInt(currentMaxLvl) : 100;
-        fields.level_interval = isNaN(min) && isNaN(max) ? null : [isNaN(min) ? 0 : min, isNaN(max) ? 100 : max];
-      } else if (field === 'max_lvl') {
-        const min = currentMinLvl !== "" ? parseInt(currentMinLvl) : 0;
-        const max = parseInt(val);
-        fields.level_interval = isNaN(min) && isNaN(max) ? null : [isNaN(min) ? 0 : min, isNaN(max) ? 100 : max];
-      } else if (field === 'unique_name') {
+      if (field === 'unique_name') {
         fields.unique_name = val;
       } else if (field === 'additional_text') {
         fields.additional_text = val;
       }
-      updateEquipmentVariant(selectedElement.id, selectedElement.variantIndex || 0, fields);
+      updateEquipmentSlot(selectedElement.id, fields);
     } else if (selectedElement.type === 'skill') {
       let fields = {};
       if (field === 'id') {
@@ -168,21 +157,10 @@ export default function PropertiesEditor() {
     }
   };
 
-  const handleVariantChange = (e) => {
-    setSelectedElement({
-      ...selectedElement,
-      variantIndex: parseInt(e.target.value) || 0
-    });
-  };
-
-  const handleAddVariantClick = () => {
-    addEquipmentVariant(selectedElement.id);
-  };
-
   const handleDeleteClick = async () => {
     if (selectedElement.type === 'slot') {
-      if (await showConfirm("Delete Variant", "Delete this equipment level variant?")) {
-        deleteEquipmentVariant(selectedElement.id, selectedElement.variantIndex || 0);
+      if (await showConfirm("Clear Slot", "Clear this equipment slot's instructions?")) {
+        updateEquipmentSlot(selectedElement.id, { unique_name: "", additional_text: "" });
       }
     } else if (selectedElement.type === 'skill') {
       if (await showConfirm("Delete Skill", "Delete this active skill line?")) {
@@ -353,7 +331,7 @@ export default function PropertiesEditor() {
           style={{ width: '100%' }}
           onClick={handleDeleteClick}
         >
-          {selectedElement.type === 'slot' && 'Delete Variant'}
+          {selectedElement.type === 'slot' && 'Clear Slot'}
           {selectedElement.type === 'skill' && 'Delete Active Gem'}
           {selectedElement.type === 'support' && 'Delete Support Gem'}
           {selectedElement.type === 'passive' && 'Unallocate Passive'}

@@ -1,6 +1,7 @@
 import React from 'react';
 import BuildMetadata from '../metadata/BuildMetadata';
 import EquipmentGrid from '../equipment/EquipmentGrid';
+import EquipmentSetHeader from '../equipment/EquipmentSetHeader';
 
 export default function LeftPanel() {
   return (
@@ -9,6 +10,7 @@ export default function LeftPanel() {
       <BuildMetadata />
 
       <div className="panel-section-title">Equipment Slots</div>
+      <EquipmentSetHeader />
       <EquipmentGrid />
     </div>
   );

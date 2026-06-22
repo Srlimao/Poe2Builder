@@ -116,21 +116,21 @@ export default function Autocomplete({
         'Ring2': ['Ring'],
         'Belt1': ['Belt'],
         'Weapon1': ['Wand', 'Shield', 'Focii', 'Spear', 'Staff', 'Mace', 'Warstaff', 'Bow', 'Crossbow', 'Sceptre', 'Quiver', 'Axe', 'Sword', 'Claw', 'Dagger', 'Flail', 'Two Hand Mace', 'One Hand Mace'],
-        'Weapon2': ['Wand', 'Shield', 'Focii', 'Spear', 'Staff', 'Mace', 'Warstaff', 'Bow', 'Crossbow', 'Sceptre', 'Quiver', 'Axe', 'Sword', 'Claw', 'Dagger', 'Flail', 'Two Hand Mace', 'One Hand Mace']
+        'Offhand1': ['Wand', 'Shield', 'Focii', 'Spear', 'Staff', 'Mace', 'Warstaff', 'Bow', 'Crossbow', 'Sceptre', 'Quiver', 'Axe', 'Sword', 'Claw', 'Dagger', 'Flail', 'Two Hand Mace', 'One Hand Mace']
       };
 
       const allowedClasses = slotClassMap[selectedElement.id];
 
       const filtered = uniquesDb.filter(item => {
         if (allowedClasses && !allowedClasses.includes(item.ItemClass)) {
-          if (selectedElement.id === 'Weapon1' || selectedElement.id === 'Weapon2') {
+          if (selectedElement.id === 'Weapon1' || selectedElement.id === 'Offhand1') {
             const nonWeapons = ['Helmet', 'Body Armour', 'Gloves', 'Boots', 'Amulet', 'Talisman', 'Ring', 'Belt', 'Flask', 'Jewel', 'Charm'];
             if (nonWeapons.includes(item.ItemClass)) return false;
           } else {
             return false;
           }
         }
-        return item.Name.toLowerCase().includes(query);
+        return item.Name.toLowerCase().includes(query) || (item.ItemClass && item.ItemClass.toLowerCase().includes(query));
       }).slice(0, 8);
 
       setSuggestions(filtered);

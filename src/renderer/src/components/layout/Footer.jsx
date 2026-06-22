@@ -4,7 +4,7 @@ import { standardSlots } from '../../utils/constants';
 
 export default function Footer() {
   const skills = useBuildStore((state) => state.buildState.skills);
-  const inventory_slots = useBuildStore((state) => state.buildState.inventory_slots);
+  const equipment_sets = useBuildStore((state) => state.buildState.equipment_sets);
 
   const [pathStatus, setPathStatus] = useState({
     text: "Initializing...",
@@ -21,8 +21,10 @@ export default function Footer() {
   });
 
   const activeSlotsCount = standardSlots.filter(s => {
-    return inventory_slots.some(v =>
-      v.inventory_id === s.id && (v.additional_text || v.unique_name || v.level_interval)
+    return equipment_sets?.some(set =>
+      set.slots?.some(v =>
+        v.inventory_id === s.id && (v.additional_text || v.unique_name)
+      )
     );
   }).length;
 

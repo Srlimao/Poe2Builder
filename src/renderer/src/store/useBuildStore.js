@@ -5,7 +5,7 @@ const defaultStandardSlots = [
   { id: "Amulet1",      label: "Amulet" },
   { id: "Weapon1",      label: "Weapon 1" },
   { id: "BodyArmour1",  label: "Body Armour" },
-  { id: "Weapon2",      label: "Weapon 2 / Shield" },
+  { id: "Offhand1",     label: "Off Hand / Shield" },
   { id: "Gloves1",      label: "Gloves" },
   { id: "Ring1",        label: "Left Ring" },
   { id: "Ring2",        label: "Right Ring" },
@@ -21,15 +21,16 @@ export const useBuildStore = create((set, get) => ({
     description: "",
     ascendancy: "",
     skills: [],
-    inventory_slots: defaultStandardSlots.map(s => ({ inventory_id: s.id, additional_text: "" })),
+    equipment_sets: [{ level_interval: null, slots: defaultStandardSlots.map(s => ({ inventory_id: s.id, unique_name: "", additional_text: "" })) }],
     passive_trees: [{ level_interval: null, nodes: [] }]
   },
 
   // Editor states
   currentTreeIndex: 0,
+  currentEquipmentSetIndex: 0,
   currentFilePath: null,
   isDirty: false,
-  selectedElement: null, // { type: 'slot'|'skill'|'support'|'passive', id, skillIndex, supportIndex, variantIndex }
+  selectedElement: null, // { type: 'slot'|'skill'|'support'|'passive', id, skillIndex, supportIndex }
   debugMode: false,
 
   // PoE integration state
@@ -71,6 +72,7 @@ export const useBuildStore = create((set, get) => ({
   setIsDirty: (dirty) => set({ isDirty: dirty }),
   setSelectedElement: (element) => set({ selectedElement: element }),
   setCurrentTreeIndex: (index) => set({ currentTreeIndex: index }),
+  setCurrentEquipmentSetIndex: (index) => set({ currentEquipmentSetIndex: index }),
   setDebugMode: (val) => set({ debugMode: val }),
 
   // Set entire state from external load
@@ -85,10 +87,11 @@ export const useBuildStore = create((set, get) => ({
         description: "",
         ascendancy: "",
         skills: [],
-        inventory_slots: defaultStandardSlots.map(s => ({ inventory_id: s.id, additional_text: "" })),
+        equipment_sets: [{ level_interval: null, slots: defaultStandardSlots.map(s => ({ inventory_id: s.id, unique_name: "", additional_text: "" })) }],
         passive_trees: [{ level_interval: null, nodes: [] }]
       },
       currentTreeIndex: 0,
+      currentEquipmentSetIndex: 0,
       currentFilePath: null,
       isDirty: false,
       selectedElement: null
@@ -316,84 +319,69 @@ export const useBuildStore = create((set, get) => ({
     };
   }),
 
-  // Equipment variants mutations
-  addEquipmentVariant: (slotId) => set((state) => {
-    const inventory_slots = [...state.buildState.inventory_slots, {
-      inventory_id: slotId,
-      additional_text: "",
-      unique_name: "",
-      level_interval: null
-    }];
-    const matchingVariants = inventory_slots.filter(x => x.inventory_id === slotId);
+  // Equipment sets mutations
+  addEquipmentSet: () => set((state) => {
+    const newSet = {
+      level_interval: null,
+      slots: defaultStandardSlots.map(s => ({ inventory_id: s.id, unique_name: "", additional_text: "" }))
+    };
+    const equipment_sets = [...state.buildState.equipment_sets, newSet];
     return {
-      buildState: { ...state.buildState, inventory_slots },
-      selectedElement: {
-        type: 'slot',
-        id: slotId,
-        variantIndex: matchingVariants.length - 1
-      },
+      buildState: { ...state.buildState, equipment_sets },
+      currentEquipmentSetIndex: equipment_sets.length - 1,
       isDirty: true
     };
   }),
 
-  deleteEquipmentVariant: (slotId, variantIndex) => set((state) => {
-    const inventory_slots = [...state.buildState.inventory_slots];
-    
-    // Find all slots matching slotId
-    let matchCount = 0;
-    let globalIndexToDelete = -1;
-    for (let i = 0; i < inventory_slots.length; i++) {
-      if (inventory_slots[i].inventory_id === slotId) {
-        if (matchCount === variantIndex) {
-          globalIndexToDelete = i;
-          break;
-        }
-        matchCount++;
-      }
-    }
-
-    if (globalIndexToDelete !== -1) {
-      inventory_slots.splice(globalIndexToDelete, 1);
-    }
-
-    const remainingVariantsCount = inventory_slots.filter(x => x.inventory_id === slotId).length;
-    const newVariantIndex = Math.max(0, Math.min(variantIndex, remainingVariantsCount - 1));
-
+  duplicateEquipmentSet: (index) => set((state) => {
+    const originalSet = state.buildState.equipment_sets[index] || state.buildState.equipment_sets[0];
+    const copiedSlots = originalSet.slots.map(s => ({ ...s }));
+    const newSet = {
+      level_interval: originalSet.level_interval ? [...originalSet.level_interval] : null,
+      slots: copiedSlots
+    };
+    const equipment_sets = [...state.buildState.equipment_sets, newSet];
     return {
-      buildState: { ...state.buildState, inventory_slots },
-      selectedElement: remainingVariantsCount > 0 ? {
-        type: 'slot',
-        id: slotId,
-        variantIndex: newVariantIndex
-      } : null,
+      buildState: { ...state.buildState, equipment_sets },
+      currentEquipmentSetIndex: equipment_sets.length - 1,
       isDirty: true
     };
   }),
 
-  updateEquipmentVariant: (slotId, variantIndex, fields) => set((state) => {
-    const inventory_slots = [...state.buildState.inventory_slots];
-    
-    let matchCount = 0;
-    let globalIndexToUpdate = -1;
-    for (let i = 0; i < inventory_slots.length; i++) {
-      if (inventory_slots[i].inventory_id === slotId) {
-        if (matchCount === variantIndex) {
-          globalIndexToUpdate = i;
-          break;
-        }
-        matchCount++;
-      }
-    }
-
-    if (globalIndexToUpdate !== -1) {
-      inventory_slots[globalIndexToUpdate] = {
-        ...inventory_slots[globalIndexToUpdate],
-        ...fields
-      };
-    }
-
+  deleteEquipmentSet: (index) => set((state) => {
+    const equipment_sets = [...state.buildState.equipment_sets];
+    equipment_sets.splice(index, 1);
+    const newIndex = Math.max(0, Math.min(state.currentEquipmentSetIndex, equipment_sets.length - 1));
     return {
-      buildState: { ...state.buildState, inventory_slots },
+      buildState: { ...state.buildState, equipment_sets },
+      currentEquipmentSetIndex: newIndex,
+      isDirty: true,
+      selectedElement: null
+    };
+  }),
+
+  updateEquipmentSetInterval: (index, interval) => set((state) => {
+    const equipment_sets = [...state.buildState.equipment_sets];
+    equipment_sets[index] = { ...equipment_sets[index], level_interval: interval };
+    return {
+      buildState: { ...state.buildState, equipment_sets },
+      isDirty: true
+    };
+  }),
+
+  updateEquipmentSlot: (slotId, fields) => set((state) => {
+    const equipment_sets = [...state.buildState.equipment_sets];
+    const currentSet = { ...equipment_sets[state.currentEquipmentSetIndex] };
+    const slots = currentSet.slots.map(s => {
+      if (s.inventory_id === slotId) {
+        return { ...s, ...fields };
+      }
+      return s;
+    });
+    currentSet.slots = slots;
+    equipment_sets[state.currentEquipmentSetIndex] = currentSet;
+    return {
+      buildState: { ...state.buildState, equipment_sets },
       isDirty: true
     };
   }),

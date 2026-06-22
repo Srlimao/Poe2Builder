@@ -19,3 +19,6 @@ GEMINI.md
 AGENTS.md
 future_features/
 
+# VS Code IDE files
+.vscode/
+

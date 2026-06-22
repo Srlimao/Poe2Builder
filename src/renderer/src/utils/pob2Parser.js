@@ -295,7 +295,7 @@ export async function parsePob2(code) {
       "Amulet": "Amulet1",
       "Weapon 1": "Weapon1",
       "Body Armour": "BodyArmour1",
-      "Weapon 2": "Weapon2",
+      "Weapon 2": "Offhand1",
       "Gloves": "Gloves1",
       "Ring 1": "Ring1",
       "Ring 2": "Ring2",
