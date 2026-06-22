@@ -2174,3 +2174,95 @@ input[type=number] {
     opacity: 1;
     text-decoration: underline;
 }
+
+/* ── Markdown rendered body ── */
+.changelog-md {
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--text-body);
+}
+
+.changelog-md .md-h1 {
+    font-family: var(--font-header);
+    color: var(--text-gold);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin: 10px 0 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border-gold-dark);
+}
+
+.changelog-md .md-h2 {
+    font-family: var(--font-header);
+    color: var(--text-gold);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin: 10px 0 4px;
+}
+
+.changelog-md .md-h3 {
+    font-family: var(--font-header);
+    color: var(--text-gold-light);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin: 8px 0 2px;
+}
+
+.changelog-md .md-p {
+    margin: 2px 0;
+    color: var(--text-body);
+}
+
+.changelog-md .md-list {
+    list-style: none;
+    margin: 2px 0 4px;
+    padding: 0;
+}
+
+.changelog-md .md-list li {
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 2px;
+    color: var(--text-body);
+}
+
+.changelog-md .md-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--text-gold);
+    font-weight: 700;
+}
+
+.changelog-md .md-code {
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 11px;
+    color: var(--text-gold-light);
+    background-color: rgba(207, 169, 104, 0.1);
+    border: 1px solid var(--border-gold-dark);
+    border-radius: 2px;
+    padding: 0 4px;
+}
+
+.changelog-md .md-link {
+    color: var(--text-gold);
+    text-decoration: none;
+    opacity: 0.85;
+    transition: opacity 0.15s;
+}
+
+.changelog-md .md-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.changelog-md hr {
+    border: none;
+    border-top: 1px solid var(--border-gold-dark);
+    margin: 8px 0;
+    opacity: 0.5;
+}

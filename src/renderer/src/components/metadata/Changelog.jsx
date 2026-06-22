@@ -3,11 +3,106 @@ import React, { useState, useEffect } from 'react';
 const GITHUB_REPO = 'Srlimao/Poe2Builder';
 const RELEASES_URL = `https://api.github.com/repos/${GITHUB_REPO}/releases?per_page=10`;
 
+// ── Lightweight Markdown → HTML ───────────────────────────────────────────────
+// Handles the subset commonly used in GitHub release notes.
+function mdToHtml(md) {
+  if (!md) return '';
+
+  const lines = md.split('\n');
+  const out = [];
+  let inList = false;
+
+  for (let i = 0; i < lines.length; i++) {
+    let line = lines[i];
+
+    // Horizontal rule
+    if (/^---+$/.test(line.trim())) {
+      if (inList) { out.push('</ul>'); inList = false; }
+      out.push('<hr/>');
+      continue;
+    }
+
+    // Headings
+    const h3 = line.match(/^###\s+(.*)/);
+    const h2 = line.match(/^##\s+(.*)/);
+    const h1 = line.match(/^#\s+(.*)/);
+    if (h1 || h2 || h3) {
+      if (inList) { out.push('</ul>'); inList = false; }
+      const level = h1 ? 1 : h2 ? 2 : 3;
+      const text = inlineFormat(h1?.[1] ?? h2?.[1] ?? h3?.[1]);
+      out.push(`<h${level} class="md-h${level}">${text}</h${level}>`);
+      continue;
+    }
+
+    // Unordered list item (- or *)
+    const li = line.match(/^[-*]\s+(.*)/);
+    if (li) {
+      if (!inList) { out.push('<ul class="md-list">'); inList = true; }
+      out.push(`<li>${inlineFormat(li[1])}</li>`);
+      continue;
+    }
+
+    // Close list on blank/non-list line
+    if (inList && line.trim() === '') {
+      out.push('</ul>');
+      inList = false;
+      out.push('<br/>');
+      continue;
+    }
+
+    if (inList) { out.push('</ul>'); inList = false; }
+
+    // Blank line → spacing
+    if (line.trim() === '') {
+      out.push('<br/>');
+      continue;
+    }
+
+    // Regular paragraph line
+    out.push(`<p class="md-p">${inlineFormat(line)}</p>`);
+  }
+
+  if (inList) out.push('</ul>');
+  return out.join('');
+}
+
+// Inline formatting: bold, italic, inline code, links
+function inlineFormat(text) {
+  return text
+    // Escape HTML special chars first
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    // Inline code: `code`
+    .replace(/`([^`]+)`/g, '<code class="md-code">$1</code>')
+    // Bold+italic: ***text***
+    .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+    // Bold: **text**
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    // Italic: *text* or _text_
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/_(.+?)_/g, '<em>$1</em>')
+    // Links: [text](url)
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noreferrer" class="md-link">$1 ↗</a>');
+}
+
+function MarkdownBody({ src }) {
+  return (
+    <div
+      className="changelog-md"
+      dangerouslySetInnerHTML={{ __html: mdToHtml(src.trim()) }}
+    />
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+
 export default function Changelog() {
   const [releases, setReleases] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [expanded, setExpanded] = useState(null); // id of expanded release
+  const [expanded, setExpanded] = useState(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -24,7 +119,6 @@ export default function Changelog() {
       .then(data => {
         if (cancelled) return;
         setReleases(data);
-        // Auto-expand latest
         if (data.length > 0) setExpanded(data[0].id);
       })
       .catch(err => {
@@ -90,7 +184,7 @@ export default function Changelog() {
                   <div className="changelog-release-name">{rel.name}</div>
                 )}
                 {rel.body ? (
-                  <pre className="changelog-notes">{rel.body.trim()}</pre>
+                  <MarkdownBody src={rel.body} />
                 ) : (
                   <p className="changelog-empty">No release notes provided.</p>
                 )}
