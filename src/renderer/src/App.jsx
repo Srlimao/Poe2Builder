@@ -15,6 +15,7 @@ import PassiveCanvas from './components/tree/PassiveCanvas';
 import SettingsModal from './components/settings/SettingsModal';
 import BuildMetadata from './components/metadata/BuildMetadata';
 import Changelog from './components/metadata/Changelog';
+import KoFiButton from './components/common/KoFiButton';
 
 export default function App() {
   const [dbLoaded, setDbLoaded] = useState(false);
@@ -101,7 +102,9 @@ export default function App() {
               <BuildMetadata />
             </div>
           </div>
-          <div className="right-panel flex-column" />
+          <div className="right-panel flex-column" style={{ justifyContent: 'flex-end', alignItems: 'flex-end', padding: '15px' }}>
+            <KoFiButton />
+          </div>
         </div>
       ) : activeTab === 'equipment' ? (
         <div className="main-layout">

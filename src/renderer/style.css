@@ -2266,3 +2266,21 @@ input[type=number] {
     margin: 8px 0;
     opacity: 0.5;
 }
+
+/* ── Ko-fi button ── */
+.kofi-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.kofi-container a img {
+    height: 36px !important;
+    border-radius: 4px;
+    opacity: 0.9;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.kofi-container a img:hover {
+    opacity: 1;
+    transform: scale(1.04);
+}
