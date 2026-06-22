@@ -3,33 +3,68 @@ name: Build and Release
 on:
   push:
     tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      - 'v*'
 
 jobs:
   release:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     permissions:
       contents: write
-    
+
     steps:
-      - name: Check out Git repository
+      - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Install Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          
-      - name: Install Dependencies
-        run: npm install
-        
-      - name: Set version from tag
-        shell: bash
-        run: |
-          VERSION=${GITHUB_REF_NAME#v}
-          npm version $VERSION --no-git-tag-version --allow-same-version
 
-      - name: Build and Publish Release
+      # ── Frontend ──────────────────────────────────────────────────────────
+      - name: Install frontend dependencies
+        run: npm install
+
+      - name: Build frontend
+        run: npm run build
+        # Output: src/renderer/dist/
+
+      # ── Server ────────────────────────────────────────────────────────────
+      - name: Install server dependencies
+        run: npm install --omit=dev
+        working-directory: server
+
+      # ── Package ───────────────────────────────────────────────────────────
+      - name: Create release archive
+        run: |
+          mkdir -p release/poe2-build-planner
+          # Copy web assets
+          cp -r src/renderer/dist release/poe2-build-planner/public
+          # Copy server (no node_modules — npm install on deploy)
+          mkdir -p release/poe2-build-planner/server
+          cp server/app.js release/poe2-build-planner/server/
+          cp server/package.json release/poe2-build-planner/server/
+          cp server/package-lock.json release/poe2-build-planner/server/
+          cp server/.env.example release/poe2-build-planner/server/.env.example
+          # Write a README for deployers
+          cat > release/poe2-build-planner/README.md << 'EOF'
+          # PoE2 Build Planner
+
+          ## Quick Start
+
+          1. Copy `server/.env.example` to `server/.env` and fill in your GGG OAuth credentials.
+          2. Install server dependencies: `cd server && npm install`
+          3. Start the BFF server: `node server/app.js`
+          4. Serve the `public/` folder with any static file host (nginx, caddy, etc.) or point your browser to `public/index.html`.
+          EOF
+          # Zip it up
+          cd release
+          zip -r ../poe2-build-planner-${{ github.ref_name }}.zip poe2-build-planner/
+
+      # ── Publish ───────────────────────────────────────────────────────────
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: poe2-build-planner-${{ github.ref_name }}.zip
+          generate_release_notes: true
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run build -- --publish always
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
