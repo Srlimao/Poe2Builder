@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useBuildStore } from '../../store/useBuildStore';
 
 export default function BuildMetadata() {
@@ -10,81 +10,113 @@ export default function BuildMetadata() {
     updateMeta(field, val);
   };
 
-  const isCustomAscendancy = buildState.ascendancy && 
-    buildState.ascendancy !== '' && 
-    !ascendancies.some(asc => asc.id === buildState.ascendancy);
-
-  const handleSelectChange = (e) => {
-    const val = e.target.value;
-    if (val === 'Custom') {
-      handleFieldChange('ascendancy', 'Custom');
-    } else {
-      handleFieldChange('ascendancy', val);
+  // Unique class list — uses pre-cleaned baseClass field from fetchAscendancies
+  const classes = useMemo(() => {
+    const seen = new Set();
+    const result = [];
+    for (const asc of ascendancies) {
+      if (!seen.has(asc.baseClass)) {
+        seen.add(asc.baseClass);
+        result.push(asc.baseClass);
+      }
     }
+    return result;
+  }, [ascendancies]);
+
+  // Selected class comes from the stored ascendancy's baseClass field
+  const selectedClass = buildState.ascendancy
+    ? (ascendancies.find(a => a.id === buildState.ascendancy)?.baseClass
+        ?? buildState.ascendancy.replace(/\d+[a-zA-Z]?$/, ''))
+    : '';
+
+  // Ascendancies filtered to the selected class
+  const filteredAscendancies = useMemo(() => {
+    if (!selectedClass) return [];
+    return ascendancies.filter(asc => asc.baseClass === selectedClass);
+  }, [ascendancies, selectedClass]);
+
+  const handleClassChange = (e) => {
+    const cls = e.target.value;
+    // Default to first ascendancy of new class, or clear if no class
+    const first = cls ? (ascendancies.find(a => a.baseClass === cls)?.id ?? '') : '';
+    handleFieldChange('ascendancy', first);
+  };
+
+  const handleAscendancyChange = (e) => {
+    handleFieldChange('ascendancy', e.target.value);
   };
 
   return (
     <div className="metadata-form">
-      <div className="form-group">
-        <label htmlFor="meta-name">Build Name</label>
-        <input 
-          type="text" 
-          id="meta-name" 
-          placeholder="e.g. Titan Warrior" 
-          className="form-control"
-          value={buildState.name || ''}
-          onChange={(e) => handleFieldChange('name', e.target.value)}
-        />
-      </div>
-      
+      {/* Row 1: Build Name + Author side by side */}
       <div className="form-row">
-        <div className="form-group">
+        <div className="form-group" style={{ flex: 2 }}>
+          <label htmlFor="meta-name">Build Name</label>
+          <input
+            type="text"
+            id="meta-name"
+            placeholder="e.g. Titan Warrior"
+            className="form-control"
+            value={buildState.name || ''}
+            onChange={(e) => handleFieldChange('name', e.target.value)}
+          />
+        </div>
+
+        <div className="form-group" style={{ flex: 1 }}>
           <label htmlFor="meta-author">Author</label>
-          <input 
-            type="text" 
-            id="meta-author" 
-            placeholder="e.g. PlayerName" 
+          <input
+            type="text"
+            id="meta-author"
+            placeholder="e.g. PlayerName"
             className="form-control"
             value={buildState.author || ''}
             onChange={(e) => handleFieldChange('author', e.target.value)}
           />
         </div>
-        
+      </div>
+
+      {/* Row 2: Class + Ascendancy linked dropdowns */}
+      <div className="form-row">
+        <div className="form-group">
+          <label htmlFor="meta-class">Class</label>
+          <select
+            id="meta-class"
+            className="form-control"
+            value={selectedClass}
+            onChange={handleClassChange}
+          >
+            <option value="">— Select Class —</option>
+            {classes.map((cls) => (
+              <option key={cls} value={cls}>{cls}</option>
+            ))}
+          </select>
+        </div>
+
         <div className="form-group">
           <label htmlFor="meta-ascendancy">Ascendancy</label>
-          <select 
-            id="meta-ascendancy" 
+          <select
+            id="meta-ascendancy"
             className="form-control"
-            value={isCustomAscendancy ? 'Custom' : (buildState.ascendancy || '')}
-            onChange={handleSelectChange}
+            value={buildState.ascendancy || ''}
+            onChange={handleAscendancyChange}
+            disabled={!selectedClass}
           >
-            <option value="">None / Base Class</option>
-            {ascendancies.map((asc) => (
-              <option key={asc.id} value={asc.id}>{asc.name}</option>
+            <option value="">— Select Ascendancy —</option>
+            {/* shortName is pre-computed in fetchAscendancies — no on-the-fly transform needed */}
+            {filteredAscendancies.map((asc) => (
+              <option key={asc.id} value={asc.id}>{asc.shortName}</option>
             ))}
-            <option value="Custom">Custom...</option>
           </select>
-          
-          {(buildState.ascendancy === 'Custom' || isCustomAscendancy) && (
-            <input 
-              type="text" 
-              id="meta-ascendancy-custom" 
-              className="form-control"
-              placeholder="Enter custom class/ascendancy"
-              value={buildState.ascendancy === 'Custom' ? '' : buildState.ascendancy}
-              onChange={(e) => handleFieldChange('ascendancy', e.target.value)}
-              style={{ marginTop: '8px' }}
-            />
-          )}
         </div>
       </div>
 
+      {/* Description */}
       <div className="form-group">
         <label htmlFor="meta-desc">Description</label>
-        <textarea 
-          id="meta-desc" 
-          rows={2} 
-          placeholder="Brief build summary..." 
+        <textarea
+          id="meta-desc"
+          rows={2}
+          placeholder="Brief build summary..."
           className="form-control"
           value={buildState.description || ''}
           onChange={(e) => handleFieldChange('description', e.target.value)}

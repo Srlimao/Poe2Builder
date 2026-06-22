@@ -130,8 +130,12 @@ export default function Autocomplete({
             return false;
           }
         }
-        return item.Name.toLowerCase().includes(query) || (item.ItemClass && item.ItemClass.toLowerCase().includes(query));
-      }).slice(0, 8);
+        return (
+          item.Name.toLowerCase().includes(query) ||
+          (item.ItemClass && item.ItemClass.toLowerCase().includes(query)) ||
+          (item.Id && item.Id.toLowerCase().includes(query))
+        );
+      }).slice(0, 12);
 
       setSuggestions(filtered);
       setIsOpen(filtered.length > 0);

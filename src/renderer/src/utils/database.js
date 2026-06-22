@@ -101,7 +101,15 @@ export async function fetchAscendancies() {
     }
   }
 
-  return data.filter(a => a.id && !a.name.includes('(General)'));
+  return data
+    .filter(a => a.id && !a.name.includes('(General)'))
+    .map(a => ({
+      ...a,
+      // e.g. "Warrior1" → "Warrior"
+      baseClass: a.id.replace(/\d+[a-zA-Z]?$/, ''),
+      // e.g. "Witch (Infernalist)" → "Infernalist"
+      shortName: a.name.match(/\((.+)\)/)?.[1] || a.name,
+    }));
 }
 
 export function getGemDisplayName(id) {
