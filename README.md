@@ -1,7 +1,7 @@
 # Path of Exile 2 Build Planner Editor
 
 > [!WARNING]
-> **Disclaimer:** This project is officially **50% vibe coded**. Things might break, code might look a little crazy under the hood, but everything is under control.
+> **Disclaimer:** This project is officially **50% AI coded**.
 
 A desktop-grade Electron application built with React and Vite for creating, editing, and managing `.build` files for Path of Exile 2. This editor allows players to theory-craft builds, configure equipment variants, establish skill linkages, and write formatted instructions that mirror the in-game build planner aesthetic.
 
