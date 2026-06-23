@@ -15,6 +15,7 @@ import PassiveCanvas from './components/tree/PassiveCanvas';
 import SettingsModal from './components/settings/SettingsModal';
 import BuildMetadata from './components/metadata/BuildMetadata';
 import Changelog from './components/metadata/Changelog';
+import PublicBuildsList from './components/metadata/PublicBuildsList';
 import KoFiButton from './components/common/KoFiButton';
 
 export default function App() {
@@ -94,7 +95,7 @@ export default function App() {
       {activeTab === 'build' ? (
         <div className="main-layout">
           <div className="left-panel flex-column">
-            <Changelog />
+            <PublicBuildsList />
           </div>
           <div className="center-panel flex-column" style={{ padding: '20px', overflowY: 'auto' }}>
             <h2 className="panel-section-title" style={{ margin: '-20px -20px 20px -20px' }}>Build Guide Configuration</h2>
@@ -102,8 +103,11 @@ export default function App() {
               <BuildMetadata />
             </div>
           </div>
-          <div className="right-panel flex-column" style={{ justifyContent: 'flex-end', alignItems: 'flex-end', padding: '15px' }}>
-            <KoFiButton />
+          <div className="right-panel flex-column" style={{ justifyContent: 'flex-start', alignItems: 'stretch', padding: '15px', gap: '15px' }}>
+            <Changelog />
+            <div style={{ alignSelf: 'flex-end', marginTop: 'auto' }}>
+              <KoFiButton />
+            </div>
           </div>
         </div>
       ) : activeTab === 'equipment' ? (

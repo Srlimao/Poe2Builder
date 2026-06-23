@@ -3,6 +3,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const crypto = require('crypto');
 const path = require('path');
+const db = require('./db');
 
 // Load environment variables
 require('dotenv').config();
@@ -282,6 +283,24 @@ app.get('/api/poe/profile', async (req, res) => {
     return res.json({ loggedIn: false });
   }
   res.json({ loggedIn: true, name: session.username });
+});
+
+// --- Public Builds Endpoints ---
+app.get('/api/public_builds', (req, res) => {
+  db.all('SELECT id, source_id, pobb_url, build_name, author, class_name, ascendancy_name, popularity, ehp, dps, tags, created_at FROM public_builds ORDER BY id DESC LIMIT 100', [], (err, rows) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.json(rows);
+  });
+});
+
+app.get('/api/public_builds/:id', (req, res) => {
+  db.get('SELECT * FROM public_builds WHERE id = ?', [req.params.id], (err, row) => {
+    if (err) return res.status(500).json({ error: err.message });
+    if (!row) return res.status(404).json({ error: 'Build not found' });
+    res.json(row);
+  });
 });
 
 // Upload Build Proxy Endpoint (Simulates uploading build)

@@ -1,4 +1,4 @@
-export async function parsePob2(code) {
+export async function parsePob2(code, providedMapping = null) {
   if (!code) throw new Error("No code provided.");
 
   // 1. base64 decode
@@ -45,15 +45,17 @@ export async function parsePob2(code) {
   }
 
   // 3. Load mapping and extract multiple passive trees (<Spec>)
-  let mapping;
-  try {
-    // Fetch from the data folder (relative path for React app)
-    const res = await fetch("data/passive_mapping.json");
-    if (!res.ok) throw new Error("Network response was not ok");
-    mapping = await res.json();
-    if (!mapping) throw new Error("Mapping data is empty");
-  } catch (err) {
-    throw new Error("passive_mapping.json mapping file not found or failed to load: " + err.message);
+  let mapping = providedMapping;
+  if (!mapping) {
+    try {
+      // Fetch from the data folder (relative path for React app)
+      const res = await fetch("data/passive_mapping.json");
+      if (!res.ok) throw new Error("Network response was not ok");
+      mapping = await res.json();
+      if (!mapping) throw new Error("Mapping data is empty");
+    } catch (err) {
+      throw new Error("passive_mapping.json mapping file not found or failed to load: " + err.message);
+    }
   }
 
   let trees = [];

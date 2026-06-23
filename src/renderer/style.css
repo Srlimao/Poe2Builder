@@ -32,6 +32,7 @@
  *  §ANIMATIONS      Keyframes & highlight-pulse
  *  §PASSIVE-TREE    Passive skill tree visualizer & variant bar
  *  §POB2-MODAL      PoB2 import modal UI
+ *  §COMMUNITY-BUILDS Community builds list panel and cards styling
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
@@ -2283,4 +2284,264 @@ input[type=number] {
 .kofi-container a img:hover {
     opacity: 1;
     transform: scale(1.04);
+}
+
+/* ─── §COMMUNITY-BUILDS ─── Community builds list panel and cards styling ─── */
+.community-builds-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.build-filters-bar {
+    display: flex;
+    gap: 8px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-gold-dark);
+    background: transparent;
+    flex-shrink: 0;
+    margin-bottom: 10px;
+}
+
+.build-filters-bar select {
+    flex: 1;
+    min-width: 0;
+    height: 32px;
+    background-color: var(--bg-darker);
+    border: 1px solid var(--border-gold-dark);
+    color: var(--text-gold);
+    padding: 4px 8px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    outline: none;
+}
+
+.build-filters-bar select:hover:not(:disabled),
+.build-filters-bar select:focus:not(:disabled) {
+    border-color: var(--border-gold);
+    color: var(--text-gold-light);
+    box-shadow: 0 0 5px rgba(207, 169, 104, 0.25);
+}
+
+.build-filters-bar select:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    color: var(--text-muted);
+}
+
+.builds-list-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 6px 0 0;
+}
+
+.build-card {
+    margin-bottom: 10px;
+    padding: 12px;
+    border: 1px solid rgba(207, 169, 104, 0.15);
+    border-radius: 4px;
+    background: rgba(25, 25, 29, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.build-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: transparent;
+    transition: background-color 0.2s ease;
+}
+
+.build-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-gold);
+    background: rgba(30, 30, 36, 0.85);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 8px rgba(207, 169, 104, 0.15);
+}
+
+.build-card:hover::before {
+    background-color: var(--border-gold);
+}
+
+.build-card:active {
+    transform: translateY(0) scale(0.99);
+}
+
+.build-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.build-card-title {
+    font-family: var(--font-header);
+    color: var(--text-gold-light);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.build-card-popularity {
+    font-size: 10px;
+    color: #df7070;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(223, 112, 112, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(223, 112, 112, 0.2);
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.build-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.build-card-badge {
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-weight: 700;
+    font-family: var(--font-header);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+/* Class colors matching signature styles */
+.badge-witch {
+    background-color: rgba(184, 68, 227, 0.12);
+    border: 1px solid rgba(184, 68, 227, 0.35);
+    color: #df8eff;
+}
+
+.badge-ranger {
+    background-color: rgba(58, 168, 58, 0.12);
+    border: 1px solid rgba(58, 168, 58, 0.35);
+    color: #79e079;
+}
+
+.badge-monk {
+    background-color: rgba(58, 121, 209, 0.12);
+    border: 1px solid rgba(58, 121, 209, 0.35);
+    color: #85b8ff;
+}
+
+.badge-warrior {
+    background-color: rgba(209, 61, 61, 0.12);
+    border: 1px solid rgba(209, 61, 61, 0.35);
+    color: #ff8585;
+}
+
+.badge-sorceress {
+    background-color: rgba(223, 193, 144, 0.12);
+    border: 1px solid rgba(223, 193, 144, 0.35);
+    color: #fbe0b2;
+}
+
+.badge-mercenary {
+    background-color: rgba(224, 144, 64, 0.12);
+    border: 1px solid rgba(224, 144, 64, 0.35);
+    color: #ffa84c;
+}
+
+.badge-huntress {
+    background-color: rgba(0, 180, 180, 0.12);
+    border: 1px solid rgba(0, 180, 180, 0.35);
+    color: #5fffff;
+}
+
+.badge-druid {
+    background-color: rgba(168, 120, 80, 0.12);
+    border: 1px solid rgba(168, 120, 80, 0.35);
+    color: #e6b996;
+}
+
+.badge-default {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-muted);
+}
+
+.build-card-author {
+    color: var(--text-muted);
+    font-size: 10px;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.build-card-stats {
+    display: flex;
+    gap: 6px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+}
+
+.build-stat-pill {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--border-gold-dark);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    color: var(--text-body);
+    font-weight: 500;
+}
+
+.build-stat-icon {
+    font-size: 10px;
+    opacity: 0.95;
+}
+
+.build-stat-icon.shield {
+    color: #5294e2;
+}
+
+.build-stat-icon.swords {
+    color: #e25252;
+}
+
+.build-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 12px;
+    gap: 6px;
 }

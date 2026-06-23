@@ -500,3 +500,147 @@ export const showPob2ImportOptions = (pob2Result) => {
     });
   });
 };
+
+export const executePob2Import = async (result) => {
+  try {
+    const options = await showPob2ImportOptions(result);
+    if (!options) return;
+
+    const selectMatchedAscendancy = (className, ascendancyName) => {
+      let targetText = className + " (General)";
+      if (ascendancyName && ascendancyName !== "None") {
+        targetText = className + " (" + ascendancyName + ")";
+      }
+      
+      const ascendancies = useBuildStore.getState().ascendancies;
+      const matched = ascendancies.find(asc => asc.name === targetText);
+      if (matched) return matched.id;
+      
+      return ascendancyName && ascendancyName !== "None" ? ascendancyName : className;
+    };
+
+    useBuildStore.setState((state) => {
+      const nextState = { ...state.buildState };
+      let nextTreeIndex = state.currentTreeIndex;
+      let nextEquipmentSetIndex = state.currentEquipmentSetIndex;
+      let nextSelectedElement = state.selectedElement;
+
+      if (result.buildName) {
+        nextState.name = result.buildName;
+      }
+      if (result.author) {
+        nextState.author = result.author;
+      }
+
+      if (options.selectedTrees && options.selectedTrees.length > 0) {
+        if (options.resetAll) {
+          nextState.passive_trees = [];
+        }
+        options.selectedTrees.forEach(idx => {
+          const chosenPassives = result.trees[idx].passives;
+          const chosenLevelInterval = result.trees[idx].level_interval || null;
+          const mappedPassives = chosenPassives.map(p => typeof p === 'string' ? { id: p, additional_text: "" } : p);
+          nextState.passive_trees.push({ level_interval: chosenLevelInterval, nodes: mappedPassives });
+        });
+        nextTreeIndex = nextState.passive_trees.length - 1;
+
+        if (result.className) {
+          nextState.ascendancy = selectMatchedAscendancy(result.className, result.ascendancyName);
+        } else {
+          nextState.ascendancy = "";
+        }
+      }
+
+      if (options.selectedSkillSets && options.selectedSkillSets.length > 0) {
+        if (options.resetAll) {
+          nextState.skills = [];
+        }
+        options.selectedSkillSets.forEach(idx => {
+          const chosenSkills = result.skillSets[idx].skills;
+          if (chosenSkills && chosenSkills.length > 0) {
+            nextState.skills.push(...chosenSkills);
+          }
+        });
+        if (nextSelectedElement && (nextSelectedElement.type === 'skill' || nextSelectedElement.type === 'support')) {
+          nextSelectedElement = null;
+        }
+      }
+
+      if (options.selectedGearSets && options.selectedGearSets.length > 0) {
+        if (options.resetAll) {
+          nextState.equipment_sets = [];
+        }
+        const defaultStandardSlots = [
+          { id: "Helm1",        label: "Helmet" },
+          { id: "Amulet1",      label: "Amulet" },
+          { id: "Weapon1",      label: "Weapon 1" },
+          { id: "BodyArmour1",  label: "Body Armour" },
+          { id: "Offhand1",     label: "Off Hand / Shield" },
+          { id: "Gloves1",      label: "Gloves" },
+          { id: "Ring1",        label: "Left Ring" },
+          { id: "Ring2",        label: "Right Ring" },
+          { id: "Belt1",        label: "Belt" },
+          { id: "Boots1",       label: "Boots" }
+        ];
+
+        options.selectedGearSets.forEach((idx, i) => {
+          const pobSet = result.itemSets[idx];
+          
+          const slots = defaultStandardSlots.map(s => {
+            const match = pobSet.inventory_slots.find(x => x.inventory_id === s.id);
+            return {
+              inventory_id: s.id,
+              unique_name: match?.unique_name || "",
+              additional_text: match?.additional_text || ""
+            };
+          });
+          
+          pobSet.inventory_slots.forEach(s => {
+            if (!defaultStandardSlots.some(x => x.id === s.inventory_id)) {
+              slots.push({
+                inventory_id: s.inventory_id,
+                unique_name: s.unique_name || "",
+                additional_text: s.additional_text || ""
+              });
+            }
+          });
+
+          const N = options.selectedGearSets.length;
+          const start = Math.floor(i * (100 / N)) + 1;
+          const end = (i === N - 1) ? 100 : Math.floor((i + 1) * (100 / N));
+          const level_interval = N > 1 ? [start, end] : null;
+
+          nextState.equipment_sets.push({
+            level_interval,
+            slots
+          });
+        });
+
+        if (nextState.equipment_sets.length > 0) {
+          nextEquipmentSetIndex = nextState.equipment_sets.length - 1;
+        }
+
+        if (nextSelectedElement && nextSelectedElement.type === 'slot') {
+          nextSelectedElement = null;
+        }
+      }
+
+      return {
+        buildState: nextState,
+        currentTreeIndex: nextTreeIndex,
+        currentEquipmentSetIndex: nextEquipmentSetIndex,
+        selectedElement: nextSelectedElement,
+        isDirty: true
+      };
+    });
+
+    let msgs = [];
+    if (options.selectedTrees && options.selectedTrees.length > 0) msgs.push(`${options.selectedTrees.length} passive trees`);
+    if (options.selectedSkillSets && options.selectedSkillSets.length > 0) msgs.push(`${options.selectedSkillSets.length} skill sets`);
+    if (options.selectedGearSets && options.selectedGearSets.length > 0) msgs.push(`${options.selectedGearSets.length} gear sets`);
+
+    await showAlert("Success", `Successfully imported: ${msgs.join(', ')}.`);
+  } catch (err) {
+    await showAlert("Error", "Failed to import: " + err.message);
+  }
+};

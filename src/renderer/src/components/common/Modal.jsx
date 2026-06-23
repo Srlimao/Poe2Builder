@@ -166,7 +166,12 @@ export default function Modal() {
   if (modal.type === 'pob2' && modal.pob2Result) {
     const res = modal.pob2Result;
     let buildNameStr = "Unknown Build";
-    if (res.className) {
+    if (res.buildName) {
+      buildNameStr = res.buildName;
+      if (res.author) {
+        buildNameStr += ` (by ${res.author})`;
+      }
+    } else if (res.className) {
       buildNameStr = res.className;
       if (res.ascendancyName && res.ascendancyName !== "None") {
         buildNameStr += ` / ${res.ascendancyName}`;
