@@ -16,6 +16,11 @@ const args = process.argv.slice(2);
 const parsedPages = parseInt(args[0], 10);
 const MAX_PAGES = !isNaN(parsedPages) && parsedPages > 0 ? parsedPages : 5;
 const BASE_URL = 'https://pobarchives.com';
+// Custom filter paths or sorting parameters can be set here:
+// e.g. SCRAPE_PATH = '/builds/poe2/WT8KTwkd'
+//      SCRAPE_PARAMS = 'sort=popularity'
+const SCRAPE_PATH = '/builds/poe2';
+const SCRAPE_PARAMS = '';
 
 async function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -49,7 +54,10 @@ async function scrapeBuilds() {
     console.log(`\n--- Scraping Page ${page} ---`);
     let html;
     try {
-      html = await fetchHtml(`${BASE_URL}/builds/poe2?goldenPage=${page}`);
+      const url = SCRAPE_PARAMS
+        ? `${BASE_URL}${SCRAPE_PATH}?${SCRAPE_PARAMS}&goldenPage=${page}`
+        : `${BASE_URL}${SCRAPE_PATH}?goldenPage=${page}`;
+      html = await fetchHtml(url);
     } catch (e) {
       console.error(`Failed to fetch page ${page}:`, e.message);
       continue;
