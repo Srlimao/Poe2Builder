@@ -47,15 +47,10 @@ export async function parsePob2(code) {
   // 3. Load mapping and extract multiple passive trees (<Spec>)
   let mapping;
   try {
-    const isElectron = typeof window.electronAPI !== 'undefined';
-    if (isElectron) {
-      mapping = await window.electronAPI.readLocalJson('passive_mapping.json');
-    } else {
-      // Fetch from the data folder (relative path for React app)
-      const res = await fetch("data/passive_mapping.json");
-      if (!res.ok) throw new Error("Network response was not ok");
-      mapping = await res.json();
-    }
+    // Fetch from the data folder (relative path for React app)
+    const res = await fetch("data/passive_mapping.json");
+    if (!res.ok) throw new Error("Network response was not ok");
+    mapping = await res.json();
     if (!mapping) throw new Error("Mapping data is empty");
   } catch (err) {
     throw new Error("passive_mapping.json mapping file not found or failed to load: " + err.message);

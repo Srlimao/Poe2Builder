@@ -41,7 +41,6 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
   };
 
   const [menuOpen, setMenuOpen] = useState(false);
-  const isElectron = typeof window.electronAPI !== 'undefined';
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -70,30 +69,57 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
       if (!confirm) return;
     }
 
-    // Browser file upload
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = '.build, .json';
-    input.onchange = (e) => {
-      const file = e.target.files[0];
-      const reader = new FileReader();
-      reader.onload = async (event) => {
-        try {
-          const parsed = JSON.parse(event.target.result);
-          setCurrentFilePath(file.name);
-          const loaded = loadBuildJson(parsed);
-          if (loaded) {
-            setBuildState(loaded);
-            setSelectedElement(null);
-            setCurrentTreeIndex(0);
-          }
-        } catch (err) {
-          await showAlert("Invalid File", "Invalid JSON file selected.");
+    if (window.showOpenFilePicker) {
+      try {
+        const [handle] = await window.showOpenFilePicker({
+          id: 'poe2-builds',
+          startIn: 'documents',
+          types: [{
+            description: 'PoE2 Build File',
+            accept: {'application/json': ['.build', '.json']},
+          }],
+        });
+        const file = await handle.getFile();
+        const text = await file.text();
+        const parsed = JSON.parse(text);
+        setCurrentFilePath(file.name);
+        const loaded = loadBuildJson(parsed);
+        if (loaded) {
+          setBuildState(loaded);
+          setSelectedElement(null);
+          setCurrentTreeIndex(0);
         }
+      } catch (err) {
+        if (err.name !== 'AbortError') {
+          await showAlert("Invalid File", "Invalid JSON file selected or read failed.");
+        }
+      }
+    } else {
+      // Browser file upload fallback
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = '.build, .json';
+      input.onchange = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onload = async (event) => {
+          try {
+            const parsed = JSON.parse(event.target.result);
+            setCurrentFilePath(file.name);
+            const loaded = loadBuildJson(parsed);
+            if (loaded) {
+              setBuildState(loaded);
+              setSelectedElement(null);
+              setCurrentTreeIndex(0);
+            }
+          } catch (err) {
+            await showAlert("Invalid File", "Invalid JSON file selected.");
+          }
+        };
+        reader.readAsText(file);
       };
-      reader.readAsText(file);
-    };
-    input.click();
+      input.click();
+    }
   };
 
   const triggerJsonDownload = (content, filename) => {
@@ -109,26 +135,63 @@ export default function Header({ activeTab, setActiveTab, onOpenSettings }) {
 
   const handleSaveFile = async () => {
     const content = exportBuildJson(buildState);
-    triggerJsonDownload(content, currentFilePath || "new_build.build");
+    const filename = currentFilePath || (buildState.name ? `${buildState.name.toLowerCase().replace(/[^a-z0-9_]/g, '')}.build` : "new_build.build");
+    if (window.showSaveFilePicker) {
+      try {
+        const dataStr = JSON.stringify(content, null, 4);
+        const handle = await window.showSaveFilePicker({
+          suggestedName: filename,
+          id: 'poe2-builds',
+          startIn: 'documents',
+          types: [{
+            description: 'PoE2 Build File',
+            accept: {'application/json': ['.build']},
+          }],
+        });
+        const writable = await handle.createWritable();
+        await writable.write(dataStr);
+        await writable.close();
+        setCurrentFilePath(handle.name);
+        setIsDirty(false);
+      } catch (err) {
+        // User aborted
+      }
+    } else {
+      triggerJsonDownload(content, filename);
+    }
   };
 
   const handleSaveFileAs = async () => {
     const content = exportBuildJson(buildState);
-    triggerJsonDownload(content, "new_build.build");
+    const filename = buildState.name ? `${buildState.name.toLowerCase().replace(/[^a-z0-9_]/g, '')}.build` : "new_build.build";
+    if (window.showSaveFilePicker) {
+      try {
+        const dataStr = JSON.stringify(content, null, 4);
+        const handle = await window.showSaveFilePicker({
+          suggestedName: filename,
+          id: 'poe2-builds',
+          startIn: 'documents',
+          types: [{
+            description: 'PoE2 Build File',
+            accept: {'application/json': ['.build']},
+          }],
+        });
+        const writable = await handle.createWritable();
+        await writable.write(dataStr);
+        await writable.close();
+        setCurrentFilePath(handle.name);
+        setIsDirty(false);
+      } catch (err) {
+        // User aborted
+      }
+    } else {
+      triggerJsonDownload(content, filename);
+    }
   };
 
-  const handleQuickSavePoE = async () => {
-    const content = exportBuildJson(buildState);
-    const filename = buildState.name
-      ? `${buildState.name.toLowerCase().replace(/[^a-z0-9_]/g, '')}.build`
-      : 'my_build.build';
-
-    await showAlert("Unavailable", "Quick Save (PoE2 Path) is only available when running as an Electron Desktop app.\n\nDownloading file instead.");
-    triggerJsonDownload(content, filename);
-  };
 
   const handleImportPob2 = async () => {
-    const inputs = await showPob2ImportPrompt(false); // isElectron is false for web-only
+    const inputs = await showPob2ImportPrompt();
     if (!inputs) return;
     
     let { code, url } = inputs;

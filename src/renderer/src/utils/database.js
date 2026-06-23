@@ -28,24 +28,15 @@ export async function fetchGemsDatabases() {
   let spiritGems = [];
   let uniquesDb = [];
 
-  const isElectron = typeof window.electronAPI !== 'undefined';
-
-  if (isElectron) {
-    skillGems   = await window.electronAPI.readLocalJson('skill_gems.json')   || [];
-    supportGems = await window.electronAPI.readLocalJson('support_gems.json') || [];
-    spiritGems  = await window.electronAPI.readLocalJson('spirit_gems.json')  || [];
-    uniquesDb   = await window.electronAPI.readLocalJson('uniques.json')      || [];
-  } else {
-    const fetchJson = async (url) => {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error(`HTTP error ${res.status}`);
-      return await res.json();
-    };
-    skillGems   = await fetchJson('data/skill_gems.json').catch(() => []);
-    supportGems = await fetchJson('data/support_gems.json').catch(() => []);
-    spiritGems  = await fetchJson('data/spirit_gems.json').catch(() => []);
-    uniquesDb   = await fetchJson('data/uniques.json').catch(() => []);
-  }
+  const fetchJson = async (url) => {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP error ${res.status}`);
+    return await res.json();
+  };
+  skillGems   = await fetchJson('data/skill_gems.json').catch(() => []);
+  supportGems = await fetchJson('data/support_gems.json').catch(() => []);
+  spiritGems  = await fetchJson('data/spirit_gems.json').catch(() => []);
+  uniquesDb   = await fetchJson('data/uniques.json').catch(() => []);
 
   // Active gems = skill gems + spirit gems
   const activeGemsDb = [];
@@ -90,15 +81,10 @@ export async function fetchGemsDatabases() {
 }
 
 export async function fetchAscendancies() {
-  const isElectron = typeof window.electronAPI !== 'undefined';
   let data = [];
-  if (isElectron) {
-    data = await window.electronAPI.readLocalJson('ascendancies.json') || [];
-  } else {
-    const res = await fetch('data/ascendancies.json').catch(() => null);
-    if (res && res.ok) {
-      data = await res.json();
-    }
+  const res = await fetch('data/ascendancies.json').catch(() => null);
+  if (res && res.ok) {
+    data = await res.json();
   }
 
   return data

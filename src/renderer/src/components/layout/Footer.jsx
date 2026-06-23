@@ -11,7 +11,7 @@ export default function Footer() {
     className: "text-muted"
   });
 
-  const isElectron = typeof window.electronAPI !== 'undefined';
+
 
   // --- Compute Stats ---
   const skillCount = skills.length;
@@ -30,36 +30,14 @@ export default function Footer() {
 
   // --- Check Path Status ---
   useEffect(() => {
-    async function checkPath() {
-      if (isElectron) {
-        try {
-          const pathInfo = await window.electronAPI.getDefaultBuildPath();
-          if (pathInfo.exists) {
-            setPathStatus({
-              text: `Connected (${pathInfo.path})`,
-              className: "text-green"
-            });
-          } else {
-            setPathStatus({
-              text: `Ready (${pathInfo.path} - will create on save)`,
-              className: "text-muted"
-            });
-          }
-        } catch (e) {
-          setPathStatus({
-            text: "Not available",
-            className: "text-red"
-          });
-        }
-      } else {
-        setPathStatus({
-          text: "Browser Mode (Local Download Fallback)",
-          className: "text-muted"
-        });
-      }
+    function checkPath() {
+      setPathStatus({
+        text: "\\Documents\\My Games\\Path of Exile 2\\BuildPlanner",
+        className: "text-muted"
+      });
     }
     checkPath();
-  }, [isElectron]);
+  }, []);
 
   return (
     <footer className="app-footer flex-between">

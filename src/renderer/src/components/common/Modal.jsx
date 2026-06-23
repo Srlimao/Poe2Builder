@@ -133,25 +133,18 @@ export default function Modal() {
           <div style={{ marginBottom: '20px' }}>
             <label style={{ display: 'block', marginBottom: '5px', fontSize: '13px', color: 'var(--text-gold)' }}>
               Or Link URL:
-              {!modal.isElectron && <span style={{ color: 'var(--gem-red)', fontSize: '11px', marginLeft: '10px' }}>(Desktop App Only)</span>}
             </label>
             <input
               type="text"
               className="form-control"
               placeholder="https://pobb.in/..."
               value={promptInputUrl}
-              onChange={(e) => {
-                if (modal.isElectron) setPromptInputUrl(e.target.value);
-              }}
-              onKeyDown={(e) => { if (e.key === 'Enter' && modal.isElectron) handleConfirm(); }}
-              disabled={!modal.isElectron}
-              style={{ opacity: !modal.isElectron ? 0.5 : 1 }}
+              onChange={(e) => setPromptInputUrl(e.target.value)}
+              onKeyDown={(e) => { if (e.key === 'Enter') handleConfirm(); }}
             />
-            {modal.isElectron && (
-              <span style={{ fontSize: '11px', color: 'var(--text-muted)', display: 'block', marginTop: '5px' }}>
-                Supported auto-links: pobb.in, poe.ninja, poe2db.tw, pastebin
-              </span>
-            )}
+            <span style={{ fontSize: '11px', color: 'var(--text-muted)', display: 'block', marginTop: '5px' }}>
+              Supported auto-links: pobb.in, poe.ninja, poe2db.tw, pastebin
+            </span>
           </div>
 
           <div className="modal-buttons">

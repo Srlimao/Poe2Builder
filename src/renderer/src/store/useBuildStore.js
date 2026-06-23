@@ -480,12 +480,11 @@ export const showPrompt = (title, message) => {
   });
 };
 
-export const showPob2ImportPrompt = (isElectron) => {
+export const showPob2ImportPrompt = () => {
   return new Promise((resolve) => {
     useBuildStore.getState().openModal({
       type: 'pob2-prompt',
       title: 'Import PoB2 Build',
-      isElectron,
       resolve
     });
   });
