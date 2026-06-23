@@ -62,7 +62,7 @@ export default function App() {
         color: '#dfc190',
         fontFamily: "'Cinzel', serif"
       }}>
-        <h2 style={{ letterSpacing: '2px', marginBottom: '15px' }}>PATH OF EXILE II</h2>
+        <h1 style={{ letterSpacing: '2px', marginBottom: '15px' }}>PATH OF EXILE II</h1>
         <div className="spinner" style={{
           border: '4px solid rgba(223, 193, 144, 0.1)',
           width: '36px',
@@ -97,7 +97,7 @@ export default function App() {
             <Changelog />
           </div>
           <div className="center-panel flex-column" style={{ padding: '20px', overflowY: 'auto' }}>
-            <div className="panel-section-title" style={{ margin: '-20px -20px 20px -20px' }}>Build Guide Configuration</div>
+            <h2 className="panel-section-title" style={{ margin: '-20px -20px 20px -20px' }}>Build Guide Configuration</h2>
             <div style={{ maxWidth: '600px', margin: '0 auto', width: '100%' }}>
               <BuildMetadata />
             </div>

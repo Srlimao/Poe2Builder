@@ -63,8 +63,14 @@ export default function Footer() {
 
   return (
     <footer className="app-footer flex-between">
-      <div id="poe-path-status">
-        PoE2 BuildPlanner directory: <span className={`path-val ${pathStatus.className}`}>{pathStatus.text}</span>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div id="poe-path-status">
+          PoE2 BuildPlanner directory: <span className={`path-val ${pathStatus.className}`}>{pathStatus.text}</span>
+        </div>
+        <div className="footer-links" style={{ marginLeft: '20px', display: 'flex', gap: '15px', fontSize: '0.9em' }}>
+          <a href="/" style={{ color: '#8c8270', textDecoration: 'none' }}>Home</a>
+          <a href="https://github.com/Srlimao/Poe2Builder" target="_blank" rel="noopener noreferrer" style={{ color: '#8c8270', textDecoration: 'none' }}>GitHub</a>
+        </div>
       </div>
       <div className="stats-bar flex-row">
         <span>Active Skills: <strong id="stat-skills-count">{skillCount}</strong></span>
