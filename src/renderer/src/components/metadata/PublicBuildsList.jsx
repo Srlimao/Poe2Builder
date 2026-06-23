@@ -9,6 +9,7 @@ export default function PublicBuildsList() {
   
   const [selectedClass, setSelectedClass] = useState('');
   const [selectedAscendancy, setSelectedAscendancy] = useState('');
+  const [sortBy, setSortBy] = useState('popularity');
   
   const setBuildState = useBuildStore(state => state.setBuildState);
 
@@ -81,50 +82,96 @@ export default function PublicBuildsList() {
     setSelectedAscendancy(''); // Reset ascendancy when class changes
   };
 
-  // Filter builds based on class and ascendancy selects
-  const filteredBuilds = useMemo(() => {
-    return builds.filter(b => {
+  // Filter and sort builds based on class/ascendancy selects and sortBy method
+  const filteredAndSortedBuilds = useMemo(() => {
+    // 1. Filter
+    const filtered = builds.filter(b => {
       const matchesClass = !selectedClass || b.class_name === selectedClass;
       const matchesAscendancy = !selectedAscendancy || b.ascendancy_name === selectedAscendancy;
       return matchesClass && matchesAscendancy;
     });
-  }, [builds, selectedClass, selectedAscendancy]);
+
+    // 2. Sort
+    return filtered.sort((a, b) => {
+      if (sortBy === 'popularity') {
+        const popA = parseInt((a.popularity || '').replace(/[^0-9]/g, ''), 10) || 0;
+        const popB = parseInt((b.popularity || '').replace(/[^0-9]/g, ''), 10) || 0;
+        return popB - popA; // Descending
+      }
+      if (sortBy === 'dps') {
+        const getDpsNum = (val) => {
+          if (!val) return 0;
+          const s = val.toLowerCase().trim();
+          const n = parseFloat(s.replace(/[^0-9.]/g, '')) || 0;
+          if (s.includes('m')) return n * 1000000;
+          if (s.includes('k')) return n * 1000;
+          return n;
+        };
+        return getDpsNum(b.dps) - getDpsNum(a.dps); // Descending
+      }
+      if (sortBy === 'ehp') {
+        const getEhpNum = (val) => {
+          if (!val) return 0;
+          const s = val.toLowerCase().trim();
+          const n = parseFloat(s.replace(/[^0-9.]/g, '')) || 0;
+          if (s.includes('m')) return n * 1000000;
+          if (s.includes('k')) return n * 1000;
+          return n;
+        };
+        return getEhpNum(b.ehp) - getEhpNum(a.ehp); // Descending
+      }
+      // 'newest' (ID DESC)
+      return b.id - a.id;
+    });
+  }, [builds, selectedClass, selectedAscendancy, sortBy]);
 
   return (
     <div className="community-builds-container">
       <div className="panel-section-title">Community Builds</div>
       
-      <div className="build-filters-bar">
-        <select value={selectedClass} onChange={handleClassChange} className="form-control">
-          <option value="">All Classes</option>
-          {classes.map(cls => (
-            <option key={cls} value={cls}>{cls}</option>
-          ))}
-        </select>
-        <select 
-          value={selectedAscendancy} 
-          onChange={(e) => setSelectedAscendancy(e.target.value)} 
-          className="form-control"
-          disabled={!selectedClass && ascendancies.length === 0}
-        >
-          <option value="">All Ascendancies</option>
-          {ascendancies.map(asc => (
-            <option key={asc} value={asc}>{asc}</option>
-          ))}
-        </select>
+      <div className="build-filters-bar" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <select value={selectedClass} onChange={handleClassChange} className="form-control">
+            <option value="">All Classes</option>
+            {classes.map(cls => (
+              <option key={cls} value={cls}>{cls}</option>
+            ))}
+          </select>
+          <select 
+            value={selectedAscendancy} 
+            onChange={(e) => setSelectedAscendancy(e.target.value)} 
+            className="form-control"
+            disabled={!selectedClass && ascendancies.length === 0}
+          >
+            <option value="">All Ascendancies</option>
+            {ascendancies.map(asc => (
+              <option key={asc} value={asc}>{asc}</option>
+            ))}
+          </select>
+        </div>
+        
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '2px 0' }}>
+          <label style={{ fontSize: '10px', color: 'var(--text-muted)', textTransform: 'uppercase', margin: 0, whiteSpace: 'nowrap' }}>Sort By</label>
+          <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="form-control" style={{ height: '28px', padding: '2px 6px', fontSize: '11px', flex: 1 }}>
+            <option value="popularity">Popularity (♥)</option>
+            <option value="newest">Newest</option>
+            <option value="dps">Highest DPS (⚔)</option>
+            <option value="ehp">Highest EHP (🛡)</option>
+          </select>
+        </div>
       </div>
 
       <div className="builds-list-content">
         {loading && <div className="changelog-state"><div className="changelog-spinner" /></div>}
         {error && <div className="changelog-state changelog-error">⚠ {error}</div>}
         
-        {!loading && !error && filteredBuilds.length === 0 && (
+        {!loading && !error && filteredAndSortedBuilds.length === 0 && (
           <div className="build-empty-state">
             <span>No builds found matching the selected filters.</span>
           </div>
         )}
         
-        {!loading && !error && filteredBuilds.map(build => {
+        {!loading && !error && filteredAndSortedBuilds.map(build => {
           const classLower = (build.class_name || '').toLowerCase();
           const badgeClass = `build-card-badge badge-${classLower}`;
           const badgeText = build.ascendancy_name && build.ascendancy_name !== 'None'
